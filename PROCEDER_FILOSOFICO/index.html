@@ -178,26 +178,12 @@ ul{list-style:none}
   </div>
 </footer>
 
+<!-- ── DADOS DOS ARTIGOS (posts.js) ─── -->
+<script src="posts.js"></script>
+
 <!-- ── SCRIPT ─── -->
 <script>
-/*
- * Array de posts — adicione novos artigos aqui.
- * O conteúdo completo (content) fica na página dedicada,
- * NUNCA é injetado na Home nem no Footer.
- */
-const POSTS = [
-  {
-    id:      "confissoes-santo-agostinho",
-    href:    "artigo-agostinho.html",
-    tag:     "Filosofia Medieval",
-    title:   "As Confissões de Santo Agostinho: seis momentos que mudaram a filosofia ocidental",
-    excerpt: "Escrito entre 397 e 400 d.C., As Confissões não é uma autobiografia. É um longo diálogo com Deus — seis momentos que atravessam séculos e ainda falam ao coração de quem os lê.",
-    date:    "09 de Maio de 2026",
-    thumb:   "imagens%20filosofia%20/santo_agostinho.jpeg",
-    featured: true
-  }
-  /* próximo artigo: { id, href, tag, title, excerpt, date, thumb } */
-];
+/* posts carregados de posts.js */
 
 function buildGrid() {
   const grid = document.getElementById("grid");
