@@ -1,0 +1,17 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+}
+
+/*
+ * Sem padding-top aqui — o Header usa position: sticky,
+ * então ele vive no fluxo do documento e o conteúdo
+ * começa naturalmente logo abaixo.
+ */
+.content {
+  flex: 1;
+  position: relative;
+  z-index: var(--z-content); /* 1 */
+}

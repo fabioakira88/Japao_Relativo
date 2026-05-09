@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As Confissões de Santo Agostinho — Proceder Filosófico</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f6f2;--white:#fff;--ink:#1c1c1e;--ink2:#3a3a3c;--muted:#888;--border:#e5e0d8;--gold:#c9a23e;--sepia:#7b5533;--sepia2:#a0703d}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;height:64px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 56px;transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-icon{width:38px;height:38px;border-radius:50%;background:var(--sepia);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;flex-shrink:0}
+.brand-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.2}
+.brand-sub{font-size:10px;font-style:italic;color:var(--muted);letter-spacing:1px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-a{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2);padding:4px 0;position:relative;transition:color .2s}
+.nav-a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s;border-radius:1px}
+.nav-a:hover{color:var(--sepia)}
+.nav-a:hover::after{transform:scaleX(1)}
+
+/* HERO DA IMAGEM */
+.art-hero{height:460px;position:relative;overflow:hidden}
+.art-hero img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.6)}
+.art-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(255,252,248,1) 100%)}
+
+/* INNER */
+.inner{max-width:740px;margin:0 auto;padding:0 32px 96px;position:relative;margin-top:-90px}
+.btn-back{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sepia);margin-bottom:28px;background:rgba(248,246,242,.93);backdrop-filter:blur(10px);padding:10px 20px;border:1px solid rgba(123,85,51,.25);border-radius:2px;transition:all .2s;text-decoration:none}
+.btn-back:hover{background:var(--sepia);color:#fff}
+.art-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sepia);margin-bottom:14px}
+.art-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);line-height:1.18;color:var(--ink);margin-bottom:16px;font-weight:700}
+.art-meta{display:flex;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:20px 0 36px;color:#aaa;font-size:13px}
+
+/* CORPO DO ARTIGO */
+.art-body{font-size:17px;line-height:1.88;color:var(--ink2);font-family:'Lora',serif}
+.art-body p{margin-bottom:22px}
+.art-body h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin:40px 0 16px;padding-left:18px;border-left:4px solid var(--sepia);line-height:1.3}
+.art-body blockquote{display:block;background:#f5efe6;border-left:4px solid var(--gold);padding:18px 24px;margin:28px 0;color:var(--sepia2);font-family:'Playfair Display',serif;font-size:18px;font-style:italic;line-height:1.65;border-radius:0 8px 8px 0}
+.art-body strong{color:var(--ink);font-weight:600}
+.art-body em{color:var(--sepia2);font-style:italic}
+.art-body hr{border:none;border-top:1px solid var(--border);margin:36px 0}
+
+/* FOOTER */
+.footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 56px 24px;z-index:50}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.footer-brand-desc{font-size:13px;line-height:1.7;color:var(--muted);max-width:260px}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sepia);margin-bottom:14px}
+.footer-col li{margin-bottom:8px}
+.footer-col a{font-size:13px;color:var(--muted);transition:color .2s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:18px}
+.footer-copy{font-size:12px;color:#bbb}
+
+@media(max-width:700px){.header{padding:0 20px}.nav-links{display:none}.art-hero{height:300px}.inner{padding:0 20px 64px}.footer{padding:32px 20px 16px}.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="hdr">
+  <a href="index.html" class="brand">
+    <div class="brand-icon">PF</div>
+    <div>
+      <div class="brand-name">Proceder Filosófico</div>
+      <div class="brand-sub">Filosofia que começa em você</div>
+    </div>
+  </a>
+  <nav><ul class="nav-links">
+    <li><a href="index.html#artigos" class="nav-a">Artigos</a></li>
+    <li><a href="index.html#sobre" class="nav-a">Sobre</a></li>
+  </ul></nav>
+</header>
+
+<!-- HERO COM IMAGEM DO AGOSTINHO -->
+<div class="art-hero">
+  <img src="imagens%20filosofia%20/santo_agostinho.jpeg" alt="Santo Agostinho de Hipona">
+  <div class="art-hero-overlay"></div>
+</div>
+
+<!-- CONTEÚDO DO ARTIGO — isolado nesta página, nunca na Home -->
+<div class="inner">
+  <a href="index.html" class="btn-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Voltar aos artigos
+  </a>
+
+  <div class="art-tag">Filosofia Medieval</div>
+  <h1 class="art-title">As Confissões de Santo Agostinho: seis momentos que mudaram a filosofia ocidental</h1>
+  <div class="art-meta">
+    <span>Por Proceder Filosófico</span>
+    <span>|</span>
+    <span>09 de Maio de 2026</span>
+  </div>
+
+  <div class="art-body">
+    <p>Escrito entre 397 e 400 d.C., <em>As Confissões</em> de Santo Agostinho não é uma autobiografia no sentido moderno. É um longo diálogo com Deus — feito em voz alta, diante de quem quer que leia. Agostinho confessa seus pecados, suas buscas, seus equívocos filosóficos e sua conversão não para se justificar, mas para mostrar como uma alma pode estar completamente perdida e ainda assim ser encontrada.</p>
+    <p>A obra tem 13 livros. Cada um é uma camada de uma mesma pergunta: <strong>o que é o ser humano diante de Deus?</strong> Separamos aqui os momentos mais decisivos — seis confissões que atravessam séculos e ainda falam ao coração de quem as lê.</p>
+
+    <hr>
+    <h2>1. A Inquietação como Condição Humana — Livro I</h2>
+    <p>A frase que abre o livro é uma das mais citadas da filosofia ocidental:</p>
+    <blockquote>"Nosso coração está inquieto até que repousa em Ti."</blockquote>
+    <p>Agostinho não começa pelas suas falhas. Começa pelo diagnóstico da condição humana: somos seres feitos para algo que excede tudo o que o mundo oferece. O desejo nunca se satisfaz completamente com riqueza, prazer, fama ou saber. Há uma fissura em nós que os bens finitos não preenchem.</p>
+    <p>Para a filosofia, esta confissão lança uma questão que nenhuma escola antiga havia formulado com tanta clareza: e se o desejo humano for, em si mesmo, uma espécie de prova ontológica?</p>
+
+    <hr>
+    <h2>2. O Roubo das Peras — Por Que Fazemos o Mal? — Livro II</h2>
+    <p>Aos dezesseis anos, Agostinho e um grupo de amigos roubaram peras de um pomar vizinho. Não estavam com fome. As peras eram amargas. Jogaram a maioria fora.</p>
+    <p>Porque Agostinho percebe algo perturbador naquele ato: <strong>ele quis o mal pelo mal</strong>. Não por necessidade, não por fraqueza da razão — mas por uma espécie de prazer perverso na transgressão em si.</p>
+    <blockquote>"Amei minha própria perdição. Amei cair — não aquilo para o qual caía, mas a queda em si mesma."</blockquote>
+    <p>Essa confissão antecipa séculos de debate filosófico sobre o mal. Diferente das explicações que reduzem o mal à ignorância (Sócrates), Agostinho identifica algo mais sombrio: uma vontade que pode se dobrar sobre si mesma e escolher o destrutivo, simplesmente porque sim.</p>
+
+    <hr>
+    <h2>3. A Morte do Amigo e a Ilusão do Amor Mortal — Livro IV</h2>
+    <blockquote>"Minha terra natal tornara-se para mim um suplício, e a casa paterna uma tristeza estranha."</blockquote>
+    <p>A confissão do luto é também uma confissão filosófica sobre o erro de depositar em um ser finito a totalidade do próprio ser. O argumento: <strong>só amamos com liberdade quando amamos sabendo que o amado é finito</strong>. Quando o amor se transforma em dependência absoluta, ele se volta contra nós no momento da perda.</p>
+
+    <hr>
+    <h2>4. O Jardim de Milão — A Conversão — Livro VIII</h2>
+    <blockquote>"Ordenava a mim mesmo que quisesse, e não queria querer. Não me movia totalmente. Tornava a tentar. Estava quase lá, e não chegava."</blockquote>
+    <p>É a fenomenologia da vontade dividida. Agostinho percebe que não há uma única vontade humana — há múltiplas tendências que disputam entre si. Então ouve uma voz infantil: <em>Tolle, lege</em> — pega e lê. Algo muda com silêncio. A guerra cessa.</p>
+
+    <hr>
+    <h2>5. A Visão de Óstia — O Toque do Eterno — Livro IX</h2>
+    <blockquote>"Tocamos levemente, com todo o ímpeto do coração, a sabedoria eterna que permanece sobre todas as coisas."</blockquote>
+    <p>Esta confissão é única porque não é sobre pecado ou busca — é sobre chegada. Agostinho descreve o contato com o absoluto numa conversa simples entre mãe e filho, à janela de uma casa de porto.</p>
+
+    <hr>
+    <h2>6. O Que é o Tempo? — Livro XI</h2>
+    <blockquote>"O que é o tempo? Se ninguém me pergunta, sei. Se quero explicar a quem pergunta, não sei."</blockquote>
+    <p>A resposta de Agostinho é surpreendente: <strong>o tempo existe na alma</strong>. O passado existe como memória. O futuro existe como expectativa. O presente existe como atenção. Essa antecipação da fenomenologia — que Husserl e Heidegger desenvolveriam no século XX — aparece formulada por um bispo do século IV.</p>
+
+    <hr>
+    <h2>Por Que Ler As Confissões Hoje</h2>
+    <p><em>As Confissões</em> não é um livro de respostas. É um livro de perguntas feitas com uma honestidade que a maioria dos filósofos evita — porque elas são pessoais demais, doem demais, expõem demais.</p>
+    <p>A grandeza das <em>Confissões</em> está precisamente aí: no fato de que um homem do século IV, ao falar de si mesmo com absoluta franqueza, acabou falando de todos nós.</p>
+  </div>
+</div>
+
+<!-- FOOTER — último elemento do DOM nesta página -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Proceder Filosófico</div>
+      <p class="footer-brand-desc">Filosofia ocidental escrita para quem quer pensar com mais rigor e viver com mais clareza.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="index.html">Página inicial</a></li>
+        <li><a href="index.html#artigos">Artigos</a></li>
+        <li><a href="index.html#sobre">Sobre</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Site Oficial</h4>
+      <ul><li><a href="https://procederfilosofico.com.br" target="_blank" rel="noopener">procederfilosofico.com.br</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Proceder Filosófico. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener("scroll",()=>{
+  document.getElementById("hdr").classList.toggle("scrolled",scrollY>10);
+},{passive:true});
+</script>
+</body>
+</html>

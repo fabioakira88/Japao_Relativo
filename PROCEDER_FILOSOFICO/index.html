@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proceder Filosófico — Filosofia que começa em você</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f6f2;--white:#fff;--ink:#1c1c1e;--ink2:#3a3a3c;
+  --muted:#888;--border:#e5e0d8;--gold:#c9a23e;
+  --sepia:#7b5533;--sepia2:#a0703d;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* HEADER — z-index:100 */
+.header{position:sticky;top:0;z-index:100;height:64px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 56px;transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-icon{width:38px;height:38px;border-radius:50%;background:var(--sepia);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;flex-shrink:0}
+.brand-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.2}
+.brand-sub{font-size:10px;font-style:italic;color:var(--muted);letter-spacing:1px}
+.nav-links{display:flex;gap:28px}
+.nav-a{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2);padding:4px 0;position:relative;transition:color .2s}
+.nav-a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s;border-radius:1px}
+.nav-a:hover{color:var(--sepia)}
+.nav-a:hover::after{transform:scaleX(1)}
+
+/* HERO */
+.hero{background:var(--ink);padding:80px 56px 68px;display:flex;align-items:center;justify-content:space-between;gap:48px;min-height:360px}
+.hero-eye{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero-eye::before{content:'';width:24px;height:1px;background:var(--gold)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(34px,4.2vw,56px);font-weight:700;line-height:1.12;color:#fff;margin-bottom:18px}
+.hero-title em{font-style:italic;color:#e8c96a}
+.hero-desc{font-family:'Lora',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:32px;max-width:480px}
+.hero-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border:1px solid rgba(201,162,62,.55);color:var(--gold);border-radius:2px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.hero-btn:hover{background:var(--gold);color:var(--ink)}
+.hero-quote{max-width:300px;flex-shrink:0;border-left:3px solid var(--gold);padding-left:24px}
+.hero-quote blockquote{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:rgba(255,255,255,.8);line-height:1.55;margin-bottom:10px}
+.hero-quote cite{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+/* SECTION — z-index:1 */
+.section{max-width:1140px;margin:0 auto;padding:72px 32px;position:relative;z-index:1}
+.sec-eye{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sepia);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sec-eye::before{content:'';width:22px;height:1px;background:var(--sepia)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(24px,2.8vw,36px);font-weight:700;color:var(--ink);margin-bottom:40px}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+/* CARD — texto abaixo da imagem */
+.card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06);cursor:pointer;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;text-decoration:none;color:inherit}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.card.featured{grid-column:1/-1;flex-direction:row}
+.card.featured .card-img-wrap{width:46%;flex-shrink:0}
+.card.featured .card-img{height:100%;min-height:300px}
+.card.featured .card-body{padding:40px 44px;justify-content:center}
+.card.featured .card-title{font-size:22px}
+.card-img-wrap{position:relative;overflow:hidden}
+.card-img{width:100%;height:220px;object-fit:cover;display:block;background:#e8e0d5;transition:transform .45s}
+.card:hover .card-img{transform:scale(1.04)}
+.card-tag{position:absolute;top:14px;left:14px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--sepia);color:#fff;padding:4px 10px;border-radius:20px}
+.card-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
+.card-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.4;color:var(--ink);margin:0}
+.card-excerpt{font-size:13px;color:var(--muted);line-height:1.65;margin:0;flex:1;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-footer-row{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);margin-top:4px}
+.card-date{font-size:11px;color:#bbb}
+.card-read{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--sepia);display:flex;align-items:center;gap:5px;transition:gap .2s}
+.card:hover .card-read{gap:9px}
+
+/* ABOUT */
+.about{background:var(--ink);padding:72px 32px}
+.about-inner{max-width:640px;margin:0 auto;text-align:center}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:#fff;margin:14px 0 20px;line-height:1.1}
+.about-desc{font-family:'Lora',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* FOOTER — z-index:50, último elemento do DOM */
+.footer{background:var(--white);border-top:1px solid var(--border);padding:52px 56px 28px;z-index:50}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.footer-brand-desc{font-size:13px;line-height:1.7;color:var(--muted);max-width:260px}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sepia);margin-bottom:16px}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:13px;color:var(--muted);transition:color .2s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px}
+.footer-copy{font-size:12px;color:#bbb}
+
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.card.featured{flex-direction:column;grid-column:auto}.card.featured .card-img-wrap{width:100%}.card.featured .card-img{min-height:220px}.hero{flex-direction:column;padding:56px 32px 48px}.hero-quote{max-width:100%}.header{padding:0 24px}.footer{padding:36px 24px 20px}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.section{padding:48px 20px}.nav-links{display:none}.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ─── -->
+<header class="header" id="hdr">
+  <a href="index.html" class="brand">
+    <div class="brand-icon">PF</div>
+    <div>
+      <div class="brand-name">Proceder Filosófico</div>
+      <div class="brand-sub">Filosofia que começa em você</div>
+    </div>
+  </a>
+  <nav><ul class="nav-links">
+    <li><a href="#artigos" class="nav-a">Artigos</a></li>
+    <li><a href="#sobre" class="nav-a">Sobre</a></li>
+  </ul></nav>
+</header>
+
+<!-- ── HERO ─── -->
+<section class="hero">
+  <div>
+    <div class="hero-eye">Filosofia que começa em você</div>
+    <h1 class="hero-title">Perguntas que<br><em>não envelhecem</em></h1>
+    <p class="hero-desc">Textos sobre filosofia ocidental — escritos para quem quer pensar com mais rigor, sem perder a clareza.</p>
+    <button class="hero-btn" onclick="document.getElementById('artigos').scrollIntoView({behavior:'smooth'})">
+      Explorar artigos
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div class="hero-quote">
+    <blockquote>"Nosso coração está inquieto até que repousa em Ti."</blockquote>
+    <cite>Santo Agostinho — As Confissões</cite>
+  </div>
+</section>
+
+<!-- ── ARTIGOS (cards) ─── -->
+<section class="section" id="artigos">
+  <div class="sec-eye">Últimas Matérias</div>
+  <h2 class="sec-title">Artigos Recentes</h2>
+  <div class="grid" id="grid">
+    <!-- populado via JavaScript abaixo -->
+  </div>
+</section>
+
+<!-- ── SOBRE ─── -->
+<section class="about" id="sobre">
+  <div class="about-inner">
+    <div class="sec-eye" style="justify-content:center">Sobre o projeto</div>
+    <h2 class="about-title">Filosofia acessível, sem abrir mão da profundidade</h2>
+    <p class="about-desc">O Proceder Filosófico nasceu da crença de que a filosofia não é um privilégio acadêmico. É uma prática — uma forma de viver com mais consciência, clareza e coragem diante das perguntas que a vida impõe.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER — último elemento, nada é renderizado após este tag ─── -->
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Proceder Filosófico</div>
+      <p class="footer-brand-desc">Filosofia ocidental escrita para quem quer pensar com mais rigor e viver com mais clareza.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categorias</h4>
+      <ul>
+        <li><a href="#artigos">Filosofia Clássica</a></li>
+        <li><a href="#artigos">Filosofia Medieval</a></li>
+        <li><a href="#artigos">Existencialismo</a></li>
+        <li><a href="#artigos">Ética</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Site Oficial</h4>
+      <ul>
+        <li><a href="https://procederfilosofico.com.br" target="_blank" rel="noopener">procederfilosofico.com.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Proceder Filosófico. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<!-- ── SCRIPT ─── -->
+<script>
+/*
+ * Array de posts — adicione novos artigos aqui.
+ * O conteúdo completo (content) fica na página dedicada,
+ * NUNCA é injetado na Home nem no Footer.
+ */
+const POSTS = [
+  {
+    id:      "confissoes-santo-agostinho",
+    href:    "artigo-agostinho.html",
+    tag:     "Filosofia Medieval",
+    title:   "As Confissões de Santo Agostinho: seis momentos que mudaram a filosofia ocidental",
+    excerpt: "Escrito entre 397 e 400 d.C., As Confissões não é uma autobiografia. É um longo diálogo com Deus — seis momentos que atravessam séculos e ainda falam ao coração de quem os lê.",
+    date:    "09 de Maio de 2026",
+    thumb:   "imagens%20filosofia%20/santo_agostinho.jpeg",
+    featured: true
+  }
+  /* próximo artigo: { id, href, tag, title, excerpt, date, thumb } */
+];
+
+function buildGrid() {
+  const grid = document.getElementById("grid");
+  POSTS.forEach((p, i) => {
+    const a = document.createElement("a");
+    a.href = p.href;
+    a.className = "card" + (p.featured ? " featured" : "");
+    a.innerHTML = `
+      <div class="card-img-wrap">
+        <img src="${p.thumb}" alt="${p.title}" class="card-img"
+          onerror="this.parentElement.style.background='#d4c4ae'">
+        <span class="card-tag">${p.tag}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${p.title}</h3>
+        <p class="card-excerpt">${p.excerpt}</p>
+        <div class="card-footer-row">
+          <span class="card-date">${p.date}</span>
+          <span class="card-read">Ler artigo
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+      </div>`;
+    grid.appendChild(a);
+  });
+}
+
+buildGrid();
+
+window.addEventListener("scroll", () => {
+  document.getElementById("hdr").classList.toggle("scrolled", scrollY > 10);
+}, { passive: true });
+</script>
+</body>
+</html>

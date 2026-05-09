@@ -1,0 +1,87 @@
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --black: #060608;
+  --dark: #0e0e12;
+  --dark2: #16161c;
+  --panel: #1a1a22;
+  --red: #cc2200;
+  --red2: #e03010;
+  --gold: #c8a84b;
+  --gold2: #e8c870;
+  --white: #f0ede8;
+  --muted: #7a7880;
+  --border: rgba(200, 168, 75, 0.15);
+  --border2: rgba(255, 255, 255, 0.06);
+
+  /* Z-index scale — hierarquia clara */
+  --z-content: 1;
+  --z-footer: 50;
+  --z-header: 100;
+  --z-overlay: 200;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ============================================================
+   ENTRANCE ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}

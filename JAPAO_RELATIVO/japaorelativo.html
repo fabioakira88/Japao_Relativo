@@ -42,9 +42,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    NAVIGATION
    ============================================================ */
 .nav {
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:1000;
   display:flex;align-items:center;justify-content:space-between;
   padding:20px 48px;
+  background:rgba(6,6,8,0.4);
+  backdrop-filter:blur(4px);
   transition:background 0.4s,padding 0.4s,backdrop-filter 0.4s;
 }
 .nav.scrolled {
@@ -625,6 +627,32 @@ body.reading-mode .nav {
 .hero-cta-group{animation:fadeUp 0.8s 0.8s both}
 
 /* ============================================================
+   CARD EXCERPT
+   ============================================================ */
+.card-excerpt {
+  font-size:12px;
+  color:rgba(240,237,232,0.55);
+  line-height:1.5;
+  margin-bottom:8px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.card-h-excerpt {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-bottom:10px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* ============================================================
    FILM CAROUSEL (dentro do artigo)
    ============================================================ */
 .film-carousel{position:relative;margin:40px -32px;background:#0a0a0a;user-select:none}
@@ -669,10 +697,10 @@ body.reading-mode .nav {
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#noticias">Notícias</a></li>
-    <li><a href="#cultura">Cultura</a></li>
-    <li><a href="#idioma">Idioma</a></li>
-    <li><a href="#saude">Saúde</a></li>
+    <li><a href="#grid-section" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
+    <li><a href="#grid-section" onclick="filterCategory('Cultura');return false;">Cultura</a></li>
+    <li><a href="#grid-section" onclick="filterCategory('Idioma');return false;">Idioma</a></li>
+    <li><a href="#grid-section" onclick="filterCategory('Saúde e Bem-Estar');return false;">Saúde</a></li>
     <li><a href="#grid-section" onclick="filterCategory('Anime');return false;">Anime</a></li>
     <li><a href="#sobre">Sobre</a></li>
   </ul>
@@ -785,7 +813,7 @@ body.reading-mode .nav {
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="/mnt/user-data/uploads/EA71B527-C112-4285-8B45-91DD059D148C.PNG" alt="JR" onerror="this.style.display='none'">
+        <img src="imagens/imagens layolt/logo-japaorelativo.PNG" alt="JR">
         <div class="footer-logo-text">Japão Relativo</div>
       </div>
       <p class="footer-desc">Curadoria independente sobre o Japão — cultura, idioma, notícias e o cotidiano de quem vive neste país fascinante.</p>
@@ -1343,19 +1371,27 @@ function getCardImg(thumb) {
   return `background-image:url('${thumb}');background-size:cover;background-position:center`;
 }
 
-function articleUrl(id) {
-  return location.href.split('#')[0] + '#' + id;
+function extractExcerpt(html, maxLen) {
+  maxLen = maxLen || 110;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const text = (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+  return text.length > maxLen ? text.slice(0, maxLen) + '…' : text;
+}
+
+function navigateTo(id) {
+  history.pushState({ postId: id }, '', '#' + id);
+  openPost(id);
 }
 
 function buildMainGrid(items) {
   const grid = document.getElementById('newsGrid');
   grid.innerHTML = '';
-  items.slice(0, visibleCount).forEach((post, i) => {
+  items.slice(0, visibleCount).forEach(function(post) {
+    const excerpt = extractExcerpt(post.content);
     const a = document.createElement('a');
     a.className = 'card';
-    a.href = articleUrl(post.id);
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.href = '#' + post.id;
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="card-img" style="${getCardImg(post.thumb)}"></div>
@@ -1365,11 +1401,15 @@ function buildMainGrid(items) {
       <div class="card-body">
         <div class="card-tag">${post.tag}</div>
         <div class="card-title">${post.title}</div>
+        <div class="card-excerpt">${excerpt}</div>
         <div class="card-date">${post.date}</div>
       </div>`;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo(post.id);
+    });
     grid.appendChild(a);
   });
-  // Show/hide load more
   document.getElementById('loadMoreBtn').style.display =
     visibleCount >= items.length ? 'none' : 'inline-flex';
 }
@@ -1377,20 +1417,24 @@ function buildMainGrid(items) {
 function buildMoreGrid() {
   const grid = document.getElementById('moreGrid');
   grid.innerHTML = '';
-  posts.slice(8, 16).forEach(post => {
+  posts.slice(8, 16).forEach(function(post) {
+    const excerpt = extractExcerpt(post.content, 90);
     const a = document.createElement('a');
     a.className = 'card-h';
-    a.href = articleUrl(post.id);
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.href = '#' + post.id;
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="card-h-img" style="${getCardImg(post.thumb)}"></div>
       <div class="card-h-body">
         <div class="card-h-tag">${post.tag}</div>
         <div class="card-h-title">${post.title}</div>
+        <div class="card-h-excerpt">${excerpt}</div>
         <div class="card-h-date">${post.date}</div>
       </div>`;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo(post.id);
+    });
     grid.appendChild(a);
   });
 }
@@ -1398,12 +1442,10 @@ function buildMoreGrid() {
 function buildStrip() {
   const strip = document.getElementById('strip');
   strip.innerHTML = '';
-  posts.slice(0, 3).forEach(post => {
+  posts.slice(0, 3).forEach(function(post) {
     const a = document.createElement('a');
     a.className = 'strip-item';
-    a.href = articleUrl(post.id);
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.href = '#' + post.id;
     a.style.display = 'flex';
     a.style.flexDirection = 'column';
     a.style.gap = '10px';
@@ -1416,19 +1458,25 @@ function buildStrip() {
         Ler matéria
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </div>`;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo(post.id);
+    });
     strip.appendChild(a);
   });
 }
 
 function buildFooterRecent() {
   const ul = document.getElementById('footerRecent');
-  posts.slice(0, 6).forEach(post => {
+  posts.slice(0, 6).forEach(function(post) {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = articleUrl(post.id);
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = post.title.length > 50 ? post.title.slice(0,50)+'…' : post.title;
+    a.href = '#' + post.id;
+    a.textContent = post.title.length > 50 ? post.title.slice(0, 50) + '…' : post.title;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigateTo(post.id);
+    });
     li.appendChild(a);
     ul.appendChild(li);
   });
@@ -1518,10 +1566,24 @@ function openPost(id) {
   window.scrollTo(0, 0);
 }
 
-document.getElementById('btnBack').addEventListener('click', () => {
+function closePost() {
   document.body.classList.remove('reading-mode');
   document.title = 'Japão Relativo — O Japão por Vários Ângulos';
+  history.pushState(null, '', location.pathname);
   window.scrollTo(0, 0);
+}
+
+document.getElementById('btnBack').addEventListener('click', closePost);
+
+window.addEventListener('popstate', function() {
+  const id = location.hash.replace('#', '');
+  if (id && DB[id]) {
+    openPost(id);
+  } else {
+    document.body.classList.remove('reading-mode');
+    document.title = 'Japão Relativo — O Japão por Vários Ângulos';
+    window.scrollTo(0, 0);
+  }
 });
 
 
