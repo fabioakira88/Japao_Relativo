@@ -27,13 +27,14 @@ MESES = {
 }
 
 # Imagens locais para o artigo "Ninguém Pode Saber"
+_NS = Path(__file__).parent / "imagens" / "ninguem pode saber"
 IMAGENS_LOCAIS = {
-    "imagens/IMG_2242.JPG": Path(__file__).parent / "imagens" / "IMG_2242.JPG",
-    "imagens/IMG_2244.JPG": Path(__file__).parent / "imagens" / "IMG_2244.JPG",
-    "imagens/IMG_2245.JPG": Path(__file__).parent / "imagens" / "IMG_2245.JPG",
-    "imagens/IMG_2246.JPG": Path(__file__).parent / "imagens" / "IMG_2246.JPG",
-    "imagens/IMG_2247.JPG": Path(__file__).parent / "imagens" / "IMG_2247.JPG",
-    "imagens/IMG_2251.JPG": Path(__file__).parent / "imagens" / "IMG_2251.JPG",
+    "imagens/ninguem pode saber/IMG_2242.JPG": _NS / "IMG_2242.JPG",
+    "imagens/ninguem pode saber/IMG_2244.JPG": _NS / "IMG_2244.JPG",
+    "imagens/ninguem pode saber/IMG_2245.JPG": _NS / "IMG_2245.JPG",
+    "imagens/ninguem pode saber/IMG_2246.JPG": _NS / "IMG_2246.JPG",
+    "imagens/ninguem pode saber/IMG_2247.JPG": _NS / "IMG_2247.JPG",
+    "imagens/ninguem pode saber/IMG_2251.JPG": _NS / "IMG_2251.JPG",
 }
 
 

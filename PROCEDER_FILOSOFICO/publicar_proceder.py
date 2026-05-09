@@ -8,7 +8,7 @@ USUARIO      = "procederfilosofico@gmail.com"
 APP_PASSWORD = "LKG2 mbly DXxA Aive gW5v Snwp"
 
 HTML_FILE    = Path(__file__).parent / "proceder.html"
-IMAGEM_FILE  = Path(__file__).parent / "santo_agostinho.jpeg"
+IMAGEM_FILE  = Path(__file__).parent / "imagens filosofia " / "santo_agostinho.jpeg"
 TITULO       = "As Confissões de Santo Agostinho: seis momentos que mudaram a filosofia ocidental"
 STATUS       = "draft"   # mude para "publish" quando quiser publicar
 # ─────────────────────────────────────────────────────────────
