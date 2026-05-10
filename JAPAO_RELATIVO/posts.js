@@ -2,26 +2,35 @@
 // Para adicionar um artigo: copie o bloco e ajuste os campos
 
 const DB = {
-  "maes-estrangeiras-divorciadas-mercado-trabalho": {
-    title:"Mães estrangeiras divorciadas enfrentam barreira silenciosa no mercado de trabalho",
+  "maes-solteiras-estrangeiras-empreiteiras-japao": {
+    title:"Mães solteiras estrangeiras e as empreiteiras do Japão: a barreira que ninguém fala",
     tag:"Notícia",
     date:"10 de Maio de 2026",
     thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/img-2302.png",
-    content:`<p>Chegar a um país novo já é desafiador. Quando o casamento se desfaz, a realidade se torna ainda mais dura para as mulheres estrangeiras que ficam sozinhas com filhos e sem uma rede de apoio consolidada. Além das dificuldades emocionais e burocráticas do divórcio, elas enfrentam uma barreira que poucos falam abertamente: o preconceito velado no mercado de trabalho.</p>
-<p>Relatos de mulheres imigrantes em diferentes regiões do país apontam um padrão preocupante. Candidatas qualificadas, com experiência profissional e documentação em ordem, são preteridas em processos seletivos quando informam que são mães solteiras ou divorciadas. O motivo, muitas vezes não declarado pelos empregadores, é o receio de responsabilidades trabalhistas — licença-maternidade, faltas por doença dos filhos, horários inflexíveis e eventuais processos judiciais.</p>
-<h2>Uma discriminação que não aparece no currículo</h2>
-<p>O problema é especialmente grave no setor da construção civil e em empresas de médio porte, onde a informalidade ainda é alta e as decisões de contratação dependem, muitas vezes, de critérios subjetivos. Gestores relatam, em conversas reservadas, que "preferem não se complicar" com perfis que entendem como de "alto risco". Mães solo estrangeiras acabam enquadradas nessa categoria de forma automática.</p>
-<p>Para essas mulheres, a combinação de ser imigrante, divorciada e mãe funciona como um triplo filtro de exclusão. Cada um desses fatores, isoladamente, já pode gerar discriminação. Juntos, eles constroem um muro quase invisível — mas muito real.</p>
-<h2>O que diz a lei</h2>
-<p>No Brasil, a legislação trabalhista proíbe qualquer forma de discriminação no processo de contratação por motivo de sexo, estado civil, situação familiar ou origem. A prática de recusar candidatas por serem mães ou divorciadas configura discriminação e pode ser enquadrada como ato ilícito, sujeito a indenizações. No entanto, a dificuldade de comprovar esse tipo de discriminação — já que raramente há registros formais da recusa — faz com que pouquíssimos casos cheguem à Justiça.</p>
-<p>Organizações de apoio a imigrantes alertam que muitas dessas mulheres sequer sabem que têm direitos garantidos por lei, o que as torna ainda mais vulneráveis.</p>
-<h2>O impacto na vida real</h2>
-<p>Sem renda, sem família próxima e muitas vezes sem domínio pleno do idioma, essas mães entram em um ciclo difícil de romper. A dependência de programas sociais, o endividamento e o isolamento social são consequências diretas da exclusão do mercado de trabalho. Filhos crescendo em condições de instabilidade financeira ampliam o impacto dessa discriminação para a próxima geração.</p>
-<blockquote><em>"Eu tenho formação, tenho experiência, falo três idiomas. Mas quando mencionam que sou divorciada e tenho dois filhos, a entrevista termina ali."</em></blockquote>
-<p>Assim relata uma engenheira de origem latino-americana, residente no Brasil há seis anos, que pediu para não ser identificada.</p>
-<h2>O que precisa mudar</h2>
-<p>Especialistas em direito do trabalho e organizações de defesa dos direitos das mulheres defendem medidas concretas: maior fiscalização nos processos seletivos, campanhas de conscientização junto a empregadores, e canais acessíveis de denúncia para mulheres imigrantes. Empresas que adotam políticas de diversidade e inclusão reais — não apenas simbólicas — têm mostrado que a contratação de mães solo, independentemente da origem, traz ganhos em comprometimento, resiliência e produtividade.</p>
-<p>Enquanto isso não se torna regra, mulheres como ela continuam batendo em portas fechadas — não por falta de competência, mas por carregar uma história que o mercado ainda não aprendeu a respeitar.</p>`
+    content:`<p>O Japão é um dos principais destinos de trabalhadores estrangeiros que buscam estabilidade financeira. A rota mais comum passa pelas <strong>empreiteiras</strong> — empresas terceirizadas que recrutam, contratam e alocam trabalhadores em fábricas de montagem, alimentação e logística. Para muitos, é a porta de entrada. Para mães solteiras estrangeiras, essa porta frequentemente está fechada.</p>
+
+<h2>Como funciona o sistema de empreiteiras no Japão</h2>
+<p>As empreiteiras japonesas (<em>haken gaisha</em>, 派遣会社) funcionam como intermediárias entre trabalhadores e fábricas. Elas recrutam, especialmente em países como Brasil, Peru, Filipinas e Vietnã, oferecem pacotes que incluem moradia em alojamentos coletivos, transporte até a fábrica e desconto direto na folha. O modelo é conveniente para as fábricas, que ajustam a mão de obra conforme a demanda, sem vínculo direto com o trabalhador.</p>
+<p>Para quem chega ao Japão sem contatos, sem japonês fluente e sem histórico de trabalho no país, a empreiteira é muitas vezes a única opção viável de emprego formal. O problema começa quando a trabalhadora é mãe solteira.</p>
+
+<h2>O filtro invisível na triagem</h2>
+<p>Mães solteiras estrangeiras relatam um padrão sistemático: ao informarem que têm filhos e não têm parceiro, o processo seletivo trava. As justificativas variam — "a vaga já foi preenchida", "o perfil não combina com o turno disponível", "a fábrica não aceita trabalhadores com restrições de horário" — mas o resultado é sempre o mesmo: a negativa.</p>
+<p>A lógica das empreiteiras é clara para quem opera por dentro do sistema. Fábricas exigem disponibilidade para horas extras, turnos rotativos noturnos e, em períodos de alta produção, jornadas que ultrapassam dez horas diárias. Uma mãe com filho pequeno representa, para o gestor da empreiteira, um "risco de absenteísmo". O raciocínio é pragmático e discriminatório ao mesmo tempo.</p>
+
+<h2>O alojamento como barreira extra</h2>
+<p>Grande parte das empreiteiras que trabalham com trabalhadores estrangeiros oferece alojamento coletivo como parte do pacote. Esses alojamentos, geralmente próximos às fábricas, são projetados para trabalhadores individuais ou casais — raramente para mães com crianças. A ausência de estrutura para dependentes exclui automaticamente mulheres com filhos, mesmo antes de qualquer triagem formal.</p>
+<p>Sem alojamento, a trabalhadora precisa encontrar moradia por conta própria em um mercado imobiliário que, para estrangeiros — especialmente sem fiador japonês —, é notoriamente difícil de acessar. O ciclo se fecha: sem emprego, sem moradia; sem moradia, sem emprego.</p>
+
+<h2>O que dizem as mães</h2>
+<blockquote><em>"Me disseram que a fábrica 'não tem estrutura' para mães com filhos. Mas eu não pedi estrutura. Pedi um emprego."</em></blockquote>
+<p>O relato é de uma brasileira de 34 anos, residente na região de Aichi há quatro anos, que ficou sem emprego após a separação do marido. Qualificada, com experiência anterior em linha de montagem, ela passou por seis empreiteiras diferentes em três meses sem conseguir colocação.</p>
+
+<h2>O que diz a lei japonesa</h2>
+<p>A legislação trabalhista japonesa proíbe discriminação por estado civil ou situação familiar no processo de contratação. A <em>Roudou Kijun Hou</em> (Lei de Normas Trabalhistas) e a <em>Danjo Koyou Kikai Kintou Hou</em> (Lei de Igualdade de Oportunidades no Emprego) garantem proteção formal. Na prática, a discriminação raramente é explícita — e raramente é provada.</p>
+<p>Organizações de apoio a trabalhadores estrangeiros no Japão, como o <strong>CIATE</strong> e redes de suporte à comunidade brasileira, documentam casos recorrentes mas alertam para a dificuldade de formalizar denúncias: a maioria das trabalhadoras teme represálias ou simplesmente desconhece os canais disponíveis.</p>
+
+<h2>Por que isso importa agora</h2>
+<p>O Japão vive um momento de expansão formal da mão de obra estrangeira. Com a revisão do sistema de visto técnico (<em>Tokutei Ginou</em>) e o crescimento das contratações diretas, o país aposta no trabalhador imigrante como solução para o envelhecimento da população e a escassez de força de trabalho industrial. Incluir mães solteiras nesse processo não é apenas uma questão de justiça — é uma necessidade econômica que o mercado ainda recusa a reconhecer.</p>`
   },
   "kimetsu-no-yaiba-filme-infinity-castle": {
     title:"Kimetsu no Yaiba: Infinity Castle — tudo sobre o filme mais aguardado do anime",
