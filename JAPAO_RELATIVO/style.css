@@ -650,19 +650,22 @@ body.modal-aberto {
     max-width: 100%;
   }
 
-  /* Linha 1: logo 150×150, centralizada, sem espaço extra */
+  /* Logo mobile: centralizada, sem espaço excessivo */
   .brand {
     display: flex;
     justify-content: center;
-    padding: 8px 0;
-    line-height: 0;
+    align-items: center;
+    padding: 4px 0 2px;
     width: 100%;
   }
   .brand-logo {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
     display: block;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    border: 1.5px solid rgba(0,0,0,0.06);
   }
   .brand-name,
   .brand-tagline { display: none !important; }
