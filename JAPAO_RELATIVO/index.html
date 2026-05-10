@@ -25,6 +25,7 @@
       <ul class="nav-links">
         <li><a href="#noticias">Notícias</a></li>
         <li><a href="#cultura">Cultura</a></li>
+        <li><a href="#anime" class="nav-link-anime">Anime</a></li>
         <li><a href="#idioma">Idioma</a></li>
         <li><a href="#sobre">Sobre</a></li>
       </ul>
@@ -72,6 +73,23 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       </button>
     </div>
+  </section>
+
+  <!-- ANIME -->
+  <section class="section" id="anime">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Cultura Pop</p>
+        <h2 class="section-title">ANIME</h2>
+      </div>
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="Anime" onclick="filtrarAnime()">Todos os Animes</button>
+      </div>
+    </div>
+    <div class="card-grid" id="animeGrid"></div>
+    <p class="anime-empty" id="animeEmpty" style="display:none;color:var(--color-muted);font-style:italic;padding:32px 0;">
+      Conteúdo de Anime em breve. Fique ligado!
+    </p>
   </section>
 
   <!-- SOBRE -->

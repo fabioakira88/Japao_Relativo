@@ -119,8 +119,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transform-origin: left;
   transition: transform 0.3s;
 }
-.nav-links a:hover { color: var(--color-text); }
+.nav-links a:hover { color: var(--color-primary); }
 .nav-links a:hover::after { transform: scaleX(1); }
+
+/* Link Anime — destaque vermelho */
+.nav-link-anime {
+  color: var(--color-primary) !important;
+  font-weight: 700;
+}
+.nav-link-anime::after { background: var(--color-primary) !important; }
 
 /* ── HERO CAROUSEL ───────────────────────────────────────── */
 .hero {
@@ -308,15 +315,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .filter-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
 .filter-btn.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
 
-/* ── CARD GRID ───────────────────────────────────────────── */
+/* ── CARD GRID — 3 colunas ───────────────────────────────── */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
 }
+/* Primeiro card ocupa 2 colunas (destaque) */
 .card-grid .card:first-child {
   grid-column: span 2;
-  grid-row: span 2;
 }
 .card {
   position: relative;
@@ -539,19 +546,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 /* ── RESPONSIVO ──────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .card-grid .card:first-child { grid-column: span 2; }
+  .card-grid .card:first-child { grid-column: 1; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .nav { padding: 0 24px; }
-  .brand-name { display: none; }
-  .nav-links { gap: 16px; }
+  .nav { padding: 0 20px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+  .brand-tagline { display: none; }
   .hero-content { padding: 0 24px 60px; }
   .hero-dots { right: 24px; }
-  .section { padding: 48px 24px; }
+  .section { padding: 40px 20px; }
+  /* 1 coluna no mobile */
   .card-grid { grid-template-columns: 1fr; }
-  .card-grid .card:first-child { grid-column: 1; grid-row: 1; }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .card-grid .card:first-child { grid-column: 1; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
   .footer { padding: 40px 24px 32px; }
-  .modal-inner { padding: 48px 24px 80px; }
+  .modal-inner { padding: 48px 20px 80px; }
+  .hero-title { font-size: clamp(48px, 12vw, 80px); }
 }

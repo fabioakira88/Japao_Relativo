@@ -6,10 +6,10 @@
 
 /* ── CONFIGURAÇÃO ────────────────────────────────────────── */
 const SLIDES = [
-  'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-1.jpg',
-  'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-2.jpg',
-  'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-3.jpg',
-  'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-4.jpg',
+  'wallpaper jr/IMG_2288.JPG',
+  'wallpaper jr/IMG_2289.JPG',
+  'wallpaper jr/IMG_2290.JPG',
+  'wallpaper jr/IMG_2291.jpg',
 ];
 const CARDS_POR_PAGINA = 12;
 const ARROW = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
@@ -196,6 +196,27 @@ function checkHash() {
   if (id && DB[id]) abrirModal(id);
 }
 
+/* ── SEÇÃO ANIME ─────────────────────────────────────────── */
+function renderAnime() {
+  const grid  = document.getElementById('animeGrid');
+  const empty = document.getElementById('animeEmpty');
+  if (!grid) return;
+  const animePosts = posts.filter(p =>
+    p.tag && p.tag.toLowerCase().includes('anime')
+  );
+  if (!animePosts.length) {
+    grid.style.display = 'none';
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+  grid.innerHTML = '';
+  animePosts.forEach(p => grid.appendChild(criarCard(p)));
+}
+
+window.filtrarAnime = function() {
+  document.getElementById('noticias').scrollIntoView({ behavior: 'smooth' });
+};
+
 /* ── INIT ────────────────────────────────────────────────── */
 function init() {
   posts         = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
@@ -207,6 +228,7 @@ function init() {
   initLoadMore();
   initModal();
   initNavScroll();
+  renderAnime();
   checkHash();
 }
 
