@@ -32,7 +32,7 @@ const DB = {
     title:"10 Anos Depois: o filme japonês que uniu uma geração pelo amor não dito",
     tag:"Cultura",
     date:"10 de Maio de 2026",
-    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2299.jpg",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2297.jpg",
     content:`
 <p>Existem filmes que contam histórias. E existem filmes que identificam algo que estava adormecido em quem assiste — uma saudade que não tinha nome, uma pergunta que nunca foi feita. <strong><em>10 Years Later</em></strong> (em japonês: <em>10-nen go no Ano Hi</em>) faz isso com uma precisão clínica e uma delicadeza rara no cinema contemporâneo.</p>
 
@@ -58,7 +58,7 @@ const DB = {
     title:"Guia completo: como assistir ao Aoi Matsuri em Kyoto em 2026",
     tag:"Cultura",
     date:"10 de Maio de 2026",
-    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2297.jpg",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2299.jpg",
     content:`
 <p>O <strong>Aoi Matsuri</strong> é um dos três grandes festivais de Kyoto — e o mais antigo dos três. Acontece todo ano em <strong>15 de maio</strong>, com uma procissão de mais de 500 pessoas em trajes da era Heian percorrendo os 8 km entre o Palácio Imperial e os Santuários Kamo. Se você está no Japão em maio de 2026, este é um evento que não se perde.</p>
 
