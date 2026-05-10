@@ -32,7 +32,7 @@ title_safe   = title.replace("'", "\\'")
 excerpt_safe = excerpt[:200].replace("'", "\\'")
 
 # Verifica page 68
-r0 = requests.get(f'{BASE}/pages/68', auth=AUTH)
+r0 = requests.get(f'{BASE}/pages/68', auth=AUTH, params={'context': 'edit'})
 current_raw = r0.json().get('content', {}).get('raw', '')
 print(f'Page 68 raw atual: {len(current_raw)} chars')
 
