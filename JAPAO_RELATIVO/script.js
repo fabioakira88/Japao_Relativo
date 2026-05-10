@@ -9,6 +9,94 @@
 // Para adicionar um artigo: copie o bloco e ajuste os campos
 
 const DB = {
+  "kimetsu-no-yaiba-filme-infinity-castle": {
+    title:"Kimetsu no Yaiba: Infinity Castle — tudo sobre o filme mais aguardado do anime",
+    tag:"Anime",
+    date:"10 de Maio de 2026",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2298.jpg",
+    content:`
+<p>Depois de conquistar o recorde de bilheteria com o filme <strong>Mugen Train</strong> em 2020, a franquia <em>Kimetsu no Yaiba</em> (Demon Slayer) prepara um dos maiores eventos da história do anime: a trilogia de filmes do <strong>Arco do Castelo Infinito</strong>. Este é o clímax de toda a série — e o Japão já está em estado de antecipação coletiva.</p>
+
+<h2>Por que o Castelo Infinito é diferente de tudo</h2>
+<p>O Arco do Castelo Infinito representa a batalha final entre os Caçadores de Demônios e Muzan Kibutsuji, o Rei dos Demônios. Após anos de treinamento, mortes e sacrifícios, todos os pilares <em>Hashira</em> entram em combate simultâneo. A escala é incomparável a qualquer coisa que a Ufotable já animou — e a decisão de dividir o arco em três filmes separados confirma que o estúdio está jogando pesado.</p>
+<p>A Ufotable, responsável pela animação da série, é conhecida pela qualidade cinematográfica das sequências de batalha. O Mugen Train foi o filme mais lucrativo de 2020 no mundo inteiro, superando inclusive produções hollywoodianas. Para o Infinity Castle, a expectativa é ainda maior.</p>
+
+<h2>O que esperar do primeiro filme</h2>
+<p>O primeiro filme cobre o início da batalha no Castelo Infinito, com confrontos entre os Hashira e os Espadas Superiores — os demônios mais poderosos de Muzan. Os fãs que acompanharam o mangá sabem o que está por vir: batalhas que redefinem o limite do que é possível em animação 2D.</p>
+<p>O estúdio confirmou que <strong>nenhum capítulo será cortado ou condensado</strong>. Cada detalhe do mangá de Koyoharu Gotouge receberá o tratamento visual que merece. Para quem leu, isso significa que algumas das cenas mais emocionalmente intensas da série serão animadas com a qualidade característica da Ufotable.</p>
+
+<h2>Datas e lançamento no Japão</h2>
+<p>O primeiro filme da trilogia foi confirmado para lançamento no Japão. A tradição de <em>Kimetsu no Yaiba</em> é estrear no Japão com uma antecedência considerável antes do lançamento internacional — o que dá aos fãs japoneses a experiência de assistir antes do resto do mundo, criando uma onda de expectativa global.</p>
+<p>Para quem está no Japão ou planeja viajar durante o lançamento, os cinemas japoneses têm o costume de distribuir <em>tokuten</em> — brindes exclusivos como ilustrações, cartões especiais e prints — para os primeiros espectadores. Chegar cedo compensa.</p>
+
+<h2>Por que este filme importa além do anime</h2>
+<p><em>Kimetsu no Yaiba</em> não é apenas um fenômeno do entretenimento. O mangá vendeu mais de 150 milhões de cópias — o segundo mais vendido da história após One Piece. O filme do Castelo Infinito não é só o encerramento de uma história; é um evento cultural do Japão contemporâneo, da mesma categoria que os finais de série que paralisam o país.</p>
+<p>Se você tem interesse na cultura pop japonesa e no que move o Japão de hoje, acompanhar este lançamento é entender uma fatia significativa do que o Japão exporta para o mundo.</p>
+`
+  },
+
+  "10-anos-depois-filme-japones-miwa": {
+    title:"10 Anos Depois: o filme japonês que uniu uma geração pelo amor não dito",
+    tag:"Cultura",
+    date:"10 de Maio de 2026",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2299.jpg",
+    content:`
+<p>Existem filmes que contam histórias. E existem filmes que identificam algo que estava adormecido em quem assiste — uma saudade que não tinha nome, uma pergunta que nunca foi feita. <strong><em>10 Years Later</em></strong> (em japonês: <em>10-nen go no Ano Hi</em>) faz isso com uma precisão clínica e uma delicadeza rara no cinema contemporâneo.</p>
+
+<h2>A premissa que todo mundo conhece e ninguém resolveu</h2>
+<p>O filme parte de um ponto simples: dois ex-colegas de escola se reencontram dez anos depois de se formarem. Durante a adolescência, havia algo entre eles — não um romance declarado, mas aquela tensão específica de sentimentos não verbalizados que o japonês chama de <em>片思い</em> (kataomoi): amor de um lado só, ou amor de dois lados que nunca se encontraram.</p>
+<p>O que o roteiro faz de diferente é recusar o caminho fácil. Não há revelações dramáticas, não há vilões, não há mal-entendidos convenientes de roteiro. O que há é o peso real do tempo — o que duas pessoas se tornam em dez anos, e o que isso significa para o que elas um dia foram.</p>
+
+<h2>O Japão como personagem</h2>
+<p>Uma das marcas do filme é o uso dos espaços urbanos japoneses como extensão emocional da narrativa. As cenas nas estações de metrô de Tóquio, nos parques de bairro, nos restaurantes <em>izakaya</em> iluminados à noite — cada locação carrega o peso específico da memória japonesa urbana.</p>
+<p>Para quem conhece o Japão, o filme funciona como um mapa afetivo. Para quem não conhece, funciona como uma janela para entender por que os japoneses desenvolveram toda uma estética em torno do não-dito: porque o silêncio, no Japão, é muitas vezes o modo mais preciso de dizer algo importante.</p>
+
+<h2>A cultura do amor indireto no Japão</h2>
+<p>O filme dialoga diretamente com conceitos centrais da cultura japonesa em relação ao amor e à expressão emocional. O conceito de <em>ma</em> (間) — o espaço entre as coisas, o silêncio que carrega significado — está presente em cada cena. Da mesma forma, a ideia de <em>ishin denshin</em> (以心伝心), comunicação telepática ou entendimento mútuo sem palavras, define a dinâmica dos protagonistas.</p>
+<p>No Japão, dizer "eu te amo" diretamente (<em>aishiteru</em>) é uma declaração de peso enorme, usada raramente mesmo em relacionamentos longos. A alternativa mais comum é o <em>suki</em> (gosto de você) — que carrega toda a ambiguidade e cuidado que o filme explora.</p>
+
+<h2>Por que este filme repercutiu tanto</h2>
+<p>O filme foi um sucesso nas plataformas de streaming japonesas e gerou conversas significativas nas redes sociais japonesas sobre os <em>seishun</em> (青春) — a juventude, literalmente "primavera verde" — e as escolhas que se não são feitas a tempo, ficam como sombras.</p>
+<p>É o tipo de filme que as pessoas assistem duas vezes: uma para ver a história, outra para entender o que estava sendo dito nas cenas em que ninguém fala. Um exercício de atenção que o cinema japonês domina melhor do que qualquer outro.</p>
+`
+  },
+
+  "aoi-matsuri-kyoto-guia-2026": {
+    title:"Guia completo: como assistir ao Aoi Matsuri em Kyoto em 2026",
+    tag:"Cultura",
+    date:"10 de Maio de 2026",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2297.jpg",
+    content:`
+<p>O <strong>Aoi Matsuri</strong> é um dos três grandes festivais de Kyoto — e o mais antigo dos três. Acontece todo ano em <strong>15 de maio</strong>, com uma procissão de mais de 500 pessoas em trajes da era Heian percorrendo os 8 km entre o Palácio Imperial e os Santuários Kamo. Se você está no Japão em maio de 2026, este é um evento que não se perde.</p>
+
+<h2>O que é o Aoi Matsuri — em 90 segundos</h2>
+<p>O festival tem origem no século VI, quando o imperador Kinmei ordenou rituais para apaziguar os deuses Kamo após uma série de desastres naturais. O nome "Aoi" vem da planta hollyhock (<em>aoi</em>), que decora trajes, cavalos e palanquins durante a procissão. É o festival imperial por excelência de Kyoto — suspenso apenas durante guerras civis ao longo da história.</p>
+<p>A figura central é a <strong>Saio-Dai</strong>: uma mulher de família nobre selecionada anualmente para representar a sacerdotisa imperial. Ela percorre o trajeto em palanquim, cercada por centenas de participantes em trajes autênticos reproduzidos com precisão histórica.</p>
+
+<h2>O trajeto: onde ficar para assistir</h2>
+<p>A procissão parte do <strong>Gosho Imperial</strong> às 10h30 e segue até o <strong>Santuário Shimogamo</strong>, onde realiza cerimônias antes de continuar ao <strong>Santuário Kamigamo</strong> no final da tarde. O percurso total é de aproximadamente 8 km.</p>
+<p><strong>Melhor ponto de observação gratuito:</strong> A avenida que liga o Gosho ao Shimogamo — chegue antes das 10h para garantir lugar na primeira fila. As áreas próximas ao portão de entrada do Shimogamo ficam movimentadas por volta do meio-dia.</p>
+<p><strong>Arquibancadas pagas:</strong> O Palácio Imperial oferece assentos com visão privilegiada da saída da procissão, disponíveis com reserva antecipada pelo site oficial.</p>
+
+<h2>O que vestir e levar</h2>
+<p>Maio em Kyoto pode ser quente e úmido. Leve protetor solar, chapéu e água. A procissão dura horas — conforto é prioritário. Se tiver guarda-chuva, leve: chuveiros rápidos são comuns.</p>
+<p>Para fotografia: lente maior que 50mm é recomendada se você quiser close nos detalhes dos trajes. A luz da manhã é a melhor para fotos na saída do Gosho.</p>
+
+<h2>Como chegar ao Gosho Imperial</h2>
+<p>Metro linha Karasuma, estação Marutamachi ou Imadegawa. De Kyoto Station, 15 minutos de metrô. O acesso ao Gosho é gratuito no dia do festival — é um dos raros dias em que o jardim interno fica aberto ao público sem reserva prévia.</p>
+
+<h2>Antes e depois: o que ver em Kyoto em maio</h2>
+<p>Se você está em Kyoto para o Aoi Matsuri, vale combinar com:</p>
+<ul style="margin:16px 0 20px 24px;line-height:2.2;">
+<li><strong>Arashiyama</strong> — bamboozal e templo Tenryu-ji, a 30 min de metrô</li>
+<li><strong>Fushimi Inari</strong> — os portões torii laranja, melhor de manhã cedo</li>
+<li><strong>Nishiki Market</strong> — o "cozinha de Kyoto", degustação de ingredientes locais</li>
+<li><strong>Santuário Shimogamo</strong> — visitável no mesmo dia após a procissão chegar</li>
+</ul>
+<p>O Aoi Matsuri é raro: um festival autêntico, não criado para turistas, que acontece há 1.500 anos no mesmo lugar, da mesma forma. Assistir é estar presente numa continuidade histórica que poucos festivais no mundo ainda preservam.</p>
+`
+  },
+
   "aoi-matsuri-kyoto-festival-heian-2026": {
     title:"Aoi Matsuri: a procissão imperial que atravessa 1.500 anos em Kyoto",
     tag:"Cultura",date:"15 de Maio de 2026",
@@ -67,7 +155,7 @@ const DB = {
     title: "\"Ninguém Pode Saber\" é um filme. Mas a história real foi muito mais brutal.",
     tag: "Cultura",
     date: "08 de Maio de 2026",
-    thumb: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=2070",
+    thumb: "imagens/ninguem pode saber/IMG_2242.JPG",
     content: `
       <p>Em 1988, o Japão foi sacudido por um caso que chocou o mundo inteiro. Cinco crianças. Um apartamento. Nove meses completamente sozinhas. Duas não sobreviveriam. Este é o <strong>Caso de Abandono de Crianças de Sugamo</strong> — a tragédia real que inspirou o filme de Hirokazu Kore-eda.</p>
 
@@ -277,7 +365,7 @@ const DB = {
   "kurai-incerteza-e-modestia": {
     title:"くらい（kurai), incerteza e modéstia",
     tag:"Idioma",date:"17 de Fevereiro de 2026",
-    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/kurai.jpg",
+    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
     content:`<p>Como o Japão usa a linguagem e os gestos para evitar arrogância.</p>
 <p>A palavra 暗い（kurai）significa literalmente <strong>escuro, sombrio ou pouco claro</strong>. No uso cotidiano e no campo simbólico, ela se conecta à ideia de algo não totalmente definido, não absoluto, não afirmado com certeza total.</p>
 <h2>A incerteza como virtude social</h2>
@@ -494,18 +582,11 @@ const DB = {
 /* ── CONFIGURAÇÃO ────────────────────────────────────────── */
 // PROMPT 1 — Slides do carousel hero (imagens Japan de alta qualidade)
 const SLIDES = [
-  {
-    src:  'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1920&q=80',
-    label:'Festival Aoi Matsuri, Kyoto'
-  },
-  {
-    src:  'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1920&q=80',
-    label:'Rua tradicional japonesa'
-  },
-  {
-    src:  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=1920&q=80',
-    label:'Tokyo à noite'
-  },
+  { src: 'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-1.jpg', label: 'Japão' },
+  { src: 'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-2.jpg', label: 'Japão' },
+  { src: 'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-3.jpg', label: 'Japão' },
+  { src: 'https://japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-4.jpg', label: 'Japão' },
+  { src: 'https://japaorelativo.com/wp-content/uploads/2026/05/ghibli.jpg',         label: 'Anime' },
 ];
 
 const CARDS_POR_PAGINA = 12;
@@ -556,7 +637,7 @@ function initCarousel() {
   }
 
   // Fade automático a cada 5 segundos
-  setInterval(() => goTo(cur + 1), 5000);
+  setInterval(() => goTo(cur + 1), 7000);
 }
 
 /* ── CARDS ───────────────────────────────────────────────── */
