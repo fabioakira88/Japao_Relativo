@@ -1,42 +1,35 @@
-# Como publicar um novo artigo — Japão Relativo
+# Como publicar — Japão Relativo
 
-## Estrutura dos arquivos
+## Arquivos (não alterar estrutura)
 
-| Arquivo      | Função                        | Edite quando...           |
+| Arquivo | Função | Edite quando |
 |---|---|---|
-| `posts.js`   | Banco de artigos (dados)      | Adicionar/editar artigo   |
-| `script.js`  | Lógica e interações           | Nunca (exceto bugs)       |
-| `style.css`  | Visual e cores                | Nunca (exceto design)     |
-| `index.html` | Estrutura HTML                | Nunca                     |
+| `posts.js` | Banco de artigos (backup) | Adicionar artigo |
+| `script.js` | DB ativo + toda a lógica | Adicionar artigo |
+| `style.css` | CSS com variáveis da logo | Nunca |
+| `index.html` | HTML estrutural | Nunca |
+| `gerar_portal.py` | Script de deploy | Nunca |
 
-## Como adicionar um novo artigo
+## Adicionar novo artigo
 
-Abra `posts.js` e adicione uma nova entrada no `const DB = {`:
+**Passo 1** — Abra `posts.js` E `script.js`, adicione no TOPO do `const DB = {`:
 
 ```javascript
-"slug-do-artigo": {
+"slug-unico-do-artigo": {
   title:   "Título do Artigo",
-  tag:     "Cultura",          // Cultura | Idioma | Saúde | Anime | Curiosidade | Notícia
+  tag:     "Cultura",
   date:    "10 de Maio de 2026",
-  thumb:   "URL-DA-IMAGEM",   // Use Unsplash ou URL do WP media
-  content: `
-    <p>Primeiro parágrafo...</p>
-    <h2>Subtítulo</h2>
-    <p>Mais conteúdo...</p>
-  `
+  thumb:   "https://japaorelativo.com/wp-content/uploads/2026/05/IMAGEM.jpg",
+  content: `<p>Conteúdo HTML...</p>`
 },
 ```
 
-Coloque o novo artigo **no topo** do DB (primeiro) para que apareça primeiro no grid.
-
-## Para publicar no site (japaorelativo.com)
+**Passo 2** — Deploy:
 
 ```bash
 python3 gerar_portal.py
 ```
 
-Este script:
-1. Lê todos os artigos do `posts.js` (via `japaorelativo.html`)
-2. Gera o portal com cards pré-renderizados
-3. Sobe para o WordPress automaticamente
+## Tags disponíveis
 
+`Cultura` | `Anime` | `Idioma` | `Saúde` | `Notícia` | `Curiosidade`

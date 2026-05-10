@@ -1,46 +1,31 @@
-# Como publicar um novo artigo — Proceder Filosófico
+# Como publicar — Proceder Filosófico
 
-## Estrutura
+## Arquivos ativos
 
-| Arquivo          | Função                              |
+| Arquivo | Função |
 |---|---|
-| `posts.js`       | Banco de artigos (dados)            |
-| `index.html`     | Protótipo local do site             |
-| `publicar_*.py`  | Scripts de publicação no WordPress  |
+| `posts.js` | Array POSTS com 16 artigos |
+| `index.html` | Protótipo local (dark navy) |
+| `publicar_agostinho.py` | Template base para publicação |
 
-## Como adicionar um novo artigo
+## Adicionar novo artigo
 
-1. Abra `posts.js` e adicione no array `POSTS`:
-
-```javascript
-{
-  id:       "slug-do-filosofo",
-  tag:      "FILOSOFIA CLÁSSICA",
-  title:    "Título do Artigo",
-  excerpt:  "Resumo de 1-2 linhas...",
-  date:     "10 de Maio de 2026",
-  thumb:    "imagens filosofia /foto.jpeg",
-  featured: false,
-  content:  `<p>Conteúdo HTML completo...</p>`
-},
-```
-
-2. Para publicar no site live (`procederfilosofico.com.br`):
-
+**Passo 1** — Copie o script template:
 ```bash
-# Cria um script similar ao publicar_socrates.py
-# O artigo é injetado via POSTS.unshift() na page 68 do WordPress
-python3 publicar_socrates.py   # adapte o slug/conteúdo
+cp publicar_agostinho.py publicar_[filosofo].py
 ```
 
-## Como funciona o site live
+**Passo 2** — Edite os campos no novo script:
+- `slug`, `title`, `tag`, `date`, `excerpt`, `content`
+- Coloque a imagem em `Canva - Proceder/Filósofos/`
 
-O WordPress serve `front-page.php` com `var POSTS = []` hardcoded.
-A **page 68** injeta novos artigos via `POSTS.unshift()` no `<head>`.
-O script sempre VERIFICA se o artigo já existe antes de publicar (sem duplicatas).
+**Passo 3** — Publique:
+```bash
+python3 publicar_[filosofo].py
+```
 
-## Imagens
+O script verifica duplicatas automaticamente.
 
-Use imagens de `Canva - Proceder/Filósofos/` ou suba via WP media API.
-O script de publicação faz o upload automaticamente.
+## Tags disponíveis
 
+`FILOSOFIA CLÁSSICA` | `FILOSOFIA MEDIEVAL` | `FILOSOFIA MODERNA` | `EXISTENCIALISMO` | `FILOSOFIA ORIENTAL` | `FILOSOFIA CRÍTICA` | `METAFÍSICA`
