@@ -12,6 +12,31 @@
 </head>
 <body>
 
+  <!-- TICKER BAR — Cotações em tempo real -->
+  <div class="ticker-bar" id="tickerBar">
+    <div class="ticker-inner">
+      <span class="ticker-item" id="tick-usdjpy">
+        <span class="ticker-flag">💴</span>
+        <span class="ticker-label">USD/JPY</span>
+        <span class="ticker-val ticker-loading">—</span>
+      </span>
+      <span class="ticker-sep">│</span>
+      <span class="ticker-item" id="tick-brlusd">
+        <span class="ticker-flag">💵</span>
+        <span class="ticker-label">BRL/USD</span>
+        <span class="ticker-val ticker-loading">—</span>
+      </span>
+      <span class="ticker-sep">│</span>
+      <span class="ticker-item" id="tick-brljpy">
+        <span class="ticker-flag">💴</span>
+        <span class="ticker-label">BRL/JPY</span>
+        <span class="ticker-val ticker-loading">—</span>
+      </span>
+      <span class="ticker-sep ticker-time-sep">│</span>
+      <span class="ticker-updated" id="tickerTime"></span>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="header" id="header">
     <nav class="nav">

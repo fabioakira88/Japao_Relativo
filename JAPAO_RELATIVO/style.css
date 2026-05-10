@@ -50,6 +50,43 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 ::-webkit-scrollbar-track { background: var(--color-surface); }
 ::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 2px; }
 
+/* ── TICKER BAR (cotações) ───────────────────────────────── */
+.ticker-bar {
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  background: var(--color-navy);
+  border-bottom: 1px solid rgba(201,168,75,.2);
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  color: rgba(255,255,255,.75);
+  white-space: nowrap;
+}
+.ticker-item { display: flex; align-items: center; gap: 6px; padding: 0 4px; }
+.ticker-flag { font-size: 13px; }
+.ticker-label { color: rgba(255,255,255,.45); font-size: 10px; letter-spacing: 1px; }
+.ticker-val { color: var(--color-gold); font-weight: 700; font-size: 12px; min-width: 44px; }
+.ticker-loading { opacity: .4; }
+.ticker-up   { color: #22c55e !important; }
+.ticker-down { color: #ef4444 !important; }
+.ticker-sep { color: rgba(201,168,75,.25); margin: 0 14px; }
+.ticker-time-sep { margin: 0 12px; }
+.ticker-updated { font-size: 9px; color: rgba(255,255,255,.3); letter-spacing: 1px; }
+@media (max-width: 768px) {
+  .ticker-inner { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ticker-sep { margin: 0 8px; }
+  .ticker-time-sep, .ticker-updated { display: none; }
+}
+
 /* ── HEADER / NAV ────────────────────────────────────────── */
 .header {
   position: sticky;

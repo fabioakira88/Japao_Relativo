@@ -871,6 +871,57 @@ window.filtrarAnime = function() {
   document.getElementById('noticias').scrollIntoView({ behavior: 'smooth' });
 };
 
+
+/* ── TICKER DE COTAÇÕES ──────────────────────────────────── */
+async function initTicker() {
+  const bar = document.getElementById('tickerBar');
+  if (!bar) return;
+
+  function fmt(n, decimals) { return Number(n).toFixed(decimals); }
+  function setItem(id, flag, label, value, arrow, cls) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML =
+      '<span class="ticker-flag">' + flag + '</span>' +
+      '<span class="ticker-label">' + label + '</span>' +
+      '<span class="ticker-val ' + cls + '">' + value + '</span>' +
+      '<span class="ticker-arrow ' + cls + '">' + arrow + '</span>';
+  }
+
+  async function fetchRates() {
+    try {
+      const res  = await fetch('https://open.er-api.com/v6/latest/USD');
+      const data = await res.json();
+      if (data.result !== 'success') return;
+
+      const jpy = data.rates.JPY;   // USD/JPY
+      const brl = data.rates.BRL;   // USD/BRL → BRL/USD = brl
+      const brljpy = jpy / brl;     // BRL/JPY
+
+      // USD/JPY — quanto iene vale 1 dólar
+      setItem('tick-usdjpy', '💴', 'USD/JPY', fmt(jpy, 2), '', '');
+
+      // BRL/USD — quanto real vale 1 dólar
+      setItem('tick-brlusd', '💵', 'BRL/USD', fmt(brl, 2), '', '');
+
+      // BRL/JPY — quanto iene vale 1 real
+      setItem('tick-brljpy', '💴', 'BRL/JPY', fmt(brljpy, 2), '', '');
+
+      // Horário da atualização
+      const time = document.getElementById('tickerTime');
+      if (time) {
+        const now = new Date();
+        time.textContent = 'atualizado ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+      }
+    } catch (e) {
+      // API indisponível — mantém os traços, não quebra o site
+    }
+  }
+
+  fetchRates();
+  setInterval(fetchRates, 5 * 60 * 1000); // atualiza a cada 5 minutos
+}
+
 /* ── INIT ────────────────────────────────────────────────── */
 function init() {
   // PROMPT 2 — Garante conteúdo mesmo sem servidor (file://)
@@ -882,6 +933,7 @@ function init() {
   posts         = fonte;
   filteredPosts = [...posts];
 
+  initTicker();
   initCarousel();
   renderCards();
   initFiltros();
