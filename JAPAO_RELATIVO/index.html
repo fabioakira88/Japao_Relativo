@@ -1,17 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Japão Relativo — O Japão por Vários Ângulos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="description" content="Cultura, idioma, notícias e curiosidades — o Japão filtrado pelo olhar de quem vive e respira esse mundo fascinante.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+JP:wght@300;400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#" class="brand">
+        <img src="imagens/imagens layolt/logo.PNG" alt="Japão Relativo" class="brand-logo">
+        <span class="brand-name">
+          Japão Relativo
+          <span class="brand-tagline">O Japão por vários ângulos</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#cultura">Cultura</a></li>
+        <li><a href="#idioma">Idioma</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO CAROUSEL -->
+  <section class="hero" id="hero">
+    <div class="hero-slides" id="heroSlides"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay2"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Curadoria Especial</p>
+      <h1 class="hero-title">Descubra <em>O Japão</em></h1>
+      <p class="hero-desc">Cultura, idioma, notícias e curiosidades — o Japão filtrado pelo olhar de quem vive e respira esse mundo fascinante.</p>
+      <div class="hero-cta">
+        <a href="#noticias" class="btn-primary">
+          Explorar Matérias
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#sobre" class="btn-ghost">
+          Sobre o projeto
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <!-- GRID DE ARTIGOS -->
+  <section class="section" id="noticias">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Publicações Recentes</p>
+        <h2 class="section-title">ÚLTIMAS MATÉRIAS</h2>
+      </div>
+      <div class="filter-group" id="filterGroup">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+      </div>
+    </div>
+    <div class="card-grid" id="cardGrid"></div>
+    <div class="load-more-wrap">
+      <button class="btn-load" id="loadMoreBtn">
+        Carregar mais
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="section-header">
+      <div>
+        <p class="section-label">O Projeto</p>
+        <h2 class="section-title">SOBRE NÓS</h2>
+      </div>
+    </div>
+    <p style="font-size:17px;line-height:1.8;color:var(--color-text2);max-width:680px;">
+      O Japão Relativo é um portal de curadoria sobre o Japão contemporâneo — cultura, idioma, notícias e curiosidades do cotidiano japonês, filtrados pelo olhar de quem vive e respira esse mundo fascinante.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-brand">Japão Relativo</p>
+        <p class="footer-desc">O Japão por vários ângulos — cultura, idioma, notícias e curiosidades do cotidiano japonês.</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Categorias</p>
+        <ul class="footer-col">
+          <li><a href="#noticias">Cultura</a></li>
+          <li><a href="#noticias">Saúde</a></li>
+          <li><a href="#noticias">Idioma</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegação</p>
+        <ul class="footer-col">
+          <li><a href="#">Início</a></li>
+          <li><a href="#noticias">Matérias</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Japão Relativo. Todos os direitos reservados.</span>
+      <span>Feito com ♥ para os apaixonados pelo Japão</span>
+    </div>
+  </footer>
+
+  <!-- MODAL ALL-IN-ONE -->
+  <div class="modal" id="modal">
+    <div class="modal-inner">
+      <button class="modal-back" id="modalClose">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar ao portal
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="posts.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
