@@ -695,14 +695,37 @@ body.modal-aberto {
     white-space: nowrap;
   }
 
-  .hero-content { padding: 0 20px 56px; }
-  .hero-dots { right: 20px; }
+  /* Bug 1: Hero 100vh ocupa tela inteira no mobile */
+  .hero { height: 75vh; min-height: 440px; }
+  .hero-content { padding: 0 20px 48px; }
+  .hero-dots { right: 20px; bottom: 20px; }
+  .hero-title { font-size: clamp(44px, 11vw, 72px); }
+  .hero-desc { font-size: 15px; margin-bottom: 24px; }
+
+  /* Bug 2: Filter buttons overflow horizontal */
+  .filter-group {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .filter-group::-webkit-scrollbar { display: none; }
+  .filter-btn { flex-shrink: 0; white-space: nowrap; }
+
+  /* Resto dos ajustes */
   .section { padding: 36px 16px; }
   .card-grid { grid-template-columns: 1fr; gap: 12px; }
   .card-grid .card:first-child { grid-column: 1; }
   .footer-inner { grid-template-columns: 1fr; gap: 28px; }
-  .footer { padding: 36px 16px 28px; }
+  .footer { padding: 36px 16px 28px; margin-top: 40px; }
   .modal-inner { padding: 40px 16px 80px; }
-  .hero-title { font-size: clamp(44px, 11vw, 72px); }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .section-title { font-size: clamp(24px, 7vw, 36px); }
+
+  /* Bug 3: Ticker muito estreito em < 360px */
+  .ticker-bar { height: 30px; }
+  .ticker-inner { font-size: 10px; }
+  .ticker-val { font-size: 11px; }
 }
