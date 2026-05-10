@@ -796,11 +796,17 @@ function init() {
   initCarousel();
   renderCards();
   initFiltros();
-  initNavFilter();   // ← liga nav ao filtro do grid
+  initNavFilter();
   initLoadMore();
   initModal();
   initNavScroll();
   renderAnime();
+
+  // Estado inicial do nav: apenas "Todos/Notícias" ativo (independe do HTML)
+  document.querySelectorAll('#navLinks a[data-filter]').forEach(function(a) {
+    a.classList.toggle('nav-ativo', a.dataset.filter === 'all');
+  });
+
   checkHash();
 }
 
