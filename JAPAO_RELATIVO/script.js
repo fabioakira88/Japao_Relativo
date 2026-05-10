@@ -358,7 +358,7 @@ const DB = {
 <p>A inflação elevada no Japão criou um ambiente desafiador, onde os preços dos bens e serviços aumentaram, mas os salários não acompanharam essa tendência. Isso resulta em uma pressão crescente sobre as famílias, que precisam rever seus orçamentos para se ajustarem a esta nova realidade econômica.</p>`
   },
   "daiso-100shop-hyakoen-japan": {
-    title:"A história do Daiso: como o Japão transformou o "barato" em qualidade",
+    title:"A história do Daiso: como o Japão transformou o 'barato' em qualidade",
     tag:"Curiosidade",date:"11 de Janeiro de 2026",
     thumb:"https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070",
     content:`<p>A história do Daiso teve início em 1977, na cidade de Hiroshima, com a visão inovadora de Hirotake Yano, seu fundador.</p>
