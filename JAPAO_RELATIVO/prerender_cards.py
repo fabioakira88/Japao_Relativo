@@ -69,14 +69,22 @@ for i, slug in enumerate(slugs):
 static_cards = '\n    '.join(cards_html[:12])
 
 # ── Substitui o div vazio pelo conteúdo pré-renderizado ───────────────────
-old_grid = '<div class="news-grid" id="newsGrid"></div>'
+import re as _re
 new_grid = f'<div class="news-grid" id="newsGrid">\n    {static_cards}\n  </div>'
 
-if old_grid not in source:
-    print("ERRO: div newsGrid não encontrado no formato esperado")
+# Substitui tanto o vazio quanto o já preenchido
+start_marker = '<div class="news-grid" id="newsGrid">'
+end_marker = '<div class="load-more-wrap">'
+s_pos = source.find(start_marker)
+e_pos = source.find(end_marker)
+if s_pos == -1 or e_pos == -1:
+    print("ERRO: div newsGrid não encontrado")
     exit(1)
-
-new_source = source.replace(old_grid, new_grid, 1)
+# Fecha o newsGrid: pega o </div> imediatamente antes do end_marker
+chunk = source[s_pos:e_pos]
+last_close = chunk.rfind('</div>')
+old_block = source[s_pos:s_pos + last_close + len('</div>')]
+new_source = source[:s_pos] + new_grid + source[s_pos + last_close + len('</div>'):]
 print(f"Cards pré-renderizados: {len(cards_html[:12])}")
 
 # ── Salva ──────────────────────────────────────────────────────────────────

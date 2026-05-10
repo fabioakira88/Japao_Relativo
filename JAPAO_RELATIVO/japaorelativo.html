@@ -10,18 +10,18 @@
    CSS VARIABLES & RESET
    ============================================================ */
 :root {
-  --black: #060608;
-  --dark: #0e0e12;
-  --dark2: #16161c;
-  --panel: #1a1a22;
+  --black: #ffffff;
+  --dark: #f7f7f7;
+  --dark2: #f0f0f0;
+  --panel: #e8e8e8;
   --red: #cc2200;
   --red2: #e03010;
   --gold: #c8a84b;
-  --gold2: #e8c870;
-  --white: #f0ede8;
-  --muted: #7a7880;
-  --border: rgba(200,168,75,0.15);
-  --border2: rgba(255,255,255,0.06);
+  --gold2: #8a6f2a;
+  --white: #111111;
+  --muted: #666666;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.07);
   --hero-h: 100vh;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -45,15 +45,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   position:fixed;top:0;left:0;right:0;z-index:1000;
   display:flex;align-items:center;justify-content:space-between;
   padding:20px 48px;
-  background:rgba(6,6,8,0.4);
-  backdrop-filter:blur(4px);
-  transition:background 0.4s,padding 0.4s,backdrop-filter 0.4s;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.4s,padding 0.4s,box-shadow 0.3s;
 }
 .nav.scrolled {
-  background:rgba(6,6,8,0.92);
-  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.98);
   padding:14px 48px;
-  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 24px rgba(0,0,0,0.07);
 }
 .nav-logo {
   display:flex;align-items:center;gap:14px;
@@ -78,7 +78,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .nav-links a {
   font-size:11px;font-weight:500;letter-spacing:2px;
-  text-transform:uppercase;color:rgba(240,237,232,0.6);
+  text-transform:uppercase;color:rgba(0,0,0,0.55);
   transition:color 0.2s;
   position:relative;
 }
@@ -107,15 +107,29 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   display:flex;flex-direction:column;justify-content:flex-end;
   overflow:hidden;
 }
-.hero-bg {
+/* Carrossel hero */
+.hero-slides {
   position:absolute;inset:0;
-  background:url('imagens/imagens layolt/fuji.JPG') center/cover no-repeat;
-  transform:scale(1.05);
-  animation:heroPan 20s ease-in-out infinite alternate;
 }
-@keyframes heroPan {
-  from{transform:scale(1.05) translateX(0)}
-  to{transform:scale(1.05) translateX(-2%)}
+.hero-slide {
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.hero-slide.active { opacity:1; }
+/* Dots */
+.hero-dots-wrap {
+  position:absolute;bottom:36px;left:80px;z-index:10;
+  display:flex;gap:10px;align-items:center;
+}
+.hero-dot {
+  width:8px;height:8px;border-radius:4px;
+  border:none;background:rgba(255,255,255,0.4);
+  cursor:pointer;transition:all 0.35s;padding:0;
+}
+.hero-dot.active {
+  width:28px;background:var(--gold);
 }
 .hero-overlay {
   position:absolute;inset:0;
@@ -328,9 +342,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .card:first-child .card-img{height:100%;min-height:480px}
 .card:hover .card-img{transform:scale(1.06)}
 .card-body {
-  position:absolute;bottom:0;left:0;right:0;
-  padding:24px 24px 20px;
-  background:linear-gradient(transparent, rgba(6,6,8,0.97) 70%);
+  position:static;
+  padding:14px 16px 18px;
+  background:#fff;
+  border-top:2px solid var(--border);
 }
 .card-tag {
   display:inline-block;
@@ -340,24 +355,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .card-title {
   font-family:'Noto Serif JP',serif;
-  font-size:15px;line-height:1.45;color:var(--white);
+  font-size:14px;line-height:1.5;color:#111;
   font-weight:700;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
-.card:first-child .card-title{font-size:22px}
+.card:first-child .card-title{font-size:18px}
 .card-date {
-  font-size:10px;color:var(--muted);letter-spacing:1px;
+  font-size:10px;color:#888;letter-spacing:1px;
 }
-.card-arrow {
-  position:absolute;top:20px;right:20px;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(6,6,8,0.7);backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold);
-  transform:translateY(-8px);opacity:0;
-  transition:all 0.3s;
-}
-.card:hover .card-arrow{transform:translateY(0);opacity:1}
+.card-arrow { display:none; }
 
 /* ============================================================
    BANNER SECTION (cinematic dark band)
@@ -631,7 +637,7 @@ body.reading-mode .nav {
    ============================================================ */
 .card-excerpt {
   font-size:12px;
-  color:rgba(240,237,232,0.55);
+  color:#555;
   line-height:1.5;
   margin-bottom:8px;
   display:-webkit-box;
@@ -690,7 +696,7 @@ body.reading-mode .nav {
 <!-- ======================== NAV ======================== -->
 <nav class="nav" id="nav">
   <div class="nav-logo">
-    <img src="imagens/imagens layolt/logo-japaorelativo.PNG" alt="JR Logo" class="nav-logo-img">
+    <img src="https://japaorelativo.com/wp-content/uploads/2026/05/jr-logo.jpeg" alt="JR Logo" class="nav-logo-img" style="width:50px;height:50px;border-radius:50%;object-fit:cover;">
     <div class="nav-logo-text">
       Japão Relativo
       <span>O Japão por vários ângulos</span>
@@ -710,18 +716,16 @@ body.reading-mode .nav {
 </nav>
 
 <!-- ======================== HERO ======================== -->
-<section class="hero">
-  <div class="hero-bg"></div>
+<section class="hero" id="heroSection">
+  <!-- Carrossel de 4 imagens -->
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1920&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1920&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=1920&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1920&q=80')"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay2"></div>
-
-  <div class="hero-numbers">
-    <div class="hero-num">01</div>
-    <div class="hero-num">02</div>
-    <div class="hero-num active">03 <span class="hero-num-line"></span></div>
-    <div class="hero-num">04</div>
-    <div class="hero-num">05</div>
-  </div>
 
   <div class="hero-content">
     <div class="hero-eyebrow">Curadoria Especial</div>
@@ -740,6 +744,14 @@ body.reading-mode .nav {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
+  </div>
+
+  <!-- Dots do carrossel -->
+  <div class="hero-dots-wrap" id="heroDots">
+    <button class="hero-dot active" data-idx="0"></button>
+    <button class="hero-dot" data-idx="1"></button>
+    <button class="hero-dot" data-idx="2"></button>
+    <button class="hero-dot" data-idx="3"></button>
   </div>
 
   <div class="hero-scroll">
@@ -1723,11 +1735,30 @@ function checkHash() {
   if (id && DB[id]) openPost(id);
 }
 
+function initHeroCarousel() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots   = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+  var cur = 0;
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() { goTo(+d.dataset.idx); });
+  });
+  setInterval(function() { goTo(cur + 1); }, 5000);
+}
+
 function init() {
   buildStrip();
   buildMainGrid(filteredPosts);
   buildMoreGrid();
   buildFooterRecent();
+  initHeroCarousel();
   checkHash();
 }
 if (document.readyState === 'loading') {
