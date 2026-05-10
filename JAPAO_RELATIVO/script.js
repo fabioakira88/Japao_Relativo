@@ -574,7 +574,9 @@ function criarCard(post) {
   a.dataset.id  = post.id;
   a.dataset.tag = post.tag;
   a.innerHTML = `
-    <div class="card-img" style="background-image:url('${post.thumb}')"></div>
+    <div class="card-img-wrap">
+      <div class="card-img" style="background-image:url('${post.thumb}')"></div>
+    </div>
     <div class="card-body">
       <div class="card-tag">${post.tag}</div>
       <div class="card-title">${post.title}</div>
