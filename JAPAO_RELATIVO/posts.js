@@ -58,7 +58,7 @@ const DB = {
     title:"Guia completo: como assistir ao Aoi Matsuri em Kyoto em 2026",
     tag:"Cultura",
     date:"10 de Maio de 2026",
-    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/IMG_2299.jpg",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/festival.png",
     content:`
 <p>O <strong>Aoi Matsuri</strong> é um dos três grandes festivais de Kyoto — e o mais antigo dos três. Acontece todo ano em <strong>15 de maio</strong>, com uma procissão de mais de 500 pessoas em trajes da era Heian percorrendo os 8 km entre o Palácio Imperial e os Santuários Kamo. Se você está no Japão em maio de 2026, este é um evento que não se perde.</p>
 
@@ -93,7 +93,7 @@ const DB = {
   "aoi-matsuri-kyoto-festival-heian-2026": {
     title:"Aoi Matsuri: a procissão imperial que atravessa 1.500 anos em Kyoto",
     tag:"Cultura",date:"15 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/festival.png",
     content:`<p>Em 15 de maio de cada ano, mais de 500 pessoas vestidas com trajes da era Heian percorrem as ruas de Kyoto numa procissão silenciosa e solene. O <strong>Aoi Matsuri</strong> (葵祭) — Festival do Aoi — é considerado um dos três grandes festivais de Kyoto e um dos mais antigos do Japão. Sua origem remonta ao século VI.</p>
 <h2>Origens no Século VI: Uma Catástrofe que Criou uma Tradição</h2>
 <p>A história do Aoi Matsuri começa com uma catástrofe. Durante o reinado do Imperador Kinmei (538–571), o Japão foi atingido por fortes tempestades e epidemias que destruíram as colheitas e causaram grande sofrimento. Um oráculo indicou que o mal decorria da fúria dos deuses Kamo — os deuses protetores de Kyoto.</p>
@@ -358,7 +358,7 @@ const DB = {
   "kurai-incerteza-e-modestia": {
     title:"くらい（kurai), incerteza e modéstia",
     tag:"Idioma",date:"17 de Fevereiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/kurai-card.png",
     content:`<p>Como o Japão usa a linguagem e os gestos para evitar arrogância.</p>
 <p>A palavra 暗い（kurai）significa literalmente <strong>escuro, sombrio ou pouco claro</strong>. No uso cotidiano e no campo simbólico, ela se conecta à ideia de algo não totalmente definido, não absoluto, não afirmado com certeza total.</p>
 <h2>A incerteza como virtude social</h2>
@@ -382,7 +382,7 @@ const DB = {
   "treze-japoneses-foram-presos-apos-retornar-do-camboja": {
     title:"Treze japoneses foram presos após retornar do Camboja",
     tag:"Notícia",date:"17 de Janeiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/japones-presos.png",
     content:`<p>A polícia japonesa prendeu 13 cidadãos japoneses que retornaram recentemente do Camboja, sob suspeita de envolvimento em esquemas de fraude telefônica.</p>
 <h2>O Esquema de Fraude</h2>
 <p>Os detidos têm idades entre 20 e 63 anos e teriam participado de golpes contra moradores do Japão, incluindo uma mulher de aproximadamente 60 anos, residente na província de Kanagawa. Os suspeitos teriam extorquido mais de 11 milhões de ienes (cerca de US$ 69 mil).</p>
@@ -392,7 +392,7 @@ const DB = {
   "yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes": {
     title:"Yamato Proíbe Uso de Smartphones por Pedestres para Evitar Acidentes",
     tag:"Cultura",date:"17 de Janeiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=2070",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/smartphone-proibicao.png",
     content:`<p>Usar o celular andando na rua já está sendo proibido em algumas cidades do Japão.</p>
 <h2>A Nova Lei de Yamato</h2>
 <p>A cidade de Yamato implementou uma nova lei que proíbe os pedestres de utilizarem smartphones enquanto caminham. Essa medida visa prevenir lesões causadas por distrações, uma preocupação crescente nas áreas urbanas. A decisão teve respaldo de mais de 240 mil habitantes.</p>
