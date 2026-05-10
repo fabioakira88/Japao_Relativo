@@ -436,12 +436,22 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .modal {
   display: none;
   position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;   /* inset fallback para iOS <15 */
   inset: 0;
   z-index: 99999;
   background: #f4f1ec;
-  overflow-y: auto;
+  overflow-y: scroll;                        /* scroll em vez de auto */
+  -webkit-overflow-scrolling: touch;         /* iOS Safari momentum scroll */
 }
-.modal.open { display: block; }
+.modal.open {
+  display: block;
+}
+/* iOS Safari: bloqueia scroll do body sem position:fixed */
+body.modal-aberto {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
 .modal-inner {
   max-width: 780px;
   margin: 0 auto;

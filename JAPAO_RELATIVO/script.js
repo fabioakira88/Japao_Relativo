@@ -277,7 +277,7 @@ const DB = {
   "kurai-incerteza-e-modestia": {
     title:"くらい（kurai), incerteza e modéstia",
     tag:"Idioma",date:"17 de Fevereiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/kurai.jpg",
     content:`<p>Como o Japão usa a linguagem e os gestos para evitar arrogância.</p>
 <p>A palavra 暗い（kurai）significa literalmente <strong>escuro, sombrio ou pouco claro</strong>. No uso cotidiano e no campo simbólico, ela se conecta à ideia de algo não totalmente definido, não absoluto, não afirmado com certeza total.</p>
 <h2>A incerteza como virtude social</h2>
@@ -716,10 +716,12 @@ function abrirModal(id) {
     </div>
     <div class="modal-body">${post.content}</div>`;
 
+  // Salva posição do scroll antes de fixar (iOS Safari)
+  const scrollY = window.scrollY;
+  document.body.style.top = `-${scrollY}px`;
+  document.body.classList.add('modal-aberto');
   modal.classList.add('open');
-  modal.scrollTo(0, 0);
-  window.scrollTo(0, 0);
-  document.body.style.overflow = 'hidden';
+  modal.scrollTop = 0;
   history.pushState({ id }, '', '#' + id);
 }
 
@@ -727,7 +729,11 @@ function fecharModal() {
   const modal = document.getElementById('modal');
   if (!modal) return;
   modal.classList.remove('open');
-  document.body.style.overflow = '';
+  // Restaura scroll position (iOS Safari)
+  const scrollY = parseInt(document.body.style.top || '0', 10);
+  document.body.classList.remove('modal-aberto');
+  document.body.style.top = '';
+  window.scrollTo(0, -scrollY);
   history.pushState(null, '', location.pathname);
 }
 
