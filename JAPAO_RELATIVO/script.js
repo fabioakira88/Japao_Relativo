@@ -5,14 +5,83 @@
    ============================================================ */
 
 /* ── CONFIGURAÇÃO ────────────────────────────────────────── */
+
+// PROMPT 1 — Slides do carousel hero (imagens Japan de alta qualidade)
 const SLIDES = [
-  'wallpaper jr/IMG_2288.JPG',
-  'wallpaper jr/IMG_2289.JPG',
-  'wallpaper jr/IMG_2290.JPG',
-  'wallpaper jr/IMG_2291.jpg',
+  {
+    src:  'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1920&q=80',
+    label:'Festival Aoi Matsuri, Kyoto'
+  },
+  {
+    src:  'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1920&q=80',
+    label:'Rua tradicional japonesa'
+  },
+  {
+    src:  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=1920&q=80',
+    label:'Tokyo à noite'
+  },
 ];
+
 const CARDS_POR_PAGINA = 12;
 const ARROW = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+
+// PROMPT 2 — Cards placeholder (usados se posts.js não carregar)
+const CARDS_PLACEHOLDER = [
+  {
+    id:      'top-animes-temporada',
+    tag:     'Anime',
+    title:   'Top 5 Animes da Temporada de Verão',
+    excerpt: 'Da ação ao slice-of-life, a temporada de verão trouxe lançamentos imperdíveis. Confira os cinco títulos que estão dominando as listas.',
+    date:    '10 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1542051812871-7575058e4e28?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+  {
+    id:      'cultura-matsuri',
+    tag:     'Cultura',
+    title:   'Matsuri: os Festivais que Definem o Japão',
+    excerpt: 'Cada região do Japão tem seu próprio matsuri. Descubra os mais importantes e o que eles significam para os japoneses.',
+    date:    '09 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+  {
+    id:      'japones-cotidiano',
+    tag:     'Idioma',
+    title:   'As 10 Frases em Japonês que Você Precisa Saber',
+    excerpt: 'Expressões do dia a dia que vão além do "arigatou". Aprenda como os japoneses realmente se comunicam em situações comuns.',
+    date:    '08 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1480796927426-f609979314bd?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+  {
+    id:      'saude-japonesa',
+    tag:     'Saúde',
+    title:   'Por Que os Japoneses Vivem Mais? A Ciência Explica',
+    excerpt: 'Dieta, movimento e ikigai. Um olhar científico sobre os hábitos que colocam o Japão no topo da longevidade mundial.',
+    date:    '07 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+  {
+    id:      'tokyo-bairros',
+    tag:     'Cultura',
+    title:   'Os 7 Bairros de Tokyo que Todo Viajante Deve Conhecer',
+    excerpt: 'De Shibuya a Yanaka, cada bairro de Tokyo conta uma história diferente. Qual combina com o seu estilo de viagem?',
+    date:    '06 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+  {
+    id:      'manga-origens',
+    tag:     'Anime',
+    title:   'Manga: Da Folha de Papel ao Fenômeno Global',
+    excerpt: 'A história do mangá desde os ukiyo-e do século XVIII até os best-sellers digitais de hoje. Uma jornada pelo traço japonês.',
+    date:    '05 de Maio de 2026',
+    thumb:   'https://images.unsplash.com/photo-1542051812871-7575058e4e28?w=800&q=80',
+    content: '<p>Conteúdo em breve.</p>',
+  },
+];
 
 /* ── ESTADO ──────────────────────────────────────────────── */
 let posts        = [];
@@ -20,19 +89,22 @@ let filteredPosts = [];
 let visibleCount = CARDS_POR_PAGINA;
 let currentFilter = 'all';
 
-/* ── HERO CAROUSEL ───────────────────────────────────────── */
+/* ── HERO CAROUSEL (Prompt 1) ────────────────────────────── */
 function initCarousel() {
   const slidesEl = document.getElementById('heroSlides');
   const dotsEl   = document.getElementById('heroDots');
   if (!slidesEl || !SLIDES.length) return;
 
-  SLIDES.forEach((src, i) => {
+  // Cria os slides com imagem e label acessível
+  SLIDES.forEach((slide, i) => {
     const s = document.createElement('div');
     s.className = 'hero-slide' + (i === 0 ? ' active' : '');
-    s.style.backgroundImage = `url('${src}')`;
+    s.style.backgroundImage = `url('${slide.src}')`;
+    s.setAttribute('aria-label', slide.label);
     slidesEl.appendChild(s);
   });
 
+  // Cria os dots de navegação
   SLIDES.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'hero-dot' + (i === 0 ? ' active' : '');
@@ -53,6 +125,7 @@ function initCarousel() {
     dotEls[cur].classList.add('active');
   }
 
+  // Fade automático a cada 5 segundos
   setInterval(() => goTo(cur + 1), 5000);
 }
 
@@ -281,7 +354,13 @@ window.filtrarAnime = function() {
 
 /* ── INIT ────────────────────────────────────────────────── */
 function init() {
-  posts         = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
+  // PROMPT 2 — Garante conteúdo mesmo sem servidor (file://)
+  // Usa DB do posts.js se disponível, senão usa os cards placeholder
+  const fonte = (typeof DB !== 'undefined' && Object.keys(DB).length > 0)
+    ? Object.entries(DB).map(([id, data]) => ({ id, ...data }))
+    : CARDS_PLACEHOLDER;
+
+  posts         = fonte;
   filteredPosts = [...posts];
 
   initCarousel();
