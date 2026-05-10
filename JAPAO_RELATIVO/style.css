@@ -650,17 +650,18 @@ body.modal-aberto {
     max-width: 100%;
   }
 
-  /* Logo mobile: compacta, header slim */
+  /* Logo mobile: preenche a altura do header, sem padding excessivo */
   .brand {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 6px 0;
+    padding: 0;
     width: 100%;
+    height: 64px;
   }
   .brand-logo {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
     display: block;
     border-radius: 50%;
