@@ -22,12 +22,12 @@
           <span class="brand-tagline">O Japão por vários ângulos</span>
         </span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#noticias">Notícias</a></li>
-        <li><a href="#cultura">Cultura</a></li>
-        <li><a href="#anime" class="nav-link-anime">Anime</a></li>
-        <li><a href="#idioma">Idioma</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#noticias" data-filter="all"     class="nav-ativo">Notícias</a></li>
+        <li><a href="#noticias" data-filter="Cultura"          >Cultura</a></li>
+        <li><a href="#noticias" data-filter="Anime"   class="nav-link-anime">Anime</a></li>
+        <li><a href="#noticias" data-filter="Idioma"           >Idioma</a></li>
+        <li><a href="#sobre"                                   >Sobre</a></li>
       </ul>
     </nav>
   </header>
@@ -55,12 +55,16 @@
     <div class="hero-dots" id="heroDots"></div>
   </section>
 
+  <!-- âncoras de seção para links do nav -->
+  <div id="cultura" style="scroll-margin-top:80px"></div>
+  <div id="idioma"  style="scroll-margin-top:80px"></div>
+
   <!-- GRID DE ARTIGOS -->
   <section class="section" id="noticias">
     <div class="section-header">
       <div>
         <p class="section-label">Publicações Recentes</p>
-        <h2 class="section-title">ÚLTIMAS MATÉRIAS</h2>
+        <h2 class="section-title">ÚLTIMAS MATÉRIAS <span id="filtroAtivo"></span></h2>
       </div>
       <div class="filter-group" id="filterGroup">
         <button class="filter-btn active" data-filter="all">Todos</button>

@@ -82,12 +82,25 @@ function criarCard(post) {
   return a;
 }
 
+/* ── RENDERIZAÇÃO ────────────────────────────────────────── */
 function renderCards() {
   const grid = document.getElementById('cardGrid');
   if (!grid) return;
+
   grid.innerHTML = '';
-  filteredPosts.slice(0, visibleCount).forEach(p => grid.appendChild(criarCard(p)));
+
+  const slice = filteredPosts.slice(0, visibleCount);
+  slice.forEach((p, i) => {
+    const card = criarCard(p);
+    // Primeiro card do resultado ocupa 2 colunas (destaque editorial)
+    if (i === 0) card.classList.add('card-featured');
+    // Atraso escalonado para entrada suave
+    card.style.animationDelay = `${i * 0.04}s`;
+    grid.appendChild(card);
+  });
+
   atualizarLoadMore();
+  atualizarTituloFiltro();
 }
 
 function atualizarLoadMore() {
@@ -96,11 +109,42 @@ function atualizarLoadMore() {
   btn.style.display = visibleCount >= filteredPosts.length ? 'none' : 'inline-flex';
 }
 
-/* ── FILTROS ─────────────────────────────────────────────── */
+function atualizarTituloFiltro() {
+  const label = document.getElementById('filtroAtivo');
+  if (!label) return;
+  if (currentFilter === 'all') {
+    label.textContent = '';
+  } else {
+    label.innerHTML = `<span class="filter-badge">${currentFilter}</span>`;
+  }
+}
+
+/* ── APLICAR FILTRO (usado por nav E pelos botões de filtro) ─ */
+function aplicarFiltro(categoria) {
+  currentFilter = categoria || 'all';
+  filteredPosts = currentFilter === 'all'
+    ? [...posts]
+    : posts.filter(p => p.tag && p.tag.toLowerCase() === currentFilter.toLowerCase());
+  visibleCount = CARDS_POR_PAGINA;
+  renderCards();
+
+  // Sincroniza botões internos de filtro
+  document.querySelectorAll('#filterGroup .filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === currentFilter || (currentFilter === 'all' && b.dataset.filter === 'all'));
+  });
+
+  // Sincroniza links do nav
+  document.querySelectorAll('#navLinks a[data-filter]').forEach(a => {
+    a.classList.toggle('nav-ativo', a.dataset.filter === currentFilter);
+  });
+}
+
+/* ── FILTROS (botões internos da seção) ──────────────────── */
 function initFiltros() {
   const group = document.getElementById('filterGroup');
   if (!group) return;
 
+  // Gera botões automaticamente a partir das categorias do DB
   const categorias = [...new Set(posts.map(p => p.tag))].sort();
   categorias.forEach(cat => {
     const btn = document.createElement('button');
@@ -113,13 +157,31 @@ function initFiltros() {
   group.addEventListener('click', e => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
-    group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter || 'all';
-    filteredPosts = currentFilter === 'all' ? [...posts] : posts.filter(p => p.tag === currentFilter);
-    visibleCount = CARDS_POR_PAGINA;
-    renderCards();
+    aplicarFiltro(btn.dataset.filter);
   });
+}
+
+/* ── FILTRO VIA NAV ──────────────────────────────────────── */
+function initNavFilter() {
+  document.querySelectorAll('#navLinks a[data-filter]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      aplicarFiltro(link.dataset.filter);
+      // Scroll suave até a seção de artigos
+      const secao = document.getElementById('noticias');
+      if (secao) secao.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Logo reseta o filtro (volta para "Todos")
+  const brand = document.querySelector('.brand');
+  if (brand) {
+    brand.addEventListener('click', e => {
+      e.preventDefault();
+      aplicarFiltro('all');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }
 
 /* ── LOAD MORE ───────────────────────────────────────────── */
@@ -225,6 +287,7 @@ function init() {
   initCarousel();
   renderCards();
   initFiltros();
+  initNavFilter();   // ← liga nav ao filtro do grid
   initLoadMore();
   initModal();
   initNavScroll();

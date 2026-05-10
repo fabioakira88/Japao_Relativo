@@ -122,12 +122,31 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .nav-links a:hover { color: var(--color-primary); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
-/* Link Anime — destaque vermelho */
-.nav-link-anime {
-  color: var(--color-primary) !important;
-  font-weight: 700;
+/* Estado ativo do filtro de navegação */
+.nav-links a.nav-ativo {
+  color: var(--color-primary);
 }
+.nav-links a.nav-ativo::after {
+  transform: scaleX(1);
+}
+
+/* Link Anime — sempre em vermelho */
+.nav-link-anime { color: var(--color-primary) !important; font-weight: 700; }
 .nav-link-anime::after { background: var(--color-primary) !important; }
+
+/* Badge do filtro ativo na barra de filtros */
+.filter-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-radius: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 
 /* ── HERO CAROUSEL ───────────────────────────────────────── */
 .hero {
@@ -321,10 +340,16 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
 }
-/* Primeiro card ocupa 2 colunas (destaque) */
-.card-grid .card:first-child {
+/* Primeiro card resultante do filtro recebe esta classe via JS */
+.card-featured {
   grid-column: span 2;
 }
+/* Transição suave ao renderizar/filtrar */
+@keyframes cardFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -332,6 +357,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  animation: cardFade 0.35s ease both;
 }
 .card:hover .card-img { transform: scale(1.04); }
 .card-img {
