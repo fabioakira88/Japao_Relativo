@@ -6,7 +6,7 @@ const DB = {
     title:"Mães solteiras estrangeiras e as empreiteiras do Japão: a barreira que ninguém fala",
     tag:"Notícia",
     date:"10 de Maio de 2026",
-    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/img-2302.png",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/maesolteira.png",
     content:`<p>O Japão é um dos principais destinos de trabalhadores estrangeiros que buscam estabilidade financeira. A rota mais comum passa pelas <strong>empreiteiras</strong> — empresas terceirizadas que recrutam, contratam e alocam trabalhadores em fábricas de montagem, alimentação e logística. Para muitos, é a porta de entrada. Para mães solteiras estrangeiras, essa porta frequentemente está fechada.</p>
 
 <h2>Como funciona o sistema de empreiteiras no Japão</h2>
