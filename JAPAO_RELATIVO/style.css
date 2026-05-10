@@ -636,37 +636,51 @@ body.modal-aberto {
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  /* Nav mobile: hamburguer oculta links, logo fica sozinha */
+  /* ── NAV MOBILE: logo 150×150, texto removido, menu abaixo ── */
   .nav {
-    padding: 0 16px;
+    padding: 0;
     height: auto;
-    min-height: 64px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0;
   }
-  .brand { flex: 1; min-width: 0; }
-  .brand-logo { height: 44px; }
-  .brand-name { font-size: 15px; }
-  .brand-tagline { display: none; }
 
-  /* Links em linha abaixo da logo */
-  .nav-links {
-    order: 3;
+  /* Linha 1: só logo, 150×150, canto superior esquerdo */
+  .brand {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
     width: 100%;
-    flex-wrap: wrap;
+  }
+  .brand-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  /* Remove todo o texto do cabeçalho mobile */
+  .brand-name,
+  .brand-tagline { display: none !important; }
+
+  /* Linha 2: links do menu em scroll horizontal */
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 0;
-    padding: 6px 0 10px;
+    padding: 0 8px 10px;
     border-top: 1px solid var(--color-border);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    list-style: none;
   }
   .nav-links::-webkit-scrollbar { display: none; }
   .nav-links li { flex-shrink: 0; }
   .nav-links a {
     display: block;
-    padding: 6px 12px;
-    font-size: 10px;
+    padding: 10px 14px;
+    font-size: 11px;
     letter-spacing: 1.5px;
     white-space: nowrap;
   }
