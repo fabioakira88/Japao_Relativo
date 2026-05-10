@@ -9,6 +9,27 @@
 // Para adicionar um artigo: copie o bloco e ajuste os campos
 
 const DB = {
+  "maes-estrangeiras-divorciadas-mercado-trabalho": {
+    title:"Mães estrangeiras divorciadas enfrentam barreira silenciosa no mercado de trabalho",
+    tag:"Notícia",
+    date:"10 de Maio de 2026",
+    thumb:"https://japaorelativo.com/wp-content/uploads/2026/05/img-2302.png",
+    content:`<p>Chegar a um país novo já é desafiador. Quando o casamento se desfaz, a realidade se torna ainda mais dura para as mulheres estrangeiras que ficam sozinhas com filhos e sem uma rede de apoio consolidada. Além das dificuldades emocionais e burocráticas do divórcio, elas enfrentam uma barreira que poucos falam abertamente: o preconceito velado no mercado de trabalho.</p>
+<p>Relatos de mulheres imigrantes em diferentes regiões do país apontam um padrão preocupante. Candidatas qualificadas, com experiência profissional e documentação em ordem, são preteridas em processos seletivos quando informam que são mães solteiras ou divorciadas. O motivo, muitas vezes não declarado pelos empregadores, é o receio de responsabilidades trabalhistas — licença-maternidade, faltas por doença dos filhos, horários inflexíveis e eventuais processos judiciais.</p>
+<h2>Uma discriminação que não aparece no currículo</h2>
+<p>O problema é especialmente grave no setor da construção civil e em empresas de médio porte, onde a informalidade ainda é alta e as decisões de contratação dependem, muitas vezes, de critérios subjetivos. Gestores relatam, em conversas reservadas, que "preferem não se complicar" com perfis que entendem como de "alto risco". Mães solo estrangeiras acabam enquadradas nessa categoria de forma automática.</p>
+<p>Para essas mulheres, a combinação de ser imigrante, divorciada e mãe funciona como um triplo filtro de exclusão. Cada um desses fatores, isoladamente, já pode gerar discriminação. Juntos, eles constroem um muro quase invisível — mas muito real.</p>
+<h2>O que diz a lei</h2>
+<p>No Brasil, a legislação trabalhista proíbe qualquer forma de discriminação no processo de contratação por motivo de sexo, estado civil, situação familiar ou origem. A prática de recusar candidatas por serem mães ou divorciadas configura discriminação e pode ser enquadrada como ato ilícito, sujeito a indenizações. No entanto, a dificuldade de comprovar esse tipo de discriminação — já que raramente há registros formais da recusa — faz com que pouquíssimos casos cheguem à Justiça.</p>
+<p>Organizações de apoio a imigrantes alertam que muitas dessas mulheres sequer sabem que têm direitos garantidos por lei, o que as torna ainda mais vulneráveis.</p>
+<h2>O impacto na vida real</h2>
+<p>Sem renda, sem família próxima e muitas vezes sem domínio pleno do idioma, essas mães entram em um ciclo difícil de romper. A dependência de programas sociais, o endividamento e o isolamento social são consequências diretas da exclusão do mercado de trabalho. Filhos crescendo em condições de instabilidade financeira ampliam o impacto dessa discriminação para a próxima geração.</p>
+<blockquote><em>"Eu tenho formação, tenho experiência, falo três idiomas. Mas quando mencionam que sou divorciada e tenho dois filhos, a entrevista termina ali."</em></blockquote>
+<p>Assim relata uma engenheira de origem latino-americana, residente no Brasil há seis anos, que pediu para não ser identificada.</p>
+<h2>O que precisa mudar</h2>
+<p>Especialistas em direito do trabalho e organizações de defesa dos direitos das mulheres defendem medidas concretas: maior fiscalização nos processos seletivos, campanhas de conscientização junto a empregadores, e canais acessíveis de denúncia para mulheres imigrantes. Empresas que adotam políticas de diversidade e inclusão reais — não apenas simbólicas — têm mostrado que a contratação de mães solo, independentemente da origem, traz ganhos em comprometimento, resiliência e produtividade.</p>
+<p>Enquanto isso não se torna regra, mulheres como ela continuam batendo em portas fechadas — não por falta de competência, mas por carregar uma história que o mercado ainda não aprendeu a respeitar.</p>`
+  },
   "kimetsu-no-yaiba-filme-infinity-castle": {
     title:"Kimetsu no Yaiba: Infinity Castle — tudo sobre o filme mais aguardado do anime",
     tag:"Anime",
