@@ -873,6 +873,17 @@ function initNavScroll() {
     header.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 }
+// Localize ou adicione este trecho no seu script.js
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  
+  if (window.scrollY > 50) { // Se descer mais de 50px
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
 
 /* ── HASH INICIAL ────────────────────────────────────────── */
 function checkHash() {

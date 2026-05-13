@@ -22,7 +22,7 @@
   --muted: #666666;
   --border: rgba(0,0,0,0.1);
   --border2: rgba(0,0,0,0.07);
-  --hero-h: 100vh;
+  --hero-h: calc(100vh - 200px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -37,35 +37,30 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--dark)}
 ::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px}
-
 /* ============================================================
    NAVIGATION
    ============================================================ */
 .nav {
-  position:sticky;top:0;z-index:1000;
+  position:relative;
   display:flex;align-items:center;justify-content:space-between;
-  padding:20px 48px;
+  padding:10px 48px;
   background:rgba(255,255,255,0.9);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
   transition:background 0.4s,padding 0.4s,box-shadow 0.3s;
 }
-.nav.scrolled {
-  background:rgba(255,255,255,0.98);
-  padding:14px 48px;
-  box-shadow:0 2px 24px rgba(0,0,0,0.07);
-}
+
 .nav-logo {
-  display:flex;align-items:center;gap:14px;
+  display:flex;align-items:center;gap:6px;
 }
 .nav-logo-img {
-  width:44px;height:44px;border-radius:50%;
-  object-fit:cover;
-  filter:drop-shadow(0 0 12px rgba(200,168,75,0.4));
+  width:150px;height:150px;
+  object-fit:contain;border-radius:8px;
+  filter:drop-shadow(0 0 12px rgba(200,168,75,0.35));
 }
 .nav-logo-text {
   font-family:'Cormorant Garamond',serif;
-  font-size:18px;font-weight:600;letter-spacing:1px;
+  font-size:50px;font-weight:600;letter-spacing:1px;
   color:var(--gold);
   line-height:1.1;
 }
@@ -88,16 +83,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   transform:scaleX(0);transform-origin:left;
   transition:transform 0.3s;
 }
-.nav-links a:hover{color:var(--white)}
-.nav-links a:hover::after{transform:scaleX(1)}
-.nav-search {
-  width:36px;height:36px;border-radius:50%;
-  border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--muted);transition:all 0.2s;
-  cursor:pointer;
-}
-.nav-search:hover{border-color:var(--gold);color:var(--gold)}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
 
 /* ============================================================
    HERO
@@ -163,8 +150,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(72px, 10vw, 140px);
   line-height:0.92;letter-spacing:2px;
-  color:var(--white);
-  text-shadow:0 4px 60px rgba(0,0,0,0.5);
+  color:#fff;
+  text-shadow:0 2px 16px rgba(0,0,0,0.45);
   margin-bottom:24px;
 }
 .hero-title em {
@@ -333,6 +320,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   cursor:pointer;
   display:block;
   text-decoration:none;color:inherit;
+  margin: 10px;
 }
 .card-img {
   width:100%;height:240px;object-fit:cover;
@@ -341,6 +329,19 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .card:first-child .card-img{height:100%;min-height:480px}
 .card:hover .card-img{transform:scale(1.06)}
+/* Featured card: body overlays image at bottom */
+.card:first-child .card-body {
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:32px 20px 20px;
+  background:linear-gradient(transparent, rgba(0,0,0,0.88) 40%);
+  border-top:none;
+  z-index:1;
+}
+.card:first-child .card-tag { color:var(--gold); }
+.card:first-child .card-title { color:#fff; }
+.card:first-child .card-excerpt { color:rgba(255,255,255,0.8); }
+.card:first-child .card-date { color:rgba(255,255,255,0.5); }
 .card-body {
   position:static;
   padding:14px 16px 18px;
@@ -364,58 +365,6 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-size:10px;color:#888;letter-spacing:1px;
 }
 .card-arrow { display:none; }
-
-/* ============================================================
-   BANNER SECTION (cinematic dark band)
-   ============================================================ */
-.banner {
-  position:relative;overflow:hidden;
-  height:380px;display:flex;align-items:center;
-  margin:2px 0;
-}
-.banner-bg {
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2094') center/cover;
-  filter:brightness(0.3) saturate(0.5);
-}
-.banner-content {
-  position:relative;z-index:2;
-  padding:0 80px;
-}
-.banner-title {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(54px, 8vw, 100px);
-  line-height:0.9;color:var(--white);
-  letter-spacing:3px;
-  text-shadow:0 0 80px rgba(200,168,75,0.3);
-}
-.banner-title em {
-  font-style:normal;
-  -webkit-text-stroke:1px var(--gold);
-  color:transparent;
-}
-.banner-sub {
-  font-family:'Cormorant Garamond',serif;
-  font-size:18px;font-style:italic;font-weight:300;
-  color:rgba(240,237,232,0.6);
-  margin-top:16px;
-  max-width:460px;
-  line-height:1.6;
-}
-.banner-cta {
-  margin-top:32px;
-  display:flex;align-items:center;gap:16px;
-}
-/* Play button */
-.play-btn {
-  width:52px;height:52px;border-radius:50%;
-  border:1px solid rgba(200,168,75,0.5);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gold);
-  transition:all 0.3s;
-}
-.play-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
-.play-label{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,232,0.6)}
 
 /* ============================================================
    MORE ARTICLES GRID (below banner)
@@ -446,50 +395,111 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    FOOTER
    ============================================================ */
 .footer {
-  background:var(--dark);
-  border-top:1px solid var(--border);
-  padding:60px 80px 32px;
+  position:relative;
+  background:url('Imagens JR/Wallpaper JR/flat-landscape.png') center/cover no-repeat;
+  overflow:hidden;
 }
+.footer::before {
+  content:'';position:absolute;inset:0;
+  background:rgba(4,6,10,0.86);
+}
+.footer > * { position:relative;z-index:1; }
+
+/* Footer body — 3 colunas iguais */
 .footer-top {
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  gap:40px;padding-bottom:48px;
-  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:42px 80px 34px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
-.footer-brand{}
-.footer-logo {
-  display:flex;align-items:center;gap:14px;margin-bottom:20px;
-}
-.footer-logo img{width:52px;height:52px;border-radius:50%;filter:drop-shadow(0 0 16px rgba(200,168,75,0.3))}
-.footer-logo-text {
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:600;color:var(--gold);
-}
-.footer-desc {
-  font-size:13px;line-height:1.7;color:var(--muted);max-width:280px;
+
+/* Largura igual para as 3 colunas */
+.footer-col,
+.footer-brand,
+.footer-newsletter { width:28%; }
+.footer-col { padding-left:40px; }
+
+/* Coluna esquerda: categorias + redes sociais */
+.footer-col {
+  display:flex;flex-direction:column;
 }
 .footer-col h4 {
   font-size:10px;font-weight:600;letter-spacing:3px;
   text-transform:uppercase;color:var(--gold);
-  margin-bottom:20px;
+  margin:0 0 16px;
 }
-.footer-col ul{list-style:none}
-.footer-col li{margin-bottom:10px}
-.footer-col a{font-size:13px;color:var(--muted);transition:color 0.2s}
-.footer-col a:hover{color:var(--white)}
-.footer-bottom {
-  display:flex;align-items:center;justify-content:space-between;
-  padding-top:28px;
-}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-socials{display:flex;gap:16px}
+.footer-col ul{list-style:none;margin-bottom:24px;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{font-size:13px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-socials{display:flex;gap:10px;}
 .social-link {
-  width:34px;height:34px;border-radius:50%;
-  border:1px solid var(--border2);
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.18);
   display:flex;align-items:center;justify-content:center;
-  color:var(--muted);font-size:12px;
-  transition:all 0.2s;
+  color:rgba(255,255,255,0.45);transition:all 0.2s;
 }
-.social-link:hover{border-color:var(--gold);color:var(--gold)}
+.social-link:hover{border-color:var(--gold);color:var(--gold);}
+
+/* Coluna central: brand */
+.footer-brand {
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.footer-logo {
+  display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:10px;
+}
+.footer-logo img {
+  width:150px;height:150px;
+  object-fit:contain;border-radius:8px;
+  filter:drop-shadow(0 0 14px rgba(200,168,75,0.5));
+}
+.footer-logo-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:40px;font-weight:600;color:var(--gold);line-height:1;
+}
+.footer-desc {
+  font-size:12px;line-height:1.7;
+  color:rgba(255,255,255,0.4);max-width:220px;
+}
+
+/* Coluna direita: newsletter */
+.footer-newsletter {
+  display:flex;flex-direction:column;
+}
+.fn-eyebrow {
+  font-size:10px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);
+  margin:0 0 16px;
+}
+.fn-form {
+  display:flex;flex-direction:row;gap:0;
+  border:1px solid rgba(255,255,255,0.18);border-radius:2px;
+  overflow:hidden;margin-bottom:12px;
+  transition:border-color 0.2s;
+}
+.fn-form:focus-within{border-color:var(--gold);}
+.fn-form input {
+  flex:1;padding:11px 13px;
+  background:rgba(255,255,255,0.06);
+  border:none;outline:none;
+  font-family:'DM Sans',sans-serif;font-size:13px;color:#fff;
+}
+.fn-form input::placeholder{color:rgba(255,255,255,0.3);}
+.fn-form button {
+  padding:11px 16px;
+  background:var(--gold);color:#111;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;border:none;cursor:pointer;
+  white-space:nowrap;transition:background 0.2s;
+}
+.fn-form button:hover{background:var(--gold2);}
+.fn-desc{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+
+/* Footer bottom */
+.footer-bottom {
+  display:flex;align-items:center;justify-content:center;
+  padding:18px 80px 28px;
+}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);text-align:center;}
 
 /* ============================================================
    ARTICLE VIEW
@@ -607,7 +617,6 @@ body.reading-mode .nav {
 }
 @media(max-width:700px) {
   .nav{padding:16px 24px}
-  .nav.scrolled{padding:12px 24px}
   .nav-links{display:none}
   .strip{grid-template-columns:1fr}
   .strip-item{border-right:none;border-bottom:1px solid var(--border2)}
@@ -696,33 +705,41 @@ body.reading-mode .nav {
 <!-- ======================== NAV ======================== -->
 <nav class="nav" id="nav">
   <div class="nav-logo">
-    <img src="https://japaorelativo.com/wp-content/uploads/2026/05/logo-jr.png" alt="JR Logo" class="nav-logo-img" style="width:200px;height:200px;object-fit:contain;border-radius:8px;filter:none;">
+    <img src="https://japaorelativo.com/wp-content/uploads/2026/05/logo-jr.png" alt="JR Logo" class="nav-logo-img">
     <div class="nav-logo-text">
       Japão Relativo
       <span>O Japão por vários ângulos</span>
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#grid-section" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
-    <li><a href="#grid-section" onclick="filterCategory('Cultura');return false;">Cultura</a></li>
-    <li><a href="#grid-section" onclick="filterCategory('Idioma');return false;">Idioma</a></li>
-    <li><a href="#grid-section" onclick="filterCategory('Saúde e Bem-Estar');return false;">Saúde</a></li>
-    <li><a href="#grid-section" onclick="filterCategory('Anime');return false;">Anime</a></li>
-    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Home</a></li>
+    <li><a href="#grid-section" data-cat="Notícia" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
+    <li><a href="#grid-section" data-cat="Cultura" onclick="filterCategory('Cultura');return false;">Cultura</a></li>
+    <li><a href="#grid-section" data-cat="Idioma" onclick="filterCategory('Idioma');return false;">Idioma</a></li>
+    <li><a href="#grid-section" data-cat="Dicas" onclick="filterCategory('Dicas');return false;">Dicas</a></li>
+    <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
+    <li><a href="#grid-section" data-cat="Utilidades" onclick="filterCategory('Utilidades');return false;">Utilidades</a></li>
   </ul>
-  <div class="nav-search" title="Buscar">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-  </div>
 </nav>
+
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="heroSection">
   <!-- Carrossel de 4 imagens -->
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-1.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-2.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-3.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/japaorelativo.com/wp-content/uploads/2026/05/wallpaper-jr-4.jpg')"></div>
+    <div class="hero-slide active" style="background-image:url('Imagens%20JR/Wallpaper%20JR/tokyo.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/fuji.JPG')"></div>
+    <div class="hero-slide hero-slide--news" data-post-id="softbank-openai-lucro-record-japao-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/softback-openAI.PNG')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/cidade.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/tokyofuji.jpg')"></div>
+    <div class="hero-slide hero-slide--news" data-post-id="crimes-atipicos-toquio-kanagawa-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/kanagawa:crimes.PNG')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/ghibli.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/kimetsu.jpg')"></div>
+    <div class="hero-slide hero-slide--news" data-post-id="calbee-crise-petroleo-embalagens-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/Calbee.JPG')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp1.png')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp2.png')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp3.png')"></div>
+    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/wallpaperhorizontal.jpg')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay2"></div>
@@ -747,12 +764,7 @@ body.reading-mode .nav {
   </div>
 
   <!-- Dots do carrossel -->
-  <div class="hero-dots-wrap" id="heroDots">
-    <button class="hero-dot active" data-idx="0"></button>
-    <button class="hero-dot" data-idx="1"></button>
-    <button class="hero-dot" data-idx="2"></button>
-    <button class="hero-dot" data-idx="3"></button>
-  </div>
+  <div class="hero-dots-wrap" id="heroDots"></div>
 
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -775,15 +787,14 @@ body.reading-mode .nav {
       <button class="filter-btn" data-filter="Notícia">Notícias</button>
       <button class="filter-btn" data-filter="Cultura">Cultura</button>
       <button class="filter-btn" data-filter="Idioma">Idioma</button>
-      <button class="filter-btn" data-filter="Curiosidade">Curiosidades</button>
-      <button class="filter-btn" data-filter="Saúde e Bem-Estar">Saúde</button>
-      <button class="filter-btn" data-filter="Indústria Automotiva">Auto</button>
+      <button class="filter-btn" data-filter="Dicas">Dicas</button>
       <button class="filter-btn" data-filter="Anime">Anime</button>
+      <button class="filter-btn" data-filter="Utilidades">Utilidades</button>
     </div>
   </div>
   <div class="news-grid" id="newsGrid">
     <a class="card card-featured" href="#aoi-matsuri-kyoto-festival-heian-2026" data-id="aoi-matsuri-kyoto-festival-heian-2026">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/Aoi-matsuri.JPG');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Cultura</div>
@@ -793,7 +804,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#natsu-basho-torneio-sumo-maio-2026" data-id="natsu-basho-torneio-sumo-maio-2026">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/Natsu-basho.PNG');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Cultura</div>
@@ -803,7 +814,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#haha-no-hi-dia-das-maes-japao-2026" data-id="haha-no-hi-dia-das-maes-japao-2026">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/dia-das-maes.jpeg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Cultura</div>
@@ -813,27 +824,27 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#ninguem-pode-saber-caso-sugamo-1988" data-id="ninguem-pode-saber-caso-sugamo-1988">
-      <div class="card-img" style="background-image:url('');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/ninguem pode saber/IMG_2242.JPG');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
-        <div class="card-tag"></div>
-        <div class="card-title"></div>
-        <div class="card-excerpt">Quando o governo Trump anunciou tarifas de até 25% sobre veículos importados do Japão, muitos analistas anteci…</div>
-        <div class="card-date"></div>
+        <div class="card-tag">Cultura</div>
+        <div class="card-title">"Ninguém Pode Saber" é um filme. Mas a história real foi muito mais brutal.</div>
+        <div class="card-excerpt">Em 1988, o Japão foi sacudido por um caso que chocou o mundo inteiro. Cinco crianças. Um apartamento. Nove meses completamente sozinhas…</div>
+        <div class="card-date">08 de Maio de 2026</div>
       </div>
     </a>
     <a class="card" href="#passaporte-brasileiro-japao-2026" data-id="passaporte-brasileiro-japao-2026">
-      <div class="card-img" style="background-image:url('');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=2070');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
-        <div class="card-tag"></div>
-        <div class="card-title"></div>
-        <div class="card-excerpt">Quando o governo Trump anunciou tarifas de até 25% sobre veículos importados do Japão, muitos analistas anteci…</div>
-        <div class="card-date"></div>
+        <div class="card-tag">Notícia</div>
+        <div class="card-title">Passaporte Brasileiro no Japão: Taxa cairá pela metade a partir de junho de 2026</div>
+        <div class="card-excerpt">A partir de 1º de junho de 2026, os valores para emissão e renovação do passaporte brasileiro no Japão cairão aproximadamente pela metade…</div>
+        <div class="card-date">06 de Maio de 2026</div>
       </div>
     </a>
     <a class="card" href="#toyota" data-id="toyota">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/toyota.jpg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Indústria Automotiva</div>
@@ -843,7 +854,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#festival-de-pipas-de-hamamatsu" data-id="festival-de-pipas-de-hamamatsu">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/festival de pipas.jpg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Cultura</div>
@@ -853,7 +864,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#a-revolucao-silenciosa-na-politica-de-exportacao-de-armas" data-id="a-revolucao-silenciosa-na-politica-de-exportacao-de-armas">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/exportação de armas.jpg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Notícia</div>
@@ -863,7 +874,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#kurai-incerteza-e-modestia" data-id="kurai-incerteza-e-modestia">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Nihongo/kurai.jpg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Idioma</div>
@@ -873,7 +884,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#os-beneficios-do-misso-japones" data-id="os-beneficios-do-misso-japones">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/miso.jpeg');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Curiosidade</div>
@@ -883,7 +894,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#treze-japoneses-foram-presos-apos-retornar-do-camboja" data-id="treze-japoneses-foram-presos-apos-retornar-do-camboja">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/japones-preso-.PNG');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Notícia</div>
@@ -893,7 +904,7 @@ body.reading-mode .nav {
       </div>
     </a>
     <a class="card" href="#yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes" data-id="yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=2070');background-size:cover;background-position:center"></div>
+      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/smartphone-proibição.PNG');background-size:cover;background-position:center"></div>
       <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       <div class="card-body">
         <div class="card-tag">Cultura</div>
@@ -911,76 +922,58 @@ body.reading-mode .nav {
   </div>
 </section>
 
-<!-- ======================== CINEMATIC BANNER ======================== -->
-<div class="banner" id="sobre">
-  <div class="banner-bg"></div>
-  <div class="banner-content">
-    <h2 class="banner-title">
-      EXPLORE<br>
-      <em>O VERDADEIRO</em><br>
-      JAPÃO
-    </h2>
-    <p class="banner-sub">O Japão não é só um destino — é uma forma de ver o mundo. Explore cultura, língua e cotidiano com olhar curioso e aprofundado.</p>
-    <div class="banner-cta">
-      <div class="play-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </div>
-      <span class="play-label">Nossa história</span>
-    </div>
-  </div>
-</div>
-
 <!-- ======================== MORE ARTICLES ======================== -->
-<section class="section">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Explore Mais</div>
-      <h2 class="section-title">MAIS CONTEÚDO</h2>
-    </div>
-  </div>
+<section class="section" id="more-section" style="padding-top:0">
   <div class="more-grid" id="moreGrid"></div>
 </section>
 
 <!-- ======================== FOOTER ======================== -->
 <footer class="footer">
   <div class="footer-top">
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <img src="imagens/imagens layolt/logo-japaorelativo.PNG" alt="JR">
-        <div class="footer-logo-text">Japão Relativo</div>
-      </div>
-      <p class="footer-desc">Curadoria independente sobre o Japão — cultura, idioma, notícias e o cotidiano de quem vive neste país fascinante.</p>
-    </div>
+
+    <!-- Esquerda: Categorias + Redes Sociais -->
     <div class="footer-col">
       <h4>Categorias</h4>
       <ul>
         <li><a href="#" onclick="filterCategory('Notícia')">Notícias</a></li>
         <li><a href="#" onclick="filterCategory('Cultura')">Cultura</a></li>
         <li><a href="#" onclick="filterCategory('Idioma')">Idioma</a></li>
-        <li><a href="#" onclick="filterCategory('Curiosidade')">Curiosidades</a></li>
-        <li><a href="#" onclick="filterCategory('Saúde e Bem-Estar')">Saúde e Bem-Estar</a></li>
-        <li><a href="#" onclick="filterCategory('Indústria Automotiva')">Automotivo</a></li>
+        <li><a href="#" onclick="filterCategory('Dicas')">Dicas</a></li>
         <li><a href="#" onclick="filterCategory('Anime')">Anime</a></li>
+        <li><a href="#" onclick="filterCategory('Utilidades')">Utilidades</a></li>
       </ul>
+      <div class="footer-socials">
+        <a class="social-link" href="https://www.instagram.com/__akira__jr?igsh=MTgyY3JsMHNubnQ4ZQ%3D%3D&utm_source=qr" target="_blank" title="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/share/1D2NQem5Mf/?mibextid=wwXIfr" target="_blank" title="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Recentes</h4>
-      <ul id="footerRecent"></ul>
+
+    <!-- Centro: Logo + Nome + Descrição -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="Imagens JR/Logo JR/logo-japaorelativo.PNG" alt="JR">
+        <div class="footer-logo-text">Japão Relativo</div>
+      </div>
+      <p class="footer-desc">Curadoria independente sobre o Japão — cultura, idioma, notícias e o cotidiano de quem vive neste país fascinante.</p>
     </div>
+
+    <!-- Direita: Newsletter -->
+    <div class="footer-newsletter">
+      <div class="fn-eyebrow">Newsletter</div>
+      <form class="fn-form" onsubmit="return false">
+        <input type="email" placeholder="Seu melhor e-mail…" autocomplete="email">
+        <button type="submit">Inscrever</button>
+      </form>
+      <p class="fn-desc">Curadoria semanal direto no seu e-mail. Sem spam, só conteúdo relevante sobre o Japão.</p>
+    </div>
+
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 Japão Relativo. Todos os direitos reservados.</span>
-    <div class="footer-socials">
-      <a class="social-link" href="#" title="Instagram">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-      </a>
-      <a class="social-link" href="#" title="YouTube">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"/></svg>
-      </a>
-      <a class="social-link" href="#" title="Facebook">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-      </a>
-    </div>
   </div>
 </footer>
 
@@ -1007,10 +1000,146 @@ body.reading-mode .nav {
 // DATABASE — Add new posts here easily!
 // ======================================================
 const DB = {
+  "softbank-openai-lucro-record-japao-2026": {
+    title:"SoftBank quebra recorde histórico no Japão impulsionado pelo fenômeno OpenAI",
+    tag:"Notícia",
+    date:"13 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/softback-openAI.PNG",
+    content:`<p>O <strong>SoftBank Group</strong> anunciou nesta semana um lucro líquido de <strong>5 trilhões de ienes</strong> — aproximadamente US$ 32 bilhões — o maior já registrado por uma empresa japonesa em um único exercício fiscal. O número surpreendeu analistas e reposicionou o conglomerado liderado por Masayoshi Son como uma das forças mais relevantes da nova economia global de inteligência artificial.</p>
+
+<h2>O papel da OpenAI nesse resultado</h2>
+<p>Mais de 90% do lucro consolidado do grupo veio da valorização das ações da <strong>OpenAI</strong>, criadora do ChatGPT, onde o SoftBank figura como um dos maiores acionistas institucionais. O investimento, feito de forma progressiva desde 2023, se provou uma das apostas mais lucrativas da história corporativa japonesa.</p>
+<p>Masayoshi Son, presidente do grupo, não escondeu o entusiasmo: <em>"Estamos apenas no início. A inteligência artificial vai redefinir o que é possível — e o Japão precisa estar no centro disso, não apenas assistindo de longe."</em></p>
+
+<h2>A próxima aposta: mais $30 bilhões</h2>
+<p>O SoftBank anunciou planos de injetar outros <strong>$30 bilhões na OpenAI</strong> nos próximos anos, com foco na expansão da infraestrutura de IA no Japão. O projeto inclui data centers de grande escala, parcerias com universidades e um programa nacional de formação em IA que pretende alcançar 10 milhões de pessoas até 2030.</p>
+
+<h2>O Japão como hub de IA</h2>
+<p>O movimento do SoftBank se alinha a uma tendência mais ampla: o Japão está apostando na inteligência artificial como saída estratégica para o envelhecimento populacional e a queda de produtividade. O governo Kishida já sinalizou que tratará IA como infraestrutura crítica, semelhante a energia ou telecomunicações.</p>
+<p>Para o país que inventou o robô Asimo e lidera em automação industrial, a virada para IA generativa representa um momento de redesenho de identidade tecnológica — e o SoftBank está apostando tudo nisso.</p>`
+  },
+  "crimes-atipicos-toquio-kanagawa-2026": {
+    title:"Crimes atípicos em Tóquio e Kanagawa alertam para questões de segurança e saúde mental",
+    tag:"Notícia",
+    date:"13 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/kanagawa:crimes.PNG",
+    content:`<p>Dois casos registrados no dia 13 de maio chamaram atenção da imprensa japonesa e reacenderam o debate sobre segurança pública e saúde mental no país — um dentro de um ambiente doméstico em Tóquio, outro no transporte público de Kanagawa.</p>
+
+<h2>Caso em Tóquio: menina mantida confinada por família</h2>
+<p>A polícia metropolitana de Tóquio prendeu um casal e seu filho mais velho sob suspeita de terem mantido a filha mais nova <strong>confinada dentro de um armário trancado por vários dias</strong>. A criança foi resgatada em estado de desidratação e debilidade. O caso foi descoberto após uma ligação anônima ao serviço de proteção à infância.</p>
+<p>O Japão tem registrado aumento nos casos de abuso doméstico grave desde a pandemia. Especialistas apontam para o isolamento social, o modelo de família fechada e a resistência cultural a buscar ajuda externa como fatores que contribuem para a subnotificação desses crimes.</p>
+
+<h2>Incidente no trem: líquido borrifado afeta 1.200 passageiros</h2>
+<p>Na linha Tokaido, em Kanagawa, um jovem de 16 anos foi preso após borrifar um <strong>líquido de odor forte e desconhecido</strong> no interior de um vagão em horário de pico. O incidente afetou cerca de 1.200 passageiros; três deles foram encaminhados ao hospital com sintomas respiratórios leves.</p>
+<p>A polícia de Kanagawa confirmou a detenção do adolescente horas depois do ocorrido, após análise das câmeras do sistema ferroviário. A substância ainda está sendo analisada, mas as autoridades descartaram tratar-se de agente químico de alta periculosidade.</p>
+
+<h2>O padrão que preocupa</h2>
+<p>Os dois casos, embora distintos, compartilham um denominador: a imprevisibilidade dos chamados <em>crimes de perfil baixo</em> — atos cometidos por pessoas sem histórico criminal conhecido, em contextos cotidianos. Psicólogos e criminologistas japoneses alertam que o estresse acumulado, a pressão social silenciosa e a falta de suporte em saúde mental estão por trás de uma parcela crescente dessas ocorrências.</p>`
+  },
+  "calbee-crise-petroleo-embalagens-2026": {
+    title:"Guerra no Oriente Médio faz produtos perderem a cor nas prateleiras japonesas",
+    tag:"Notícia",
+    date:"13 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/Calbee.JPG",
+    content:`<p>A guerra tem endereço físico no cotidiano japonês. A partir do fim de maio de 2026, quem for ao supermercado vai notar algo diferente nas prateleiras: as embalagens das batatas chips e snacks da <strong>Calbee</strong> — uma das marcas mais populares do Japão — estarão em preto e branco.</p>
+
+<h2>A causa: o Estreito de Ormuz fechado</h2>
+<p>O conflito no Oriente Médio levou ao bloqueio do <strong>Estreito de Ormuz</strong>, passagem estratégica por onde transita aproximadamente 20% do petróleo consumido globalmente — e uma fatia significativa do que abastece o Japão. Com a rota comprometida, o país enfrenta escassez de <strong>nafta</strong>, derivado do petróleo usado como matéria-prima nas tintas que colorem embalagens plásticas.</p>
+<p>A Calbee foi a primeira grande empresa a anunciar publicamente a adaptação: <strong>14 linhas de produtos</strong> terão embalagens em monocromia a partir de 31 de maio. A empresa afirma que a medida é temporária e que a qualidade dos produtos não será afetada.</p>
+
+<h2>O que mais pode mudar</h2>
+<p>A Calbee não está sozinha. Fabricantes de bens de consumo de todo o país estão avaliando cortes semelhantes. Analistas do setor de commodities preveem que, se o conflito persistir, a gasolina pode ultrapassar a marca de <strong>¥200 por litro</strong> — um patamar que o Japão não via desde a crise energética de 2022.</p>
+<p>Além das embalagens, setores como plásticos descartáveis, cosméticos e materiais de construção já reportam alta nos custos de insumos. O banco central japonês revisou suas projeções de inflação para o ano em resposta a esse cenário.</p>
+
+<h2>A dependência estrutural do Japão</h2>
+<p>O Japão importa mais de 90% de sua energia. Essa vulnerabilidade, herdada da ausência de reservas próprias de petróleo e gás, é um ponto de pressão recorrente em momentos de instabilidade geopolítica. A crise atual é mais um capítulo numa longa história de adaptação forçada — da qual o Japão, historicamente, sempre saiu com alguma solução criativa.</p>
+<p>Por ora, a solução criativa veio em forma de embalagem preta e branca.</p>`
+  },
+  "maes-solteiras-estrangeiras-empreiteiras-japao": {
+    title:"Mães solteiras estrangeiras e as empreiteiras do Japão: a barreira que ninguém fala",
+    tag:"Notícia",
+    date:"10 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/mãesolteira.png",
+    content:`<p>O Japão é um dos principais destinos de trabalhadores estrangeiros que buscam estabilidade financeira. A rota mais comum passa pelas <strong>empreiteiras</strong> — empresas terceirizadas que recrutam, contratam e alocam trabalhadores em fábricas de montagem, alimentação e logística. Para muitos, é a porta de entrada. Para mães solteiras estrangeiras, essa porta frequentemente está fechada.</p>
+<h2>Como funciona o sistema de empreiteiras no Japão</h2>
+<p>As empreiteiras japonesas (<em>haken gaisha</em>, 派遣会社) funcionam como intermediárias entre trabalhadores e fábricas. Elas recrutam, especialmente em países como Brasil, Peru, Filipinas e Vietnã, oferecem pacotes que incluem moradia em alojamentos coletivos, transporte até a fábrica e desconto direto na folha. O modelo é conveniente para as fábricas, que ajustam a mão de obra conforme a demanda, sem vínculo direto com o trabalhador.</p>
+<p>Para quem chega ao Japão sem contatos, sem japonês fluente e sem histórico de trabalho no país, a empreiteira é muitas vezes a única opção viável de emprego formal. O problema começa quando a trabalhadora é mãe solteira.</p>
+<h2>O filtro invisível na triagem</h2>
+<p>Mães solteiras estrangeiras relatam um padrão sistemático: ao informarem que têm filhos e não têm parceiro, o processo seletivo trava. As justificativas variam — "a vaga já foi preenchida", "o perfil não combina com o turno disponível", "a fábrica não aceita trabalhadores com restrições de horário" — mas o resultado é sempre o mesmo: a negativa.</p>
+<p>A lógica das empreiteiras é clara para quem opera por dentro do sistema. Fábricas exigem disponibilidade para horas extras, turnos rotativos noturnos e, em períodos de alta produção, jornadas que ultrapassam dez horas diárias. Uma mãe com filho pequeno representa, para o gestor da empreiteira, um "risco de absenteísmo". O raciocínio é pragmático e discriminatório ao mesmo tempo.</p>
+<h2>O alojamento como barreira extra</h2>
+<p>Grande parte das empreiteiras que trabalham com trabalhadores estrangeiros oferece alojamento coletivo como parte do pacote. Esses alojamentos, geralmente próximos às fábricas, são projetados para trabalhadores individuais ou casais — raramente para mães com crianças. A ausência de estrutura para dependentes exclui automaticamente mulheres com filhos, mesmo antes de qualquer triagem formal.</p>
+<p>Sem alojamento, a trabalhadora precisa encontrar moradia por conta própria em um mercado imobiliário que, para estrangeiros — especialmente sem fiador japonês —, é notoriamente difícil de acessar. O ciclo se fecha: sem emprego, sem moradia; sem moradia, sem emprego.</p>
+<h2>O que dizem as mães</h2>
+<blockquote><em>"Me disseram que a fábrica 'não tem estrutura' para mães com filhos. Mas eu não pedi estrutura. Pedi um emprego."</em></blockquote>
+<p>O relato é de uma brasileira de 34 anos, residente na região de Aichi há quatro anos, que ficou sem emprego após a separação do marido. Qualificada, com experiência anterior em linha de montagem, ela passou por seis empreiteiras diferentes em três meses sem conseguir colocação.</p>
+<h2>O que diz a lei japonesa</h2>
+<p>A legislação trabalhista japonesa proíbe discriminação por estado civil ou situação familiar no processo de contratação. A <em>Roudou Kijun Hou</em> (Lei de Normas Trabalhistas) e a <em>Danjo Koyou Kikai Kintou Hou</em> (Lei de Igualdade de Oportunidades no Emprego) garantem proteção formal. Na prática, a discriminação raramente é explícita — e raramente é provada.</p>
+<p>Organizações de apoio a trabalhadores estrangeiros no Japão, como o <strong>CIATE</strong> e redes de suporte à comunidade brasileira, documentam casos recorrentes mas alertam para a dificuldade de formalizar denúncias: a maioria das trabalhadoras teme represálias ou simplesmente desconhece os canais disponíveis.</p>
+<h2>Por que isso importa agora</h2>
+<p>O Japão vive um momento de expansão formal da mão de obra estrangeira. Com a revisão do sistema de visto técnico (<em>Tokutei Ginou</em>) e o crescimento das contratações diretas, o país aposta no trabalhador imigrante como solução para o envelhecimento da população e a escassez de força de trabalho industrial. Incluir mães solteiras nesse processo não é apenas uma questão de justiça — é uma necessidade econômica que o mercado ainda recusa a reconhecer.</p>`
+  },
+  "kimetsu-no-yaiba-filme-infinity-castle": {
+    title:"Kimetsu no Yaiba: Infinity Castle — tudo sobre o filme mais aguardado do anime",
+    tag:"Anime",
+    date:"10 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/Akaza.JPG",
+    content:`<p>Depois de conquistar o recorde de bilheteria com o filme <strong>Mugen Train</strong> em 2020, a franquia <em>Kimetsu no Yaiba</em> (Demon Slayer) prepara um dos maiores eventos da história do anime: a trilogia de filmes do <strong>Arco do Castelo Infinito</strong>. Este é o clímax de toda a série — e o Japão já está em estado de antecipação coletiva.</p>
+<h2>Por que o Castelo Infinito é diferente de tudo</h2>
+<p>O Arco do Castelo Infinito representa a batalha final entre os Caçadores de Demônios e Muzan Kibutsuji, o Rei dos Demônios. Após anos de treinamento, mortes e sacrifícios, todos os pilares <em>Hashira</em> entram em combate simultâneo. A escala é incomparável a qualquer coisa que a Ufotable já animou — e a decisão de dividir o arco em três filmes separados confirma que o estúdio está jogando pesado.</p>
+<p>A Ufotable, responsável pela animação da série, é conhecida pela qualidade cinematográfica das sequências de batalha. O Mugen Train foi o filme mais lucrativo de 2020 no mundo inteiro, superando inclusive produções hollywoodianas. Para o Infinity Castle, a expectativa é ainda maior.</p>
+<h2>O que esperar do primeiro filme</h2>
+<p>O primeiro filme cobre o início da batalha no Castelo Infinito, com confrontos entre os Hashira e os Espadas Superiores — os demônios mais poderosos de Muzan. Os fãs que acompanharam o mangá sabem o que está por vir: batalhas que redefinem o limite do que é possível em animação 2D.</p>
+<p>O estúdio confirmou que <strong>nenhum capítulo será cortado ou condensado</strong>. Cada detalhe do mangá de Koyoharu Gotouge receberá o tratamento visual que merece. Para quem leu, isso significa que algumas das cenas mais emocionalmente intensas da série serão animadas com a qualidade característica da Ufotable.</p>
+<h2>Datas e lançamento no Japão</h2>
+<p>O primeiro filme da trilogia foi confirmado para lançamento no Japão. A tradição de <em>Kimetsu no Yaiba</em> é estrear no Japão com uma antecedência considerável antes do lançamento internacional — o que dá aos fãs japoneses a experiência de assistir antes do resto do mundo, criando uma onda de expectativa global.</p>
+<p>Para quem está no Japão ou planeja viajar durante o lançamento, os cinemas japoneses têm o costume de distribuir <em>tokuten</em> — brindes exclusivos como ilustrações, cartões especiais e prints — para os primeiros espectadores. Chegar cedo compensa.</p>
+<h2>Por que este filme importa além do anime</h2>
+<p><em>Kimetsu no Yaiba</em> não é apenas um fenômeno do entretenimento. O mangá vendeu mais de 150 milhões de cópias — o segundo mais vendido da história após One Piece. O filme do Castelo Infinito não é só o encerramento de uma história; é um evento cultural do Japão contemporâneo, da mesma categoria que os finais de série que paralisam o país.</p>
+<p>Se você tem interesse na cultura pop japonesa e no que move o Japão de hoje, acompanhar este lançamento é entender uma fatia significativa do que o Japão exporta para o mundo.</p>`
+  },
+  "10-anos-depois-filme-japones-miwa": {
+    title:"10 Anos Depois: o filme japonês que uniu uma geração pelo amor não dito",
+    tag:"Cultura",
+    date:"10 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/filme.JPG",
+    content:`<p>Existem filmes que contam histórias. E existem filmes que identificam algo que estava adormecido em quem assiste — uma saudade que não tinha nome, uma pergunta que nunca foi feita. <strong><em>10 Years Later</em></strong> (em japonês: <em>10-nen go no Ano Hi</em>) faz isso com uma precisão clínica e uma delicadeza rara no cinema contemporâneo.</p>
+<h2>A premissa que todo mundo conhece e ninguém resolveu</h2>
+<p>O filme parte de um ponto simples: dois ex-colegas de escola se reencontram dez anos depois de se formarem. Durante a adolescência, havia algo entre eles — não um romance declarado, mas aquela tensão específica de sentimentos não verbalizados que o japonês chama de <em>片思い</em> (kataomoi): amor de um lado só, ou amor de dois lados que nunca se encontraram.</p>
+<p>O que o roteiro faz de diferente é recusar o caminho fácil. Não há revelações dramáticas, não há vilões, não há mal-entendidos convenientes de roteiro. O que há é o peso real do tempo — o que duas pessoas se tornam em dez anos, e o que isso significa para o que elas um dia foram.</p>
+<h2>O Japão como personagem</h2>
+<p>Uma das marcas do filme é o uso dos espaços urbanos japoneses como extensão emocional da narrativa. As cenas nas estações de metrô de Tóquio, nos parques de bairro, nos restaurantes <em>izakaya</em> iluminados à noite — cada locação carrega o peso específico da memória japonesa urbana.</p>
+<p>Para quem conhece o Japão, o filme funciona como um mapa afetivo. Para quem não conhece, funciona como uma janela para entender por que os japoneses desenvolveram toda uma estética em torno do não-dito: porque o silêncio, no Japão, é muitas vezes o modo mais preciso de dizer algo importante.</p>
+<h2>A cultura do amor indireto no Japão</h2>
+<p>O filme dialoga diretamente com conceitos centrais da cultura japonesa em relação ao amor e à expressão emocional. O conceito de <em>ma</em> (間) — o espaço entre as coisas, o silêncio que carrega significado — está presente em cada cena. Da mesma forma, a ideia de <em>ishin denshin</em> (以心伝心), comunicação telepática ou entendimento mútuo sem palavras, define a dinâmica dos protagonistas.</p>
+<p>No Japão, dizer "eu te amo" diretamente (<em>aishiteru</em>) é uma declaração de peso enorme, usada raramente mesmo em relacionamentos longos. A alternativa mais comum é o <em>suki</em> (gosto de você) — que carrega toda a ambiguidade e cuidado que o filme explora.</p>
+<h2>Por que este filme repercutiu tanto</h2>
+<p>O filme foi um sucesso nas plataformas de streaming japonesas e gerou conversas significativas nas redes sociais japonesas sobre os <em>seishun</em> (青春) — a juventude, literalmente "primavera verde" — e as escolhas que se não são feitas a tempo, ficam como sombras.</p>
+<p>É o tipo de filme que as pessoas assistem duas vezes: uma para ver a história, outra para entender o que estava sendo dito nas cenas em que ninguém fala. Um exercício de atenção que o cinema japonês domina melhor do que qualquer outro.</p>`
+  },
+  "aoi-matsuri-kyoto-guia-2026": {
+    title:"Guia completo: como assistir ao Aoi Matsuri em Kyoto em 2026",
+    tag:"Cultura",
+    date:"10 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/Aoi-matsuri.JPG",
+    content:`<p>O <strong>Aoi Matsuri</strong> é um dos três grandes festivais de Kyoto — e o mais antigo dos três. Acontece todo ano em <strong>15 de maio</strong>, com uma procissão de mais de 500 pessoas em trajes da era Heian percorrendo os 8 km entre o Palácio Imperial e os Santuários Kamo. Se você está no Japão em maio de 2026, este é um evento que não se perde.</p>
+<h2>O que é o Aoi Matsuri — em 90 segundos</h2>
+<p>O festival tem origem no século VI, quando o imperador Kinmei ordenou rituais para apaziguar os deuses Kamo após uma série de desastres naturais. O nome "Aoi" vem da planta hollyhock (<em>aoi</em>), que decora trajes, cavalos e palanquins durante a procissão. É o festival imperial por excelência de Kyoto — suspenso apenas durante guerras civis ao longo da história.</p>
+<p>A figura central é a <strong>Saio-Dai</strong>: uma mulher de família nobre selecionada anualmente para representar a sacerdotisa imperial. Ela percorre o trajeto em palanquim, cercada por centenas de participantes em trajes autênticos reproduzidos com precisão histórica.</p>
+<h2>O trajeto: onde ficar para assistir</h2>
+<p>A procissão parte do <strong>Gosho Imperial</strong> às 10h30 e segue até o <strong>Santuário Shimogamo</strong>, onde realiza cerimônias antes de continuar ao <strong>Santuário Kamigamo</strong> no final da tarde. O percurso total é de aproximadamente 8 km.</p>
+<p><strong>Melhor ponto de observação gratuito:</strong> A avenida que liga o Gosho ao Shimogamo — chegue antes das 10h para garantir lugar na primeira fila. As áreas próximas ao portão de entrada do Shimogamo ficam movimentadas por volta do meio-dia.</p>
+<p><strong>Arquibancadas pagas:</strong> O Palácio Imperial oferece assentos com visão privilegiada da saída da procissão, disponíveis com reserva antecipada pelo site oficial.</p>
+<h2>O que vestir e levar</h2>
+<p>Maio em Kyoto pode ser quente e úmido. Leve protetor solar, chapéu e água. A procissão dura horas — conforto é prioritário. Se tiver guarda-chuva, leve: chuveiros rápidos são comuns.</p>
+<h2>Como chegar ao Gosho Imperial</h2>
+<p>Metro linha Karasuma, estação Marutamachi ou Imadegawa. De Kyoto Station, 15 minutos de metrô. O acesso ao Gosho é gratuito no dia do festival — é um dos raros dias em que o jardim interno fica aberto ao público sem reserva prévia.</p>
+<p>O Aoi Matsuri é raro: um festival autêntico, não criado para turistas, que acontece há 1.500 anos no mesmo lugar, da mesma forma. Assistir é estar presente numa continuidade histórica que poucos festivais no mundo ainda preservam.</p>`
+  },
   "aoi-matsuri-kyoto-festival-heian-2026": {
     title:"Aoi Matsuri: a procissão imperial que atravessa 1.500 anos em Kyoto",
     tag:"Cultura",date:"15 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/Aoi-matsuri.JPG",
     content:`<p>Em 15 de maio de cada ano, mais de 500 pessoas vestidas com trajes da era Heian percorrem as ruas de Kyoto numa procissão silenciosa e solene. O <strong>Aoi Matsuri</strong> (葵祭) — Festival do Aoi — é considerado um dos três grandes festivais de Kyoto e um dos mais antigos do Japão. Sua origem remonta ao século VI.</p>
 <h2>Origens no Século VI: Uma Catástrofe que Criou uma Tradição</h2>
 <p>A história do Aoi Matsuri começa com uma catástrofe. Durante o reinado do Imperador Kinmei (538–571), o Japão foi atingido por fortes tempestades e epidemias que destruíram as colheitas e causaram grande sofrimento. Um oráculo indicou que o mal decorria da fúria dos deuses Kamo — os deuses protetores de Kyoto.</p>
@@ -1028,7 +1157,7 @@ const DB = {
   "natsu-basho-torneio-sumo-maio-2026": {
     title:"Natsu Basho 2026: o Torneio de Verão que paralisa o Japão em maio",
     tag:"Cultura",date:"11 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/Natsu-basho.PNG",
     content:`<p>A cada maio, o bairro de Ryōgoku, em Tóquio, transforma-se no coração do Japão. Durante 15 dias, o <strong>Natsu Basho</strong> — o Torneio de Verão de Sumô — reúne os maiores lutadores do país no ringue de areia sagrada chamado <em>dohyō</em>. É um dos seis grandes torneios do ano e, para muitos, o mais emocionante de todos.</p>
 <h2>O Que é o Natsu Basho</h2>
 <p>Realizado sempre em maio no <strong>Ryōgoku Kokugikan</strong>, o maior ginásio de sumô do mundo com capacidade para 11.000 pessoas, o Natsu Basho é o segundo dos seis torneios anuais. Os ingressos esgotam com semanas de antecedência. As lutas acontecem diariamente das 8h30 às 18h, com os combates entre os grandes yokozuna reservados para o fim da tarde.</p>
@@ -1046,7 +1175,7 @@ const DB = {
   "haha-no-hi-dia-das-maes-japao-2026": {
     title:"Haha no Hi: o Dia das Mães no Japão e a tradição dos cravos vermelhos",
     tag:"Cultura",date:"11 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/dia-das-maes.jpeg",
     content:`<p>Todo segundo domingo de maio, o Japão se veste de cravos vermelhos e gratidão. O <strong>Haha no Hi</strong> (母の日) — Dia das Mães japonês — é uma celebração marcada por gestos silenciosos, presentes cuidadosamente escolhidos e um amor que raramente se diz em voz alta, mas que se sente em cada detalhe do cotidiano.</p>
 <h2>O Cravo Vermelho: Símbolo de Gratidão</h2>
 <p>A tradição chegou ao Japão no início do século XX, influenciada pela celebração americana do Mother's Day. Mas foi nos anos do pós-guerra que o <em>Haha no Hi</em> ganhou força real — e o cravo vermelho tornou-se seu símbolo central.</p>
@@ -1065,7 +1194,7 @@ const DB = {
     title: "\"Ninguém Pode Saber\" é um filme. Mas a história real foi muito mais brutal.",
     tag: "Cultura",
     date: "08 de Maio de 2026",
-    thumb: "imagens/ninguem pode saber/IMG_2242.JPG",
+    thumb:"Imagens JR/Artigos JR/ninguem pode saber/IMG_2242.JPG",
     content: `
       <p>Em 1988, o Japão foi sacudido por um caso que chocou o mundo inteiro. Cinco crianças. Um apartamento. Nove meses completamente sozinhas. Duas não sobreviveriam. Este é o <strong>Caso de Abandono de Crianças de Sugamo</strong> — a tragédia real que inspirou o filme de Hirokazu Kore-eda.</p>
 
@@ -1237,7 +1366,7 @@ const DB = {
   "toyota": {
     title:"Toyota bate recorde histórico de vendas em 2025 — mesmo com as tarifas de Trump no caminho",
     tag:"Indústria Automotiva",date:"04 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/toyota.jpg",
     content:`<p>Quando o governo Trump anunciou tarifas de até 25% sobre veículos importados do Japão, muitos analistas anteciparam um ano turbulento para as montadoras japonesas. O que ninguém esperava era que a Toyota saísse de 2025 com resultados históricos.</p>
 <em>"Empresas que dependem de importação sofreram. A Toyota, não. E a diferença está numa estratégia construída ao longo de décadas — não de meses."</em>
 <h2>A aposta nos híbridos funcionou</h2>
@@ -1251,7 +1380,7 @@ const DB = {
   "festival-de-pipas-de-hamamatsu": {
     title:"Festival de Pipas de Hamamatsu: O Coração da Golden Week em Shizuoka",
     tag:"Cultura",date:"29 de Abril de 2026",
-    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/festival de pipas.jpg",
     content:`<p>O Festival de Pipas de Hamamatsu (Hamamatsu Matsuri) é um dos eventos mais vibrantes e visualmente impressionantes do Japão.</p>
 <h2>O que é o Festival?</h2>
 <p>Acontece anualmente de 3 a 5 de maio. Este evento singular transforma os céus da praia de Nakatajima em uma competição cheia de cor e história, que remonta ao século XVI. Segundo a tradição, o festival começou como uma forma de comemorar o nascimento de um herdeiro do castelo de Hamamatsu.</p>
@@ -1263,7 +1392,7 @@ const DB = {
   "a-revolucao-silenciosa-na-politica-de-exportacao-de-armas": {
     title:"A Revolução Silenciosa na Política de Exportação de Armas",
     tag:"Notícia",date:"23 de Abril de 2026",
-    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/exportação de armas.jpg",
     content:`<p>O Japão quebra décadas de silêncio bélico com uma mudança histórica nas leis de exportação de armas.</p>
 <h2>O Fim de uma Era Pacifista</h2>
 <p>Desde o fim da Segunda Guerra Mundial, a Constituição japonesa, conhecida por seu Artigo 9, tem sido a pedra angular de sua postura pacifista, limitando o uso da força. No entanto, o mundo mudou. A ascensão de novas potências e a instabilidade em regiões estratégicas levaram o Japão a reavaliar sua posição.</p>
@@ -1275,7 +1404,7 @@ const DB = {
   "kurai-incerteza-e-modestia": {
     title:"くらい（kurai), incerteza e modéstia",
     tag:"Idioma",date:"17 de Fevereiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"Imagens JR/Nihongo/kurai.PNG",
     content:`<p>Como o Japão usa a linguagem e os gestos para evitar arrogância.</p>
 <p>A palavra 暗い（kurai）significa literalmente <strong>escuro, sombrio ou pouco claro</strong>. No uso cotidiano e no campo simbólico, ela se conecta à ideia de algo não totalmente definido, não absoluto, não afirmado com certeza total.</p>
 <h2>A incerteza como virtude social</h2>
@@ -1288,7 +1417,7 @@ const DB = {
   "os-beneficios-do-misso-japones": {
     title:"Os Benefícios do Missô Japonês: Nutrientes e Cuidados Necessários",
     tag:"Curiosidade",date:"11 de Fevereiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/miso.jpeg",
     content:`<p>O missô japonês é muito mais do que uma sopa tradicional; é um alimento fermentado que desempenha um papel crucial na dieta japonesa.</p>
 <h2>Benefícios do Missô</h2>
 <p>Rico em probióticos, o missô ajuda a equilibrar a flora intestinal, melhorar a digestão e fortalecer o sistema imunológico. Estas propriedades são especialmente valiosas para aqueles que enfrentam rotinas puxadas e o estresse do dia a dia no Japão.</p>
@@ -1299,7 +1428,7 @@ const DB = {
   "treze-japoneses-foram-presos-apos-retornar-do-camboja": {
     title:"Treze japoneses foram presos após retornar do Camboja",
     tag:"Notícia",date:"17 de Janeiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/japones-preso-.PNG",
     content:`<p>A polícia japonesa prendeu 13 cidadãos japoneses que retornaram recentemente do Camboja, sob suspeita de envolvimento em esquemas de fraude telefônica.</p>
 <h2>O Esquema de Fraude</h2>
 <p>Os detidos têm idades entre 20 e 63 anos e teriam participado de golpes contra moradores do Japão, incluindo uma mulher de aproximadamente 60 anos, residente na província de Kanagawa. Os suspeitos teriam extorquido mais de 11 milhões de ienes (cerca de US$ 69 mil).</p>
@@ -1309,7 +1438,7 @@ const DB = {
   "yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes": {
     title:"Yamato Proíbe Uso de Smartphones por Pedestres para Evitar Acidentes",
     tag:"Cultura",date:"17 de Janeiro de 2026",
-    thumb:"https://images.unsplash.com/photo-1601924994987-69e26d50dc26?q=80&w=2070",
+    thumb:"Imagens JR/Artigos JR/smartphone-proibição.PNG",
     content:`<p>Usar o celular andando na rua já está sendo proibido em algumas cidades do Japão.</p>
 <h2>A Nova Lei de Yamato</h2>
 <p>A cidade de Yamato implementou uma nova lei que proíbe os pedestres de utilizarem smartphones enquanto caminham. Essa medida visa prevenir lesões causadas por distrações, uma preocupação crescente nas áreas urbanas. A decisão teve respaldo de mais de 240 mil habitantes.</p>
@@ -1356,7 +1485,7 @@ const DB = {
 <p>A inflação elevada no Japão criou um ambiente desafiador, onde os preços dos bens e serviços aumentaram, mas os salários não acompanharam essa tendência. Isso resulta em uma pressão crescente sobre as famílias, que precisam rever seus orçamentos para se ajustarem a esta nova realidade econômica.</p>`
   },
   "daiso-100shop-hyakoen-japan": {
-    title:"A história do Daiso: como o Japão transformou o "barato" em qualidade",
+    title:'A história do Daiso: como o Japão transformou o "barato" em qualidade',
     tag:"Curiosidade",date:"11 de Janeiro de 2026",
     thumb:"https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070",
     content:`<p>A história do Daiso teve início em 1977, na cidade de Hiroshima, com a visão inovadora de Hirotake Yano, seu fundador.</p>
@@ -1397,7 +1526,7 @@ const DB = {
   "nomes-de-planetas-em-japones": {
     title:"Explorando os Planetas em Japonês: Um Guia Divertido sobre o Sistema Solar",
     tag:"Idioma",date:"17 de Dezembro de 2025",
-    thumb:"https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070",
+    thumb:"Imagens JR/Nihongo/planetas.PNG",
     content:`<p>Os planetas em japonês (太陽系 – taiyoukei) usam kanji ligados aos elementos da natureza, como água, fogo, madeira e metal. Esses nomes vêm da antiga astronomia chinesa.</p>
 <h2>Os Nomes dos Planetas</h2>
 <p>Esses nomes são mais do que apenas palavras; eles refletem a curiosidade humana sobre o cosmos e a forma como diferentes culturas veem o universo. Mercúrio é 水星 (Suisei — Estrela da Água), Vênus é 金星 (Kinsei — Estrela do Metal), Marte é 火星 (Kasei — Estrela do Fogo).</p>
@@ -1450,7 +1579,7 @@ const DB = {
   "estrutura-noni": {
     title:"Entendendo a Estrutura ～のに (noni) no Dia a Dia",
     tag:"Idioma",date:"14 de Dezembro de 2025",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"Imagens JR/Nihongo/1.png",
     content:`<p>A estrutura ～のに (noni) é usada no japonês para expressar contraste e quebra de expectativa. Ela equivale a "apesar de", "mesmo que" ou "mesmo tendo feito algo".</p>
 <h2>Como Usar</h2>
 <p>A expressão revela uma contradição ou um desalinhamento entre duas partes de uma frase, enfatizando um resultado que não se espera dada a premissa apresentada. Por exemplo: "Sakura wa kirei no ni, kare wa soreni kyoumi ga nai" — Sakura é linda, mas ele não está interessado.</p>
@@ -1460,7 +1589,7 @@ const DB = {
   "uso-da-importante-particula-ni": {
     title:"Uso da importante partícula \"ni\"",
     tag:"Idioma",date:"11 de Dezembro de 2025",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"Imagens JR/Nihongo/ni.PNG",
     content:`<p>As partículas do japonês desempenham um papel importante na construção das frases. Entre elas, a partícula に possui diversas aplicações, sendo usada com frequência para indicar o alvo de uma ação ou o momento em que algo acontece.</p>
 <h2>Usos Principais</h2>
 <p>Os usos básicos de に incluem apontar um lugar específico, uma direção, ou indicar que algo ocorre em um determinado momento. Por exemplo: 「先輩に聞いてください」expressa a intenção de pedir conselhos ao senpai.</p>
@@ -1470,7 +1599,7 @@ const DB = {
   "temo-kamawanai": {
     title:"Como Dizer \"Tudo Bem Se…\" em Japonês",
     tag:"Idioma",date:"08 de Dezembro de 2025",
-    thumb:"https://images.unsplash.com/photo-1557401622-cfc0aa5d146c?q=80&w=2070",
+    thumb:"Imagens JR/Nihongo/2.png",
     content:`<p>A estrutura ～てもかまわない (temo kamawanai) é usada no japonês para expressar que "não importa se algo acontecer" ou que "está tudo bem se…". Ela indica permissão, tolerância ou aceitação diante de uma situação.</p>
 <h2>Exemplos Práticos</h2>
 <p>少し遅れてもかまわない — Está tudo bem se atrasar um pouco. ここで待ってもかまわない — Está tudo bem esperar aqui. 明日来てもかまわない — Está tudo bem vir amanhã.</p>
@@ -1549,6 +1678,7 @@ function buildMainGrid(items) {
 
 function buildMoreGrid() {
   const grid = document.getElementById('moreGrid');
+  if (!grid) return;
   grid.innerHTML = '';
   posts.slice(8, 16).forEach(function(post) {
     const excerpt = extractExcerpt(post.content, 90);
@@ -1599,36 +1729,38 @@ function buildStrip() {
   });
 }
 
-function buildFooterRecent() {
-  const ul = document.getElementById('footerRecent');
-  posts.slice(0, 6).forEach(function(post) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#' + post.id;
-    a.textContent = post.title.length > 50 ? post.title.slice(0, 50) + '…' : post.title;
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(post.id);
-    });
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
-}
 
 // ======================================================
 // FILTERS
 // ======================================================
+const CATEGORY_MAP = {
+  'Dicas':       ['Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
+  'Cultura Pop': ['Anime'],
+  'Utilidades':  ['Curiosidade', 'Saúde e Bem-Estar'],
+};
+
+function getPostsByCategory(cat) {
+  if (cat === 'all') return [...posts];
+  const tags = CATEGORY_MAP[cat] || [cat];
+  return posts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
+}
+
+function setActiveNav(cat) {
+  document.querySelectorAll('.nav-links a[data-cat]').forEach(a => {
+    a.classList.toggle('active', a.dataset.cat === cat);
+  });
+}
+
 document.getElementById('filterGroup').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   currentFilter = btn.dataset.filter;
-  filteredPosts = currentFilter === 'all'
-    ? [...posts]
-    : posts.filter(p => p.tag === currentFilter || p.tag.includes(currentFilter));
+  filteredPosts = getPostsByCategory(currentFilter);
   visibleCount = 12;
   buildMainGrid(filteredPosts);
+  setActiveNav(currentFilter);
 });
 
 // Load more
@@ -1637,19 +1769,22 @@ document.getElementById('loadMoreBtn').addEventListener('click', () => {
   buildMainGrid(filteredPosts);
 });
 
-// Footer filter shortcut
 function filterCategory(cat) {
-  window.location.hash = '#grid-section';
+  currentFilter = cat;
+  filteredPosts = getPostsByCategory(cat);
+  visibleCount = 12;
+  buildMainGrid(filteredPosts);
   document.querySelectorAll('.filter-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.filter === cat);
   });
-  currentFilter = cat;
-  filteredPosts = posts.filter(p => p.tag === cat || p.tag.includes(cat));
-  visibleCount = 12;
-  buildMainGrid(filteredPosts);
-  setTimeout(() => {
-    document.getElementById('grid-section').scrollIntoView({ behavior: 'smooth' });
-  }, 50);
+  setActiveNav(cat);
+  if (cat === 'all') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    setTimeout(() => {
+      document.getElementById('grid-section').scrollIntoView({ behavior: 'smooth' });
+    }, 50);
+  }
 }
 
 // ======================================================
@@ -1720,12 +1855,7 @@ window.addEventListener('popstate', function() {
 });
 
 
-// ======================================================
-// NAVBAR SCROLL
-// ======================================================
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-});
+
 
 // ======================================================
 // INIT
@@ -1736,10 +1866,22 @@ function checkHash() {
 }
 
 function initHeroCarousel() {
-  var slides = document.querySelectorAll('.hero-slide');
-  var dots   = document.querySelectorAll('.hero-dot');
-  if (!slides.length) return;
+  var slides = Array.from(document.querySelectorAll('#heroSlides .hero-slide'));
+  var dotsWrap = document.getElementById('heroDots');
+  if (!slides.length || !dotsWrap) return;
+
+  // gera dots
+  dotsWrap.innerHTML = '';
+  var dots = slides.map(function(_, i) {
+    var btn = document.createElement('button');
+    btn.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    btn.dataset.idx = String(i);
+    dotsWrap.appendChild(btn);
+    return btn;
+  });
+
   var cur = 0;
+
   function goTo(n) {
     slides[cur].classList.remove('active');
     dots[cur].classList.remove('active');
@@ -1747,9 +1889,11 @@ function initHeroCarousel() {
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
   }
-  dots.forEach(function(d) {
-    d.addEventListener('click', function() { goTo(+d.dataset.idx); });
+
+  dots.forEach(function(btn) {
+    btn.addEventListener('click', function() { goTo(Number(btn.dataset.idx)); });
   });
+
   setInterval(function() { goTo(cur + 1); }, 5000);
 }
 
@@ -1757,7 +1901,6 @@ function init() {
   buildStrip();
   buildMainGrid(filteredPosts);
   buildMoreGrid();
-  buildFooterRecent();
   initHeroCarousel();
   checkHash();
 }
