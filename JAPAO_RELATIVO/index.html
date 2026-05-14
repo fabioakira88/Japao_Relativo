@@ -628,8 +628,18 @@ body.reading-mode .nav {
   .filter-group{justify-content:flex-start}
   .banner-content{padding:0 24px}
   .banner-title{font-size:54px}
-  .footer{padding:40px 24px 24px}
-  .footer-top{grid-template-columns:1fr}
+  .footer-top{flex-direction:column;align-items:flex-start;gap:36px;padding:40px 24px 32px;}
+  .footer-col,.footer-brand,.footer-newsletter{width:100%;}
+  .footer-col{padding-left:0;}
+  .footer-brand{align-items:flex-start;text-align:left;}
+  .footer-logo{flex-direction:row;align-items:center;gap:12px;}
+  .footer-logo img{width:60px;height:60px;}
+  .footer-logo-text{font-size:28px;}
+  .footer-desc{max-width:100%;}
+  .fn-form{flex-direction:column;}
+  .fn-form input{border-bottom:1px solid rgba(255,255,255,0.18);}
+  .fn-form button{width:100%;padding:13px;}
+  .footer-bottom{padding:18px 24px 28px;}
   .hero-numbers{display:none}
   .hero-content{padding:0 24px 48px}
 }
@@ -705,7 +715,7 @@ body.reading-mode .nav {
 <!-- ======================== NAV ======================== -->
 <nav class="nav" id="nav">
   <div class="nav-logo">
-    <img src="https://japaorelativo.com/wp-content/uploads/2026/05/logo-jr.png" alt="JR Logo" class="nav-logo-img">
+    <img src="Imagens JR/Logo JR/logo-japaorelativo.PNG" alt="JR Logo" class="nav-logo-img">
     <div class="nav-logo-text">
       Japão Relativo
       <span>O Japão por vários ângulos</span>
@@ -914,12 +924,6 @@ body.reading-mode .nav {
       </div>
     </a>
   </div>
-  <div class="load-more-wrap">
-    <button class="btn-load" id="loadMoreBtn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      Ver mais matérias
-    </button>
-  </div>
 </section>
 
 <!-- ======================== MORE ARTICLES ======================== -->
@@ -1000,6 +1004,79 @@ body.reading-mode .nav {
 // DATABASE — Add new posts here easily!
 // ======================================================
 const DB = {
+  "invasao-casa-assassinatos-setagaya-2026": {
+    title:"Invasão à 'Casa dos Assassinatos' de Setagaya: suspeitos dizem não saber da história do imóvel",
+    tag:"Notícia",
+    date:"14 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/setagaya.PNG",
+    content:`
+<p>Dois trabalhadores da construção civil de nacionalidade vietnamita foram presos em Tóquio por invasão de propriedade e tentativa de furto. O que torna o caso polêmico é o local: a residência em <strong>Setagaya</strong> onde, em dezembro de 2000, uma família de quatro pessoas foi brutalmente assassinada — um dos crimes não resolvidos mais famosos do Japão.</p>
+
+<h2>Um crime que o Japão nunca esqueceu</h2>
+<p>O <strong>Caso Setagaya</strong> chocou o país pela brutalidade e pela quantidade de pistas deixadas pelo assassino — incluindo impressões digitais, DNA e até uma mochila com pertences pessoais — sem que a polícia conseguisse identificar o responsável em mais de 25 anos de investigação. O imóvel, preservado como cena do crime, tornou-se um ponto de atenção mórbida e é monitorado regularmente por rondas policiais.</p>
+
+<h2>O que os suspeitos alegam</h2>
+<p>Os dois homens, presos após a polícia notar janelas quebradas e pegadas durante uma ronda de rotina, alegaram que <strong>não tinham conhecimento da história macabra da casa</strong> e que estavam apenas em busca de objetos de valor devido à instabilidade financeira. A polícia investiga a veracidade das afirmações.</p>
+
+<h2>A polêmica do imóvel preservado</h2>
+<p>O caso reacende o debate sobre o que fazer com propriedades ligadas a crimes graves no Japão. Imóveis com histórico violento costumam perder valor e ficam desocupados por anos — ou décadas. A família proprietária, que sobreviveu à tragédia por não estar em casa na noite do crime, mantém o imóvel sem uso desde 2000, colaborando com as investigações.</p>
+`
+  },
+  "furto-mochila-dez-milhoes-ienes-chiba-2026": {
+    title:"Idoso furta mochila com 10,1 milhões de ienes enquanto vítima dormia no carro em Chiba",
+    tag:"Notícia",
+    date:"14 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/japones-preso-.PNG",
+    content:`
+<p>Um idoso de 69 anos foi detido em <strong>Chiba</strong> após ser acusado de furtar uma mochila contendo nada menos que <strong>10,1 milhões de ienes</strong> — aproximadamente R$ 330 mil — em espécie.</p>
+
+<h2>A oportunidade e o cochilo</h2>
+<p>A vítima, um trabalhador do setor de transportes, estava tirando um cochilo dentro de seu carro estacionado quando o suspeito aproveitou a oportunidade para levar a bolsa. O descuido de deixar uma quantia tão elevada dentro do veículo chamou atenção tanto da polícia quanto da imprensa japonesa.</p>
+
+<h2>"Não fazia ideia que havia tanto dinheiro"</h2>
+<p>Ao ser interrogado, o idoso admitiu o furto, mas afirmou que <em>"não fazia ideia"</em> de que havia uma fortuna tão grande dentro da mochila. A afirmação gerou ceticismo entre investigadores, que avaliam se o suspeito tinha informações prévias sobre o conteúdo da bolsa.</p>
+
+<h2>Por que carregar tanto dinheiro em espécie?</h2>
+<p>O caso levantou uma questão recorrente no Japão: o país ainda mantém uma cultura forte de uso de dinheiro físico, especialmente entre trabalhadores autônomos e setores como transporte e construção. Transações de alto valor em espécie são comuns, o que os torna alvos frequentes de furtos oportunistas.</p>
+`
+  },
+  "fraude-qualidade-nidec-2026": {
+    title:"Nidec volta ao centro do escândalo: novos detalhes sobre suspeitas de fraude de qualidade em componentes",
+    tag:"Notícia",
+    date:"14 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/toyota.jpg",
+    content:`
+<p>A fabricante japonesa <strong>Nidec</strong>, famosa mundialmente por seus motores elétricos, voltou a ser alvo de polêmicas no setor econômico e jurídico. Após já ter enfrentado um escândalo contábil anterior, surgiram novos detalhes sobre suspeitas de <strong>fraude de qualidade</strong> em seus componentes.</p>
+
+<h2>O que se sabe sobre a fraude</h2>
+<p>As suspeitas envolvem a certificação de componentes que não atenderiam aos padrões declarados — prática conhecida no Japão como <em>データ偽装</em> (falsificação de dados). A notícia gerou repercussão imediata nos mercados, com as ações da empresa sofrendo pressão significativa após as revelações.</p>
+
+<h2>Um padrão preocupante na indústria japonesa</h2>
+<p>O caso Nidec não é isolado. Nos últimos anos, gigantes como <strong>Toyota, Kobe Steel e Mitsubishi Materials</strong> foram envolvidas em escândalos similares de falsificação de dados de qualidade. O fenômeno abala a reputação do <em>monozukuri</em> — a filosofia japonesa de fabricação com excelência absoluta — e levanta dúvidas sobre a eficácia das auditorias internas nas grandes corporações.</p>
+
+<h2>Debate sobre ética corporativa</h2>
+<p>Especialistas apontam para uma cultura de pressão por resultados que pode levar funcionários a manipular dados para cumprir metas. A ausência de denunciantes (<em>whistleblowers</em>) efetivos e o medo de represálias são citados como fatores que perpetuam essas práticas. O caso Nidec promete ampliar o debate sobre reforma na governança corporativa japonesa.</p>
+`
+  },
+  "reforma-retrial-japao-parlamento-2026": {
+    title:"Parlamento japonês debate reforma do retrial: direitos humanos em xeque no sistema judiciário",
+    tag:"Notícia",
+    date:"14 de Maio de 2026",
+    thumb:"Imagens JR/Artigos JR/protesto.PNG",
+    content:`
+<p>O debate sobre a reforma do sistema de <strong>novo julgamento (retrial)</strong> atingiu o ápice no Parlamento japonês. A polêmica envolve o Ministério da Justiça e promotores que tentam manter o direito de apelar contra decisões que concedem novos julgamentos a réus — algo que críticos consideram uma violação flagrante aos direitos humanos.</p>
+
+<h2>O caso Hakamada como símbolo</h2>
+<p><strong>Iwao Hakamada</strong> passou mais de 45 anos no corredor da morte antes de ser inocentado — o maior tempo registrado na história mundial para um condenado à morte. Seu caso tornou-se o símbolo máximo das falhas do sistema judiciário japonês e é citado constantemente nos debates atuais sobre a reforma do retrial.</p>
+<p>Hakamada foi condenado em 1968 pelo assassinato de seu patrão e da família deste. Décadas depois, ficou provado que as evidências haviam sido fabricadas pela polícia. Ele foi libertado em 2014 para tratamento médico e inocentado definitivamente em 2024.</p>
+
+<h2>O que está em jogo</h2>
+<p>O sistema atual permite que promotores recorram de decisões judiciais que concedem um novo julgamento — o que, na prática, pode manter réus presos indefinidamente mesmo quando há dúvidas sérias sobre a condenação original. Organizações de direitos humanos classificam essa prática como incompatível com os princípios do Estado de Direito.</p>
+
+<h2>A resistência do Ministério da Justiça</h2>
+<p>O Ministério da Justiça argumenta que restringir o direito de recurso dos promotores poderia abrir brechas para revisões indevidas de casos legítimos. O impasse revela uma tensão estrutural no sistema japonês entre a autonomia do Judiciário e o poder discricionário do Ministério Público — uma discussão que promete se estender pelos próximos meses no Parlamento.</p>
+`
+  },
   "node-ので-particula-japonesa-razao": {
     title:"NODE (ので) — Como expressar razão de forma neutra em japonês",
     tag:"Idioma",
@@ -1765,8 +1842,6 @@ function buildMainGrid(items) {
     });
     grid.appendChild(a);
   });
-  document.getElementById('loadMoreBtn').style.display =
-    visibleCount >= items.length ? 'none' : 'inline-flex';
 }
 
 function buildMoreGrid() {
@@ -1856,11 +1931,6 @@ document.getElementById('filterGroup').addEventListener('click', e => {
   setActiveNav(currentFilter);
 });
 
-// Load more
-document.getElementById('loadMoreBtn').addEventListener('click', () => {
-  visibleCount += 8;
-  buildMainGrid(filteredPosts);
-});
 
 function filterCategory(cat) {
   currentFilter = cat;
