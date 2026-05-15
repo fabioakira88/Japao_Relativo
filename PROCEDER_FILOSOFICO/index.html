@@ -1391,6 +1391,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     .news-card:hover::before { opacity: 1; }
 
+    .news-card-thumb {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
     .news-card-body {
       padding: 1.75rem;
       flex: 1;
@@ -1777,7 +1785,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
        Para editar: vá até a seção <script> e edite o array "slides".
        ============================================ -->
   <section class="hero" id="inicio">
-    <div id="heroSlides"><div class="hero-slide" data-index="0">  <div class="hero-slide-bg" style="background-image:url(&#39;https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/FLaneKfrfyGYOgJd.jpg&#39;)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Sócrates</h1>    <div class="hero-dates">469 – 399 a.C.</div>    <p class="hero-quote">"Uma vida sem reflexão não vale a pena ser vivida."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide active" data-index="1">  <div class="hero-slide-bg" style="background-image:url(&#39;https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/zBmXzIGbgLLlbNyh.jpg&#39;)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Platão</h1>    <div class="hero-dates">428 – 348 a.C.</div>    <p class="hero-quote">"O início é a parte mais importante de qualquer obra."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="2">  <div class="hero-slide-bg" style="background-image:url(&#39;https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/AJPBTuUJaFhjwjvx.jpg&#39;)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Aristóteles</h1>    <div class="hero-dates">384 – 322 a.C.</div>    <p class="hero-quote">"Somos o que repetidamente fazemos. A excelência, portanto, não é um ato, mas um hábito."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="3">  <div class="hero-slide-bg" style="background-image:url(&#39;https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/wPdrfjjEMXEymTcc.jpg&#39;)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Tomás de Aquino</h1>    <div class="hero-dates">1225 – 1274</div>    <p class="hero-quote">"O temor do Senhor é o princípio da sabedoria."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="4">  <div class="hero-slide-bg" style="background-image:url(&#39;https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/yPCECtiDBKjEdTjP.jpg&#39;)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Friedrich Nietzsche</h1>    <div class="hero-dates">1844 – 1900</div>    <p class="hero-quote">"Aquele que tem um porquê para viver suporta quase qualquer como."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div></div>
+    <div id="heroSlides"><div class="hero-slide" data-index="0">  <div class="hero-slide-bg" style="background-image:url(./index_files/FLaneKfrfyGYOgJd.jpg)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Sócrates</h1>    <div class="hero-dates">469 – 399 a.C.</div>    <p class="hero-quote">"Uma vida sem reflexão não vale a pena ser vivida."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide active" data-index="1">  <div class="hero-slide-bg" style="background-image:url(./index_files/zBmXzIGbgLLlbNyh.jpg)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Platão</h1>    <div class="hero-dates">428 – 348 a.C.</div>    <p class="hero-quote">"O início é a parte mais importante de qualquer obra."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="2">  <div class="hero-slide-bg" style="background-image:url(./index_files/AJPBTuUJaFhjwjvx.jpg)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Aristóteles</h1>    <div class="hero-dates">384 – 322 a.C.</div>    <p class="hero-quote">"Somos o que repetidamente fazemos. A excelência, portanto, não é um ato, mas um hábito."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="3">  <div class="hero-slide-bg" style="background-image:url(./index_files/wPdrfjjEMXEymTcc.jpg)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Tomás de Aquino</h1>    <div class="hero-dates">1225 – 1274</div>    <p class="hero-quote">"O temor do Senhor é o princípio da sabedoria."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div><div class="hero-slide" data-index="4">  <div class="hero-slide-bg" style="background-image:url(./index_files/yPCECtiDBKjEdTjP.jpg)"></div>  <div class="hero-slide-overlay"></div>  <div class="hero-content"><div class="hero-text">    <div class="hero-label">Proceder Filosófico</div>    <h1 class="hero-name">Friedrich Nietzsche</h1>    <div class="hero-dates">1844 – 1900</div>    <p class="hero-quote">"Aquele que tem um porquê para viver suporta quase qualquer como."</p>    <a href="https://procederfilosofico.com.br/#conteudo" class="hero-btn">Explorar Conteúdo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>  </div></div></div></div>
 
     <div class="hero-controls">
       <button class="hero-arrow" id="prevSlide" aria-label="Slide anterior">
@@ -2227,36 +2235,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         name: "Sócrates",
         dates: "469 – 399 a.C.",
         quote: "Uma vida sem reflexão não vale a pena ser vivida.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/FLaneKfrfyGYOgJd.jpg",
-        thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/FLaneKfrfyGYOgJd.jpg"
+        image: "./index_files/FLaneKfrfyGYOgJd.jpg",
+        thumb: "./index_files/FLaneKfrfyGYOgJd.jpg"
       },
       {
         name: "Platão",
         dates: "428 – 348 a.C.",
         quote: "O início é a parte mais importante de qualquer obra.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/zBmXzIGbgLLlbNyh.jpg",
-        thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/zBmXzIGbgLLlbNyh.jpg"
+        image: "./index_files/zBmXzIGbgLLlbNyh.jpg",
+        thumb: "./index_files/zBmXzIGbgLLlbNyh.jpg"
       },
       {
         name: "Aristóteles",
         dates: "384 – 322 a.C.",
         quote: "Somos o que repetidamente fazemos. A excelência, portanto, não é um ato, mas um hábito.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/AJPBTuUJaFhjwjvx.jpg",
-        thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/AJPBTuUJaFhjwjvx.jpg"
+        image: "./index_files/AJPBTuUJaFhjwjvx.jpg",
+        thumb: "./index_files/AJPBTuUJaFhjwjvx.jpg"
       },
       {
         name: "Tomás de Aquino",
         dates: "1225 – 1274",
         quote: "O temor do Senhor é o princípio da sabedoria.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/wPdrfjjEMXEymTcc.jpg",
-        thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/wPdrfjjEMXEymTcc.jpg"
+        image: "./index_files/wPdrfjjEMXEymTcc.jpg",
+        thumb: "./index_files/wPdrfjjEMXEymTcc.jpg"
       },
       {
         name: "Friedrich Nietzsche",
         dates: "1844 – 1900",
         quote: "Aquele que tem um porquê para viver suporta quase qualquer como.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/yPCECtiDBKjEdTjP.jpg",
-        thumb: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663583268673/yPCECtiDBKjEdTjP.jpg"
+        image: "./index_files/yPCECtiDBKjEdTjP.jpg",
+        thumb: "./index_files/yPCECtiDBKjEdTjP.jpg"
       }
     ];
 
@@ -2526,6 +2534,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     var grid = document.getElementById('newsGrid');
     if (!grid) return;
 
+    grid.innerHTML = '';
+
     POSTS.forEach(function(post) {
       var card = document.createElement('article');
       card.className = 'news-card';
@@ -2535,6 +2545,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       card.setAttribute('aria-label', 'Ler artigo: ' + post.title);
 
       card.innerHTML =
+        (post.thumb ? '<img class="news-card-thumb" src="' + post.thumb + '" alt="' + post.title + '" loading="lazy">' : '') +
         '<div class="news-card-body">' +
           '<span class="news-card-tag">' + post.tag + '</span>' +
           '<h3 class="news-card-title">' + post.title + '</h3>' +
@@ -2681,7 +2692,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     tag:      'FILOSOFIA MEDIEVAL',
     date:     '09 de Maio de 2026',
     excerpt:  'Escrito entre 397 e 400 d.C., As Confissões não é uma autobiografia. É um longo diálogo com Deus — seis momentos que atravessam séculos e ainda falam ao coração de quem os lê.',
-    thumb:    'https://procederfilosofico.com.br/wp-content/uploads/2026/05/santo-agostinho.png',
+    thumb:    'imagens%20filosofia%20/santo_agostinho.jpeg',
     featured: true,
     content:  `<p>Escrito entre 397 e 400 d.C., <em>As Confissões</em> de Santo Agostinho não é uma autobiografia no sentido moderno. É um longo diálogo com Deus — feito em voz alta, diante de quem quer que leia. Agostinho confessa seus pecados, suas buscas, seus equívocos filosóficos e sua conversão não para se justificar, mas para mostrar como uma alma pode estar completamente perdida e ainda assim ser encontrada.</p>
 
@@ -2763,7 +2774,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     tag:      'FILOSOFIA E PSICOLOGIA',
     date:     '09 de Maio de 2026',
     excerpt:  'Peter Pan não é uma história infantil. É um diagnóstico. Existe uma pergunta que a maioria das pessoas evita fazer em voz alta: eu realmente cresci, ou apenas aprendi a fingir que cresci?',
-    thumb:    'https://procederfilosofico.com.br/wp-content/uploads/2026/05/peter-pan.png',
+    thumb:    'Canva%20-%20Proceder/peter-pan.png',
     featured: true,
     content:  `<p>Hoje, 9 de maio, nasceu o homem que criou o menino que nunca quis crescer. Mas Peter Pan não é uma história infantil. É um diagnóstico.</p>
 
@@ -3191,12 +3202,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   window.__mestresInjected=true;
 
   var FILOSOFOS=[
-    {nome:'Epicteto',    periodo:'50 — 135 d.C.',  corrente:'Estoicismo',           img:'https://procederfilosofico.com.br/wp-content/uploads/2026/05/epicteto.png',         bio:'<p>Nasceu escravo em Hierápolis. Tornou-se o mais radical dos estoicos: para ele, a liberdade não está nas correntes ou na ausência delas — está na distinção entre o que depende de nós e o que não depende.</p><p>Seu <em>Enchiridion</em> é um dos manuais práticos de filosofia mais influentes já escritos. Epicteto nunca escreveu uma linha — seus ensinamentos foram registrados por seu discípulo Arriano. A filosofia como forma de vida, não como sistema teórico.</p>'},
+    {nome:'Epicteto',    periodo:'50 — 135 d.C.',  corrente:'Estoicismo',           img:'./index_files/epicteto.png',         bio:'<p>Nasceu escravo em Hierápolis. Tornou-se o mais radical dos estoicos: para ele, a liberdade não está nas correntes ou na ausência delas — está na distinção entre o que depende de nós e o que não depende.</p><p>Seu <em>Enchiridion</em> é um dos manuais práticos de filosofia mais influentes já escritos. Epicteto nunca escreveu uma linha — seus ensinamentos foram registrados por seu discípulo Arriano. A filosofia como forma de vida, não como sistema teórico.</p>'},
     {nome:'Marco Aurélio',periodo:'121 — 180 d.C.',corrente:'Estoicismo',           img:'PLACEHOLDER',bio:'<p>Imperador de Roma por quase duas décadas, governou durante guerras, pragas e crises de fronteira. Mesmo no poder absoluto, escrevia para si mesmo.</p><p><em>Meditações</em> não foi escrito para publicação — é o diário de um homem tentando ser melhor do que o cargo exigia. O filósofo-rei que Platão sonhou, confrontando diariamente a diferença entre o ideal e o possível.</p>'},
-    {nome:'Sêneca',      periodo:'4 a.C. — 65 d.C.',corrente:'Estoicismo',          img:'https://procederfilosofico.com.br/wp-content/uploads/2026/05/seneca.png',          bio:'<p>Conselheiro de Nero e um dos homens mais ricos de Roma — o mais contraditório dos estoicos. Pregou a moderação enquanto acumulava fortunas. Foi forçado a se suicidar pelo próprio imperador que aconselhou.</p><p>Suas <em>Cartas a Lucílio</em> permanecem entre os textos mais honestos sobre o tempo, a amizade e o medo da morte que a filosofia já produziu.</p>'},
-    {nome:'Platão',      periodo:'428 — 348 a.C.', corrente:'Filosofia Clássica',   img:'https://procederfilosofico.com.br/wp-content/uploads/2026/05/platao-mestre.jpeg',  bio:'<p>Fundou a Academia de Atenas — a primeira instituição de ensino superior do Ocidente. Discípulo de Sócrates, mestre de Aristóteles.</p><p>Para Platão, o mundo que vemos é sombra de um mundo mais real, acessível apenas pela razão. Toda a filosofia ocidental, dizia Whitehead, é uma série de notas de rodapé a Platão.</p>'},
-    {nome:'Aristóteles', periodo:'384 — 322 a.C.', corrente:'Filosofia Clássica',   img:'https://procederfilosofico.com.br/wp-content/uploads/2026/05/aristoteles-mestre.jpeg',bio:'<p>Discípulo de Platão e tutor de Alexandre, o Grande. Escreveu sobre lógica, biologia, política, poética e metafísica com igual profundidade.</p><p>Onde Platão buscava o eterno, Aristóteles observava o concreto. A <em>Ética a Nicômaco</em> continua sendo o texto fundador da filosofia moral ocidental.</p>'},
-    {nome:'Nietzsche',   periodo:'1844 — 1900',    corrente:'Filosofia Moderna',    img:'https://procederfilosofico.com.br/wp-content/uploads/2026/05/nietzsche-mestre.jpg',  bio:'<p>Anunciou a morte de Deus — não com alegria, mas com espanto diante do que isso significa. Filólogo antes de filósofo, atacou a moral e o niilismo com um martelo.</p><p>O eterno retorno, o além-homem, a vontade de potência: conceitos que o século XX não conseguiu ignorar nem digerir completamente. Enlouqueceu aos 44 anos e nunca se recuperou.</p>'},
+    {nome:'Sêneca',      periodo:'4 a.C. — 65 d.C.',corrente:'Estoicismo',          img:'./index_files/seneca.png',          bio:'<p>Conselheiro de Nero e um dos homens mais ricos de Roma — o mais contraditório dos estoicos. Pregou a moderação enquanto acumulava fortunas. Foi forçado a se suicidar pelo próprio imperador que aconselhou.</p><p>Suas <em>Cartas a Lucílio</em> permanecem entre os textos mais honestos sobre o tempo, a amizade e o medo da morte que a filosofia já produziu.</p>'},
+    {nome:'Platão',      periodo:'428 — 348 a.C.', corrente:'Filosofia Clássica',   img:'./index_files/platao-mestre.jpeg',  bio:'<p>Fundou a Academia de Atenas — a primeira instituição de ensino superior do Ocidente. Discípulo de Sócrates, mestre de Aristóteles.</p><p>Para Platão, o mundo que vemos é sombra de um mundo mais real, acessível apenas pela razão. Toda a filosofia ocidental, dizia Whitehead, é uma série de notas de rodapé a Platão.</p>'},
+    {nome:'Aristóteles', periodo:'384 — 322 a.C.', corrente:'Filosofia Clássica',   img:'./index_files/aristoteles-mestre.jpeg',bio:'<p>Discípulo de Platão e tutor de Alexandre, o Grande. Escreveu sobre lógica, biologia, política, poética e metafísica com igual profundidade.</p><p>Onde Platão buscava o eterno, Aristóteles observava o concreto. A <em>Ética a Nicômaco</em> continua sendo o texto fundador da filosofia moral ocidental.</p>'},
+    {nome:'Nietzsche',   periodo:'1844 — 1900',    corrente:'Filosofia Moderna',    img:'./index_files/nietzsche-mestre.jpg',  bio:'<p>Anunciou a morte de Deus — não com alegria, mas com espanto diante do que isso significa. Filólogo antes de filósofo, atacou a moral e o niilismo com um martelo.</p><p>O eterno retorno, o além-homem, a vontade de potência: conceitos que o século XX não conseguiu ignorar nem digerir completamente. Enlouqueceu aos 44 anos e nunca se recuperou.</p>'},
     {nome:'Hannah Arendt',periodo:'1906 — 1975',   corrente:'Filosofia Contemporânea',img:'PLACEHOLDER',bio:'<p>Refugiada judia que fugiu do nazismo e se tornou a pensadora política mais importante do século XX. Cunhou a expressão "banalidade do mal" ao cobrir o julgamento de Eichmann em Jerusalém.</p><p>Em <em>A Condição Humana</em>, distinguiu trabalho, obra e ação política — e defendeu que é na ação que a liberdade se torna real. Seu pensamento permanece urgente.</p>'},
   ];
 
