@@ -1,0 +1,14 @@
+Options -Indexes
+DirectoryIndex PROCEDER_FILOSOFICO/index.html
+
+RewriteEngine On
+RewriteBase /
+
+# Serve a raiz como PROCEDER_FILOSOFICO/index.html
+RewriteRule ^$ PROCEDER_FILOSOFICO/index.html [L]
+
+# Redireciona todos os assets para dentro de PROCEDER_FILOSOFICO/
+# (apenas se o arquivo/pasta não existe no caminho direto)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ PROCEDER_FILOSOFICO/$1 [L]
