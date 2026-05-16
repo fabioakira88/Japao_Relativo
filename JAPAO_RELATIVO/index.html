@@ -309,10 +309,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   grid-template-columns:repeat(4,1fr);
   gap:2px;
 }
-/* First card spans 2 cols and 2 rows */
 .news-grid .card:first-child {
-  grid-column:span 2;
-  grid-row:span 2;
+  grid-column:span 1;
+  grid-row:span 1;
 }
 .card {
   position:relative;overflow:hidden;
@@ -609,7 +608,7 @@ body.reading-mode .nav {
    ============================================================ */
 @media(max-width:1100px) {
   .news-grid{grid-template-columns:repeat(2,1fr)}
-  .news-grid .card:first-child{grid-column:span 2}
+  .news-grid .card:first-child{grid-column:span 1}
   .more-grid{grid-template-columns:repeat(2,1fr)}
   .section{padding:60px 40px}
   .banner-content{padding:0 40px}
@@ -729,6 +728,7 @@ body.reading-mode .nav {
     <li><a href="#grid-section" data-cat="Dicas" onclick="filterCategory('Dicas');return false;">Dicas</a></li>
     <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
     <li><a href="#grid-section" data-cat="Utilidades" onclick="filterCategory('Utilidades');return false;">Utilidades</a></li>
+    <li><a href="#achados-section">Achados</a></li>
   </ul>
 </nav>
 
@@ -802,134 +802,90 @@ body.reading-mode .nav {
       <button class="filter-btn" data-filter="Utilidades">Utilidades</button>
     </div>
   </div>
-  <div class="news-grid" id="newsGrid">
-    <a class="card card-featured" href="#aoi-matsuri-kyoto-festival-heian-2026" data-id="aoi-matsuri-kyoto-festival-heian-2026">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/Aoi-matsuri.JPG');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">Aoi Matsuri: a procissão imperial que atravessa 1.500 anos em Kyoto</div>
-        <div class="card-excerpt">Em 15 de maio de cada ano, mais de 500 pessoas vestidas com trajes da era Heian percorrem as ruas de Kyoto num…</div>
-        <div class="card-date">15 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#natsu-basho-torneio-sumo-maio-2026" data-id="natsu-basho-torneio-sumo-maio-2026">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/Natsu-basho.PNG');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">Natsu Basho 2026: o Torneio de Verão que paralisa o Japão em maio</div>
-        <div class="card-excerpt">A cada maio, o bairro de Ryōgoku, em Tóquio, transforma-se no coração do Japão. Durante 15 dias, o Natsu Basho…</div>
-        <div class="card-date">11 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#haha-no-hi-dia-das-maes-japao-2026" data-id="haha-no-hi-dia-das-maes-japao-2026">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/dia-das-maes.jpeg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">Haha no Hi: o Dia das Mães no Japão e a tradição dos cravos vermelhos</div>
-        <div class="card-excerpt">Todo segundo domingo de maio, o Japão se veste de cravos vermelhos e gratidão. O Haha no Hi (母の日) — Dia das Mã…</div>
-        <div class="card-date">11 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#ninguem-pode-saber-caso-sugamo-1988" data-id="ninguem-pode-saber-caso-sugamo-1988">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/ninguem pode saber/IMG_2242.JPG');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">"Ninguém Pode Saber" é um filme. Mas a história real foi muito mais brutal.</div>
-        <div class="card-excerpt">Em 1988, o Japão foi sacudido por um caso que chocou o mundo inteiro. Cinco crianças. Um apartamento. Nove meses completamente sozinhas…</div>
-        <div class="card-date">08 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#passaporte-brasileiro-japao-2026" data-id="passaporte-brasileiro-japao-2026">
-      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=2070');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Notícia</div>
-        <div class="card-title">Passaporte Brasileiro no Japão: Taxa cairá pela metade a partir de junho de 2026</div>
-        <div class="card-excerpt">A partir de 1º de junho de 2026, os valores para emissão e renovação do passaporte brasileiro no Japão cairão aproximadamente pela metade…</div>
-        <div class="card-date">06 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#toyota" data-id="toyota">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/toyota.jpg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Indústria Automotiva</div>
-        <div class="card-title">Toyota bate recorde histórico de vendas em 2025 — mesmo com as tarifas de Trump no caminho</div>
-        <div class="card-excerpt">Quando o governo Trump anunciou tarifas de até 25% sobre veículos importados do Japão, muitos analistas anteci…</div>
-        <div class="card-date">04 de Maio de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#festival-de-pipas-de-hamamatsu" data-id="festival-de-pipas-de-hamamatsu">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/festival de pipas.jpg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">Festival de Pipas de Hamamatsu: O Coração da Golden Week em Shizuoka</div>
-        <div class="card-excerpt">O Festival de Pipas de Hamamatsu (Hamamatsu Matsuri) é um dos eventos mais vibrantes e visualmente impressiona…</div>
-        <div class="card-date">29 de Abril de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#a-revolucao-silenciosa-na-politica-de-exportacao-de-armas" data-id="a-revolucao-silenciosa-na-politica-de-exportacao-de-armas">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/exportação de armas.jpg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Notícia</div>
-        <div class="card-title">A Revolução Silenciosa na Política de Exportação de Armas</div>
-        <div class="card-excerpt">O Japão quebra décadas de silêncio bélico com uma mudança histórica nas leis de exportação de armas. O Fim de …</div>
-        <div class="card-date">23 de Abril de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#kurai-incerteza-e-modestia" data-id="kurai-incerteza-e-modestia">
-      <div class="card-img" style="background-image:url('Imagens JR/Nihongo/kurai.jpg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Idioma</div>
-        <div class="card-title">くらい（kurai), incerteza e modéstia</div>
-        <div class="card-excerpt">Como o Japão usa a linguagem e os gestos para evitar arrogância. A palavra 暗い（kurai）significa literalmente esc…</div>
-        <div class="card-date">17 de Fevereiro de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#os-beneficios-do-misso-japones" data-id="os-beneficios-do-misso-japones">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/miso.jpeg');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Curiosidade</div>
-        <div class="card-title">Os Benefícios do Missô Japonês: Nutrientes e Cuidados Necessários</div>
-        <div class="card-excerpt">O missô japonês é muito mais do que uma sopa tradicional; é um alimento fermentado que desempenha um papel cru…</div>
-        <div class="card-date">11 de Fevereiro de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#treze-japoneses-foram-presos-apos-retornar-do-camboja" data-id="treze-japoneses-foram-presos-apos-retornar-do-camboja">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/japones-preso-.PNG');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Notícia</div>
-        <div class="card-title">Treze japoneses foram presos após retornar do Camboja</div>
-        <div class="card-excerpt">A polícia japonesa prendeu 13 cidadãos japoneses que retornaram recentemente do Camboja, sob suspeita de envol…</div>
-        <div class="card-date">17 de Janeiro de 2026</div>
-      </div>
-    </a>
-    <a class="card" href="#yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes" data-id="yamato-proibe-uso-de-smartphones-por-pedestres-para-evitar-acidentes">
-      <div class="card-img" style="background-image:url('Imagens JR/Artigos JR/smartphone-proibição.PNG');background-size:cover;background-position:center"></div>
-      <div class="card-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      <div class="card-body">
-        <div class="card-tag">Cultura</div>
-        <div class="card-title">Yamato Proíbe Uso de Smartphones por Pedestres para Evitar Acidentes</div>
-        <div class="card-excerpt">Usar o celular andando na rua já está sendo proibido em algumas cidades do Japão. A Nova Lei de Yamato A cidad…</div>
-        <div class="card-date">17 de Janeiro de 2026</div>
-      </div>
-    </a>
+  <div class="news-grid" id="newsGrid"></div>
+</section>
+
+<!-- ======================== ACHADOS DO JAPÃO (AFILIADOS SHEIN) ======================== -->
+<section class="jr-achados-section" id="achados-section">
+  <div class="jr-achados-container">
+    <div class="jr-achados-header">
+      <span class="jr-achados-eyebrow">Seleção especial</span>
+      <h2 class="jr-achados-title">Achados do Japão</h2>
+      <p class="jr-achados-subtitle">Produtos com identidade japonesa, direto pra você via SHEIN.</p>
+    </div>
+    <div class="jr-achados-grid">
+
+      <!-- Produto 1: Copo Spongebob Squarepants 1200ml -->
+      <a class="jr-card" href="https://onelink.shein.com/8/5pr7ndtv40u0" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver Copo Spongebob Squarepants 1200ml na SHEIN">
+        <div class="jr-card-image-wrap">
+          <!-- Substitua o src pela URL final quando subir para o servidor -->
+          <img src="Imagens%20JR/noticias%3A17.05.2026/bob-esponja.webp" alt="Copo Spongebob Squarepants 1200ml" class="jr-card-image" loading="lazy">
+          <span class="jr-card-badge">Destaque</span>
+        </div>
+        <div class="jr-card-body">
+          <p class="jr-card-brand">SHEIN × Nickelodeon</p>
+          <h3 class="jr-card-title">Copo Spongebob Squarepants</h3>
+          <ul class="jr-card-specs">
+            <li>🧃 1200ml / 40oz</li>
+            <li>🇯🇵 Estilo Japão</li>
+          </ul>
+          <div class="jr-card-cta">
+            <span>Ver na SHEIN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- Produto 2: Copo The Powerpuff Girls × SHEIN 500ml -->
+      <a class="jr-card" href="https://onelink.shein.com/8/5pr7oz1rc7ll" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver Copo The Powerpuff Girls 500ml na SHEIN">
+        <div class="jr-card-image-wrap">
+          <!-- Substitua o src pela URL final quando subir para o servidor -->
+          <img src="Imagens%20JR/noticias%3A17.05.2026/meninas-super-poderosas.webp" alt="Copo The Powerpuff Girls × SHEIN 500ml" class="jr-card-image" loading="lazy">
+          <span class="jr-card-badge jr-card-badge--pink">Novo</span>
+        </div>
+        <div class="jr-card-body">
+          <p class="jr-card-brand">SHEIN × Cartoon Network</p>
+          <h3 class="jr-card-title">Copo The Powerpuff Girls × SHEIN</h3>
+          <ul class="jr-card-specs">
+            <li>🧃 500ml</li>
+            <li>🇯🇵 Estilo Japão</li>
+          </ul>
+          <div class="jr-card-cta">
+            <span>Ver na SHEIN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
 
-<!-- ======================== MORE ARTICLES ======================== -->
-<section class="section" id="more-section" style="padding-top:0">
-  <div class="more-grid" id="moreGrid"></div>
-</section>
+<style>
+.jr-achados-section{--jr-red:#cc1122;--jr-red-hover:#a50e1a;--jr-pink:#c2185b;--jr-navy:#0d1f35;--jr-surface:#f7f7f7;--jr-white:#ffffff;--jr-muted:#666;--jr-shadow:0 2px 16px rgba(0,0,0,.07);--jr-shadow-lg:0 10px 36px rgba(0,0,0,.13);--jr-radius:14px;--jr-font:'DM Sans','Segoe UI',Arial,sans-serif;background:var(--jr-surface);padding:72px 20px;font-family:var(--jr-font)}
+.jr-achados-container{max-width:880px;margin:0 auto}
+.jr-achados-header{text-align:center;margin-bottom:44px}
+.jr-achados-eyebrow{display:inline-block;background:var(--jr-red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:14px}
+.jr-achados-title{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:var(--jr-navy);line-height:1.15;margin-bottom:10px}
+.jr-achados-subtitle{font-size:1rem;color:var(--jr-muted);max-width:440px;margin:0 auto;line-height:1.65}
+.jr-achados-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:560px){.jr-achados-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto}}
+.jr-card{background:var(--jr-white);border-radius:var(--jr-radius);box-shadow:var(--jr-shadow);overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,.07);transition:transform .22s ease,box-shadow .22s ease}
+.jr-card:hover,.jr-card:focus-visible{transform:translateY(-7px);box-shadow:var(--jr-shadow-lg);outline:none}
+.jr-card-image-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;background:#efefef}
+.jr-card-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease}
+.jr-card:hover .jr-card-image{transform:scale(1.05)}
+.jr-card-badge{position:absolute;top:12px;left:12px;background:var(--jr-red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;pointer-events:none}
+.jr-card-badge--pink{background:var(--jr-pink)}
+.jr-card-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.jr-card-brand{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--jr-muted);margin-bottom:6px}
+.jr-card-title{font-size:1rem;font-weight:700;color:var(--jr-navy);line-height:1.3;margin-bottom:14px}
+.jr-card-specs{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:5px}
+.jr-card-specs li{font-size:.855rem;color:var(--jr-muted);line-height:1.5}
+.jr-card-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--jr-red);color:#fff;font-size:.88rem;font-weight:700;letter-spacing:.04em;padding:13px 18px;border-radius:8px;transition:background .18s ease}
+.jr-card:hover .jr-card-cta,.jr-card:focus-visible .jr-card-cta{background:var(--jr-red-hover)}
+.jr-achados-disclaimer{text-align:center;font-size:.76rem;color:var(--jr-muted);margin-top:36px;line-height:1.7;opacity:.85}
+</style>
 
 <!-- ======================== FOOTER ======================== -->
 <footer class="footer">
@@ -1004,6 +960,87 @@ body.reading-mode .nav {
 // DATABASE — Add new posts here easily!
 // ======================================================
 const DB = {
+  "one-piece-formato-sazonal-elbaf-2026": {
+    title:"One Piece virou sazonal, e isso pode ser a melhor coisa que aconteceu com o anime em 25 anos",
+    tag:"Anime",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?q=80&w=2070",
+    content:`<p>Durante mais de duas décadas, One Piece foi aquele anime que nunca parava. Toda semana, sem falta, Luffy e sua turma apareciam na tela, mesmo que isso custasse episódios cheios de flashback e câmera lenta demais. Era o modelo antigo, e todo mundo sabia que estava ficando para trás.</p>
+
+<h2>26 anos semanais e uma virada histórica</h2>
+<p>Em 2026, a Toei Animation tomou uma decisão histórica. Após 26 anos de episódios semanais quase ininterruptos, a série adotou um formato sazonal, com apenas 26 episódios anuais divididos em dois blocos. A grande novidade técnica é a taxa de adaptação: a Toei confirmou que seguirá o ritmo de um capítulo do mangá para um episódio do anime, eliminando as enrolações excessivas que incomodavam a comunidade.</p>
+
+<h2>Elbaf: a ilha prometida finalmente animada</h2>
+<p>O primeiro teste dessa nova era foi o arco de Elbaf, a ilha dos gigantes prometida aos fãs desde o arco de Little Garden, há mais de vinte anos. Em pouco tempo de tela, já foi possível presenciar o aguardado encontro entre Luffy e Loki, o Príncipe dos Gigantes, com uma animação exuberante e episódios com começo, meio e fim reais. O novo tema de abertura, "Luminous", interpretado por AiNA THE END, e o encerramento "That Future", da banda Jisoku 36km, reforçam a vibe de novo começo.</p>
+
+<h2>One Piece no ritmo que a história merece</h2>
+<p>Para quem acompanha a série há anos, a mudança é quase emocional. One Piece finalmente está sendo tratado com o respeito que o tamanho da história pede.</p>`
+  },
+  "natalidade-japao-minimo-historico-2026": {
+    title:"O Japão tem cada vez menos crianças, e o relógio não para",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2070",
+    content:`<p>Os números divulgados neste fim de semana não são novidade, mas doem da mesma forma. O Japão registrou o menor número de crianças de toda a sua história moderna: apenas 13,3 milhões de pessoas entre 0 e 14 anos vivem no país hoje. A queda na taxa de natalidade não é uma tendência, é uma estrutura. E estruturas levam tempo para mudar.</p>
+
+<h2>Um problema que pressiona tudo ao mesmo tempo</h2>
+<p>O envelhecimento da população japonesa pressiona tudo ao mesmo tempo: o sistema previdenciário, o mercado de trabalho, as políticas de saúde e os planos de crescimento econômico. O governo sabe disso. As soluções discutidas, que passam por incentivos financeiros para famílias jovens, revisão das leis de imigração e flexibilização do mercado de trabalho feminino, estão na mesa há anos. O que falta não é diagnóstico, é urgência real na execução.</p>
+
+<h2>O que falta não é diagnóstico</h2>
+<p>Enquanto isso, em algum hospital japonês, nascem hoje algumas das crianças mais raras do mundo.</p>`
+  },
+  "renho-perde-eleicao-pdc-toquio-2026": {
+    title:"A mulher que deveria liderar a oposição japonesa perdeu para um candidato que quase ninguém esperava",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=2070",
+    content:`<p>Renho era uma aposta segura. Política experiente, nome conhecido, rosto familiar nos debates televisivos. Mas o cenário político de Tóquio não funciona por apostas seguras, e a corrida pela liderança do diretório municipal do Partido Democrático Constitucional entregou uma virada que surpreendeu até analistas veteranos.</p>
+
+<h2>A candidata favorita e a virada inesperada</h2>
+<p>A derrota de Renho reorganiza as forças internas da principal oposição japonesa em um momento delicado. A primeira-ministra Sanae Takaichi, no poder, vem consolidando sua posição com uma agenda econômica agressiva e uma popularidade que resiste às turbulências. Para os opositores, era fundamental ter um rosto forte em Tóquio, a cidade mais influente do país. Agora, precisam recalcular.</p>
+
+<h2>O que o eleitorado japonês quer</h2>
+<p>O resultado diz algo sobre o humor do eleitorado japonês: querem novidade, mesmo quando a novidade ainda não tem rosto claro. É uma janela de oportunidade, mas também um risco enorme para quem quiser ocupá-la.</p>`
+  },
+  "bancos-japoneses-lucro-recorde-ia-2026": {
+    title:"Os bancos japoneses nunca ganharam tanto dinheiro, e a IA tem muito a ver com isso",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070",
+    content:`<p>O setor financeiro do Japão está vivendo um momento histórico que vai além dos números. Os principais grupos bancários do país anunciaram que seus lucros líquidos combinados ultrapassaram 5 trilhões de ienes pela primeira vez, e a explicação para esse salto está em dois fenômenos que se retroalimentam: a alta demanda por financiamentos no setor de inteligência artificial e as recentes reformas nas taxas de juros do país.</p>
+
+<h2>5 trilhões de ienes: um número histórico</h2>
+<p>O SoftBank Group, por exemplo, registrou lucro líquido de 5 trilhões de ienes no ano fiscal de 2025, um recorde para uma empresa japonesa, impulsionado em grande parte pelo seu investimento na OpenAI. O movimento não é isolado. Os três maiores bancos japoneses estão se preparando para usar inteligência artificial da Anthropic para defesa cibernética, sinalizando que a tecnologia deixou de ser aposta e virou pilar estratégico.</p>
+
+<h2>Projeções e o novo papel do Japão na era da IA</h2>
+<p>Analistas como Hikaru Yasuda, da SMBC Nikko Securities, projetam crescimento de 6% nos lucros corporativos no atual ano fiscal e 8,3% em 2026. O Japão, que por décadas foi símbolo de estagnação econômica, parece estar encontrando no boom da IA a faísca que precisava.</p>`
+  },
+  "ameaca-bomba-may-festival-universidade-toquio-2026": {
+    title:"Uma ameaça de bomba derrubou o maior festival universitário do Japão por um dia",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    content:`<p>O May Festival da Universidade de Tóquio existe há décadas. Todo ano, os campi de Hongo e Yayoi viram um carnaval de cultura, gastronomia e debate intelectual. Este sábado, porém, a festa parou abruptamente quando a organização recebeu um e-mail ameaçando a colocação de bombas espalhadas pelos dois campi.</p>
+
+<h2>O festival que parou no sábado</h2>
+<p>O motivo foi uma palestra agendada de Sohei Kamiya, líder político de oposição alvo de críticas por comentários considerados discriminatórios. A polícia foi acionada imediatamente, varreu os campi de ponta a ponta e declarou o ambiente seguro. O festival foi suspenso no sábado e retomou neste domingo com um esquema reforçado de revista de mochilas na entrada.</p>
+
+<h2>A linha entre protesto e ameaça</h2>
+<p>O episódio jogou luz sobre uma tensão cada vez mais presente no Japão: até onde vai a liberdade de expressão quando ela provoca reações extremas? A linha entre protesto e ameaça nunca pareceu tão frágil.</p>`
+  },
+  "terremoto-miyagi-6-3-maio-2026": {
+    title:"O chão tremeu de novo, e o Japão não piscou",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    content:`<p>A noite de sexta-feira estava tranquila em Miyagi quando a terra decidiu lembrar quem manda. Um terremoto de magnitude 6,3 atingiu a costa da província de Miyagi por volta das 20h22 no horário local, com epicentro a aproximadamente 50 quilômetros de profundidade. O susto foi grande, mas o desastre não veio. A Agência Meteorológica Japonesa descartou o risco de tsunami, e cerca de 53,7 milhões de pessoas nas regiões de Kanto, Tohoku, Chubu e Hokkaido sentiram os tremores de forma significativa.</p>
+
+<h2>Cidades afetadas e resposta imediata</h2>
+<p>Cidades como Tome, Osaki e Ishinomaki, todas em Miyagi, registraram a maior intensidade. Kesennuma, Kurihara e Higashimatsushima também foram severamente afetadas. As equipes de emergência ativaram protocolos imediatos, e as usinas nucleares da região, incluindo a de Onagawa, passaram por inspeções de segurança. Nenhuma anomalia foi reportada.</p>
+
+<h2>Preparo que faz a diferença</h2>
+<p>É a rotina do Japão, aquele país que aprendeu a viver sobre placas tectônicas inquietas. Não há resignação nisso, há preparo. E foi exatamente o preparo que, mais uma vez, separou um terremoto de uma tragédia.</p>`
+  },
   "invasao-casa-assassinatos-setagaya-2026": {
     title:"Invasão à 'Casa dos Assassinatos' de Setagaya: suspeitos dizem não saber da história do imóvel",
     tag:"Notícia",
@@ -1792,7 +1829,7 @@ const DB = {
 // STATE
 // ======================================================
 const posts = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
-let visibleCount = 12;
+let visibleCount = 8;
 let currentFilter = 'all';
 let filteredPosts = [...posts];
 
@@ -1926,7 +1963,7 @@ document.getElementById('filterGroup').addEventListener('click', e => {
   btn.classList.add('active');
   currentFilter = btn.dataset.filter;
   filteredPosts = getPostsByCategory(currentFilter);
-  visibleCount = 12;
+  visibleCount = 8;
   buildMainGrid(filteredPosts);
   setActiveNav(currentFilter);
 });
@@ -1935,7 +1972,7 @@ document.getElementById('filterGroup').addEventListener('click', e => {
 function filterCategory(cat) {
   currentFilter = cat;
   filteredPosts = getPostsByCategory(cat);
-  visibleCount = 12;
+  visibleCount = 8;
   buildMainGrid(filteredPosts);
   document.querySelectorAll('.filter-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.filter === cat);

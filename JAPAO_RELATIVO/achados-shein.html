@@ -1,0 +1,356 @@
+<!-- ============================================================
+  JAPÃO RELATIVO — Seção de Afiliados: Achados do Japão
+
+  COMO USAR:
+  Cole o bloco inteiro (<section> + <style>) na sua página.
+  Substitua os dois valores marcados com "SUBSTITUA AQUI" pelas
+  URLs reais das imagens dos produtos.
+  Os links de afiliado já estão preenchidos nos href e nos aria-label.
+  ============================================================ -->
+
+<section class="jr-achados-section">
+  <div class="jr-achados-container">
+
+    <!-- Cabeçalho da seção -->
+    <div class="jr-achados-header">
+      <span class="jr-achados-eyebrow">Seleção especial</span>
+      <h2 class="jr-achados-title">Achados do Japão</h2>
+      <p class="jr-achados-subtitle">
+        Produtos com identidade japonesa, direto pra você via SHEIN.
+      </p>
+    </div>
+
+    <!-- Grid de produtos -->
+    <div class="jr-achados-grid">
+
+      <!-- ============================================
+        PRODUTO 1 — Copo Spongebob Squarepants 1200ml
+        Link de afiliado: https://onelink.shein.com/8/5pr7ndtv40u0
+        ============================================ -->
+      <a
+        class="jr-card"
+        href="https://onelink.shein.com/8/5pr7ndtv40u0"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        aria-label="Ver Copo Spongebob Squarepants 1200ml na SHEIN"
+      >
+        <div class="jr-card-image-wrap">
+          <!--
+            Imagem local: Imagens JR/noticias:17.05.2026/1.png
+            Para produção (japaorelativo.com): substitua pelo link do CDN/WordPress.
+          -->
+          <img
+            src="Imagens%20JR/noticias%3A17.05.2026/bob-esponja.webp"
+            alt="Copo Spongebob Squarepants 1200ml"
+            class="jr-card-image"
+            loading="lazy"
+          >
+          <span class="jr-card-badge">Destaque</span>
+        </div>
+
+        <div class="jr-card-body">
+          <p class="jr-card-brand">SHEIN × Nickelodeon</p>
+          <h3 class="jr-card-title">Copo Spongebob Squarepants</h3>
+          <ul class="jr-card-specs">
+            <li><span class="jr-spec-icon">🧃</span> 1200ml / 40oz</li>
+            <li><span class="jr-spec-icon">🇯🇵</span> Estilo Japão</li>
+          </ul>
+          <div class="jr-card-cta">
+            <span>Ver na SHEIN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+      <!-- ============================================
+        PRODUTO 2 — Copo The Powerpuff Girls × SHEIN 500ml
+        Link de afiliado: https://onelink.shein.com/8/5pr7oz1rc7ll
+        ============================================ -->
+      <a
+        class="jr-card"
+        href="https://onelink.shein.com/8/5pr7oz1rc7ll"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        aria-label="Ver Copo The Powerpuff Girls 500ml na SHEIN"
+      >
+        <div class="jr-card-image-wrap">
+          <!--
+            Imagem local: Imagens JR/noticias:17.05.2026/2.png
+            Para produção (japaorelativo.com): substitua pelo link do CDN/WordPress.
+          -->
+          <img
+            src="Imagens%20JR/noticias%3A17.05.2026/meninas-super-poderosas.webp"
+            alt="Copo The Powerpuff Girls × SHEIN 500ml"
+            class="jr-card-image"
+            loading="lazy"
+          >
+          <span class="jr-card-badge jr-card-badge--pink">Novo</span>
+        </div>
+
+        <div class="jr-card-body">
+          <p class="jr-card-brand">SHEIN × Cartoon Network</p>
+          <h3 class="jr-card-title">Copo The Powerpuff Girls × SHEIN</h3>
+          <ul class="jr-card-specs">
+            <li><span class="jr-spec-icon">🧃</span> 500ml</li>
+            <li><span class="jr-spec-icon">🇯🇵</span> Estilo Japão</li>
+          </ul>
+          <div class="jr-card-cta">
+            <span>Ver na SHEIN</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /jr-achados-grid -->
+
+    <p class="jr-achados-disclaimer">
+      ★ Links de afiliado — ao comprar, você apoia o Japão Relativo sem nenhum custo extra.
+    </p>
+
+  </div>
+</section>
+
+
+<style>
+/* ============================================================
+   Japão Relativo — Seção Achados do Japão (Afiliados SHEIN)
+
+   Escopo: prefixos .jr-achados- e .jr-card- para não conflitar
+   com o restante do site.
+
+   Variáveis: reutiliza as do style.css do JR com fallback inline,
+   funcionando tanto no site estático quanto num bloco WordPress.
+   ============================================================ */
+
+/* ── Variáveis (fallback caso o style.css principal não esteja carregado) */
+.jr-achados-section {
+  --jr-red:        #cc1122;
+  --jr-red-hover:  #a50e1a;
+  --jr-pink:       #c2185b;
+  --jr-navy:       #0d1f35;
+  --jr-gold:       #c8a84b;
+  --jr-surface:    #f7f7f7;
+  --jr-white:      #ffffff;
+  --jr-muted:      #666666;
+  --jr-border:     rgba(0, 0, 0, 0.07);
+  --jr-shadow:     0 2px 16px rgba(0, 0, 0, 0.07);
+  --jr-shadow-lg:  0 10px 36px rgba(0, 0, 0, 0.13);
+  --jr-radius:     14px;
+  --jr-font:       'DM Sans', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Wrapper da seção ─────────────────────────────────────── */
+.jr-achados-section {
+  background: var(--jr-surface);
+  padding: 72px 20px;
+  font-family: var(--jr-font);
+}
+
+/* ── Container central ───────────────────────────────────── */
+.jr-achados-container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ── Cabeçalho ───────────────────────────────────────────── */
+.jr-achados-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.jr-achados-eyebrow {
+  display: inline-block;
+  background: var(--jr-red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.jr-achados-title {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--jr-navy);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.jr-achados-subtitle {
+  font-size: 1rem;
+  color: var(--jr-muted);
+  max-width: 440px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ── Grid ────────────────────────────────────────────────── */
+.jr-achados-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 560px) {
+  .jr-achados-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.jr-card {
+  background: var(--jr-white);
+  border-radius: var(--jr-radius);
+  box-shadow: var(--jr-shadow);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--jr-border);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.jr-card:hover,
+.jr-card:focus-visible {
+  transform: translateY(-7px);
+  box-shadow: var(--jr-shadow-lg);
+  outline: none;
+}
+
+/* ── Imagem ───────────────────────────────────────────────── */
+.jr-card-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #efefef;
+}
+
+.jr-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.38s ease;
+}
+
+.jr-card:hover .jr-card-image {
+  transform: scale(1.05);
+}
+
+/* ── Badge sobre a imagem ─────────────────────────────────── */
+.jr-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--jr-red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.jr-card-badge--pink {
+  background: var(--jr-pink);
+}
+
+/* ── Corpo do card ────────────────────────────────────────── */
+.jr-card-body {
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+}
+
+.jr-card-brand {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jr-muted);
+  margin-bottom: 6px;
+}
+
+.jr-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--jr-navy);
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+/* ── Specs ────────────────────────────────────────────────── */
+.jr-card-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.jr-card-specs li {
+  font-size: 0.855rem;
+  color: var(--jr-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.5;
+}
+
+.jr-spec-icon {
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+/* ── Botão CTA ────────────────────────────────────────────── */
+.jr-card-cta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--jr-red);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 13px 18px;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+}
+
+.jr-card:hover .jr-card-cta,
+.jr-card:focus-visible .jr-card-cta {
+  background: var(--jr-red-hover);
+}
+
+/* ── Disclaimer ───────────────────────────────────────────── */
+.jr-achados-disclaimer {
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--jr-muted);
+  margin-top: 36px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+</style>

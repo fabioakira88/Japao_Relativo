@@ -2,6 +2,87 @@
 // Para adicionar um artigo: copie o bloco e ajuste os campos
 
 const DB = {
+  "one-piece-formato-sazonal-elbaf-2026": {
+    title:"One Piece virou sazonal, e isso pode ser a melhor coisa que aconteceu com o anime em 25 anos",
+    tag:"Anime",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?q=80&w=2070",
+    content:`<p>Durante mais de duas décadas, One Piece foi aquele anime que nunca parava. Toda semana, sem falta, Luffy e sua turma apareciam na tela, mesmo que isso custasse episódios cheios de flashback e câmera lenta demais. Era o modelo antigo, e todo mundo sabia que estava ficando para trás.</p>
+
+<h2>26 anos semanais e uma virada histórica</h2>
+<p>Em 2026, a Toei Animation tomou uma decisão histórica. Após 26 anos de episódios semanais quase ininterruptos, a série adotou um formato sazonal, com apenas 26 episódios anuais divididos em dois blocos. A grande novidade técnica é a taxa de adaptação: a Toei confirmou que seguirá o ritmo de um capítulo do mangá para um episódio do anime, eliminando as enrolações excessivas que incomodavam a comunidade.</p>
+
+<h2>Elbaf: a ilha prometida finalmente animada</h2>
+<p>O primeiro teste dessa nova era foi o arco de Elbaf, a ilha dos gigantes prometida aos fãs desde o arco de Little Garden, há mais de vinte anos. Em pouco tempo de tela, já foi possível presenciar o aguardado encontro entre Luffy e Loki, o Príncipe dos Gigantes, com uma animação exuberante e episódios com começo, meio e fim reais. O novo tema de abertura, "Luminous", interpretado por AiNA THE END, e o encerramento "That Future", da banda Jisoku 36km, reforçam a vibe de novo começo.</p>
+
+<h2>One Piece no ritmo que a história merece</h2>
+<p>Para quem acompanha a série há anos, a mudança é quase emocional. One Piece finalmente está sendo tratado com o respeito que o tamanho da história pede.</p>`
+  },
+  "natalidade-japao-minimo-historico-2026": {
+    title:"O Japão tem cada vez menos crianças, e o relógio não para",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2070",
+    content:`<p>Os números divulgados neste fim de semana não são novidade, mas doem da mesma forma. O Japão registrou o menor número de crianças de toda a sua história moderna: apenas 13,3 milhões de pessoas entre 0 e 14 anos vivem no país hoje. A queda na taxa de natalidade não é uma tendência, é uma estrutura. E estruturas levam tempo para mudar.</p>
+
+<h2>Um problema que pressiona tudo ao mesmo tempo</h2>
+<p>O envelhecimento da população japonesa pressiona tudo ao mesmo tempo: o sistema previdenciário, o mercado de trabalho, as políticas de saúde e os planos de crescimento econômico. O governo sabe disso. As soluções discutidas, que passam por incentivos financeiros para famílias jovens, revisão das leis de imigração e flexibilização do mercado de trabalho feminino, estão na mesa há anos. O que falta não é diagnóstico, é urgência real na execução.</p>
+
+<h2>O que falta não é diagnóstico</h2>
+<p>Enquanto isso, em algum hospital japonês, nascem hoje algumas das crianças mais raras do mundo.</p>`
+  },
+  "renho-perde-eleicao-pdc-toquio-2026": {
+    title:"A mulher que deveria liderar a oposição japonesa perdeu para um candidato que quase ninguém esperava",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=2070",
+    content:`<p>Renho era uma aposta segura. Política experiente, nome conhecido, rosto familiar nos debates televisivos. Mas o cenário político de Tóquio não funciona por apostas seguras, e a corrida pela liderança do diretório municipal do Partido Democrático Constitucional entregou uma virada que surpreendeu até analistas veteranos.</p>
+
+<h2>A candidata favorita e a virada inesperada</h2>
+<p>A derrota de Renho reorganiza as forças internas da principal oposição japonesa em um momento delicado. A primeira-ministra Sanae Takaichi, no poder, vem consolidando sua posição com uma agenda econômica agressiva e uma popularidade que resiste às turbulências. Para os opositores, era fundamental ter um rosto forte em Tóquio, a cidade mais influente do país. Agora, precisam recalcular.</p>
+
+<h2>O que o eleitorado japonês quer</h2>
+<p>O resultado diz algo sobre o humor do eleitorado japonês: querem novidade, mesmo quando a novidade ainda não tem rosto claro. É uma janela de oportunidade, mas também um risco enorme para quem quiser ocupá-la.</p>`
+  },
+  "bancos-japoneses-lucro-recorde-ia-2026": {
+    title:"Os bancos japoneses nunca ganharam tanto dinheiro, e a IA tem muito a ver com isso",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070",
+    content:`<p>O setor financeiro do Japão está vivendo um momento histórico que vai além dos números. Os principais grupos bancários do país anunciaram que seus lucros líquidos combinados ultrapassaram 5 trilhões de ienes pela primeira vez, e a explicação para esse salto está em dois fenômenos que se retroalimentam: a alta demanda por financiamentos no setor de inteligência artificial e as recentes reformas nas taxas de juros do país.</p>
+
+<h2>5 trilhões de ienes: um número histórico</h2>
+<p>O SoftBank Group, por exemplo, registrou lucro líquido de 5 trilhões de ienes no ano fiscal de 2025, um recorde para uma empresa japonesa, impulsionado em grande parte pelo seu investimento na OpenAI. O movimento não é isolado. Os três maiores bancos japoneses estão se preparando para usar inteligência artificial da Anthropic para defesa cibernética, sinalizando que a tecnologia deixou de ser aposta e virou pilar estratégico.</p>
+
+<h2>Projeções e o novo papel do Japão na era da IA</h2>
+<p>Analistas como Hikaru Yasuda, da SMBC Nikko Securities, projetam crescimento de 6% nos lucros corporativos no atual ano fiscal e 8,3% em 2026. O Japão, que por décadas foi símbolo de estagnação econômica, parece estar encontrando no boom da IA a faísca que precisava.</p>`
+  },
+  "ameaca-bomba-may-festival-universidade-toquio-2026": {
+    title:"Uma ameaça de bomba derrubou o maior festival universitário do Japão por um dia",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    content:`<p>O May Festival da Universidade de Tóquio existe há décadas. Todo ano, os campi de Hongo e Yayoi viram um carnaval de cultura, gastronomia e debate intelectual. Este sábado, porém, a festa parou abruptamente quando a organização recebeu um e-mail ameaçando a colocação de bombas espalhadas pelos dois campi.</p>
+
+<h2>O festival que parou no sábado</h2>
+<p>O motivo foi uma palestra agendada de Sohei Kamiya, líder político de oposição alvo de críticas por comentários considerados discriminatórios. A polícia foi acionada imediatamente, varreu os campi de ponta a ponta e declarou o ambiente seguro. O festival foi suspenso no sábado e retomou neste domingo com um esquema reforçado de revista de mochilas na entrada.</p>
+
+<h2>A linha entre protesto e ameaça</h2>
+<p>O episódio jogou luz sobre uma tensão cada vez mais presente no Japão: até onde vai a liberdade de expressão quando ela provoca reações extremas? A linha entre protesto e ameaça nunca pareceu tão frágil.</p>`
+  },
+  "terremoto-miyagi-6-3-maio-2026": {
+    title:"O chão tremeu de novo, e o Japão não piscou",
+    tag:"Notícia",
+    date:"17 de Maio de 2026",
+    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    content:`<p>A noite de sexta-feira estava tranquila em Miyagi quando a terra decidiu lembrar quem manda. Um terremoto de magnitude 6,3 atingiu a costa da província de Miyagi por volta das 20h22 no horário local, com epicentro a aproximadamente 50 quilômetros de profundidade. O susto foi grande, mas o desastre não veio. A Agência Meteorológica Japonesa descartou o risco de tsunami, e cerca de 53,7 milhões de pessoas nas regiões de Kanto, Tohoku, Chubu e Hokkaido sentiram os tremores de forma significativa.</p>
+
+<h2>Cidades afetadas e resposta imediata</h2>
+<p>Cidades como Tome, Osaki e Ishinomaki, todas em Miyagi, registraram a maior intensidade. Kesennuma, Kurihara e Higashimatsushima também foram severamente afetadas. As equipes de emergência ativaram protocolos imediatos, e as usinas nucleares da região, incluindo a de Onagawa, passaram por inspeções de segurança. Nenhuma anomalia foi reportada.</p>
+
+<h2>Preparo que faz a diferença</h2>
+<p>É a rotina do Japão, aquele país que aprendeu a viver sobre placas tectônicas inquietas. Não há resignação nisso, há preparo. E foi exatamente o preparo que, mais uma vez, separou um terremoto de uma tragédia.</p>`
+  },
   "maes-solteiras-estrangeiras-empreiteiras-japao": {
     title:"Mães solteiras estrangeiras e as empreiteiras do Japão: a barreira que ninguém fala",
     tag:"Notícia",
