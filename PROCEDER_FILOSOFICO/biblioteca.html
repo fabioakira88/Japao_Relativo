@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Filosófica — Proceder Filosófico</title>
+  <meta name="description" content="Curadoria dos livros essenciais para sua jornada filosófica. Do estoicismo à fenomenologia, as obras que transformaram o pensamento humano.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul-escuro:  #060D1E;
+      --azul-nav:     rgba(6, 30, 71, 0.98);
+      --dourado:      #C9A84C;
+      --borda:        rgba(201, 168, 76, 0.20);
+      --texto:        rgba(255, 255, 255, 0.82);
+      --texto-fraco:  rgba(255, 255, 255, 0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+    body  { background: var(--azul-escuro); color: var(--texto); font-family: 'Lato', sans-serif; }
+
+    /* ── NAVBAR ─────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--azul-nav);
+      border-bottom: 1px solid var(--borda);
+      backdrop-filter: blur(8px);
+    }
+    .navbar-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+    .navbar-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .navbar-logo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--dourado); }
+    .navbar-logo span { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 600; color: var(--dourado); letter-spacing: 0.05em; }
+    .navbar-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .navbar-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; padding: 6px 14px; border-radius: 4px; transition: color .2s, background .2s; }
+    .navbar-links a:hover, .navbar-links a.active { color: var(--dourado); }
+    .navbar-cta { background: var(--dourado) !important; color: #060D1E !important; font-weight: 700; border-radius: 6px !important; }
+    .navbar-cta:hover { background: #e0bd6a !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dourado); border-radius: 2px; transition: all .3s; }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .navbar-links {
+        display: none; flex-direction: column; align-items: flex-start; gap: 0;
+        position: absolute; top: 70px; left: 0; right: 0;
+        background: var(--azul-nav); border-bottom: 1px solid var(--borda); padding: 12px 0;
+      }
+      .navbar-links.open { display: flex; }
+      .navbar-links li { width: 100%; }
+      .navbar-links a { display: block; padding: 12px 24px; }
+    }
+
+    /* ── HERO ───────────────────────────────────── */
+    .bib-hero {
+      padding: 140px 24px 72px;
+      text-align: center;
+      background: linear-gradient(180deg, #061226 0%, var(--azul-escuro) 100%);
+      border-bottom: 1px solid var(--borda);
+    }
+    .bib-label {
+      font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .22em;
+      color: var(--dourado); text-transform: uppercase; display: block; margin-bottom: 18px;
+    }
+    .bib-title {
+      font-family: 'Playfair Display', serif; font-size: clamp(32px, 6vw, 54px);
+      color: #fff; font-weight: 700; line-height: 1.15; margin-bottom: 20px;
+    }
+    .bib-title em { font-style: italic; color: var(--dourado); }
+    .bib-sub {
+      font-size: 16px; color: var(--texto-fraco); max-width: 560px;
+      margin: 0 auto; line-height: 1.8;
+    }
+    .bib-disclaimer {
+      margin-top: 28px; font-size: 12px; color: rgba(255,255,255,0.25);
+      font-family: 'Cinzel', serif; letter-spacing: 0.1em;
+    }
+
+    /* ── FILTROS ────────────────────────────────── */
+    .bib-filters {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      padding: 36px 24px 0; max-width: 800px; margin: 0 auto;
+    }
+    .bib-filter-btn {
+      background: transparent; border: 1px solid var(--borda);
+      color: var(--texto-fraco); font-family: 'Cinzel', serif;
+      font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+      padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: all .22s;
+    }
+    .bib-filter-btn:hover { border-color: var(--dourado); color: var(--dourado); }
+    .bib-filter-btn.active { background: var(--dourado); border-color: var(--dourado); color: #060D1E; font-weight: 700; }
+
+    /* ── GRID ───────────────────────────────────── */
+    .bib-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1200px; margin: 48px auto 0; padding: 0 24px 80px;
+    }
+
+    /* ── CARD ───────────────────────────────────── */
+    .livro-card {
+      background: linear-gradient(145deg, rgba(11,61,145,.22), rgba(6,13,30,.80));
+      border: 1px solid var(--borda); border-radius: 12px; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform .30s, border-color .30s, box-shadow .30s;
+    }
+    .livro-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201,168,76,.55);
+      box-shadow: 0 20px 56px rgba(0,0,0,.52);
+    }
+    .livro-card.hidden { display: none; }
+
+    .livro-cover {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .livro-cover::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(6,13,30,.7));
+    }
+    .livro-initial {
+      font-family: 'Playfair Display', serif; font-size: 96px; font-weight: 700;
+      color: rgba(201,168,76,.12); line-height: 1; user-select: none;
+    }
+    .livro-tag {
+      position: absolute; bottom: 14px; left: 16px; z-index: 1;
+      font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(201,168,76,.80);
+      background: rgba(6,13,30,.6); padding: 4px 10px; border-radius: 12px;
+      border: 1px solid rgba(201,168,76,.25);
+    }
+
+    .livro-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .livro-era {
+      font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: .18em;
+      color: var(--dourado); text-transform: uppercase; margin-bottom: 10px; opacity: .75;
+    }
+    .livro-titulo {
+      font-family: 'Playfair Display', serif; font-size: 20px; color: #fff;
+      font-weight: 700; line-height: 1.25; margin-bottom: 4px;
+    }
+    .livro-autor {
+      font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .1em;
+      color: var(--dourado); margin-bottom: 14px;
+    }
+    .livro-desc {
+      font-size: 14px; color: var(--texto-fraco); line-height: 1.75;
+      margin-bottom: 24px; flex: 1;
+    }
+    .livro-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--dourado); color: #060D1E;
+      font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 11px 20px; border-radius: 6px; text-decoration: none;
+      transition: background .2s, transform .15s; width: fit-content;
+    }
+    .livro-btn:hover { background: #e0bd6a; transform: translateX(2px); }
+    .livro-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ── FOOTER ─────────────────────────────────── */
+    .bib-footer {
+      border-top: 1px solid var(--borda); padding: 40px 24px; text-align: center;
+    }
+    .bib-footer p {
+      font-size: 13px; color: var(--texto-fraco); line-height: 1.8; max-width: 500px; margin: 0 auto 16px;
+    }
+    .bib-footer a { color: var(--dourado); text-decoration: none; }
+    .bib-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .bib-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 16px 60px; }
+      .bib-hero { padding: 120px 16px 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="./index_files/LQHqVnilFspwfHEy.png" alt="Proceder Filosófico">
+      <span>Proceder Filosófico</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-links" id="navLinks">
+      <li><a href="index.html#inicio">Início</a></li>
+      <li><a href="index.html#filosofos">Filósofos</a></li>
+      <li><a href="index.html#artigos">Artigos</a></li>
+      <li><a href="biblioteca.html" class="active">Livros</a></li>
+      <li><a href="index.html#newsletter" class="navbar-cta">Assinar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="bib-hero">
+  <span class="bib-label">Curadoria Filosófica</span>
+  <h1 class="bib-title">Biblioteca <em>Filosófica</em></h1>
+  <p class="bib-sub">Os livros que transformaram o pensamento humano — do estoicismo antigo à filosofia contemporânea. Cada obra, uma jornada.</p>
+  <p class="bib-disclaimer">★ Links de afiliado Amazon — sua compra apoia o Proceder Filosófico sem custo adicional.</p>
+</header>
+
+<!-- FILTROS -->
+<div class="bib-filters" id="bibFiltros">
+  <button class="bib-filter-btn active" data-era="Todos">Todos</button>
+  <button class="bib-filter-btn" data-era="Antiga">Filosofia Antiga</button>
+  <button class="bib-filter-btn" data-era="Medieval">Filosofia Medieval</button>
+  <button class="bib-filter-btn" data-era="Moderna">Filosofia Moderna</button>
+  <button class="bib-filter-btn" data-era="Contemporânea">Filosofia Contemporânea</button>
+</div>
+
+<!-- GRADE DE LIVROS -->
+<main class="bib-grid" id="bibGrid"></main>
+
+<!-- FOOTER -->
+<footer class="bib-footer">
+  <p>Os links acima são de afiliado Amazon (<strong>proceder-20</strong>). Ao comprar por aqui, você ajuda a manter o Proceder Filosófico gratuito e sem propagandas — obrigado!</p>
+  <p><a href="index.html">← Voltar à Home</a></p>
+</footer>
+
+<script>
+const LIVROS = [
+  {
+    era: 'Antiga',
+    tema: 'Política · Justiça',
+    titulo: 'A República',
+    autor: 'Platão',
+    desc: 'O diálogo fundador da filosofia política ocidental. Sócrates investiga a justiça e imagina a cidade ideal — um texto que definiu dois mil anos de pensamento.',
+    link: 'https://amzn.to/3RegesH'
+  },
+  {
+    era: 'Antiga',
+    tema: 'Estoicismo · Alma',
+    titulo: 'Meditações',
+    autor: 'Marco Aurélio',
+    desc: 'O diário íntimo do imperador-filósofo. Escritos para si mesmo — a mais honesta aplicação do estoicismo à vida real. Nunca foi escrito para ser publicado.',
+    link: 'https://www.amazon.com.br/s?k=meditacoes+marco+aurelio&tag=proceder-20'
+  },
+  {
+    era: 'Antiga',
+    tema: 'Estoicismo · Tempo',
+    titulo: 'Cartas a Lucílio',
+    autor: 'Sêneca',
+    desc: '124 cartas sobre o tempo, a amizade, a morte e a virtude. A correspondência filosófica mais influente da Antiguidade — e a mais humana.',
+    link: 'https://www.amazon.com.br/s?k=cartas+a+lucilio+seneca&tag=proceder-20'
+  },
+  {
+    era: 'Antiga',
+    tema: 'Estoicismo · Liberdade',
+    titulo: 'Enchiridion',
+    autor: 'Epicteto',
+    desc: 'O manual do estoicismo. Breve, direto e transformador: a distinção entre o que depende de nós e o que não depende muda tudo.',
+    link: 'https://www.amazon.com.br/s?k=enchiridion+epicteto&tag=proceder-20'
+  },
+  {
+    era: 'Antiga',
+    tema: 'Ética · Virtude',
+    titulo: 'Ética a Nicômaco',
+    autor: 'Aristóteles',
+    desc: 'O texto fundador da ética ocidental. Aristóteles investiga o que é a vida boa e como a virtude se conquista pela repetição consciente dos atos.',
+    link: 'https://www.amazon.com.br/s?k=etica+nicomaco+aristoteles&tag=proceder-20'
+  },
+  {
+    era: 'Medieval',
+    tema: 'Fé · Razão · Alma',
+    titulo: 'Confissões',
+    autor: 'Santo Agostinho',
+    desc: 'A primeira autobiografia filosófica da história. Um diálogo com Deus sobre a busca, o erro e a conversão — escrito com rara honestidade intelectual.',
+    link: 'https://www.amazon.com.br/s?k=confissoes+santo+agostinho&tag=proceder-20'
+  },
+  {
+    era: 'Moderna',
+    tema: 'Niilismo · Existência',
+    titulo: 'Assim Falou Zaratustra',
+    autor: 'Friedrich Nietzsche',
+    desc: 'O anúncio da morte de Deus e o nascimento do além-homem. A mais poética e radical das obras de Nietzsche — filosofia como literatura.',
+    link: 'https://www.amazon.com.br/s?k=assim+falou+zaratustra+nietzsche&tag=proceder-20'
+  },
+  {
+    era: 'Contemporânea',
+    tema: 'Política · Liberdade',
+    titulo: 'A Condição Humana',
+    autor: 'Hannah Arendt',
+    desc: 'Uma análise da vita activa — labor, obra e ação política. O livro que definiu a filosofia política do século XX e permanece urgente.',
+    link: 'https://www.amazon.com.br/s?k=condicao+humana+hannah+arendt&tag=proceder-20'
+  }
+];
+
+const ERA_GRADIENT = {
+  'Antiga':       'linear-gradient(135deg, #0b2d5e 0%, #060D1E 100%)',
+  'Medieval':     'linear-gradient(135deg, #2d1b0b 0%, #060D1E 100%)',
+  'Moderna':      'linear-gradient(135deg, #0b2d1e 0%, #060D1E 100%)',
+  'Contemporânea':'linear-gradient(135deg, #2d0b2d 0%, #060D1E 100%)'
+};
+
+function renderLivros() {
+  var grid = document.getElementById('bibGrid');
+  grid.innerHTML = '';
+  LIVROS.forEach(function(l) {
+    var card = document.createElement('article');
+    card.className = 'livro-card';
+    card.setAttribute('data-era', l.era);
+    card.innerHTML =
+      '<div class="livro-cover" style="background:' + (ERA_GRADIENT[l.era] || ERA_GRADIENT['Antiga']) + '">' +
+        '<span class="livro-initial">' + l.autor.charAt(0) + '</span>' +
+        '<span class="livro-tag">' + l.tema + '</span>' +
+      '</div>' +
+      '<div class="livro-body">' +
+        '<div class="livro-era">' + l.era + '</div>' +
+        '<h2 class="livro-titulo">' + l.titulo + '</h2>' +
+        '<div class="livro-autor">— ' + l.autor + '</div>' +
+        '<p class="livro-desc">' + l.desc + '</p>' +
+        '<a class="livro-btn" href="' + l.link + '" target="_blank" rel="noopener sponsored">' +
+          'Ver na Amazon ' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
+        '</a>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+/* Filtros */
+document.querySelectorAll('.bib-filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.bib-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var sel = btn.getAttribute('data-era');
+    document.querySelectorAll('.livro-card').forEach(function(c) {
+      if (sel === 'Todos' || c.getAttribute('data-era') === sel) {
+        c.classList.remove('hidden');
+      } else {
+        c.classList.add('hidden');
+      }
+    });
+  });
+});
+
+/* Hamburger */
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+renderLivros();
+</script>
+</body>
+</html>
