@@ -2158,12 +2158,13 @@ function buildSwiperHero() {
   updateHeroLabel(0);
 
   if (typeof Swiper === 'undefined') return;
-  new Swiper('.hero-swiper', {
+  var heroSwiper = new Swiper('.hero-swiper', {
     effect: 'coverflow',
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 'auto',
     loop: true,
+    speed: 700,
     coverflowEffect: {
       rotate: 42,
       stretch: 0,
@@ -2172,9 +2173,8 @@ function buildSwiperHero() {
       slideShadows: true
     },
     autoplay: {
-      delay: 4500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true
+      delay: 5000,
+      disableOnInteraction: false
     },
     pagination: {
       el: '.hero-swiper-dots',
@@ -2190,6 +2190,9 @@ function buildSwiperHero() {
       }
     }
   });
+  setTimeout(function() {
+    if (heroSwiper && heroSwiper.autoplay) heroSwiper.autoplay.start();
+  }, 500);
 }
 
 function init() {
