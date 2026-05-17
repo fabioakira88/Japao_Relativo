@@ -22,7 +22,7 @@
   --muted: #666666;
   --border: rgba(0,0,0,0.1);
   --border2: rgba(0,0,0,0.07);
-  --hero-h: calc(100vh - 200px);
+  --hero-h: 62vh;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -90,8 +90,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    HERO
    ============================================================ */
 .hero {
-  position:relative;height:var(--hero-h);min-height:600px;
-  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;height:var(--hero-h);min-height:420px;
+  display:flex;flex-direction:column;justify-content:center;
   overflow:hidden;
 }
 /* Carrossel hero */
@@ -100,15 +100,30 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .hero-slide {
   position:absolute;inset:0;
-  background-size:cover;background-position:center;
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  background-color:#0a0a0a;
   opacity:0;
   transition:opacity 1s ease;
 }
 .hero-slide.active { opacity:1; }
+
+/* Label centralizado — acima de todos os overlays */
+.hero-news-label{
+  position:absolute;inset:0;z-index:10;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  text-align:left;padding:0 80px 64px;
+  cursor:pointer;
+  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.2) 50%,transparent 80%);
+}
+@media(max-width:640px){.hero-news-label{padding:0 24px 56px}}
+.hsl-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 10px;border-radius:3px;margin-bottom:14px}
+.hsl-title{font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#ffffff;line-height:1.25;max-width:720px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.hsl-excerpt{font-size:clamp(.82rem,1.5vw,.95rem);color:rgba(255,255,255,.85);line-height:1.6;max-width:600px;margin-top:12px;text-shadow:0 1px 6px rgba(0,0,0,.6);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}
+.hsl-cta{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,168,75,.5);padding-bottom:2px}
 /* Dots */
 .hero-dots-wrap {
-  position:absolute;bottom:36px;left:80px;z-index:10;
-  display:flex;gap:10px;align-items:center;
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:11;
+  display:flex;gap:8px;align-items:center;
 }
 .hero-dot {
   width:8px;height:8px;border-radius:4px;
@@ -134,8 +149,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .hero-content {
   position:relative;z-index:2;
-  padding:0 80px 80px;
-  max-width:900px;
+  width:100%;
+  text-align:center;
+  padding:24px 40px 80px;
 }
 .hero-eyebrow {
   display:inline-flex;align-items:center;gap:10px;
@@ -265,7 +281,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    SECTION: POPULAR TOURS style — category filter + grid
    ============================================================ */
 .section {
-  padding:80px 80px;
+  padding:64px 80px 0;
+  background:var(--black);
 }
 .section-header {
   display:flex;align-items:flex-end;justify-content:space-between;
@@ -728,62 +745,107 @@ body.reading-mode .nav {
     <li><a href="#grid-section" data-cat="Dicas" onclick="filterCategory('Dicas');return false;">Dicas</a></li>
     <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
     <li><a href="#grid-section" data-cat="Utilidades" onclick="filterCategory('Utilidades');return false;">Utilidades</a></li>
-    <li><a href="#achados-section">Achados</a></li>
+    <li><a href="#achados-section">Produtos</a></li>
   </ul>
 </nav>
 
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="heroSection">
-  <!-- Carrossel de 4 imagens -->
-  <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('Imagens%20JR/Wallpaper%20JR/tokyo.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/fuji.JPG')"></div>
-    <div class="hero-slide hero-slide--news" data-post-id="softbank-openai-lucro-record-japao-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/softback-openAI.PNG')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/cidade.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/tokyofuji.jpg')"></div>
-    <div class="hero-slide hero-slide--news" data-post-id="crimes-atipicos-toquio-kanagawa-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/kanagawa:crimes.PNG')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/ghibli.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/kimetsu.jpg')"></div>
-    <div class="hero-slide hero-slide--news" data-post-id="calbee-crise-petroleo-embalagens-2026" style="background-image:url('Imagens%20JR/Artigos%20JR/Calbee.JPG')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp1.png')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp2.png')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/jp3.png')"></div>
-    <div class="hero-slide" style="background-image:url('Imagens%20JR/Wallpaper%20JR/wallpaperhorizontal.jpg')"></div>
-  </div>
+  <!-- Slides gerados dinamicamente via JS (5 últimas notícias) -->
+  <div class="hero-slides" id="heroSlides"></div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay2"></div>
 
-  <div class="hero-content">
-    <div class="hero-eyebrow">Curadoria Especial</div>
-    <h1 class="hero-title">
-      Descubra
-      <em>O Japão</em>
-    </h1>
-    <p class="hero-desc">Cultura, idioma, notícias e curiosidades — o Japão filtrado pelo olhar de quem vive e respira esse mundo fascinante.</p>
-    <div class="hero-cta-group">
-      <a href="#grid-section" class="btn-primary">
-        Explorar Matérias
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#sobre" class="btn-ghost">
-        Sobre o projeto
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
+  <!-- Label centralizado — acima dos overlays -->
+  <div class="hero-news-label" id="heroLabel"></div>
 
   <!-- Dots do carrossel -->
   <div class="hero-dots-wrap" id="heroDots"></div>
-
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    scroll
-  </div>
 </section>
 
-<!-- ======================== STRIP (3 highlights) ======================== -->
-<div class="strip" id="strip"></div>
+<!-- ======================== WIDGET BAR ======================== -->
+<div class="jr-widgets" id="widgetBar">
+
+  <div class="jr-widget">
+    <span class="jr-widget-label">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M1 12h22M12 1a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Câmbio · Base USD
+    </span>
+    <div class="jr-widget-rates">
+      <span class="jr-rate"><span class="jr-rate-cur">1 USD =</span><span class="jr-rate-val" id="w-usd">— JPY</span></span>
+      <span class="jr-rate-sep"></span>
+      <span class="jr-rate"><span class="jr-rate-cur">1 USD =</span><span class="jr-rate-val" id="w-brl">— BRL</span></span>
+      <span class="jr-rate-sep"></span>
+      <span class="jr-rate"><span class="jr-rate-cur">1 USD =</span><span class="jr-rate-val" id="w-eur">— EUR</span></span>
+    </div>
+  </div>
+
+  <div class="jr-widget-divider"></div>
+
+  <div class="jr-widget">
+    <span class="jr-widget-label">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Fuso Horário
+    </span>
+    <div class="jr-widget-clocks">
+      <span class="jr-clock"><span class="jr-clock-label">🇯🇵 Japão</span><span class="jr-clock-val" id="w-jp">--:--</span></span>
+      <span class="jr-rate-sep"></span>
+      <span class="jr-clock"><span class="jr-clock-label">🇧🇷 Brasil</span><span class="jr-clock-val" id="w-br">--:--</span></span>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.jr-widgets{display:flex;align-items:center;gap:0;background:#0d0d0d;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:0 80px;flex-wrap:wrap}
+@media(max-width:900px){.jr-widgets{padding:0 24px}}
+@media(max-width:600px){.jr-widgets{flex-direction:column;align-items:flex-start;gap:0}}
+.jr-widget{display:flex;align-items:center;gap:20px;padding:16px 0;flex:1;min-width:0}
+@media(max-width:600px){.jr-widget{width:100%;padding:14px 0;flex-direction:column;align-items:flex-start;gap:8px}}
+.jr-widget-label{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8a84b;white-space:nowrap;flex-shrink:0}
+.jr-widget-rates,.jr-widget-clocks{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.jr-rate,.jr-clock{display:flex;align-items:center;gap:6px}
+.jr-rate-cur,.jr-clock-label{font-size:10px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.jr-rate-val,.jr-clock-val{font-size:15px;font-weight:700;color:#f0f0f0;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.jr-rate-sep{width:1px;height:20px;background:rgba(255,255,255,.1);flex-shrink:0}
+.jr-widget-divider{width:1px;height:48px;background:rgba(255,255,255,.08);margin:0 40px;flex-shrink:0}
+@media(max-width:600px){.jr-widget-divider{width:100%;height:1px;margin:0}}
+</style>
+
+<script>
+(function() {
+  function updateClocks() {
+    var now = new Date();
+    var jp = now.toLocaleTimeString('ja-JP', {timeZone:'Asia/Tokyo', hour:'2-digit', minute:'2-digit', hour12:false});
+    var br = now.toLocaleTimeString('pt-BR', {timeZone:'America/Sao_Paulo', hour:'2-digit', minute:'2-digit', hour12:false});
+    var jpEl = document.getElementById('w-jp');
+    var brEl = document.getElementById('w-br');
+    if (jpEl) jpEl.textContent = jp;
+    if (brEl) brEl.textContent = br;
+  }
+  updateClocks();
+  setInterval(updateClocks, 1000);
+
+  fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    .then(function(r){ return r.json(); })
+    .then(function(data) {
+      var r = data.rates;
+      var usd = document.getElementById('w-usd');
+      var brl = document.getElementById('w-brl');
+      var eur = document.getElementById('w-eur');
+      if (usd && r.JPY) usd.textContent = r.JPY.toFixed(2) + ' JPY';
+      if (brl && r.BRL) brl.textContent = r.BRL.toFixed(2) + ' BRL';
+      if (eur && r.EUR) eur.textContent = r.EUR.toFixed(4) + ' EUR';
+    })
+    .catch(function(){
+      ['w-usd','w-brl','w-eur'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el) el.textContent = '—';
+      });
+    });
+})();
+</script>
 
 <!-- ======================== MAIN GRID SECTION ======================== -->
 <section class="section" id="grid-section">
@@ -810,7 +872,7 @@ body.reading-mode .nav {
   <div class="jr-achados-container">
     <div class="jr-achados-header">
       <span class="jr-achados-eyebrow">Seleção especial</span>
-      <h2 class="jr-achados-title">Achados do Japão</h2>
+      <h2 class="jr-achados-title">Produtos do Japão</h2>
       <p class="jr-achados-subtitle">Produtos com identidade japonesa, direto pra você via SHEIN.</p>
     </div>
     <div class="jr-achados-grid">
@@ -862,7 +924,7 @@ body.reading-mode .nav {
 </section>
 
 <style>
-.jr-achados-section{--jr-red:#cc1122;--jr-red-hover:#a50e1a;--jr-pink:#c2185b;--jr-navy:#0d1f35;--jr-surface:#f7f7f7;--jr-white:#ffffff;--jr-muted:#666;--jr-shadow:0 2px 16px rgba(0,0,0,.07);--jr-shadow-lg:0 10px 36px rgba(0,0,0,.13);--jr-radius:14px;--jr-font:'DM Sans','Segoe UI',Arial,sans-serif;background:var(--jr-surface);padding:72px 20px;font-family:var(--jr-font)}
+.jr-achados-section{--jr-red:#cc1122;--jr-red-hover:#a50e1a;--jr-pink:#c2185b;--jr-navy:#0d1f35;--jr-surface:#f7f7f7;--jr-white:#ffffff;--jr-muted:#666;--jr-shadow:0 2px 16px rgba(0,0,0,.07);--jr-shadow-lg:0 10px 36px rgba(0,0,0,.13);--jr-radius:14px;--jr-font:'DM Sans','Segoe UI',Arial,sans-serif;background:#ffffff;padding:72px 20px;font-family:var(--jr-font)}
 .jr-achados-container{max-width:880px;margin:0 auto}
 .jr-achados-header{text-align:center;margin-bottom:44px}
 .jr-achados-eyebrow{display:inline-block;background:var(--jr-red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:14px}
@@ -885,6 +947,45 @@ body.reading-mode .nav {
 .jr-card-cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--jr-red);color:#fff;font-size:.88rem;font-weight:700;letter-spacing:.04em;padding:13px 18px;border-radius:8px;transition:background .18s ease}
 .jr-card:hover .jr-card-cta,.jr-card:focus-visible .jr-card-cta{background:var(--jr-red-hover)}
 .jr-achados-disclaimer{text-align:center;font-size:.76rem;color:var(--jr-muted);margin-top:36px;line-height:1.7;opacity:.85}
+</style>
+
+<!-- ======================== SOBRE NÓS ======================== -->
+<section id="sobre" class="jr-sobre">
+  <div class="jr-sobre-inner">
+
+    <div class="jr-sobre-foto-wrap">
+      <img src="Imagens%20JR/sobre-n%C3%B3s/sobre-n%C3%B3s.JPG" alt="Fabio Akira — Fundador do Japão Relativo" class="jr-sobre-foto">
+      <div class="jr-sobre-foto-badge">
+        <span>🇯🇵</span> 10 anos no Japão
+      </div>
+    </div>
+
+    <div class="jr-sobre-texto">
+      <p class="jr-sobre-eyebrow">Sobre o projeto</p>
+      <h2 class="jr-sobre-titulo">Japão Relativo<br><em>O Japão que a fama não conta</em></h2>
+      <p class="jr-sobre-bio">Sou Fabio Akira, Paulista de Mogi das Cruzes, Sansei e vivo há 10 anos no Japão. Trabalho em fábrica, desenvolvo sites, crio artes, produzo vídeos e cuido das redes sociais, tudo sozinho. Este espaço nasceu para contar o Japão real: não o dos clichês, mas o de quem vive aqui de verdade. Notícias, curiosidades, animes, produtos e muito mais, com o olhar de quem foi transformado por esse país.</p>
+      <p class="jr-sobre-cargo">— Fundador do Japão Relativo</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.jr-sobre{background:#0a0a0a;border-top:1px solid rgba(255,255,255,.06);padding:80px 24px}
+.jr-sobre-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:center}
+@media(max-width:720px){.jr-sobre-inner{grid-template-columns:1fr;gap:40px;text-align:center}}
+
+.jr-sobre-foto-wrap{position:relative;width:fit-content}
+@media(max-width:720px){.jr-sobre-foto-wrap{margin:0 auto}}
+.jr-sobre-foto{width:260px;height:320px;object-fit:cover;object-position:top;border-radius:16px;display:block;filter:grayscale(15%)}
+.jr-sobre-foto-badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:#cc1122;color:#fff;font-size:11px;font-weight:700;padding:6px 16px;border-radius:20px;white-space:nowrap;letter-spacing:.04em}
+
+.jr-sobre-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8a84b;margin-bottom:14px}
+.jr-sobre-titulo{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:#fff;line-height:1.2;margin-bottom:24px}
+.jr-sobre-titulo em{color:#cc1122;font-style:normal}
+.jr-sobre-bio{font-size:.975rem;color:#b0b0b0;line-height:1.85;margin-bottom:20px;max-width:520px}
+@media(max-width:720px){.jr-sobre-bio{margin:0 auto 20px}}
+.jr-sobre-cargo{font-size:.85rem;font-weight:600;color:#666;letter-spacing:.04em}
 </style>
 
 <!-- ======================== FOOTER ======================== -->
@@ -964,7 +1065,7 @@ const DB = {
     title:"One Piece virou sazonal, e isso pode ser a melhor coisa que aconteceu com o anime em 25 anos",
     tag:"Anime",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/one-piece.JPG",
     content:`<p>Durante mais de duas décadas, One Piece foi aquele anime que nunca parava. Toda semana, sem falta, Luffy e sua turma apareciam na tela, mesmo que isso custasse episódios cheios de flashback e câmera lenta demais. Era o modelo antigo, e todo mundo sabia que estava ficando para trás.</p>
 
 <h2>26 anos semanais e uma virada histórica</h2>
@@ -980,7 +1081,7 @@ const DB = {
     title:"O Japão tem cada vez menos crianças, e o relógio não para",
     tag:"Notícia",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/crianças-japao.JPG",
     content:`<p>Os números divulgados neste fim de semana não são novidade, mas doem da mesma forma. O Japão registrou o menor número de crianças de toda a sua história moderna: apenas 13,3 milhões de pessoas entre 0 e 14 anos vivem no país hoje. A queda na taxa de natalidade não é uma tendência, é uma estrutura. E estruturas levam tempo para mudar.</p>
 
 <h2>Um problema que pressiona tudo ao mesmo tempo</h2>
@@ -993,7 +1094,7 @@ const DB = {
     title:"A mulher que deveria liderar a oposição japonesa perdeu para um candidato que quase ninguém esperava",
     tag:"Notícia",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/Renho.JPG",
     content:`<p>Renho era uma aposta segura. Política experiente, nome conhecido, rosto familiar nos debates televisivos. Mas o cenário político de Tóquio não funciona por apostas seguras, e a corrida pela liderança do diretório municipal do Partido Democrático Constitucional entregou uma virada que surpreendeu até analistas veteranos.</p>
 
 <h2>A candidata favorita e a virada inesperada</h2>
@@ -1006,7 +1107,7 @@ const DB = {
     title:"Os bancos japoneses nunca ganharam tanto dinheiro, e a IA tem muito a ver com isso",
     tag:"Notícia",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/bancos-ia.PNG",
     content:`<p>O setor financeiro do Japão está vivendo um momento histórico que vai além dos números. Os principais grupos bancários do país anunciaram que seus lucros líquidos combinados ultrapassaram 5 trilhões de ienes pela primeira vez, e a explicação para esse salto está em dois fenômenos que se retroalimentam: a alta demanda por financiamentos no setor de inteligência artificial e as recentes reformas nas taxas de juros do país.</p>
 
 <h2>5 trilhões de ienes: um número histórico</h2>
@@ -1019,7 +1120,7 @@ const DB = {
     title:"Uma ameaça de bomba derrubou o maior festival universitário do Japão por um dia",
     tag:"Notícia",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/bomba.PNG",
     content:`<p>O May Festival da Universidade de Tóquio existe há décadas. Todo ano, os campi de Hongo e Yayoi viram um carnaval de cultura, gastronomia e debate intelectual. Este sábado, porém, a festa parou abruptamente quando a organização recebeu um e-mail ameaçando a colocação de bombas espalhadas pelos dois campi.</p>
 
 <h2>O festival que parou no sábado</h2>
@@ -1032,7 +1133,7 @@ const DB = {
     title:"O chão tremeu de novo, e o Japão não piscou",
     tag:"Notícia",
     date:"17 de Maio de 2026",
-    thumb:"https://images.unsplash.com/photo-1542051812871-7575058e4e28?q=80&w=2070",
+    thumb:"Imagens JR/noticias%3A17.05.2026/terremoto-miyagi.PNG",
     content:`<p>A noite de sexta-feira estava tranquila em Miyagi quando a terra decidiu lembrar quem manda. Um terremoto de magnitude 6,3 atingiu a costa da província de Miyagi por volta das 20h22 no horário local, com epicentro a aproximadamente 50 quilômetros de profundidade. O susto foi grande, mas o desastre não veio. A Agência Meteorológica Japonesa descartou o risco de tsunami, e cerca de 53,7 milhões de pessoas nas regiões de Kanto, Tohoku, Chubu e Hokkaido sentiram os tremores de forma significativa.</p>
 
 <h2>Cidades afetadas e resposta imediata</h2>
@@ -2065,12 +2166,45 @@ function checkHash() {
   if (id && DB[id]) openPost(id);
 }
 
+var heroPostsData = [];
+
+function getExcerpt(html, len) {
+  var tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  var t = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim();
+  return t.length > len ? t.slice(0, len) + '…' : t;
+}
+
+function updateHeroLabel(idx) {
+  var label = document.getElementById('heroLabel');
+  if (!label || !heroPostsData[idx]) return;
+  var post = heroPostsData[idx];
+  label.innerHTML =
+    '<span class="hsl-tag">' + post.tag + '</span>' +
+    '<h2 class="hsl-title">' + post.title + '</h2>' +
+    '<p class="hsl-excerpt">' + getExcerpt(post.content, 140) + '</p>' +
+    '<span class="hsl-cta">Ler matéria <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+  label.onclick = function() { navigateTo(post.id); };
+}
+
+function buildHeroSlides() {
+  var container = document.getElementById('heroSlides');
+  if (!container) return;
+  heroPostsData = posts.slice(0, 5);
+  heroPostsData.forEach(function(post, i) {
+    var div = document.createElement('div');
+    div.className = 'hero-slide' + (i === 0 ? ' active' : '');
+    div.style.backgroundImage = "url('" + post.thumb + "')";
+    container.appendChild(div);
+  });
+  updateHeroLabel(0);
+}
+
 function initHeroCarousel() {
   var slides = Array.from(document.querySelectorAll('#heroSlides .hero-slide'));
   var dotsWrap = document.getElementById('heroDots');
   if (!slides.length || !dotsWrap) return;
 
-  // gera dots
   dotsWrap.innerHTML = '';
   var dots = slides.map(function(_, i) {
     var btn = document.createElement('button');
@@ -2088,6 +2222,7 @@ function initHeroCarousel() {
     cur = (n + slides.length) % slides.length;
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
+    updateHeroLabel(cur);
   }
 
   dots.forEach(function(btn) {
@@ -2098,9 +2233,9 @@ function initHeroCarousel() {
 }
 
 function init() {
-  buildStrip();
   buildMainGrid(filteredPosts);
   buildMoreGrid();
+  buildHeroSlides();
   initHeroCarousel();
   checkHash();
 }
