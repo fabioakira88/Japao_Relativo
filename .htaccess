@@ -1,0 +1,17 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /
+
+# ============================================================
+#  JAPÃO RELATIVO — japaorelativo.com
+# ============================================================
+RewriteCond %{HTTP_HOST} ^(www\.)?japaorelativo\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/JAPAO_RELATIVO/
+RewriteRule ^(.*)$ /JAPAO_RELATIVO/$1 [L]
+
+# ============================================================
+#  PROCEDER FILOSÓFICO — procederfilosofico.com.br
+# ============================================================
+RewriteCond %{HTTP_HOST} ^(www\.)?procederfilosofico\.com\.br$ [NC]
+RewriteCond %{REQUEST_URI} !^/PROCEDER_FILOSOFICO/
+RewriteRule ^(.*)$ /PROCEDER_FILOSOFICO/$1 [L]
