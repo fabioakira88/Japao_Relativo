@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Japão Relativo — O Japão por Vários Ângulos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -90,153 +91,53 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    HERO
    ============================================================ */
 .hero {
-  position:relative;height:var(--hero-h);min-height:420px;
-  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+  background:var(--black);
   overflow:hidden;
 }
-/* Carrossel hero */
-.hero-slides {
-  position:absolute;inset:0;
-}
-.hero-slide {
-  position:absolute;inset:0;
-  background-size:contain;background-position:center;background-repeat:no-repeat;
-  background-color:#0a0a0a;
-  opacity:0;
-  transition:opacity 1s ease;
-}
-.hero-slide.active { opacity:1; }
-
-/* Label centralizado — acima de todos os overlays */
-.hero-news-label{
-  position:absolute;inset:0;z-index:10;
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
-  text-align:left;padding:0 80px 64px;
-  cursor:pointer;
-  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.2) 50%,transparent 80%);
-}
-@media(max-width:640px){.hero-news-label{padding:0 24px 56px}}
-.hsl-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 10px;border-radius:3px;margin-bottom:14px}
-.hsl-title{font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#ffffff;line-height:1.25;max-width:720px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
-.hsl-excerpt{font-size:clamp(.82rem,1.5vw,.95rem);color:rgba(255,255,255,.85);line-height:1.6;max-width:600px;margin-top:12px;text-shadow:0 1px 6px rgba(0,0,0,.6);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}
-.hsl-cta{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,168,75,.5);padding-bottom:2px}
-/* Dots */
-.hero-dots-wrap {
-  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:11;
-  display:flex;gap:8px;align-items:center;
-}
-.hero-dot {
-  width:8px;height:8px;border-radius:4px;
-  border:none;background:rgba(255,255,255,0.4);
-  cursor:pointer;transition:all 0.35s;padding:0;
-}
-.hero-dot.active {
-  width:28px;background:var(--gold);
-}
-.hero-overlay {
-  position:absolute;inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(6,6,8,0.2) 0%,
-    rgba(6,6,8,0.05) 30%,
-    rgba(6,6,8,0.6) 65%,
-    rgba(6,6,8,0.97) 100%
-  );
-}
-.hero-overlay2 {
-  position:absolute;inset:0;
-  background:linear-gradient(90deg, rgba(6,6,8,0.7) 0%, transparent 60%);
-}
-.hero-content {
-  position:relative;z-index:2;
+/* ── Swiper 3D Coverflow ─────────────────────────────── */
+.hero-swiper {
   width:100%;
-  text-align:center;
-  padding:24px 40px 80px;
+  padding:44px 0 52px !important;
+  perspective:1200px;
 }
-.hero-eyebrow {
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:11px;font-weight:500;letter-spacing:3px;
-  text-transform:uppercase;color:var(--red2);
-  margin-bottom:20px;
+.swiper-slide {
+  width:280px;height:380px;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  flex-shrink:0;
 }
-.hero-eyebrow::before {
-  content:'';display:block;width:32px;height:1px;background:var(--red2);
+@media(min-width:768px){.swiper-slide{width:340px;height:450px}}
+.swiper-slide img {
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  pointer-events:none;
 }
-.hero-title {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(72px, 10vw, 140px);
-  line-height:0.92;letter-spacing:2px;
-  color:#fff;
-  text-shadow:0 2px 16px rgba(0,0,0,0.45);
-  margin-bottom:24px;
+/* Paginação dourada */
+.hero-swiper-dots { bottom:18px !important; }
+.swiper-pagination-bullet {
+  background:rgba(200,168,75,.45) !important;
+  opacity:1 !important;
+  width:7px;height:7px;
 }
-.hero-title em {
-  display:block;font-style:normal;
-  color:var(--gold);
-  -webkit-text-stroke:1px var(--gold);
+.swiper-pagination-bullet-active {
+  background:var(--gold) !important;
+  width:22px;border-radius:4px;
 }
-.hero-desc {
-  font-family:'Cormorant Garamond',serif;
-  font-size:19px;font-weight:300;font-style:italic;
-  color:rgba(240,237,232,0.75);
-  line-height:1.6;
-  max-width:520px;
-  margin-bottom:40px;
+/* Label da notícia (abaixo do carrossel) */
+.hero-news-label {
+  padding:20px 80px 36px;
+  text-align:left;
+  background:var(--black);
+  cursor:pointer;
+  transition:opacity .3s;
 }
-.hero-cta-group {
-  display:flex;align-items:center;gap:24px;
-}
-.btn-primary {
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 32px;
-  background:var(--red);
-  color:var(--white);
-  font-size:12px;font-weight:600;letter-spacing:2px;
-  text-transform:uppercase;
-  border-radius:2px;
-  transition:background 0.2s,transform 0.2s;
-}
-.btn-primary:hover{background:var(--red2);transform:translateY(-2px)}
-.btn-ghost {
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:12px;font-weight:500;letter-spacing:1.5px;
-  text-transform:uppercase;color:rgba(240,237,232,0.6);
-  transition:color 0.2s;
-}
-.btn-ghost:hover{color:var(--gold)}
-.btn-ghost svg{transition:transform 0.2s}
-.btn-ghost:hover svg{transform:translateX(4px)}
-
-/* Hero Slide Numbers */
-.hero-numbers {
-  position:absolute;right:48px;top:50%;
-  transform:translateY(-50%);z-index:2;
-  display:flex;flex-direction:column;gap:20px;
-}
-.hero-num {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:13px;color:var(--muted);letter-spacing:2px;
-  transition:color 0.2s;cursor:default;
-}
-.hero-num.active{color:var(--white)}
-.hero-num-line {
-  display:block;width:24px;height:1px;
-  background:var(--red);margin-top:4px;
-}
-
-/* Hero scroll indicator */
-.hero-scroll {
-  position:absolute;bottom:30px;left:50%;
-  transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  animation:bounce 2s ease-in-out infinite;
-}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.scroll-line {
-  width:1px;height:36px;
-  background:linear-gradient(var(--gold), transparent);
-}
+@media(max-width:640px){.hero-news-label{padding:18px 24px 28px}}
+.hsl-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 10px;border-radius:3px;margin-bottom:12px}
+.hsl-title{font-size:clamp(1.1rem,2.5vw,1.7rem);font-weight:800;color:#fff;line-height:1.25;max-width:720px}
+.hsl-excerpt{font-size:clamp(.8rem,1.4vw,.92rem);color:rgba(255,255,255,.7);line-height:1.6;max-width:600px;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}
+.hsl-cta{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,168,75,.5);padding-bottom:2px}
 
 /* ============================================================
    SECTION: FEATURED STRIP (3 cols below hero)
@@ -752,16 +653,13 @@ body.reading-mode .nav {
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="heroSection">
-  <!-- Slides gerados dinamicamente via JS (5 últimas notícias) -->
-  <div class="hero-slides" id="heroSlides"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-overlay2"></div>
-
-  <!-- Label centralizado — acima dos overlays -->
+  <!-- 3D Coverflow Swiper -->
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper" id="heroSlides"></div>
+    <div class="swiper-pagination hero-swiper-dots"></div>
+  </div>
+  <!-- Label da notícia ativa -->
   <div class="hero-news-label" id="heroLabel"></div>
-
-  <!-- Dots do carrossel -->
-  <div class="hero-dots-wrap" id="heroDots"></div>
 </section>
 
 <!-- ======================== WIDGET BAR ======================== -->
@@ -1097,6 +995,7 @@ body.reading-mode .nav {
 </main>
 
 <!-- ======================== DATA & SCRIPT ======================== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 // ======================================================
 // DATABASE — Add new posts here easily!
@@ -2208,76 +2107,99 @@ function checkHash() {
 }
 
 var heroPostsData = [];
+var heroAllData   = [];
 
 function getExcerpt(html, len) {
   var tmp = document.createElement('div');
   tmp.innerHTML = html;
   var t = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim();
-  return t.length > len ? t.slice(0, len) + '…' : t;
+  return t.length > len ? t.slice(0, len) + '\u2026' : t;
 }
 
 function updateHeroLabel(idx) {
   var label = document.getElementById('heroLabel');
-  if (!label || !heroPostsData[idx]) return;
-  var post = heroPostsData[idx];
-  label.innerHTML =
-    '<span class="hsl-tag">' + post.tag + '</span>' +
-    '<h2 class="hsl-title">' + post.title + '</h2>' +
-    '<p class="hsl-excerpt">' + getExcerpt(post.content, 140) + '</p>' +
-    '<span class="hsl-cta">Ler matéria <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
-  label.onclick = function() { navigateTo(post.id); };
+  if (!label || !heroAllData[idx]) return;
+  var item = heroAllData[idx];
+  if (item.id) {
+    label.innerHTML =
+      '<span class="hsl-tag">' + item.tag + '</span>' +
+      '<h2 class="hsl-title">' + item.title + '</h2>' +
+      '<p class="hsl-excerpt">' + getExcerpt(item.content, 140) + '</p>' +
+      '<span class="hsl-cta">Ler mat\u00e9ria <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+    label.onclick = function() { navigateTo(item.id); };
+    label.style.cursor = 'pointer';
+  } else {
+    label.innerHTML =
+      '<span class="hsl-tag">' + item.tag + '</span>' +
+      '<h2 class="hsl-title">' + item.title + '</h2>';
+    label.onclick = null;
+    label.style.cursor = 'default';
+  }
 }
 
-function buildHeroSlides() {
+function buildSwiperHero() {
   var container = document.getElementById('heroSlides');
   if (!container) return;
+
   heroPostsData = posts.slice(0, 5);
-  heroPostsData.forEach(function(post, i) {
-    var div = document.createElement('div');
-    div.className = 'hero-slide' + (i === 0 ? ' active' : '');
-    div.style.backgroundImage = "url('" + post.thumb + "')";
-    container.appendChild(div);
+  var products = [
+    { thumb: 'Imagens JR/Afiliados TEMU/Produtos/camisa-jr.png',  title: 'Camisa JR',           tag: 'Produto', id: null, content: '' },
+    { thumb: 'Imagens JR/Afiliados TEMU/Produtos/shampoo.jpg',    title: 'Shampoo MediQuick H', tag: 'Produto', id: null, content: '' }
+  ];
+  heroAllData = heroPostsData.concat(products);
+
+  heroAllData.forEach(function(item) {
+    var slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    var img = document.createElement('img');
+    img.src = item.thumb;
+    img.alt = item.title;
+    img.loading = 'lazy';
+    slide.appendChild(img);
+    container.appendChild(slide);
   });
+
   updateHeroLabel(0);
-}
 
-function initHeroCarousel() {
-  var slides = Array.from(document.querySelectorAll('#heroSlides .hero-slide'));
-  var dotsWrap = document.getElementById('heroDots');
-  if (!slides.length || !dotsWrap) return;
-
-  dotsWrap.innerHTML = '';
-  var dots = slides.map(function(_, i) {
-    var btn = document.createElement('button');
-    btn.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    btn.dataset.idx = String(i);
-    dotsWrap.appendChild(btn);
-    return btn;
+  if (typeof Swiper === 'undefined') return;
+  new Swiper('.hero-swiper', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+    coverflowEffect: {
+      rotate: 42,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+      slideShadows: true
+    },
+    autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    pagination: {
+      el: '.hero-swiper-dots',
+      clickable: true
+    },
+    on: {
+      slideChange: function() {
+        updateHeroLabel(this.realIndex % heroAllData.length);
+      },
+      click: function() {
+        var item = heroAllData[this.realIndex % heroAllData.length];
+        if (item && item.id) navigateTo(item.id);
+      }
+    }
   });
-
-  var cur = 0;
-
-  function goTo(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-    updateHeroLabel(cur);
-  }
-
-  dots.forEach(function(btn) {
-    btn.addEventListener('click', function() { goTo(Number(btn.dataset.idx)); });
-  });
-
-  setInterval(function() { goTo(cur + 1); }, 5000);
 }
 
 function init() {
   buildMainGrid(filteredPosts);
   buildMoreGrid();
-  buildHeroSlides();
-  initHeroCarousel();
+  buildSwiperHero();
   checkHash();
 }
 if (document.readyState === 'loading') {
