@@ -135,8 +135,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 @media(max-width:640px){.hero-news-label{padding:18px 24px 28px}}
 .hsl-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 10px;border-radius:3px;margin-bottom:12px}
-.hsl-title{font-size:clamp(1.1rem,2.5vw,1.7rem);font-weight:800;color:#fff;line-height:1.25;max-width:720px}
-.hsl-excerpt{font-size:clamp(.8rem,1.4vw,.92rem);color:rgba(255,255,255,.7);line-height:1.6;max-width:600px;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}
+.hsl-title{font-size:clamp(1.1rem,2.5vw,1.7rem);font-weight:800;color:#111111;line-height:1.25;max-width:720px}line-height:1.25;max-width:720px}
+.hsl-excerpt{font-size:clamp(.8rem,1.4vw,.92rem);color:rgba(0,0,0,.65);line-height:1.6;max-width:600px;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}line-height:1.6;max-width:600px;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;overflow:hidden}
 .hsl-cta{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(200,168,75,.5);padding-bottom:2px}
 
 /* ============================================================
@@ -2141,12 +2141,8 @@ function buildSwiperHero() {
   var container = document.getElementById('heroSlides');
   if (!container) return;
 
-  heroPostsData = posts.slice(0, 5);
-  var products = [
-    { thumb: 'Imagens JR/Afiliados TEMU/Produtos/camisa-jr.png',  title: 'Camisa JR',           tag: 'Produto', id: null, content: '' },
-    { thumb: 'Imagens JR/Afiliados TEMU/Produtos/shampoo.jpg',    title: 'Shampoo MediQuick H', tag: 'Produto', id: null, content: '' }
-  ];
-  heroAllData = heroPostsData.concat(products);
+  heroPostsData = posts.slice(0, 6);
+  heroAllData = heroPostsData.slice();
 
   heroAllData.forEach(function(item) {
     var slide = document.createElement('div');
