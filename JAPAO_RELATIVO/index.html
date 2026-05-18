@@ -2471,7 +2471,7 @@ function buildSwiperHero() {
   var container = document.getElementById('heroSlides');
   if (!container) return;
 
-  heroPostsData = posts.slice(0, 6);
+  heroPostsData = posts.filter(function(p){ return p.tag === "Notícia"; }).slice(0, 6);
   heroAllData = heroPostsData.slice();
 
   heroAllData.forEach(function(item) {
