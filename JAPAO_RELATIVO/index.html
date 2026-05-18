@@ -753,8 +753,8 @@ body.reading-mode .nav {
       <h2 class="section-title">ÚLTIMAS MATÉRIAS</h2>
     </div>
     <div class="filter-group" id="filterGroup">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="Notícia">Notícias</button>
+      <button class="filter-btn" data-filter="all">Todos</button>
+      <button class="filter-btn active" data-filter="Notícia">Notícias</button>
       <button class="filter-btn" data-filter="Cultura">Cultura</button>
       <button class="filter-btn" data-filter="Idioma">Idioma</button>
       <button class="filter-btn" data-filter="Dicas">Dicas</button>
@@ -2201,8 +2201,8 @@ Pode usar isso.</p>
 // ======================================================
 const posts = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
 let visibleCount = 8;
-let currentFilter = 'all';
-let filteredPosts = [...posts];
+let currentFilter = 'Notícia';
+let filteredPosts = posts.filter(function(p){ return p.tag === 'Notícia'; });
 
 // ======================================================
 // RENDER FUNCTIONS
