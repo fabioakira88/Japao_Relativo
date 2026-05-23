@@ -732,7 +732,7 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
 .editorial-card-img-wrap{position:relative;min-height:460px;overflow:hidden;background:#0b0f0f;box-shadow:0 34px 90px rgba(0,0,0,.34);isolation:isolate}
 .editorial-card-img-wrap::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,5,5,.44),rgba(5,5,5,.04) 42%,rgba(5,5,5,.35)),linear-gradient(180deg,rgba(5,5,5,.06),rgba(5,5,5,.42));mix-blend-mode:multiply;pointer-events:none}
 .editorial-card.is-wide .editorial-card-img-wrap::after{background:linear-gradient(90deg,rgba(5,5,5,.82),rgba(5,5,5,.32) 54%,rgba(5,5,5,.76)),linear-gradient(180deg,rgba(5,5,5,.15),rgba(5,5,5,.85))}
-.editorial-card-img{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transform:scale(1.03);transition:transform 1.15s ease,filter 1.15s ease;filter:saturate(.82) contrast(1.02) brightness(.82)}
+.editorial-card-img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;display:block;background-size:cover;background-position:center;transform:scale(1.03);transition:transform 1.15s ease,filter 1.15s ease;filter:saturate(.9) contrast(1.04) brightness(.94)}
 .editorial-card:hover .editorial-card-img{transform:scale(1.075);filter:saturate(.95) contrast(1.08) brightness(.9)}
 .editorial-card-body{position:relative;z-index:2;max-width:610px}
 .editorial-card-index{font-family:var(--font-support);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(176,138,87,.82);margin-bottom:18px}
@@ -751,8 +751,8 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
 .editorial-mini-market span span{color:rgba(176,138,87,.78);margin-right:7px}
 .editorial-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
 .mini-card{position:relative;min-height:340px;display:flex;align-items:flex-end;overflow:hidden;text-decoration:none;color:var(--cream);background:#0b0f0f;isolation:isolate}
-.mini-card-img{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;filter:saturate(.82) contrast(1.04) brightness(.82);transform:scale(1.03);transition:transform .8s ease,filter .8s ease}
-.mini-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.06),rgba(5,5,5,.82));pointer-events:none}
+.mini-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background-size:cover;background-position:center;z-index:0;filter:saturate(.9) contrast(1.04) brightness(.94);transform:scale(1.03);transition:transform .8s ease,filter .8s ease}
+.mini-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.02),rgba(5,5,5,.66));pointer-events:none}
 .mini-card-body{position:relative;z-index:2}
 .mini-card:hover .mini-card-img{transform:scale(1.08);filter:saturate(.98) contrast(1.08) brightness(.9)}
 .mini-card-body{padding:22px}
@@ -2507,7 +2507,7 @@ function buildMainGrid(items) {
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="editorial-card-img-wrap">
-        <div class="editorial-card-img" style="${getCardImg(post)}"></div>
+        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async">
       </div>
       <div class="editorial-card-body">
         <div class="editorial-card-index">${String(index + 1).padStart(2, '0')} / Documento</div>
@@ -2543,7 +2543,7 @@ function buildMainGrid(items) {
       a.className = 'mini-card';
       a.href = '#' + post.id;
       a.innerHTML = `
-        <div class="mini-card-img" style="${getCardImg(post)}"></div>
+        <img class="mini-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async">
         <div class="mini-card-body">
           <div class="mini-card-tag">${post.tag}</div>
           <div class="mini-card-title">${post.title}</div>
