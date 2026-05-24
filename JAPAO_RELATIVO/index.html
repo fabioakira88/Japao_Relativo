@@ -807,6 +807,7 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
 <section class="micro-market" aria-label="Dados discretos">
   <div class="micro-market-item"><span class="micro-market-label">USD/JPY</span><span class="micro-market-value" id="w-usd">--</span></div>
   <div class="micro-market-item"><span class="micro-market-label">JPY/BRL</span><span class="micro-market-value" id="w-brl">--</span></div>
+  <div class="micro-market-item"><span class="micro-market-label">USD/BRL</span><span class="micro-market-value" id="w-usd-brl">--</span></div>
   <div class="micro-market-item"><span class="micro-market-label">Tóquio</span><span class="micro-market-value" id="w-jp">--:--</span></div>
   <div class="micro-market-item"><span class="micro-market-label">Brasil</span><span class="micro-market-value" id="w-br">--:--</span></div>
 </section>
@@ -1103,7 +1104,7 @@ const DB = {
     title:"Sanja Matsuri: o Japão tradicional volta a respirar nas ruas de Tóquio",
     tag:"Notícia",
     date:"24 de Maio de 2026",
-    thumb:"Imagens JR/Artigos JR/festival de pipas.jpg",
+    thumb:"Imagens JR/Noticias/24/05/SANJA_MATSURI.PNG",
     content:`<p>O Japão voltou a pulsar nas ruas.</p>
 <p>Neste fim de semana, o tradicional <strong>Sanja Matsuri</strong> reuniu milhares de pessoas em Asakusa, distrito histórico de Tóquio, em uma das maiores celebrações culturais do país. Os arredores do templo Senso-ji ficaram completamente lotados enquanto dezenas de <em>mikoshi</em>, os santuários portáteis carregados nos ombros, atravessavam as ruas sob gritos, tambores taiko e uma atmosfera quase ritualística.</p>
 <h2>O festival que transformou Asakusa em um oceano humano</h2>
@@ -1116,7 +1117,7 @@ const DB = {
     title:"O calor chegou cedo: Japão emite primeiros alertas de insolação de 2026",
     tag:"Notícia",
     date:"24 de Maio de 2026",
-    thumb:"Imagens JR/noticias:17.05.2026/terremoto-miyagi.PNG",
+    thumb:"Imagens JR/Noticias/24/05/VERAO_CEDO.PNG",
     content:`<p>O verão japonês parece ter chegado antes do esperado.</p>
 <p>Neste domingo, regiões do centro e leste do Japão registraram temperaturas próximas dos 30°C, algo considerado incomum para maio. Em Tóquio e áreas vizinhas, o calor intenso levou a Agência Meteorológica do Japão a emitir os primeiros alertas preventivos de <em>netsuchusho</em>, a insolação severa causada pelas altas temperaturas e umidade.</p>
 <h2>Temperaturas de verão aparecem ainda em maio</h2>
@@ -1129,7 +1130,7 @@ const DB = {
     title:"IA e automação avançam nos konbinis e na logística japonesa",
     tag:"Notícia",
     date:"24 de Maio de 2026",
-    thumb:"Imagens JR/noticias:17.05.2026/bancos-ia.PNG",
+    thumb:"Imagens JR/Noticias/24/05/IA_KONBINI.PNG",
     content:`<p>A automação deixou de ser "o futuro". Ela já começou.</p>
 <p>Relatórios divulgados neste fim de semana mostram que grandes redes de konbinis, logística e distribuição aceleraram drasticamente a implementação de agentes autônomos de inteligência artificial no Japão.</p>
 <h2>O Japão acelera a substituição silenciosa do trabalho repetitivo</h2>
@@ -1143,7 +1144,7 @@ const DB = {
     title:"Cinema japonês vive primavera cultural e supera Hollywood",
     tag:"Cultura",
     date:"24 de Maio de 2026",
-    thumb:"Imagens JR/Artigos JR/filme.JPG",
+    thumb:"Imagens JR/Noticias/24/05/CINEMA_JAPONES.PNG",
     content:`<p>Enquanto Hollywood enfrenta desgaste criativo e saturação de franquias, o cinema japonês parece viver um movimento oposto.</p>
 <p>As bilheterias deste fim de semana revelaram um crescimento expressivo de produções nacionais no Japão, principalmente dramas sociais e animações autorais que exploram temas como solidão, pressão social, envelhecimento e identidade urbana.</p>
 <h2>Produções nacionais dominam bilheterias no Japão</h2>
@@ -1156,7 +1157,7 @@ const DB = {
     title:"Japão se prepara para explosão de turismo no verão de 2026",
     tag:"Notícia",
     date:"24 de Maio de 2026",
-    thumb:"Imagens JR/17:05 img/cultura.PNG",
+    thumb:"Imagens JR/Noticias/24/05/ANA_VOOS.PNG",
     content:`<p>As grandes companhias aéreas japonesas começaram oficialmente os preparativos para a alta temporada internacional de 2026.</p>
 <p>Neste domingo, a ANA e a Japan Airlines anunciaram expansão nas frequências de voos partindo de Haneda e Narita, com foco em rotas para Ásia e Europa.</p>
 <h2>ANA e Japan Airlines expandem rotas internacionais</h2>
@@ -2903,25 +2904,30 @@ function initMarketBar() {
   updateClocks();
   setInterval(updateClocks, 1000);
 
-  fetch('https://api.exchangerate-api.com/v4/latest/USD')
+  function applyRates(rates) {
+    if (!rates || !rates.JPY || !rates.BRL) return;
+    var usdJpy = Number(rates.JPY).toFixed(2);
+    var usdBrl = Number(rates.BRL).toFixed(2);
+    var jpyBrl = (Number(rates.BRL) / Number(rates.JPY)).toFixed(4);
+    setText('w-usd', usdJpy);
+    setText('mini-usd', usdJpy);
+    setText('w-usd-brl', usdBrl);
+    setText('mini-usd-brl', usdBrl);
+    setText('w-brl', jpyBrl);
+    setText('mini-brl', jpyBrl);
+  }
+
+  applyRates({ JPY: 159.12, BRL: 5.01 });
+
+  fetch('https://open.er-api.com/v6/latest/USD')
     .then(function(r){ return r.json(); })
-    .then(function(data) {
-      var rates = data.rates || {};
-      if (rates.JPY) {
-        setText('w-usd', rates.JPY.toFixed(2));
-        setText('mini-usd', rates.JPY.toFixed(2));
-      }
-      if (rates.BRL) {
-        setText('w-usd-brl', rates.BRL.toFixed(2));
-        setText('mini-usd-brl', rates.BRL.toFixed(2));
-      }
-      if (rates.JPY && rates.BRL) {
-        var jpyBrl = (rates.BRL / rates.JPY).toFixed(4);
-        setText('w-brl', jpyBrl);
-        setText('mini-brl', jpyBrl);
-      }
-    })
-    .catch(function(){});
+    .then(function(data) { applyRates(data.rates || {}); })
+    .catch(function(){
+      fetch('https://api.exchangerate-api.com/v4/latest/USD')
+        .then(function(r){ return r.json(); })
+        .then(function(data) { applyRates(data.rates || {}); })
+        .catch(function(){});
+    });
 }
 
 function init() {
