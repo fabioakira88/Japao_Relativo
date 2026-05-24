@@ -112,6 +112,11 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .nav-links a:hover,.nav-links a.active{color:var(--cream)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-toggle{display:none;width:42px;height:42px;border:1px solid rgba(176,138,87,.34);background:rgba(5,5,5,.22);align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--cream);cursor:pointer;transition:border-color .2s ease,background .2s ease}
+.nav-toggle span{width:18px;height:1px;background:currentColor;display:block;transition:transform .24s ease,opacity .24s ease}
+.nav-toggle:hover{border-color:rgba(176,138,87,.72);background:rgba(176,138,87,.08)}
+.nav.is-open .nav-toggle span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.nav.is-open .nav-toggle span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
 
 /* ============================================================
    HERO
@@ -767,7 +772,7 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
 .social-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
 @media(max-width:1000px){.nav{padding:18px 24px}.nav-logo-img{width:76px;height:76px}.nav-links{gap:18px}.hero{padding:136px 24px 64px;min-height:84vh}.hero::after{left:24px;right:24px}.section.editorial-section{padding:28px 24px 110px}.editorial-flow{gap:112px}.editorial-card,.editorial-card.is-text-left,.editorial-card.is-image-left{grid-template-columns:1fr;gap:30px;min-height:0}.editorial-card.is-text-left .editorial-card-img-wrap,.editorial-card.is-text-left .editorial-card-body,.editorial-card.is-image-left .editorial-card-img-wrap,.editorial-card.is-image-left .editorial-card-body{grid-column:auto;grid-row:auto}.editorial-card-img-wrap{min-height:420px}.editorial-card.is-wide{min-height:560px}.editorial-card.is-wide .editorial-card-body{padding:0 28px 42px}.section.editorial-section .section-header{display:block}.editorial-mini-grid{grid-template-columns:repeat(2,1fr)}.editorial-mini-head{align-items:flex-start;flex-direction:column}.editorial-mini-market{justify-content:flex-start}}
-@media(max-width:640px){.hero .nav{position:relative;top:auto;left:auto;right:auto;width:auto;align-self:flex-start;padding:0;margin:0 0 18px;z-index:3}.nav-logo-img{width:58px;height:58px}.nav-links{display:none}.hero{min-height:82vh;padding:112px 18px 52px}.hero::after{left:18px;right:18px;bottom:34px}.hero-copy{padding-left:18px}.hero-kicker{font-size:9px;line-height:1.6}.hero-title{font-size:clamp(2.75rem,13vw,4.35rem);line-height:.92}.hero-subtitle{font-size:.96rem;line-height:1.78}.section.editorial-section{padding:20px 18px 90px}.section.editorial-section .section-header{margin-bottom:58px}.editorial-flow{gap:88px}.editorial-card-img-wrap{min-height:335px}.editorial-card.is-wide{min-height:520px}.editorial-card-title{font-size:clamp(2.25rem,11vw,3.65rem)}.editorial-card-excerpt{font-size:.92rem;line-height:1.75}.editorial-mini-grid{grid-template-columns:1fr;gap:20px}.mini-card{min-height:320px}.footer-top{padding:44px 24px 34px}}
+@media(max-width:640px){.hero .nav{position:relative;top:auto;left:auto;right:auto;width:calc(100% - 36px);align-self:flex-start;padding:0;margin:0 18px 18px 0;z-index:4}.nav-logo-img{width:58px;height:58px}.nav-toggle{display:flex;margin-left:auto}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;z-index:5;padding:18px 0;background:rgba(5,5,5,.94);border-top:1px solid rgba(176,138,87,.22);border-bottom:1px solid rgba(176,138,87,.22);backdrop-filter:blur(18px);flex-direction:column;gap:0}.nav.is-open .nav-links{display:flex}.nav-links li{border-bottom:1px solid rgba(245,241,234,.06)}.nav-links li:last-child{border-bottom:0}.nav-links a{display:block;padding:14px 4px;font-size:10px}.hero{min-height:82vh;padding:112px 18px 52px}.hero::after{left:18px;right:18px;bottom:34px}.hero-copy{padding-left:18px}.hero-kicker{font-size:9px;line-height:1.6}.hero-title{font-size:clamp(2.75rem,13vw,4.35rem);line-height:.92}.hero-subtitle{font-size:.96rem;line-height:1.78}.section.editorial-section{padding:20px 18px 90px}.section.editorial-section .section-header{margin-bottom:58px}.editorial-flow{gap:88px}.editorial-card-img-wrap{min-height:335px}.editorial-card.is-wide{min-height:520px}.editorial-card-title{font-size:clamp(2.25rem,11vw,3.65rem)}.editorial-card-excerpt{font-size:.92rem;line-height:1.75}.editorial-mini-grid{grid-template-columns:1fr;gap:20px}.mini-card{min-height:320px}.footer-top{padding:44px 24px 34px}}
 
 </style>
 </head>
@@ -781,6 +786,10 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
     <div class="nav-logo">
       <img src="Imagens JR/Logo JR/logo-jr-transparente.png" alt="JR Logo" class="nav-logo-img">
     </div>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Home</a></li>
       <li><a href="#grid-section" data-cat="Notícia" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
@@ -1039,6 +1048,7 @@ body.about-visible .jr-sobre{display:block}
         <li><a href="#" onclick="filterCategory('Artigos')">Artigos</a></li>
         <li><a href="#" onclick="filterCategory('Idioma')">Idioma</a></li>
         <li><a href="#sobre" onclick="showAbout();return false;">Sobre mim</a></li>
+        <li><a href="#achados-section" onclick="showProducts();return false;">Produtos</a></li>
         <li><a href="#" onclick="filterCategory('Anime')">Anime</a></li>
         <li><a href="#" onclick="filterCategory('Utilidades')">Utilidades</a></li>
       </ul>
@@ -2930,7 +2940,27 @@ function initMarketBar() {
     });
 }
 
+function initMobileNav() {
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.nav-toggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+    });
+  });
+}
+
 function init() {
+  initMobileNav();
   buildMainGrid(filteredPosts);
   buildMoreGrid();
   buildFadeHero();
