@@ -6,7 +6,7 @@ const DB = {
     title:"A negação das raízes: brasileiros no Japão e a busca por pertencimento",
     tag:"Sociedade",
     date:"26 de Maio de 2026",
-    thumb:"Imagens JR/Artigos JR/capa-negacao-raizes.png",
+    thumb:"assets/capa-negacao-raizes.png",
     content:`<p><strong>Há brasileiros que chegam ao Japão já adultos e, com o tempo, passam a rejeitar aquilo que são.</strong> Atacam outros brasileiros, ridicularizam costumes latinos e tentam provar pertencimento por meio da negação da própria origem.</p>
 
 <p>Mas esse gesto revela menos integração e mais insegurança.</p>
