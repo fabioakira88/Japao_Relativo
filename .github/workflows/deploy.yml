@@ -40,7 +40,9 @@ jobs:
 
           if [ -d EXPORTS ]; then
             cp -R EXPORTS _site/EXPORTS
-          elif [ -d "JAPAO_RELATIVO/Imagens JR" ]; then
+          fi
+
+          if [ -d "JAPAO_RELATIVO/Imagens JR" ]; then
             mkdir -p "_site/EXPORTS/BANNERS:"
             mkdir -p "_site/EXPORTS/IMAGENS_JR:/ANIMES:"
             mkdir -p "_site/EXPORTS/IMAGENS_JR:/ARTIGOS:"
