@@ -37,8 +37,47 @@ jobs:
           cp SITE/index.html _site/index.html
           cp CNAME _site/CNAME
           touch _site/.nojekyll
-          cp -R EXPORTS _site/EXPORTS
-          cp -R BRANDING _site/BRANDING
+
+          if [ -d EXPORTS ]; then
+            cp -R EXPORTS _site/EXPORTS
+          elif [ -d "JAPAO_RELATIVO/Imagens JR" ]; then
+            mkdir -p "_site/EXPORTS/BANNERS:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/ANIMES:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/ARTIGOS:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/NIHONGO:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/NOTICIAS:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/PRODUTOS:"
+            mkdir -p "_site/EXPORTS/IMAGENS_JR:/SOBRE_NOS:"
+
+            cp -R "JAPAO_RELATIVO/Imagens JR/Artigos JR/." "_site/EXPORTS/IMAGENS_JR:/ARTIGOS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/fairy grunge - Quiet Layering/." "_site/EXPORTS/IMAGENS_JR:/ARTIGOS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/Nihongo/." "_site/EXPORTS/IMAGENS_JR:/NIHONGO/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/noticias:17.05.2026/." "_site/EXPORTS/IMAGENS_JR:/NOTICIAS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/17:05 img/." "_site/EXPORTS/IMAGENS_JR:/NOTICIAS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/18:05 noite/." "_site/EXPORTS/IMAGENS_JR:/NOTICIAS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/18:05-img/." "_site/EXPORTS/IMAGENS_JR:/NOTICIAS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/Noticias/24/05/." "_site/EXPORTS/IMAGENS_JR:/NOTICIAS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/Afiliados TEMU/produtos do site/." "_site/EXPORTS/IMAGENS_JR:/PRODUTOS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/noticias:17.05.2026/." "_site/EXPORTS/IMAGENS_JR:/PRODUTOS/" 2>/dev/null || true
+            cp -R "JAPAO_RELATIVO/Imagens JR/sobre-nós/." "_site/EXPORTS/IMAGENS_JR:/SOBRE_NOS/" 2>/dev/null || true
+            cp "JAPAO_RELATIVO/Imagens JR/Artigos JR/Akaza.JPG" "_site/EXPORTS/IMAGENS_JR:/ANIMES:/MORO.PNG" 2>/dev/null || true
+
+            if [ -d "JAPAO_RELATIVO/assets" ]; then
+              cp -R "JAPAO_RELATIVO/assets" _site/assets
+              cp "_site/assets/hero-1.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png" 2>/dev/null || true
+              cp "_site/assets/hero-2.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_02.png" 2>/dev/null || true
+              cp "_site/assets/hero-3.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_05.png" 2>/dev/null || true
+              cp "_site/assets/hero-4.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_09.png" 2>/dev/null || true
+              cp "_site/assets/hero-5.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_12.png" 2>/dev/null || true
+            fi
+          fi
+
+          if [ -d BRANDING ]; then
+            cp -R BRANDING _site/BRANDING
+          else
+            mkdir -p "_site/BRANDING/LOGO:"
+            cp "JAPAO_RELATIVO/assets/logo-jr.png" "_site/BRANDING/LOGO:/1D3E5979-379B-4C4D-A916-291EF3F661DC.PNG" 2>/dev/null || true
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
