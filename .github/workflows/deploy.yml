@@ -35,6 +35,9 @@ jobs:
           rm -rf _site
           mkdir -p _site
           cp SITE/index.html _site/index.html
+          if [ -d SITE/assets ]; then
+            cp -R SITE/assets _site/assets
+          fi
           cp CNAME _site/CNAME
           touch _site/.nojekyll
 
@@ -65,7 +68,8 @@ jobs:
             cp "JAPAO_RELATIVO/Imagens JR/Artigos JR/Akaza.JPG" "_site/EXPORTS/IMAGENS_JR:/ANIMES:/MORO.PNG" 2>/dev/null || true
 
             if [ -d "JAPAO_RELATIVO/assets" ]; then
-              cp -R "JAPAO_RELATIVO/assets" _site/assets
+              mkdir -p _site/assets
+              cp -R "JAPAO_RELATIVO/assets/." _site/assets
               cp "_site/assets/hero-1.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png" 2>/dev/null || true
               cp "_site/assets/hero-2.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_02.png" 2>/dev/null || true
               cp "_site/assets/hero-3.jpg" "_site/EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_05.png" 2>/dev/null || true
