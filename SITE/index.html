@@ -761,8 +761,9 @@ body{background:linear-gradient(180deg,#050505 0%,#081010 35%,#0E1515 65%,#15181
 .editorial-mini-market{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:12px 22px;font-family:var(--font-support);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,234,.5)}
 .editorial-mini-market span span{color:rgba(176,138,87,.78);margin-right:7px}
 .editorial-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
-.mini-card{position:relative;min-height:340px;display:flex;align-items:flex-end;overflow:hidden;text-decoration:none;color:var(--cream);background:#0b0f0f;isolation:isolate}
+.mini-card{position:relative;min-height:340px;display:flex;align-items:flex-end;overflow:hidden;text-decoration:none;color:var(--cream);background:linear-gradient(145deg,#25221e 0%,#111 55%,#080808 100%);isolation:isolate}
 .mini-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background-size:cover;background-position:center;z-index:0;filter:saturate(.9) contrast(1.04) brightness(.94);transform:scale(1.03);transition:transform .8s ease,filter .8s ease}
+.editorial-card-img.is-fallback,.mini-card-img.is-fallback{display:none}
 .mini-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,5,5,.02),rgba(5,5,5,.66));pointer-events:none}
 .mini-card-body{position:relative;z-index:2}
 .mini-card:hover .mini-card-img{transform:scale(1.08);filter:saturate(.98) contrast(1.08) brightness(.9)}
@@ -874,13 +875,15 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-card-img-wrap{min-height:380px}
 }
 @media(max-width:760px){
-  .hero{min-height:72svh}
-  .hero-bg-slide{background-position:center top}
+  .hero{min-height:unset;height:auto;aspect-ratio:16/9;padding:0;overflow:visible;z-index:2}
+  .hero-bg-slides{background:#0d0d0d}
+  .hero-bg-slide{background-size:contain;background-repeat:no-repeat;background-position:center center;transform:none}
+  .hero-bg-slide.active{transform:none}
   .hero .nav{top:24px;right:24px;padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
   .hero .nav-toggle{display:flex;width:48px;height:48px;border:1px solid rgba(245,241,234,.15);border-radius:2px;background:rgba(15,15,15,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
   .hero .nav-toggle span{width:17px}
   .hero .nav-links{display:none}
-  .hero .nav.is-open .nav-links{top:72px;right:0;left:auto;width:min(320px,calc(100vw - 48px));padding:32px 28px;gap:20px;align-items:flex-end;background:rgba(15,15,15,.82);border:1px solid rgba(245,241,234,.14);border-radius:2px;box-shadow:0 24px 60px rgba(0,0,0,.3);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .hero .nav.is-open .nav-links{top:72px;right:0;left:auto;width:min(280px,calc(100vw - 56px));padding:28px 26px;gap:16px;align-items:flex-end;background:rgba(15,15,15,.82);border:1px solid rgba(245,241,234,.14);border-radius:2px;box-shadow:0 24px 60px rgba(0,0,0,.3);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
   .hero .nav.is-open .nav-links a{font-size:10px;letter-spacing:.2em}
   .section.editorial-section{
     padding:118px 24px 72px;
@@ -908,7 +911,10 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-card-img-wrap{
     min-height:0;
     aspect-ratio:4/3;
-    background:#ddd7cf;
+    background:
+      linear-gradient(135deg,rgba(176,138,87,.18),transparent 48%),
+      radial-gradient(circle at 72% 30%,rgba(245,242,237,.12),transparent 32%),
+      #171717;
     box-shadow:0 16px 36px rgba(35,29,22,.16)
   }
   .editorial-card-img-wrap::after{display:none}
@@ -2769,6 +2775,17 @@ function getCardImg(post) {
   return "background-image:url(\"" + getCardCover(post) + "\");background-size:cover;background-position:center";
 }
 
+function handleCardImageError(img) {
+  if (!img) return;
+  var fallback = "assets/covers/anime-default.png";
+  if (!img.dataset.fallbackTried && img.getAttribute("src") !== fallback) {
+    img.dataset.fallbackTried = "true";
+    img.src = fallback;
+    return;
+  }
+  img.classList.add("is-fallback");
+}
+
 function extractExcerpt(html, maxLen) {
   maxLen = maxLen || 110;
   const tmp = document.createElement('div');
@@ -2807,7 +2824,7 @@ function buildMainGrid(items) {
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="editorial-card-img-wrap">
-        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="eager" decoding="async">
+        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="eager" decoding="async" onerror="handleCardImageError(this)">
       </div>
       <div class="editorial-card-body">
         <div class="editorial-card-index">${String(index + 1).padStart(2, '0')} / Documento</div>
@@ -2843,7 +2860,7 @@ function buildMainGrid(items) {
       a.className = 'mini-card';
       a.href = '#' + post.id;
       a.innerHTML = `
-        <img class="mini-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async">
+        <img class="mini-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
         <div class="mini-card-body">
           <div class="mini-card-tag">${post.tag}</div>
           <div class="mini-card-title">${post.title}</div>
