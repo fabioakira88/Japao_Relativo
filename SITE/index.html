@@ -368,7 +368,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
    ============================================================ */
 .footer {
   position:relative;
-  background:url('../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_12.png') center/cover no-repeat;
+  background:url('assets/footer-bg.jpg') center/cover no-repeat;
   overflow:hidden;
 }
 .footer::before {
@@ -873,7 +873,7 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-card{padding-bottom:66px;gap:28px}
   .editorial-card-img-wrap{min-height:380px}
 }
-@media(max-width:640px){
+@media(max-width:760px){
   .hero{min-height:56svh}
   .hero-bg-slide{background-position:center}
   .hero .nav{top:14px;right:14px;padding:7px;background:rgba(8,8,8,.5)}
@@ -882,16 +882,71 @@ body{background:#f5f2ed;color:var(--ink2)}
   .hero .nav.is-open .nav-links{top:calc(100% + 8px);right:0;left:auto;width:min(240px,calc(100vw - 28px));padding:20px;align-items:flex-end;background:rgba(8,8,8,.92);border:1px solid rgba(245,241,234,.14);border-radius:2px}
   .hero .nav.is-open .nav-links a{font-size:10px}
   .section.editorial-section{
-    padding:118px 18px 76px;
+    padding:118px 24px 72px;
     background-image:
       radial-gradient(rgba(35,29,22,.1) .45px,transparent .6px),
       linear-gradient(180deg,#0d0d0d 0,#77736d 50px,#d8d3cc 88px,#f5f2ed 118px,#f5f2ed 100%)
   }
-  .section.editorial-section .section-header{margin-bottom:42px;padding-bottom:22px}
-  .editorial-flow{gap:52px}
-  .editorial-card{padding-bottom:52px}
-  .editorial-card-img-wrap{min-height:300px}
-  .editorial-card-title{font-size:clamp(2.45rem,12vw,3.7rem)}
+  .section.editorial-section .section-header{margin-bottom:48px;padding-bottom:24px}
+  .section.editorial-section .section-title{font-size:clamp(3rem,15vw,4.25rem)}
+  .editorial-flow{gap:48px}
+  .editorial-card,
+  .editorial-card.is-text-left,
+  .editorial-card.is-image-left{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:24px;
+    min-height:0;
+    padding-bottom:48px
+  }
+  .editorial-card.is-text-left .editorial-card-img-wrap,
+  .editorial-card.is-image-left .editorial-card-img-wrap{order:1}
+  .editorial-card.is-text-left .editorial-card-body,
+  .editorial-card.is-image-left .editorial-card-body{order:2}
+  .editorial-card-img-wrap{
+    min-height:0;
+    aspect-ratio:4/3;
+    background:#ddd7cf;
+    box-shadow:0 16px 36px rgba(35,29,22,.16)
+  }
+  .editorial-card-img-wrap::after{display:none}
+  .editorial-card-img{
+    position:relative;
+    inset:auto;
+    z-index:1;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:none;
+    filter:none
+  }
+  .editorial-card:hover .editorial-card-img{transform:none;filter:none}
+  .editorial-card-body{width:100%;max-width:none;padding:0}
+  .editorial-card-index{margin-bottom:12px}
+  .editorial-card-tag{margin-bottom:12px}
+  .editorial-card-title{font-size:clamp(2.35rem,11vw,3.45rem);line-height:.94}
+  .editorial-card-excerpt{font-size:.98rem;line-height:1.7;margin-top:16px;-webkit-line-clamp:3}
+  .editorial-card-date{margin-top:24px}
+  .editorial-card-read{margin-top:24px}
+  .editorial-mini-panel{gap:24px;overflow:hidden}
+  .editorial-mini-head{padding-bottom:16px}
+  .editorial-mini-market{display:none}
+  .editorial-mini-grid{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding:0 0 16px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    overscroll-behavior-inline:contain
+  }
+  .editorial-mini-grid::-webkit-scrollbar{display:none}
+  .mini-card{
+    flex:0 0:min(78vw,300px);
+    min-height:360px;
+    scroll-snap-align:start
+  }
 }
 
 </style>
@@ -989,7 +1044,7 @@ body{background:#f5f2ed;color:var(--ink2)}
     <!-- Centro: Logo + Nome + Descrição -->
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="../BRANDING/LOGO:/1D3E5979-379B-4C4D-A916-291EF3F661DC.PNG" alt="JR">
+        <img src="assets/logo.png" alt="JR">
         <div class="footer-logo-text">Japão Relativo</div>
       </div>
       <p class="footer-desc">Curadoria independente sobre o Japão — cultura, idioma, notícias e o cotidiano de quem vive neste país fascinante.</p>
@@ -1757,9 +1812,9 @@ Pode usar isso.</p>
 <p>O Fairy Grunge une dois mundos que pareciam opostos. De um lado, o romantismo etéreo dos laços, babados e tecidos acetinados em tons de rosa pálido e lavanda. Do outro, a aspereza dos anos 90: jaquetas de couro desgastadas, tênis de plataforma surrado e acessórios de metal pesado. O resultado é uma feminilidade que não pede licença para ser contraditória.</p>
 
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0;">
-  <img src="../Imagens JR/fairy grunge - Quiet Layering/IMG_2626.JPG" alt="Fairy Grunge nas ruas de Tóquio" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
-  <img src="../Imagens JR/fairy grunge - Quiet Layering/IMG_2627.JPG" alt="Sobreposição grunge e romantismo" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
-  <img src="../Imagens JR/fairy grunge - Quiet Layering/IMG_2628.JPG" alt="Quiet Layering — estilo suave em camadas" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
+  <img src="assets/articles/fairy-grunge-01.jpg" alt="Fairy Grunge nas ruas de Tóquio" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
+  <img src="assets/articles/fairy-grunge-02.jpg" alt="Sobreposição grunge e romantismo" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
+  <img src="assets/articles/fairy-grunge-03.jpg" alt="Quiet Layering — estilo suave em camadas" style="width:100%;border-radius:10px;object-fit:cover;aspect-ratio:2/3;display:block;">
 </div>
 
 <h2>Quiet Layering e a arte da sobreposição</h2>
@@ -2240,42 +2295,42 @@ Pode usar isso.</p>
       <div class="film-carousel" data-carousel>
         <div class="fc-slides">
           <div class="fc-slide active">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2242.JPG" alt="As quatro crianças no apartamento">
+            <img src="assets/articles/ninguem-pode-saber/nps-01.jpg" alt="As quatro crianças no apartamento">
             <div class="fc-caption">
               <div class="fc-num">01 / 06</div>
               <p>As quatro crianças ficaram sozinhas por nove meses no apartamento em Sugamo, Tóquio.</p>
             </div>
           </div>
           <div class="fc-slide">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2244.JPG" alt="A família à mesa antes do abandono">
+            <img src="assets/articles/ninguem-pode-saber/nps-02.jpg" alt="A família à mesa antes do abandono">
             <div class="fc-caption">
               <div class="fc-num">02 / 06</div>
               <p>Antes do abandono, a mãe era a única referência familiar que as crianças conheciam.</p>
             </div>
           </div>
           <div class="fc-slide">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2245.JPG" alt="O menino mais velho sozinho">
+            <img src="assets/articles/ninguem-pode-saber/nps-03.jpg" alt="O menino mais velho sozinho">
             <div class="fc-caption">
               <div class="fc-num">03 / 06</div>
               <p>Com apenas 14 anos, a Criança A tornou-se o único responsável pela sobrevivência dos irmãos.</p>
             </div>
           </div>
           <div class="fc-slide">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2246.JPG" alt="Crianças confinadas no apartamento">
+            <img src="assets/articles/ninguem-pode-saber/nps-04.jpg" alt="Crianças confinadas no apartamento">
             <div class="fc-caption">
               <div class="fc-num">04 / 06</div>
               <p>Confinadas no apartamento, as crianças viviam cercadas por caixas e pertences esquecidos.</p>
             </div>
           </div>
           <div class="fc-slide">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2247.JPG" alt="Criança comendo lámen instantâneo">
+            <img src="assets/articles/ninguem-pode-saber/nps-05.jpg" alt="Criança comendo lámen instantâneo">
             <div class="fc-caption">
               <div class="fc-num">05 / 06</div>
               <p>Alimentos de conveniência eram tudo que restava quando a luz, a água e o gás foram cortados.</p>
             </div>
           </div>
           <div class="fc-slide">
-            <img src="../Imagens JR/Artigos JR/ninguem pode saber/IMG_2251.JPG" alt="A mãe preparando a partida">
+            <img src="assets/articles/ninguem-pode-saber/nps-06.jpg" alt="A mãe preparando a partida">
             <div class="fc-caption">
               <div class="fc-num">06 / 06</div>
               <p>A partida da mãe marcou o início de um pesadelo que duraria nove meses.</p>
@@ -2790,7 +2845,7 @@ function buildMainGrid(items) {
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="editorial-card-img-wrap">
-        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async">
+        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="eager" decoding="async">
       </div>
       <div class="editorial-card-body">
         <div class="editorial-card-index">${String(index + 1).padStart(2, '0')} / Documento</div>
