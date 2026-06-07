@@ -874,13 +874,14 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-card-img-wrap{min-height:380px}
 }
 @media(max-width:760px){
-  .hero{min-height:56svh}
-  .hero-bg-slide{background-position:center}
-  .hero .nav{top:14px;right:14px;padding:7px;background:rgba(8,8,8,.5)}
-  .hero .nav-toggle{display:flex;width:38px;height:38px;border:0}
+  .hero{min-height:72svh}
+  .hero-bg-slide{background-position:center top}
+  .hero .nav{top:24px;right:24px;padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .hero .nav-toggle{display:flex;width:48px;height:48px;border:1px solid rgba(245,241,234,.15);border-radius:2px;background:rgba(15,15,15,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .hero .nav-toggle span{width:17px}
   .hero .nav-links{display:none}
-  .hero .nav.is-open .nav-links{top:calc(100% + 8px);right:0;left:auto;width:min(240px,calc(100vw - 28px));padding:20px;align-items:flex-end;background:rgba(8,8,8,.92);border:1px solid rgba(245,241,234,.14);border-radius:2px}
-  .hero .nav.is-open .nav-links a{font-size:10px}
+  .hero .nav.is-open .nav-links{top:72px;right:0;left:auto;width:min(320px,calc(100vw - 48px));padding:32px 28px;gap:20px;align-items:flex-end;background:rgba(15,15,15,.82);border:1px solid rgba(245,241,234,.14);border-radius:2px;box-shadow:0 24px 60px rgba(0,0,0,.3);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .hero .nav.is-open .nav-links a{font-size:10px;letter-spacing:.2em}
   .section.editorial-section{
     padding:118px 24px 72px;
     background-image:
@@ -929,7 +930,7 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-card-excerpt{font-size:.98rem;line-height:1.7;margin-top:16px;-webkit-line-clamp:3}
   .editorial-card-date{margin-top:24px}
   .editorial-card-read{margin-top:24px}
-  .editorial-mini-panel{gap:24px;overflow:hidden}
+  .editorial-mini-panel{gap:24px;overflow:visible}
   .editorial-mini-head{padding-bottom:16px}
   .editorial-mini-market{display:none}
   .editorial-mini-grid{
@@ -943,10 +944,29 @@ body{background:#f5f2ed;color:var(--ink2)}
   }
   .editorial-mini-grid::-webkit-scrollbar{display:none}
   .mini-card{
-    flex:0 0:min(78vw,300px);
+    flex:0 0:min(74vw,300px);
     min-height:360px;
     scroll-snap-align:start
   }
+  .editorial-mini-panel.is-news-list .editorial-mini-grid{display:block;overflow:visible;padding:0}
+  .editorial-mini-panel.is-news-list .mini-card{
+    min-height:0;
+    width:100%;
+    padding:24px 0;
+    display:block;
+    color:var(--ink2);
+    background:transparent;
+    border-bottom:1px solid rgba(25,25,25,.13);
+    scroll-snap-align:none
+  }
+  .editorial-mini-panel.is-news-list .mini-card:first-child{padding-top:8px}
+  .editorial-mini-panel.is-news-list .mini-card-img{display:none}
+  .editorial-mini-panel.is-news-list .mini-card::after{display:none}
+  .editorial-mini-panel.is-news-list .mini-card-body{padding:0}
+  .editorial-mini-panel.is-news-list .mini-card-tag{color:var(--signal);margin-bottom:8px}
+  .editorial-mini-panel.is-news-list .mini-card-title{font-size:clamp(1.75rem,8vw,2.35rem);line-height:1;color:var(--ink)}
+  .footer-logo img{filter:brightness(0) invert(1);opacity:.92}
+  .footer-top{gap:48px}
 }
 
 </style>
@@ -2724,50 +2744,7 @@ let filteredPosts = [...posts];
 // RENDER FUNCTIONS
 // ======================================================
 function normalizeAssetPath(path) {
-  if (!path || /^https?:/i.test(path) || path.indexOf("EXPORTS/") !== -1 || path.indexOf("BRANDING/") !== -1) return path;
-  var clean = path.replace(/^\.\.\//, "");
-  try { clean = decodeURI(clean); } catch (e) {}
-  var filename = clean.split("/").pop();
-  var imageFixes = {
-    "bomba.PNG": "bomba.png",
-    "te-kudasai.png": "temoii.png",
-    "festival.png": "Aoi-matsuri.JPG",
-    "IMG_2298.jpg": "Akaza.JPG",
-    "IMG_2297.jpg": "filme.JPG"
-  };
-  filename = imageFixes[filename] || filename;
-
-  if (clean.indexOf("Wallpaper JR/") !== -1) return "../EXPORTS/BANNERS:/" + filename;
-
-  if (clean.indexOf("Afiliados TEMU/") !== -1 || clean.indexOf("produtos do site/") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/PRODUTOS:/" + filename;
-  }
-
-  if (clean.indexOf("sobre-n") !== -1 || clean.indexOf("sobre-no") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/SOBRE_NOS:/" + filename;
-  }
-
-  if (clean.indexOf("Nihongo/") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/NIHONGO:/" + filename;
-  }
-
-  if (clean.indexOf("ninguem pode saber/") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/ARTIGOS:/ninguem pode saber/" + filename;
-  }
-
-  if (clean.indexOf("Artigos JR/") !== -1 || clean.indexOf("fairy grunge") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/ARTIGOS:/" + filename;
-  }
-
-  if (clean.indexOf("one-piece") !== -1 || clean.indexOf("anime") !== -1 || clean.indexOf("Akaza") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/" + filename;
-  }
-
-  if (clean.indexOf("noticias") !== -1 || clean.indexOf("17:05") !== -1 || clean.indexOf("18:05") !== -1) {
-    return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/" + filename;
-  }
-
-  return path;
+  return path || '';
 }
 
 
@@ -2785,22 +2762,7 @@ function getCardCover(post) {
 
   if (thumb && !/^https?:/i.test(thumb)) return normalizeAssetPath(thumb);
 
-  if (title.indexOf("one piece") !== -1) return "assets/covers/anime-default.png";
-  if (title.indexOf("cri") !== -1 || title.indexOf("natalidade") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
-  if (title.indexOf("renho") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/Renho.JPG";
-  if (title.indexOf("banco") !== -1 || title.indexOf("ia") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
-  if (title.indexOf("bomba") !== -1 || title.indexOf("festival") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bomba.png";
-  if (title.indexOf("terremoto") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/terremoto-miyagi.PNG";
-  if (title.indexOf("parlamento") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
-  if (title.indexOf("preso") !== -1 || title.indexOf("pris") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
-
-  if (tag === "Anime") return "assets/covers/anime-default.png";
-  if (tag === "Idioma") return "../EXPORTS/IMAGENS_JR:/NIHONGO:/kurai.png";
-  if (tag === "Cultura") return "../EXPORTS/IMAGENS_JR:/ARTIGOS:/Aoi-matsuri.JPG";
-  if (tag === "Sociedade") return "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png";
-  if (tag === "Not\u00edcia") return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
-
-  return "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png";
+  return "assets/covers/anime-default.png";
 }
 
 function getCardImg(post) {
@@ -2864,7 +2826,7 @@ function buildMainGrid(items) {
 
   if (miniPosts.length) {
     const panel = document.createElement('section');
-    panel.className = 'editorial-mini-panel';
+    panel.className = 'editorial-mini-panel' + (isHome ? ' is-news-list' : '');
     panel.innerHTML = `
       <div class="editorial-mini-head">
         <div class="editorial-mini-title">${isHome ? 'Notícias / Cotação' : 'Mais em ' + currentFilter}</div>
