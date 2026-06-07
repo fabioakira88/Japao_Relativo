@@ -769,6 +769,9 @@ body.reading-mode .nav {
   align-items:center;
   justify-content:center;
   padding:24px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
   background:rgba(5,5,5,.76);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
@@ -779,6 +782,8 @@ body.reading-mode .nav {
   width:min(720px,100%);
   max-height:min(760px,calc(100vh - 48px));
   overflow:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
   background:linear-gradient(180deg,#121515 0%,#0b0d0d 100%);
   color:var(--cream);
   border:1px solid rgba(176,138,87,.28);
@@ -1228,7 +1233,13 @@ body{background:#f5f2ed;color:var(--ink2)}
   .jlpt-quiz-section{padding:54px 24px 28px}
   .jlpt-quiz-card{grid-template-columns:1fr;gap:30px}
   .jlpt-quiz-title{font-size:clamp(3rem,15vw,4.35rem)}
-  .quiz-box{padding:34px 22px;max-height:calc(100vh - 32px)}
+  .quiz-modal{align-items:flex-start;justify-content:flex-start;padding:12px;min-height:100dvh}
+  .quiz-box{width:100%;min-height:calc(100dvh - 24px);max-height:none;padding:56px 20px 28px;overflow:visible}
+  .quiz-close{position:fixed;top:18px;right:18px;z-index:2;background:rgba(10,10,10,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .quiz-box h2{font-size:clamp(2.7rem,14vw,4rem)}
+  .quiz-box h3{font-size:clamp(2rem,10vw,3rem);margin:18px 0 22px}
+  .quiz-answer{padding:16px;font-size:14px}
+  .quiz-progress-row{font-size:10px;letter-spacing:.18em}
   .quiz-lead-grid{grid-template-columns:1fr}
   .quiz-result-meta{grid-template-columns:1fr}
   .quiz-actions-row{flex-direction:column}
@@ -4018,7 +4029,9 @@ function initJlptQuiz() {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    setTimeout(function(){ if (userName && !userName.value) userName.focus(); }, 80);
+    if (window.matchMedia('(min-width: 760px)').matches) {
+      setTimeout(function(){ if (userName && !userName.value) userName.focus(); }, 80);
+    }
   }
 
   function closeModal() {
@@ -4040,6 +4053,22 @@ function initJlptQuiz() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
+  function shuffleOptions(question) {
+    var options = question.answers.map(function(answer, answerIndex) {
+      return {
+        text:answer,
+        isCorrect:answerIndex === question.correct
+      };
+    });
+    for (var i = options.length - 1; i > 0; i -= 1) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = options[i];
+      options[i] = options[j];
+      options[j] = tmp;
+    }
+    return options;
+  }
+
   function renderQuestion() {
     var current = jlptQuizQuestions[index];
     var total = jlptQuizQuestions.length;
@@ -4048,13 +4077,13 @@ function initJlptQuiz() {
     quizLevel.textContent = current.level;
     questionText.textContent = current.question;
     answers.innerHTML = '';
-    current.answers.forEach(function(answer, answerIndex) {
+    shuffleOptions(current).forEach(function(option) {
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'quiz-answer';
-      btn.textContent = answer;
+      btn.textContent = option.text;
       btn.addEventListener('click', function() {
-        if (answerIndex === current.correct) score += 1;
+        if (option.isCorrect) score += 1;
         index += 1;
         if (index >= jlptQuizQuestions.length) {
           showResult();
