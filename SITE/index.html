@@ -792,6 +792,37 @@ body.about-visible .jr-sobre{display:block}
 @media(max-width:640px){.nav{position:absolute;padding:14px 18px}.nav-logo-img{width:62px;height:62px}.nav-links{display:none}.hero{min-height:82vh;padding:112px 18px 52px}.hero::after{left:18px;right:18px;bottom:34px}.hero-bg-slide{filter:saturate(.96) contrast(1.04) brightness(.96)}.hero-bg-slide::after{background:linear-gradient(90deg,rgba(5,5,5,.68) 0%,rgba(5,5,5,.42) 48%,rgba(5,5,5,.08) 100%),linear-gradient(180deg,rgba(5,5,5,.08) 0%,rgba(5,5,5,.02) 42%,rgba(5,5,5,.58) 100%)}.hero-copy{padding-left:18px}.hero-kicker{font-size:9px;line-height:1.6}.hero-title{font-size:clamp(2.75rem,13vw,4.35rem);line-height:.92}.hero-subtitle{font-size:.96rem;line-height:1.78}.section.editorial-section{padding:20px 18px 90px}.section.editorial-section .section-header{margin-bottom:58px}.editorial-flow{gap:88px}.editorial-card-img-wrap{min-height:335px}.editorial-card.is-wide{min-height:520px}.editorial-card-title{font-size:clamp(2.25rem,11vw,3.65rem)}.editorial-card-excerpt{font-size:.92rem;line-height:1.75}.editorial-mini-grid{grid-template-columns:1fr;gap:20px}.mini-card{min-height:320px}.footer-top{padding:44px 24px 34px}}
 @media(max-width:720px){.jr-sobre-inner{grid-template-columns:1fr;gap:40px;text-align:center}.jr-sobre-foto-wrap{margin:0 auto}.jr-sobre-bio{margin:0 auto 20px}}
 
+/* White editorial canvas; Hero/nav/footer keep the original dark palette. */
+body{background:#fff;color:var(--ink2)}
+.site-main{background:#fff}
+.site-main::before{display:none}
+.hero{background:#050505}
+.hero::before{background:linear-gradient(180deg,rgba(5,5,5,0) 78%,rgba(5,5,5,.26) 100%)}
+.hero-bg-slide{filter:none}
+.hero-bg-slide::after{background:transparent}
+.hero-news-label{display:none}
+.section.editorial-section{background:#fff;color:var(--ink2)}
+.section.editorial-section .section-title{color:var(--ink)}
+.section.editorial-section .section-label{color:var(--red)}
+.section.editorial-section .section-label::before{background:var(--red)}
+.editorial-card{color:var(--ink2)}
+.editorial-card::before{background:radial-gradient(circle at 78% 30%,rgba(176,138,87,.1),transparent 36%)}
+.editorial-card-tag{color:rgba(25,25,25,.5)}
+.editorial-card-title{color:var(--ink)}
+.editorial-card-excerpt{color:rgba(25,25,25,.68)}
+.editorial-card-date{color:rgba(122,82,43,.78)}
+.editorial-card-read{color:var(--ink2)}
+.editorial-card.is-wide .editorial-card-tag{color:rgba(245,241,234,.58)}
+.editorial-card.is-wide .editorial-card-title{color:rgba(245,241,234,.96)}
+.editorial-card.is-wide .editorial-card-excerpt{color:rgba(245,241,234,.74)}
+.editorial-card.is-wide .editorial-card-date{color:rgba(220,190,140,.82)}
+.editorial-card.is-wide .editorial-card-read{color:rgba(245,241,234,.88)}
+.editorial-mini-market{color:rgba(25,25,25,.55)}
+.jr-sobre{background:#fff;border-top:1px solid rgba(25,25,25,.1)}
+.jr-sobre-titulo{color:var(--ink)}
+.jr-sobre-bio{color:rgba(25,25,25,.7)}
+.jr-sobre-cargo{color:rgba(25,25,25,.55)}
+
 </style>
 </head>
 <body>
@@ -850,7 +881,7 @@ body.about-visible .jr-sobre{display:block}
   <div class="jr-sobre-inner">
 
     <div class="jr-sobre-foto-wrap">
-      <img src="../EXPORTS/IMAGENS_JR:/SOBRE_NOS:/sobre-nós.jpg" alt="Fabio Akira — Fundador do Japão Relativo" class="jr-sobre-foto">
+      <img src="assets/about/fabio-akira.jpg" alt="Fabio Akira — Fundador do Japão Relativo" class="jr-sobre-foto">
       <div class="jr-sobre-foto-badge">
         <span>🇯🇵</span> 10 anos no Japão
       </div>
@@ -2635,7 +2666,7 @@ function getCardCover(post) {
 
   if (thumb && !/^https?:/i.test(thumb)) return normalizeAssetPath(thumb);
 
-  if (title.indexOf("one piece") !== -1) return "../EXPORTS/IMAGENS_JR:/ANIMES:/MORO.PNG";
+  if (title.indexOf("one piece") !== -1) return "assets/covers/anime-default.png";
   if (title.indexOf("cri") !== -1 || title.indexOf("natalidade") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
   if (title.indexOf("renho") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/Renho.JPG";
   if (title.indexOf("banco") !== -1 || title.indexOf("ia") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
@@ -2644,7 +2675,7 @@ function getCardCover(post) {
   if (title.indexOf("parlamento") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
   if (title.indexOf("preso") !== -1 || title.indexOf("pris") !== -1) return "../EXPORTS/IMAGENS_JR:/NOTICIAS:/bancos-ia.PNG";
 
-  if (tag === "Anime") return "../EXPORTS/IMAGENS_JR:/ANIMES:/MORO.PNG";
+  if (tag === "Anime") return "assets/covers/anime-default.png";
   if (tag === "Idioma") return "../EXPORTS/IMAGENS_JR:/NIHONGO:/kurai.png";
   if (tag === "Cultura") return "../EXPORTS/IMAGENS_JR:/ARTIGOS:/Aoi-matsuri.JPG";
   if (tag === "Sociedade") return "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png";
@@ -3039,11 +3070,11 @@ function buildFadeHero() {
   if (!container) return;
 
   var heroBanners = [
-    "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_43_57.png",
-    "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_02.png",
-    "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_05.png",
-    "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_09.png",
-    "../EXPORTS/BANNERS:/ChatGPT Image 26 de mai. de 2026, 19_44_12.png"
+    "assets/hero/fuji-sakura.png",
+    "assets/hero/arrozal.png",
+    "assets/hero/tokyo.png",
+    "assets/hero/folclore.png",
+    "assets/hero/arquitetura.png"
   ];
 
   heroPostsData = posts.filter(function(p){ return p.tag === "Not\u00edcia"; }).slice(0, 6);
