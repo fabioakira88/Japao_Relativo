@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" role="img" aria-labelledby="title desc">
+  <title id="title">5 dicas uteis do Japao para brasileiros</title>
+  <desc id="desc">Capa editorial com celular exibindo aplicativos uteis do Japao, incluindo Japan Post, PayPay, trens, alertas e Mercari.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#151515"/>
+      <stop offset=".46" stop-color="#24201c"/>
+      <stop offset="1" stop-color="#080b0c"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf2"/>
+      <stop offset="1" stop-color="#e8e1d7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".34" cy=".18" r=".68">
+      <stop offset="0" stop-color="#c9473e" stop-opacity=".5"/>
+      <stop offset=".42" stop-color="#b08a57" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="32" stdDeviation="34" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#f5f2ed" opacity=".16"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <rect width="1600" height="1200" fill="url(#glow)"/>
+  <rect width="1600" height="1200" fill="url(#dots)"/>
+
+  <g opacity=".28">
+    <rect x="84" y="202" width="430" height="560" rx="10" fill="#c01822"/>
+    <rect x="108" y="232" width="382" height="82" rx="6" fill="#f6f1e8" opacity=".92"/>
+    <rect x="108" y="350" width="310" height="28" rx="4" fill="#f6f1e8" opacity=".58"/>
+    <rect x="108" y="405" width="350" height="28" rx="4" fill="#f6f1e8" opacity=".42"/>
+    <rect x="108" y="460" width="250" height="28" rx="4" fill="#f6f1e8" opacity=".38"/>
+    <text x="132" y="292" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" fill="#c01822">JP POST</text>
+  </g>
+
+  <g opacity=".25">
+    <rect x="1082" y="178" width="386" height="650" rx="14" fill="#0d5f37"/>
+    <rect x="1114" y="220" width="318" height="78" rx="12" fill="#f6f1e8" opacity=".88"/>
+    <rect x="1114" y="340" width="146" height="132" rx="12" fill="#f6f1e8" opacity=".56"/>
+    <rect x="1286" y="340" width="146" height="132" rx="12" fill="#f6f1e8" opacity=".56"/>
+    <rect x="1114" y="502" width="318" height="78" rx="12" fill="#f6f1e8" opacity=".42"/>
+  </g>
+
+  <g transform="translate(520 104) rotate(-4 335 480)" filter="url(#shadow)">
+    <rect x="0" y="0" width="560" height="960" rx="58" fill="#050505"/>
+    <rect x="24" y="24" width="512" height="912" rx="42" fill="url(#paper)"/>
+    <rect x="24" y="24" width="512" height="190" rx="42" fill="#bd171d"/>
+    <rect x="204" y="24" width="140" height="32" rx="0" fill="#050505"/>
+    <text x="66" y="88" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#fff">9:41</text>
+    <text x="182" y="126" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="800" fill="#fff">JP</text>
+    <text x="246" y="126" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#fff">郵便局</text>
+    <text x="154" y="164" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="5" fill="#ffd8d8">LIFE APPS JAPAN</text>
+
+    <rect x="58" y="244" width="396" height="104" rx="18" fill="#fff" stroke="#ded6ca"/>
+    <circle cx="112" cy="296" r="30" fill="#bd171d"/>
+    <path d="M96 296h36M114 278v36" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+    <text x="162" y="289" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#1d1d1d">Japan Post</text>
+    <text x="162" y="324" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#5a5550">rastreamento e etiquetas</text>
+
+    <g transform="translate(58 386)">
+      <rect width="178" height="132" rx="18" fill="#fff" stroke="#ded6ca"/>
+      <circle cx="46" cy="42" r="24" fill="#14964f"/>
+      <path d="M34 42l12 12 24-30" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="26" y="92" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" fill="#1d1d1d">Sugi</text>
+      <text x="26" y="118" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6a625b">receitas</text>
+    </g>
+
+    <g transform="translate(276 386)">
+      <rect width="178" height="132" rx="18" fill="#fff" stroke="#ded6ca"/>
+      <circle cx="46" cy="42" r="24" fill="#2c8063"/>
+      <path d="M34 58c18-38 44-38 62 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+      <text x="26" y="92" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" fill="#1d1d1d">Transit</text>
+      <text x="26" y="118" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6a625b">trens</text>
+    </g>
+
+    <g transform="translate(58 548)">
+      <rect width="178" height="132" rx="18" fill="#fff" stroke="#ded6ca"/>
+      <circle cx="46" cy="42" r="24" fill="#e43a42"/>
+      <text x="29" y="51" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="900" fill="#fff">P</text>
+      <text x="26" y="92" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" fill="#1d1d1d">PayPay</text>
+      <text x="26" y="118" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6a625b">pagamentos</text>
+    </g>
+
+    <g transform="translate(276 548)">
+      <rect width="178" height="132" rx="18" fill="#fff" stroke="#ded6ca"/>
+      <circle cx="46" cy="42" r="24" fill="#0d3763"/>
+      <path d="M46 21l23 41H23z" fill="#fff"/>
+      <text x="26" y="92" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" fill="#1d1d1d">Alertas</text>
+      <text x="26" y="118" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6a625b">emergencia</text>
+    </g>
+
+    <rect x="58" y="716" width="396" height="104" rx="18" fill="#fff" stroke="#ded6ca"/>
+    <circle cx="112" cy="768" r="30" fill="#c91f2f"/>
+    <text x="96" y="779" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="900" fill="#fff">m</text>
+    <text x="162" y="760" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#1d1d1d">Mercari</text>
+    <text x="162" y="795" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#5a5550">economia no dia a dia</text>
+
+    <g transform="translate(78 872)" fill="#77716a">
+      <rect x="0" y="0" width="42" height="6" rx="3"/>
+      <rect x="112" y="0" width="42" height="6" rx="3"/>
+      <rect x="224" y="0" width="42" height="6" rx="3"/>
+      <rect x="336" y="0" width="42" height="6" rx="3"/>
+    </g>
+  </g>
+
+  <g>
+    <text x="96" y="928" font-family="Georgia, 'Times New Roman', serif" font-size="92" fill="#f5f2ed" letter-spacing="-2">5 dicas uteis</text>
+    <text x="100" y="1002" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#b08a57" letter-spacing="7">VIDA PRATICA NO JAPAO</text>
+    <line x1="100" y1="1042" x2="350" y2="1042" stroke="#b08a57" stroke-width="4"/>
+  </g>
+</svg>
