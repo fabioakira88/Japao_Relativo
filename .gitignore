@@ -17,3 +17,11 @@ venv/
 # Temporários
 *.log
 *.tmp
+
+# Backups de HTML
+*.bak
+*.bak-*
+*.bak_*
+
+# Pastas vazias de staging
+SITE/Imagens JR/
