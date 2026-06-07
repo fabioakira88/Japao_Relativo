@@ -3051,37 +3051,17 @@ function getExcerpt(html, len) {
   return t.length > len ? t.slice(0, len) + '\u2026' : t;
 }
 
-function updateHeroLabel(idx) {
-  var label = document.getElementById('heroLabel');
-  if (!label || !heroAllData[idx]) return;
-  var item = heroAllData[idx];
-  if (item.id) {
-    label.innerHTML =
-      '<span class="hsl-tag">' + item.tag + '</span>' +
-      '<h2 class="hsl-title">' + item.title + '</h2>' +
-      '<p class="hsl-excerpt">' + getExcerpt(item.content, 140) + '</p>' +
-      '<span class="hsl-cta">Ler mat\u00e9ria <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
-    label.onclick = function() { navigateTo(item.id); };
-    label.style.cursor = 'pointer';
-  } else {
-    label.innerHTML =
-      '<span class="hsl-tag">' + item.tag + '</span>' +
-      '<h2 class="hsl-title">' + item.title + '</h2>';
-    label.onclick = null;
-    label.style.cursor = 'default';
-  }
-}
 
 function buildFadeHero() {
   var container = document.getElementById("heroSlides");
   if (!container) return;
 
   var heroBanners = [
-    "assets/hero/fuji-sakura.png",
-    "assets/hero/arrozal.png",
-    "assets/hero/tokyo.png",
-    "assets/hero/folclore.png",
-    "assets/hero/arquitetura.png"
+    "ASSETS/hero/fuji-sakura.png",
+    "ASSETS/hero/arrozal.png",
+    "ASSETS/hero/tokyo.png",
+    "ASSETS/hero/folclore.png",
+    "ASSETS/hero/arquitetura.png"
   ];
 
   heroPostsData = posts.filter(function(p){ return p.tag === "Not\u00edcia"; }).slice(0, 6);
@@ -3094,8 +3074,6 @@ function buildFadeHero() {
     container.appendChild(slide);
   });
 
-  updateHeroLabel(0);
-
   var slides = container.querySelectorAll(".hero-bg-slide");
   var current = 0;
   if (slides.length < 2) return;
@@ -3104,7 +3082,6 @@ function buildFadeHero() {
     slides[current].classList.remove("active");
     current = (current + 1) % slides.length;
     slides[current].classList.add("active");
-    updateHeroLabel(current % heroAllData.length);
   }, 5600);
 }
 
