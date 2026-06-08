@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Quiz JLPT N5 e N4 do Japão Relativo para testar vocabulário, partículas, gramática, kanji e leitura curta.">
-  <title>Quiz JLPT N5/N4 — Japão Relativo</title>
+  <meta name="description" content="Quiz JLPT N5, N4, N3, N2 e N1 do Japão Relativo para testar vocabulário, gramática, kanji, contexto e leitura.">
+  <title>Quiz JLPT N5 ao N1 — Japão Relativo</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/quiz.css?v=20260609-mobile-polish">
+  <link rel="stylesheet" href="assets/quiz.css?v=20260609-n1">
 </head>
 <body>
   <header class="quiz-header">
@@ -30,8 +30,8 @@
   <main class="quiz-shell">
     <section class="quiz-hero" id="startScreen">
       <p class="eyebrow">Nihongo / Diagnóstico JLPT</p>
-      <h1>Você passaria no JLPT N5 ou N4?</h1>
-      <p class="hero-copy">Escolha um nível e faça um teste autoral no estilo JLPT, com vocabulário, partículas, gramática, kanji e leitura curta. Sem modal, sem travar no celular.</p>
+      <h1>Qual é o seu nível de japonês?</h1>
+      <p class="hero-copy">Escolha entre N5 e N1 e faça um diagnóstico autoral com vocabulário, partículas, gramática, kanji, contexto e leitura.</p>
       <div class="level-grid" aria-label="Escolha o nível do quiz">
         <button class="level-card" type="button" data-start-level="N5">
           <span>Iniciante</span>
@@ -41,6 +41,21 @@
         <button class="level-card" type="button" data-start-level="N4">
           <span>Básico / Intermediário</span>
           <strong>JLPT N4</strong>
+          <em>20 perguntas</em>
+        </button>
+        <button class="level-card" type="button" data-start-level="N3">
+          <span>Intermediário</span>
+          <strong>JLPT N3</strong>
+          <em>20 perguntas</em>
+        </button>
+        <button class="level-card" type="button" data-start-level="N2">
+          <span>Avançado</span>
+          <strong>JLPT N2</strong>
+          <em>20 perguntas</em>
+        </button>
+        <button class="level-card" type="button" data-start-level="N1">
+          <span>Domínio avançado</span>
+          <strong>JLPT N1</strong>
           <em>20 perguntas</em>
         </button>
       </div>
@@ -102,6 +117,7 @@
     </section>
   </main>
 
-  <script src="assets/quiz.js"></script>
+  <script src="assets/quiz-data.js?v=20260609-n1"></script>
+  <script src="assets/quiz.js?v=20260609-n1"></script>
 </body>
 </html>

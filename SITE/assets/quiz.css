@@ -141,6 +141,7 @@ a{color:inherit;text-decoration:none}
 }
 .level-grid{
   display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
   margin-top:28px;
 }
@@ -153,6 +154,7 @@ a{color:inherit;text-decoration:none}
   border:1px solid rgba(176,138,87,.28);
   color:var(--ink);
   transition:transform .2s ease,border-color .2s ease,background .2s ease;
+  overflow:hidden;
 }
 .level-card span,
 .level-card em{
@@ -167,7 +169,7 @@ a{color:inherit;text-decoration:none}
   display:block;
   margin:12px 0 10px;
   font-family:var(--font-head);
-  font-size:clamp(2.15rem,11vw,3rem);
+  font-size:clamp(1.85rem,8.5vw,3rem);
   font-weight:500;
   line-height:.9;
   color:var(--gold);
@@ -177,6 +179,7 @@ a{color:inherit;text-decoration:none}
   border-color:rgba(176,138,87,.72);
   background:#fffdf8;
 }
+.level-card:last-child:nth-child(odd){grid-column:1/-1}
 .quiz-panel,
 .result-panel{
   width:100%;
@@ -256,6 +259,7 @@ a{color:inherit;text-decoration:none}
 }
 .question-card{
   padding-top:6px;
+  min-width:0;
 }
 .question-category{
   display:inline-flex;
@@ -270,6 +274,7 @@ a{color:inherit;text-decoration:none}
   line-height:1.12;
   font-family:var(--font-head);
   color:var(--ink);
+  overflow-wrap:anywhere;
 }
 .question-text :lang(ja),
 .answer-jp{
@@ -290,6 +295,7 @@ a{color:inherit;text-decoration:none}
   color:var(--ink);
   font-size:1rem;
   line-height:1.45;
+  overflow-wrap:anywhere;
   transition:background .18s ease,border-color .18s ease,transform .18s ease;
 }
 .answer-btn:hover:not(:disabled){
@@ -424,7 +430,8 @@ a{color:inherit;text-decoration:none}
     backdrop-filter:none;
   }
   .quiz-shell{padding:56px 42px 110px}
-  .level-grid{grid-template-columns:1fr 1fr}
+  .level-grid{grid-template-columns:repeat(3,1fr)}
+  .level-card:last-child:nth-child(odd){grid-column:auto}
   .quiz-panel,.result-panel{padding:38px}
   .quiz-topline{
     flex-direction:row;
@@ -444,5 +451,5 @@ a{color:inherit;text-decoration:none}
   .hero-copy{font-size:.88rem}
   .quiz-panel,.result-panel{padding:18px}
   .level-card{min-height:104px;padding:16px}
-  .level-card strong{font-size:2.15rem}
+  .level-card strong{font-size:1.75rem}
 }
