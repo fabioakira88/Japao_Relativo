@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz JLPT N5 e N4 do Japão Relativo para testar vocabulário, partículas, gramática, kanji e leitura curta.">
+  <title>Quiz JLPT N5/N4 — Japão Relativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/quiz.css">
+</head>
+<body>
+  <header class="quiz-header">
+    <a class="brand" href="index.html" aria-label="Voltar para a home do Japão Relativo">
+      <span class="brand-mark">JR.</span>
+      <span class="brand-name">Japão Relativo</span>
+    </a>
+    <nav class="quiz-nav" id="quizNav" aria-label="Navegação do quiz">
+      <button class="quiz-nav-toggle" id="quizNavToggle" type="button" aria-expanded="false" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="quiz-nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#grid-section">Idioma</a>
+        <a href="quiz.html" aria-current="page">Quiz JLPT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="quiz-shell">
+    <section class="quiz-hero" id="startScreen">
+      <p class="eyebrow">Nihongo / Diagnóstico JLPT</p>
+      <h1>Você passaria no JLPT N5 ou N4?</h1>
+      <p class="hero-copy">Escolha um nível e faça um teste autoral no estilo JLPT, com vocabulário, partículas, gramática, kanji e leitura curta. Sem modal, sem travar no celular.</p>
+      <div class="level-grid" aria-label="Escolha o nível do quiz">
+        <button class="level-card" type="button" data-start-level="N5">
+          <span>Iniciante</span>
+          <strong>JLPT N5</strong>
+          <em>20 perguntas</em>
+        </button>
+        <button class="level-card" type="button" data-start-level="N4">
+          <span>Básico / Intermediário</span>
+          <strong>JLPT N4</strong>
+          <em>20 perguntas</em>
+        </button>
+      </div>
+    </section>
+
+    <section class="quiz-panel" id="quizPanel" hidden>
+      <div class="quiz-topline">
+        <div>
+          <p class="eyebrow" id="questionMeta">JLPT</p>
+          <h2 id="questionTitle"></h2>
+        </div>
+        <button class="ghost-btn" id="quitQuiz" type="button">Trocar nível</button>
+      </div>
+
+      <div class="progress-wrap" aria-label="Progresso do quiz">
+        <div class="progress-labels">
+          <span id="progressText">Pergunta 1 de 20</span>
+          <span id="scoreText">0 acertos</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="question-card">
+        <p class="question-category" id="questionCategory"></p>
+        <p class="question-text" id="questionText"></p>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="feedback" id="feedback" hidden>
+        <p class="feedback-title" id="feedbackTitle"></p>
+        <p class="feedback-copy" id="feedbackCopy"></p>
+      </div>
+
+      <button class="primary-btn" id="nextQuestion" type="button" disabled>Responder para continuar</button>
+    </section>
+
+    <section class="result-panel" id="resultPanel" hidden>
+      <p class="eyebrow" id="resultLevel">Resultado</p>
+      <h2 id="resultTitle"></h2>
+      <div class="result-score" id="resultScore"></div>
+      <p class="result-copy" id="resultCopy"></p>
+      <div class="result-grid">
+        <div><strong id="resultCorrect">0</strong><span>Acertos</span></div>
+        <div><strong id="resultTotal">20</strong><span>Perguntas</span></div>
+      </div>
+      <div class="lead-box">
+        <p>Quer receber listas de vocabulário e próximos materiais de nihongo?</p>
+        <form class="lead-form" id="leadForm">
+          <input type="text" id="leadName" placeholder="Seu nome" autocomplete="name">
+          <input type="email" id="leadEmail" placeholder="Seu e-mail" autocomplete="email">
+          <button type="submit">Salvar interesse</button>
+        </form>
+        <small id="leadStatus">Integração com newsletter pode ser conectada depois.</small>
+      </div>
+      <div class="result-actions">
+        <button class="primary-btn" id="restartSame" type="button">Refazer este nível</button>
+        <button class="ghost-btn" id="chooseAgain" type="button">Escolher outro nível</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/quiz.js"></script>
+</body>
+</html>
