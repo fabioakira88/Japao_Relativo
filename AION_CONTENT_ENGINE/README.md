@@ -1,15 +1,24 @@
 # Aion Content Engine
 
-Fase 1 de uma API modular para automação de conteúdo.
+API modular para automação de conteúdo.
 
-Nesta etapa, o objetivo é validar arquitetura, organização e fluxo básico da aplicação. Não há integração com IA, Notion, GitHub, autenticação ou frontend.
+## Fase Atual
+
+Esta é a Fase 2 do projeto.
+
+A Fase 1 validou a arquitetura básica com FastAPI, rotas iniciais e um mock de montanha.
+
+A Fase 2 adiciona persistência local com SQLite, tabela `contents`, schemas Pydantic e fluxo básico de produção mock salvando dados no banco.
+
+Ainda não há integração com OpenAI, Notion, GitHub, autenticação ou frontend.
 
 ## Stack
 
 - Python 3.12
 - FastAPI
-- SQLite temporário
-- SQLAlchemy, preparado para trocar `DATABASE_URL` para PostgreSQL futuramente
+- SQLite
+- SQLAlchemy
+- Pydantic
 
 ## Estrutura
 
@@ -18,6 +27,7 @@ AION_CONTENT_ENGINE/
   app/
     main.py
     config.py
+    schemas.py
     api/
       routes.py
     database/
@@ -25,6 +35,8 @@ AION_CONTENT_ENGINE/
       models.py
     modules/
       mountains.py
+    services/
+      content_service.py
   tests/
     test_api.py
   requirements.txt
@@ -40,13 +52,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Se `python3.12` não estiver disponível no seu ambiente, use o Python 3 instalado:
+Se `python3.12` não estiver disponível no seu ambiente local:
 
 ```bash
 python3 -m venv .venv
 ```
 
-## Como executar
+## Como rodar
 
 ```bash
 cd AION_CONTENT_ENGINE
@@ -60,46 +72,76 @@ A API ficará disponível em:
 http://127.0.0.1:8000
 ```
 
-Documentação interativa:
+## Documentação interativa
+
+Abra:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
 
-## Como testar a API
+## Endpoints
 
-Health check:
+### Health check
 
 ```bash
 curl http://127.0.0.1:8000/health
 ```
 
-Resposta esperada:
+### Criar conteúdo manual
 
-```json
-{
-  "status": "ok",
-  "service": "Aion Content Engine"
-}
+```bash
+curl -X POST http://127.0.0.1:8000/contents \
+  -H "Content-Type: application/json" \
+  -d '{
+    "project": "japao-relativo",
+    "content_type": "article",
+    "title": "A arquitetura do silêncio",
+    "slug": "arquitetura-do-silencio",
+    "status": "draft",
+    "payload_json": {
+      "language": "pt-BR"
+    }
+  }'
 ```
 
-Produção mock de montanha:
+### Listar conteúdos
+
+```bash
+curl http://127.0.0.1:8000/contents
+```
+
+### Buscar conteúdo por ID
+
+```bash
+curl http://127.0.0.1:8000/contents/1
+```
+
+### Produzir uma montanha mock
 
 ```bash
 curl -X POST http://127.0.0.1:8000/produce/mountain
 ```
 
-Resposta esperada:
+Esse endpoint gera uma montanha mock, salva no banco como:
 
-```json
-{
-  "name": "Mount Fuji",
-  "country": "Japan",
-  "altitude": 3776
-}
+```text
+project = elevacao
+content_type = mountain
+status = draft
 ```
 
-## Como rodar testes automatizados
+### Produzir batch de montanhas mock
+
+```bash
+curl -X POST http://127.0.0.1:8000/produce/mountains/batch \
+  -H "Content-Type: application/json" \
+  -d '{"quantity": 5}'
+```
+
+O batch aceita `quantity` entre 1 e 5 e não repete montanhas no mesmo lote.
+
+## Como rodar testes
 
 ```bash
 cd AION_CONTENT_ENGINE
@@ -107,34 +149,74 @@ source .venv/bin/activate
 pytest
 ```
 
-## Configuração
+## Banco de Dados
 
-A aplicação usa `DATABASE_URL` por variável de ambiente.
-
-Padrão local:
+A aplicação usa SQLite por padrão:
 
 ```text
 sqlite:///./aion_content_engine.db
 ```
 
-Exemplo futuro para PostgreSQL:
+A tabela criada nesta fase é `contents`, com os campos:
+
+- `id`
+- `project`
+- `content_type`
+- `title`
+- `slug`
+- `status`
+- `payload_json`
+- `created_at`
+- `updated_at`
+
+## Preparação para PostgreSQL
+
+A configuração fica em `DATABASE_URL`, então a troca futura para PostgreSQL deve acontecer sem alterar as rotas principais:
 
 ```text
 postgresql+psycopg://user:password@localhost:5432/aion_content_engine
 ```
 
-## Relatório da Fase 1
+## Diferença Entre Fase 1 e Fase 2
 
-- `app/`: pacote principal da aplicação. Centraliza código executável da API.
-- `app/main.py`: ponto de entrada FastAPI. Cria a aplicação e registra as rotas.
-- `app/config.py`: concentra configurações globais por variáveis de ambiente, incluindo `DATABASE_URL`.
-- `app/api/`: camada HTTP. Mantém endpoints separados da lógica de negócio.
-- `app/api/routes.py`: define `/health` e `/produce/mountain`.
-- `app/database/`: camada de persistência. Já nasce isolada para facilitar a troca de SQLite para PostgreSQL.
-- `app/database/db.py`: cria engine SQLAlchemy, sessão e dependência `get_db`.
-- `app/database/models.py`: modelos ORM iniciais. Inclui `ContentRecord` como base futura para registros de conteúdo.
-- `app/modules/`: módulos de produção de conteúdo. É aqui que integrações futuras com OpenAI, Notion e GitHub devem se encaixar.
-- `app/modules/mountains.py`: módulo mock da Fase 1 com `generate_mountain()`.
-- `tests/`: valida os endpoints básicos sem depender de servidor externo.
-- `requirements.txt`: dependências mínimas para rodar e testar a API.
+Fase 1:
 
+- API modular inicial.
+- `/health`.
+- Produção mock de montanha sem persistência.
+- Estrutura preparada para crescer.
+
+Fase 2:
+
+- SQLite funcional.
+- Modelo ORM `Content`.
+- Schemas Pydantic.
+- Criação manual de conteúdo.
+- Listagem de conteúdos.
+- Busca por ID.
+- Produção mock salvando no banco.
+- Batch de montanhas mock.
+- Status de produção tipados.
+- Camada de serviço para separar HTTP e persistência.
+- Testes cobrindo fluxo básico.
+
+## Limitações Atuais
+
+- Sem IA.
+- Sem Notion.
+- Sem GitHub.
+- Sem autenticação.
+- Sem frontend.
+- Sem migrações Alembic.
+- Sem paginação.
+- Sem filtros avançados.
+
+## Próxima Fase Recomendada
+
+Na Fase 3, recomenda-se adicionar:
+
+- Migrações com Alembic.
+- Paginação e filtros em `GET /contents`.
+- Endpoint para atualizar status de produção.
+- Camada de produtores com interfaces bem definidas.
+- Tratamento centralizado de erros e logs estruturados.
