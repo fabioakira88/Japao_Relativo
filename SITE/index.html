@@ -253,6 +253,17 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-weight:500;
   line-height:0.95;letter-spacing:-1px;color:var(--ink2);
 }
+.quiz-idioma-cta{
+  display:inline-flex;align-items:center;
+  padding:10px 18px;
+  font-family:var(--font-support);font-size:10px;font-weight:400;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent);
+  border:1px solid rgba(176,138,87,.38);
+  transition:background .18s,color .18s,border-color .18s;
+  white-space:nowrap;
+  align-self:flex-end;
+}
+.quiz-idioma-cta:hover{background:var(--accent);color:var(--cream);border-color:var(--accent)}
 .filter-group {
   display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;
 }
@@ -994,7 +1005,6 @@ body{background:#f5f2ed;color:var(--ink2)}
       <li><a href="#grid-section" data-cat="Notícia" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
       <li><a href="#grid-section" data-cat="Artigos" onclick="filterCategory('Artigos');return false;">Artigos</a></li>
       <li><a href="#grid-section" data-cat="Idioma" onclick="filterCategory('Idioma');return false;">Idioma</a></li>
-      <li><a href="quiz.html">Quiz JLPT</a></li>
       <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
       <li><a href="#grid-section" data-cat="Utilidades" onclick="filterCategory('Utilidades');return false;">Utilidades</a></li>
       <li><a href="#sobre" data-section="about" onclick="showAbout();return false;">Sobre</a></li>
@@ -1023,6 +1033,8 @@ body{background:#f5f2ed;color:var(--ink2)}
       <div class="section-label">Publicações Recentes</div>
       <h2 class="section-title">Últimos artigos</h2>
     </div>
+    <a class="quiz-idioma-cta" id="quizCtaLink" href="quiz.html" hidden
+       aria-label="Fazer quiz de japonês JLPT">Quiz JLPT →</a>
   </div>
   <div class="editorial-flow" id="newsGrid"></div>
 </section>
@@ -1059,7 +1071,7 @@ body{background:#f5f2ed;color:var(--ink2)}
         <li><a href="#" onclick="filterCategory('Notícia')">Notícias</a></li>
         <li><a href="#" onclick="filterCategory('Artigos')">Artigos</a></li>
         <li><a href="#" onclick="filterCategory('Idioma')">Idioma</a></li>
-        <li><a href="quiz.html">Quiz JLPT</a></li>
+        <li><a href="quiz.html" title="Quiz JLPT — Nihongo">Quiz JLPT</a></li>
         <li><a href="#sobre" onclick="showAbout();return false;">Sobre mim</a></li>
         <li><a href="#" onclick="filterCategory('Anime')">Anime</a></li>
         <li><a href="#" onclick="filterCategory('Utilidades')">Utilidades</a></li>
@@ -3189,14 +3201,17 @@ function buildMainGrid(items) {
 function updateSectionHeading(cat) {
   const label = document.querySelector('.editorial-section .section-label');
   const title = document.querySelector('.editorial-section .section-title');
+  const quizCta = document.getElementById('quizCtaLink');
   if (!label || !title) return;
   if (cat === 'all') {
     label.textContent = 'Publicações Recentes';
     title.textContent = 'Últimos artigos';
+    if (quizCta) quizCta.hidden = true;
     return;
   }
   label.textContent = 'Arquivo Editorial';
   title.textContent = cat === 'Notícia' ? 'Notícias' : cat === 'Artigos' ? 'Artigos' : cat;
+  if (quizCta) quizCta.hidden = (cat !== 'Idioma');
 }
 
 function syncMiniMarket() {
@@ -3550,6 +3565,18 @@ function redirectLegacyQuizLink() {
   var params = new URLSearchParams(window.location.search);
   if (params.get('quiz') === 'jlpt') {
     window.location.replace('quiz.html');
+    return;
+  }
+  var cat = params.get('cat');
+  if (cat) {
+    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades'];
+    if (validCats.includes(cat)) {
+      filterCategory(cat);
+      setTimeout(function() {
+        var el = document.getElementById('grid-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 120);
+    }
   }
 }
 
