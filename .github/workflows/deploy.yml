@@ -35,6 +35,7 @@ jobs:
           rm -rf _site
           mkdir -p _site
           cp SITE/*.html _site/
+          cp SITE/sitemap.xml _site/sitemap.xml
           if [ -d SITE/assets ]; then
             cp -R SITE/assets _site/assets
           fi
