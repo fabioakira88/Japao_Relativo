@@ -264,6 +264,17 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   align-self:flex-end;
 }
 .quiz-idioma-cta:hover{background:var(--accent);color:var(--cream);border-color:var(--accent)}
+.quiz-home-cta{padding:0 56px 112px;background:#f5f2ed;color:var(--ink)}
+.quiz-home-inner{max-width:1320px;margin:0 auto;padding:48px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;background:linear-gradient(135deg,#111514,#20231f);color:var(--cream);box-shadow:0 28px 70px rgba(35,29,22,.18);position:relative;overflow:hidden}
+.quiz-home-inner::after{content:"日本語";position:absolute;right:-18px;bottom:-74px;color:rgba(176,138,87,.09);font-family:'Noto Serif JP',serif;font-size:13rem;line-height:1;pointer-events:none}
+.quiz-home-copy{position:relative;z-index:1}
+.quiz-home-eyebrow{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.quiz-home-title{font-family:var(--font-headline);font-size:clamp(2.7rem,5vw,5.4rem);font-weight:500;line-height:.9;max-width:730px}
+.quiz-home-desc{margin-top:20px;max-width:620px;color:rgba(245,241,234,.65);line-height:1.75}
+.quiz-home-levels{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.quiz-home-levels span{min-width:40px;padding:7px 10px;border:1px solid rgba(176,138,87,.42);color:rgba(245,241,234,.78);font-size:9px;letter-spacing:.13em;text-align:center}
+.quiz-home-action{position:relative;z-index:1;min-width:190px;min-height:54px;padding:0 22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(176,138,87,.6);color:var(--cream);font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
+.quiz-home-action:hover{background:var(--signal);border-color:var(--signal)}
 .filter-group {
   display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;
 }
@@ -989,6 +1000,11 @@ body{background:#f5f2ed;color:var(--ink2)}
   .editorial-mini-panel.is-news-list .mini-card-tag{color:var(--signal);margin-bottom:8px}
   .editorial-mini-panel.is-news-list .mini-card-title{font-size:clamp(1.75rem,8vw,2.35rem);line-height:1;color:var(--ink)}
   .footer-top{gap:48px}
+  .quiz-home-cta{padding:0 24px 72px}
+  .quiz-home-inner{padding:34px 26px;display:block}
+  .quiz-home-inner::after{font-size:8rem;bottom:-42px}
+  .quiz-home-title{font-size:clamp(2.7rem,13vw,4rem)}
+  .quiz-home-action{margin-top:28px;width:100%}
 }
 
 </style>
@@ -1037,6 +1053,21 @@ body{background:#f5f2ed;color:var(--ink2)}
        aria-label="Fazer quiz de japonês JLPT">Quiz JLPT →</a>
   </div>
   <div class="editorial-flow" id="newsGrid"></div>
+</section>
+
+<!-- ======================== QUIZ JLPT CTA ======================== -->
+<section class="quiz-home-cta" aria-label="Teste seu nível de japonês">
+  <div class="quiz-home-inner">
+    <div class="quiz-home-copy">
+      <p class="quiz-home-eyebrow">Teste seu Nihongo</p>
+      <h2 class="quiz-home-title">Descubra agora seu nível real de japonês.</h2>
+      <p class="quiz-home-desc">Um diagnóstico autoral baseado nos níveis JLPT, com 20 questões de vocabulário, gramática, kanji, partículas e leitura.</p>
+      <div class="quiz-home-levels" aria-label="Níveis disponíveis">
+        <span>N5</span><span>N4</span><span>N3</span><span>N2</span><span>N1</span>
+      </div>
+    </div>
+    <a class="quiz-home-action" href="quiz.html">Começar agora →</a>
+  </div>
 </section>
 
 <!-- ======================== SOBRE NÓS ======================== -->

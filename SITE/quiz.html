@@ -6,7 +6,7 @@
   <meta name="description" content="Quiz JLPT N5, N4, N3, N2 e N1 do Japão Relativo — teste vocabulário, gramática, kanji, partículas e leitura em japonês.">
   <title>Quiz JLPT — Nihongo · Japão Relativo</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/quiz.css?v=20260609-v2">
+  <link rel="stylesheet" href="assets/quiz.css?v=20260612-premium-v1">
 </head>
 <body>
 
@@ -33,38 +33,55 @@
 
     <!-- ── Tela inicial ──────────────────────────────── -->
     <section class="quiz-hero" id="startScreen" aria-label="Tela inicial do quiz">
-      <p class="eyebrow">Nihongo · Diagnóstico JLPT</p>
-      <h1>Qual é o seu nível de japonês?</h1>
-      <p class="hero-copy">
-        Escolha entre N5 e N1 e faça um diagnóstico autoral com vocabulário,
-        partículas, gramática, kanji, contexto e leitura.
-        São 20 perguntas sorteadas de um banco original.
-      </p>
+      <div class="quiz-hero-copy">
+        <p class="eyebrow">Nihongo · Diagnóstico JLPT</p>
+        <h1>Qual é o seu nível de japonês?</h1>
+        <p class="hero-copy">
+          Escolha entre N5 e N1 e faça um diagnóstico autoral com vocabulário,
+          partículas, gramática, kanji, contexto e leitura.
+          São 20 perguntas sorteadas de um banco original.
+        </p>
+        <div class="quiz-proof" aria-label="Informações do diagnóstico">
+          <span><strong>20</strong> questões por nível</span>
+          <span><strong>5</strong> níveis JLPT</span>
+          <span><strong>100%</strong> gratuito</span>
+        </div>
+      </div>
       <div class="level-grid" role="list" aria-label="Escolha o nível">
-        <button class="level-card" type="button" data-start-level="N5" role="listitem">
-          <span>Iniciante</span>
+        <button class="level-card level-n5" type="button" data-start-level="N5" role="listitem">
+          <span class="level-icon" aria-hidden="true">芽</span>
+          <span class="level-name">Iniciante</span>
           <strong>JLPT N5</strong>
-          <em>20 perguntas</em>
+          <em>Vocabulário e estruturas essenciais</em>
+          <span class="level-meta">20 questões · Iniciar teste <b>→</b></span>
         </button>
-        <button class="level-card" type="button" data-start-level="N4" role="listitem">
-          <span>Básico / Intermediário</span>
+        <button class="level-card level-n4" type="button" data-start-level="N4" role="listitem">
+          <span class="level-icon" aria-hidden="true">本</span>
+          <span class="level-name">Básico</span>
           <strong>JLPT N4</strong>
-          <em>20 perguntas</em>
+          <em>Gramática cotidiana e leitura básica</em>
+          <span class="level-meta">20 questões · Iniciar teste <b>→</b></span>
         </button>
-        <button class="level-card" type="button" data-start-level="N3" role="listitem">
-          <span>Intermediário</span>
+        <button class="level-card level-n3" type="button" data-start-level="N3" role="listitem">
+          <span class="level-icon" aria-hidden="true">読</span>
+          <span class="level-name">Intermediário</span>
           <strong>JLPT N3</strong>
-          <em>20 perguntas</em>
+          <em>Contexto, leitura e nuances frequentes</em>
+          <span class="level-meta">20 questões · Iniciar teste <b>→</b></span>
         </button>
-        <button class="level-card" type="button" data-start-level="N2" role="listitem">
-          <span>Avançado</span>
+        <button class="level-card level-n2" type="button" data-start-level="N2" role="listitem">
+          <span class="level-icon" aria-hidden="true">学</span>
+          <span class="level-name">Avançado</span>
           <strong>JLPT N2</strong>
-          <em>20 perguntas</em>
+          <em>Compreensão formal e linguagem profissional</em>
+          <span class="level-meta">20 questões · Iniciar teste <b>→</b></span>
         </button>
-        <button class="level-card" type="button" data-start-level="N1" role="listitem">
-          <span>Domínio avançado</span>
+        <button class="level-card level-n1" type="button" data-start-level="N1" role="listitem">
+          <span class="level-icon" aria-hidden="true">頂</span>
+          <span class="level-name">Domínio</span>
           <strong>JLPT N1</strong>
-          <em>20 perguntas</em>
+          <em>Precisão, abstração e leitura complexa</em>
+          <span class="level-meta">20 questões · Iniciar teste <b>→</b></span>
         </button>
       </div>
     </section>
@@ -139,7 +156,7 @@
 
   </main>
 
-  <script src="assets/quiz-data.js?v=20260609-v2"></script>
-  <script src="assets/quiz.js?v=20260609-v2"></script>
+  <script src="assets/quiz-data.js?v=20260612-premium-v1"></script>
+  <script src="assets/quiz.js?v=20260612-premium-v1"></script>
 </body>
 </html>
