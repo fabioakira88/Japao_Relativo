@@ -273,8 +273,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .quiz-home-desc{margin-top:20px;max-width:620px;color:rgba(245,241,234,.65);line-height:1.75}
 .quiz-home-levels{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .quiz-home-levels span{min-width:40px;padding:7px 10px;border:1px solid rgba(176,138,87,.42);color:rgba(245,241,234,.78);font-size:9px;letter-spacing:.13em;text-align:center}
+.quiz-home-actions{display:grid;gap:10px;position:relative;z-index:1}
 .quiz-home-action{position:relative;z-index:1;min-width:190px;min-height:54px;padding:0 22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(176,138,87,.6);color:var(--cream);font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
 .quiz-home-action:hover{background:var(--signal);border-color:var(--signal)}
+.quiz-home-action.is-secondary{min-height:44px;border-color:rgba(245,241,234,.18);color:rgba(245,241,234,.7);font-size:8px}
 .filter-group {
   display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;
 }
@@ -1004,7 +1006,8 @@ body{background:#f5f2ed;color:var(--ink2)}
   .quiz-home-inner{padding:34px 26px;display:block}
   .quiz-home-inner::after{font-size:8rem;bottom:-42px}
   .quiz-home-title{font-size:clamp(2.7rem,13vw,4rem)}
-  .quiz-home-action{margin-top:28px;width:100%}
+  .quiz-home-actions{margin-top:28px}
+  .quiz-home-action{width:100%}
 }
 
 </style>
@@ -1066,7 +1069,10 @@ body{background:#f5f2ed;color:var(--ink2)}
         <span>N5</span><span>N4</span><span>N3</span><span>N2</span><span>N1</span>
       </div>
     </div>
-    <a class="quiz-home-action" href="quiz.html">Começar agora →</a>
+    <div class="quiz-home-actions">
+      <a class="quiz-home-action" href="quiz.html">Começar agora →</a>
+      <a class="quiz-home-action is-secondary" href="quiz-particulas.html">Começar Quiz de Partículas →</a>
+    </div>
   </div>
 </section>
 

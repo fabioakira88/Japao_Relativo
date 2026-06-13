@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Treine as partículas japonesas は, が, を, に, で e と com quizzes rápidos de 20 questões e explicações em português.">
+  <title>Quiz de Partículas Japonesas · Japão Relativo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/quiz.css?v=20260613-particles-v1">
+</head>
+<body class="particles-quiz">
+  <header class="quiz-header">
+    <a class="brand" href="index.html" aria-label="Voltar para Japão Relativo">
+      <span class="brand-mark">JR.</span>
+      <span class="brand-name">Japão Relativo</span>
+    </a>
+    <nav class="quiz-nav" id="quizNav" aria-label="Navegação">
+      <button class="quiz-nav-toggle" id="quizNavToggle" type="button" aria-expanded="false" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+      <div class="quiz-nav-links">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">Quiz JLPT</a>
+        <a href="quiz-particulas.html" aria-current="page">Partículas</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="quiz-shell">
+    <section class="quiz-hero" id="startScreen" aria-label="Escolha uma partícula">
+      <div class="quiz-hero-copy">
+        <p class="eyebrow">Nihongo · Treino direcionado</p>
+        <h1>Domine as partículas japonesas.</h1>
+        <p class="hero-copy">
+          Escolha uma partícula e treine seu uso em frases cotidianas.
+          Cada módulo reúne 20 questões entre os níveis N5 e N4, com tradução e explicação em português.
+        </p>
+        <div class="quiz-proof" aria-label="Informações do treino">
+          <span><strong>120</strong> questões originais</span>
+          <span><strong>6</strong> partículas essenciais</span>
+          <span><strong>N5–N4</strong> nível estimado</span>
+        </div>
+      </div>
+
+      <div class="level-grid particle-grid" role="list" aria-label="Escolha a partícula">
+        <button class="level-card particle-wa" type="button" data-start-particle="は" role="listitem">
+          <span class="level-icon" aria-hidden="true">題</span><span class="level-name">Tópico · N5</span>
+          <strong>は</strong><em>Apresenta o tema principal da frase</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+        <button class="level-card particle-ga" type="button" data-start-particle="が" role="listitem">
+          <span class="level-icon" aria-hidden="true">主</span><span class="level-name">Sujeito · N5–N4</span>
+          <strong>が</strong><em>Destaca quem age, existe ou possui algo</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+        <button class="level-card particle-wo" type="button" data-start-particle="を" role="listitem">
+          <span class="level-icon" aria-hidden="true">目</span><span class="level-name">Objeto · N5</span>
+          <strong>を</strong><em>Marca o objeto direto de uma ação</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+        <button class="level-card particle-ni" type="button" data-start-particle="に" role="listitem">
+          <span class="level-icon" aria-hidden="true">着</span><span class="level-name">Destino e tempo · N5–N4</span>
+          <strong>に</strong><em>Indica destino, horário, existência e alvo</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+        <button class="level-card particle-de" type="button" data-start-particle="で" role="listitem">
+          <span class="level-icon" aria-hidden="true">場</span><span class="level-name">Ação e meio · N5</span>
+          <strong>で</strong><em>Marca onde ou como uma ação acontece</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+        <button class="level-card particle-to" type="button" data-start-particle="と" role="listitem">
+          <span class="level-icon" aria-hidden="true">共</span><span class="level-name">Companhia e citação · N5–N4</span>
+          <strong>と</strong><em>Liga companhia, enumeração e fala citada</em>
+          <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
+        </button>
+      </div>
+
+      <a class="quiz-related-link" href="quiz.html">Quer descobrir seu nível geral? Fazer Quiz JLPT →</a>
+    </section>
+
+    <section class="quiz-panel" id="quizPanel" hidden aria-label="Painel de questões">
+      <div class="quiz-topline">
+        <div><p class="eyebrow" id="questionMeta">Partícula</p><h2 id="questionTitle"></h2></div>
+        <button class="ghost-btn" id="quitQuiz" type="button">Trocar partícula</button>
+      </div>
+      <div class="progress-wrap" role="progressbar" aria-labelledby="progressText" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-labels"><span id="progressText">Pergunta 1 de 20</span><span id="scoreText">0 acertos</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <div class="question-card">
+        <p class="question-category" id="questionCategory"></p>
+        <p class="question-text" id="questionText"></p>
+        <p class="question-translation" id="questionTranslation"></p>
+        <div class="answers particle-answers" id="answers" role="group" aria-label="Alternativas"></div>
+      </div>
+      <div class="feedback" id="feedback" hidden role="alert">
+        <p class="feedback-title" id="feedbackTitle"></p><p class="feedback-copy" id="feedbackCopy"></p>
+      </div>
+      <button class="primary-btn" id="nextQuestion" type="button" disabled>Responder para continuar</button>
+    </section>
+
+    <section class="result-panel" id="resultPanel" hidden aria-label="Resultado do quiz">
+      <p class="eyebrow" id="resultLevel">Resultado</p><h2 id="resultTitle"></h2>
+      <div class="result-score" id="resultScore"></div><p class="result-copy" id="resultCopy"></p>
+      <div class="result-grid"><div><strong id="resultCorrect">0</strong><span>Acertos</span></div><div><strong id="resultTotal">20</strong><span>Perguntas</span></div></div>
+      <div class="result-actions">
+        <button class="primary-btn" id="restartSame" type="button">Treinar novamente</button>
+        <button class="ghost-btn" id="chooseAgain" type="button">Escolher outra partícula</button>
+        <a class="ghost-btn" href="quiz.html">Fazer Quiz JLPT</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/particles-quiz-data.js?v=20260613-particles-v1"></script>
+  <script src="assets/particles-quiz.js?v=20260613-particles-v1"></script>
+</body>
+</html>
