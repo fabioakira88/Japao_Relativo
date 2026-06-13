@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c0f0e">
+  <meta name="description" content="Treine japonês para situações reais no Japão com o Japão Relativo Survival. Comece pelo módulo Restaurante.">
+  <link rel="canonical" href="https://japaorelativo.com/survival/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Japão Relativo Survival">
+  <meta property="og:description" content="Japonês essencial para situações reais. Treine o módulo Restaurante gratuitamente.">
+  <meta property="og:url" content="https://japaorelativo.com/survival/">
+  <title>Japão Relativo Survival · Japonês para situações reais</title>
+  <link rel="stylesheet" href="../assets/survival/survival.css?v=20260613-mvp">
+</head>
+<body>
+  <main class="survival-app">
+    <header class="app-header">
+      <a class="brand" href="../index.html" aria-label="Ir para a Home do Japão Relativo">
+        <span class="brand-mark">JR.</span>
+        <span class="brand-name">Japão Relativo</span>
+      </a>
+      <span class="header-label">Survival</span>
+    </header>
+
+    <section class="screen screen-dark" data-screen="modules">
+      <p class="eyebrow">Japonês para a vida real</p>
+      <h1>Survival</h1>
+      <p class="lead">Frases essenciais para atravessar situações cotidianas no Japão com menos dúvida e mais autonomia.</p>
+      <div class="proof" aria-label="Resumo do aplicativo">
+        <span><strong>6</strong> situações por módulo</span>
+        <span><strong>3</strong> cards grátis</span>
+        <span><strong>1</strong> quiz rápido</span>
+      </div>
+      <div class="module-grid" id="moduleGrid" aria-label="Módulos disponíveis"></div>
+    </section>
+
+    <section class="screen" data-screen="intro" hidden>
+      <div class="intro-topline">
+        <p class="eyebrow" id="introEyebrow">Módulo</p>
+        <button class="text-button" type="button" data-show-screen="modules">Voltar</button>
+      </div>
+      <p class="intro-japanese" id="introJapanese" lang="ja"></p>
+      <h2 id="introTitle"></h2>
+      <p class="intro-copy" id="introCopy"></p>
+      <span class="intro-stat"><span id="introDuration">5 min</span> · demonstração gratuita</span>
+      <ol class="roadmap" id="introRoadmap" aria-label="Conteúdo do módulo"></ol>
+      <button class="primary-button" id="startModule" type="button">Começar módulo</button>
+    </section>
+
+    <section class="screen" data-screen="lesson" hidden>
+      <div class="lesson-topline">
+        <p class="eyebrow" id="lessonMeta">Card 1 de 3</p>
+        <button class="text-button" type="button" data-show-screen="intro">Sair</button>
+      </div>
+      <div class="progress-shell">
+        <div class="progress-label"><span>Progresso gratuito</span><span>Aprender</span></div>
+        <div class="progress-track" id="lessonProgressBar" role="progressbar" aria-label="Progresso dos cards" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="lessonProgress"></div>
+        </div>
+      </div>
+      <article class="lesson-card" id="lessonCard"></article>
+      <p class="sr-status" id="audioStatus" aria-live="polite"></p>
+      <nav class="bottom-nav" aria-label="Navegação dos cards">
+        <button class="nav-button" id="lessonBack" type="button">Voltar</button>
+        <button class="primary-button" id="lessonNext" type="button">Próximo</button>
+      </nav>
+    </section>
+
+    <section class="screen" data-screen="quiz" hidden>
+      <div class="quiz-topline">
+        <p class="eyebrow" id="quizMeta">Pergunta 1 de 3</p>
+        <button class="text-button" type="button" data-show-screen="intro">Sair</button>
+      </div>
+      <div class="progress-shell">
+        <div class="progress-label"><span>Quiz gratuito</span><span>Praticar</span></div>
+        <div class="progress-track" id="quizProgressBar" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="quizProgress"></div>
+        </div>
+      </div>
+      <article class="quiz-card">
+        <h2 id="quizQuestion"></h2>
+        <div class="quiz-options" id="quizOptions" role="group" aria-label="Alternativas"></div>
+      </article>
+      <div class="quiz-feedback" id="quizFeedback" role="status" hidden></div>
+      <button class="primary-button" id="quizNext" type="button" disabled>Próxima pergunta</button>
+    </section>
+
+    <section class="screen screen-dark" data-screen="unlock" hidden>
+      <div class="unlock-mark" aria-hidden="true">JR.</div>
+      <p class="eyebrow">Demonstração concluída</p>
+      <h2>Continue no restaurante.</h2>
+      <p class="lead">Você já reconhece a chegada, o cardápio e uma recomendação. O módulo completo prepara você para concluir o atendimento.</p>
+      <p class="unlock-score"><strong id="resultScore">0/3</strong> acertos no quiz</p>
+      <ul class="locked-list" id="lockedList" aria-label="Conteúdo premium bloqueado"></ul>
+      <div class="unlock-actions">
+        <button class="primary-button" id="openPremiumPanel" type="button">Desbloquear módulo completo</button>
+        <button class="ghost-button" id="repeatModule" type="button">Repetir demonstração</button>
+        <button class="ghost-button" type="button" data-show-screen="modules">Ver outros módulos</button>
+      </div>
+    </section>
+
+    <aside class="premium-panel" id="premiumPanel" hidden aria-labelledby="premiumPanelTitle">
+      <button class="panel-backdrop" id="closePremiumBackdrop" type="button" aria-label="Fechar painel"></button>
+      <div class="panel-content" role="dialog" aria-modal="true" aria-labelledby="premiumPanelTitle">
+        <p class="eyebrow">Japão Relativo Survival</p>
+        <h2 id="premiumPanelTitle">Versão Premium em desenvolvimento.</h2>
+        <p>Estamos preparando os módulos completos para situações reais no Japão.</p>
+        <button class="primary-button" id="notifyPremium" type="button">Quero ser avisado</button>
+        <button class="text-button" id="closePremiumPanel" type="button">Agora não</button>
+      </div>
+    </aside>
+
+    <div class="app-toast" id="appToast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <script src="../assets/survival/survival-data.js?v=20260613-mvp"></script>
+  <script src="../assets/survival/survival.js?v=20260613-mvp"></script>
+</body>
+</html>
