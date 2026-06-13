@@ -297,9 +297,9 @@ a { color: inherit; text-decoration: none; }
 /* ── Quiz de partículas ─────────────────────────────────── */
 .particles-quiz .quiz-hero h1 { max-width: 860px; }
 .particle-grid .level-card strong {
-  font-family: var(--font-jp);
-  font-size: clamp(3.5rem, 15vw, 5.2rem);
-  line-height: .82;
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 9vw, 3.5rem);
+  line-height: .88;
 }
 .particle-wa { --level-accent: #c6a447; }
 .particle-ga { --level-accent: #77aa72; }

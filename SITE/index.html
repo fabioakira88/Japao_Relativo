@@ -277,6 +277,9 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .quiz-home-action{position:relative;z-index:1;min-width:190px;min-height:54px;padding:0 22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(176,138,87,.6);color:var(--cream);font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
 .quiz-home-action:hover{background:var(--signal);border-color:var(--signal)}
 .quiz-home-action.is-secondary{min-height:44px;border-color:rgba(245,241,234,.18);color:rgba(245,241,234,.7);font-size:8px}
+.quiz-particles-promo{max-width:300px;margin-top:10px;padding:16px;border:1px solid rgba(245,241,234,.12);background:rgba(245,241,234,.035)}
+.quiz-particles-promo strong{display:block;color:var(--gold);font-family:var(--font-headline);font-size:1.25rem;font-weight:500}
+.quiz-particles-promo p{margin-top:6px;color:rgba(245,241,234,.55);font-size:11px;line-height:1.55}
 .filter-group {
   display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;
 }
@@ -1008,6 +1011,7 @@ body{background:#f5f2ed;color:var(--ink2)}
   .quiz-home-title{font-size:clamp(2.7rem,13vw,4rem)}
   .quiz-home-actions{margin-top:28px}
   .quiz-home-action{width:100%}
+  .quiz-particles-promo{max-width:none}
 }
 
 </style>
@@ -1071,6 +1075,10 @@ body{background:#f5f2ed;color:var(--ink2)}
     </div>
     <div class="quiz-home-actions">
       <a class="quiz-home-action" href="quiz.html">Começar agora →</a>
+      <div class="quiz-particles-promo">
+        <strong>Treine Partículas Japonesas</strong>
+        <p>Aprenda a escolher は, が, を, に, で e outras partículas pelo contexto da frase.</p>
+      </div>
       <a class="quiz-home-action is-secondary" href="quiz-particulas.html">Começar Quiz de Partículas →</a>
     </div>
   </div>

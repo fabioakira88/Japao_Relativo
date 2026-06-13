@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Treine as partículas japonesas は, が, を, に, で e と com quizzes rápidos de 20 questões e explicações em português.">
+  <meta name="description" content="Aprenda a escolher partículas japonesas pelo contexto com seis módulos de 20 questões, frases em hiragana e explicações em português.">
   <title>Quiz de Partículas Japonesas · Japão Relativo</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/quiz.css?v=20260613-particles-v1">
+  <link rel="stylesheet" href="assets/quiz.css?v=20260613-particles-v2">
 </head>
 <body class="particles-quiz">
   <header class="quiz-header">
@@ -32,8 +32,8 @@
         <p class="eyebrow">Nihongo · Treino direcionado</p>
         <h1>Domine as partículas japonesas.</h1>
         <p class="hero-copy">
-          Escolha uma partícula e treine seu uso em frases cotidianas.
-          Cada módulo reúne 20 questões entre os níveis N5 e N4, com tradução e explicação em português.
+          Escolha um módulo e aprenda a decidir pelo contexto da frase.
+          São 20 questões por tema, entre os níveis N5 e N4, com japonês em hiragana, tradução e explicação em português.
         </p>
         <div class="quiz-proof" aria-label="Informações do treino">
           <span><strong>120</strong> questões originais</span>
@@ -42,35 +42,35 @@
         </div>
       </div>
 
-      <div class="level-grid particle-grid" role="list" aria-label="Escolha a partícula">
-        <button class="level-card particle-wa" type="button" data-start-particle="は" role="listitem">
-          <span class="level-icon" aria-hidden="true">題</span><span class="level-name">Tópico · N5</span>
-          <strong>は</strong><em>Apresenta o tema principal da frase</em>
+      <div class="level-grid particle-grid" role="list" aria-label="Escolha o módulo">
+        <button class="level-card particle-wa" type="button" data-start-module="n5" role="listitem">
+          <span class="level-icon" aria-hidden="true">01</span><span class="level-name">Fundamentos · N5</span>
+          <strong>Partículas N5</strong><em>は, が, を, に, で, へ, と, も, から e まで</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
-        <button class="level-card particle-ga" type="button" data-start-particle="が" role="listitem">
-          <span class="level-icon" aria-hidden="true">主</span><span class="level-name">Sujeito · N5–N4</span>
-          <strong>が</strong><em>Destaca quem age, existe ou possui algo</em>
+        <button class="level-card particle-ga" type="button" data-start-module="wa-ga" role="listitem">
+          <span class="level-icon" aria-hidden="true">02</span><span class="level-name">Contraste · N5–N4</span>
+          <strong>は vs が</strong><em>Tópico, sujeito, contraste e informação nova</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
-        <button class="level-card particle-wo" type="button" data-start-particle="を" role="listitem">
-          <span class="level-icon" aria-hidden="true">目</span><span class="level-name">Objeto · N5</span>
-          <strong>を</strong><em>Marca o objeto direto de uma ação</em>
+        <button class="level-card particle-wo" type="button" data-start-module="ni-de" role="listitem">
+          <span class="level-icon" aria-hidden="true">03</span><span class="level-name">Lugar e meio · N5–N4</span>
+          <strong>に vs で</strong><em>Destino, existência, local da ação e ferramenta</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
-        <button class="level-card particle-ni" type="button" data-start-particle="に" role="listitem">
-          <span class="level-icon" aria-hidden="true">着</span><span class="level-name">Destino e tempo · N5–N4</span>
-          <strong>に</strong><em>Indica destino, horário, existência e alvo</em>
+        <button class="level-card particle-ni" type="button" data-start-module="wo-ni" role="listitem">
+          <span class="level-icon" aria-hidden="true">04</span><span class="level-name">Ação e alvo · N5–N4</span>
+          <strong>を vs に</strong><em>Objeto direto, movimento, alvo e mudança</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
-        <button class="level-card particle-de" type="button" data-start-particle="で" role="listitem">
-          <span class="level-icon" aria-hidden="true">場</span><span class="level-name">Ação e meio · N5</span>
-          <strong>で</strong><em>Marca onde ou como uma ação acontece</em>
+        <button class="level-card particle-de" type="button" data-start-module="to-ya-mo" role="listitem">
+          <span class="level-icon" aria-hidden="true">05</span><span class="level-name">Relações · N5–N4</span>
+          <strong>と・や・も</strong><em>Companhia, citação, listas e inclusão</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
-        <button class="level-card particle-to" type="button" data-start-particle="と" role="listitem">
-          <span class="level-icon" aria-hidden="true">共</span><span class="level-name">Companhia e citação · N5–N4</span>
-          <strong>と</strong><em>Liga companhia, enumeração e fala citada</em>
+        <button class="level-card particle-to" type="button" data-start-module="kara-made-yori" role="listitem">
+          <span class="level-icon" aria-hidden="true">06</span><span class="level-name">Limites · N5–N4</span>
+          <strong>から・まで・より</strong><em>Origem, limite, intervalo e comparação</em>
           <span class="level-meta">20 perguntas · Treinar agora <b>→</b></span>
         </button>
       </div>
@@ -80,8 +80,8 @@
 
     <section class="quiz-panel" id="quizPanel" hidden aria-label="Painel de questões">
       <div class="quiz-topline">
-        <div><p class="eyebrow" id="questionMeta">Partícula</p><h2 id="questionTitle"></h2></div>
-        <button class="ghost-btn" id="quitQuiz" type="button">Trocar partícula</button>
+        <div><p class="eyebrow" id="questionMeta">Módulo</p><h2 id="questionTitle"></h2></div>
+        <button class="ghost-btn" id="quitQuiz" type="button">Trocar módulo</button>
       </div>
       <div class="progress-wrap" role="progressbar" aria-labelledby="progressText" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-labels"><span id="progressText">Pergunta 1 de 20</span><span id="scoreText">0 acertos</span></div>
@@ -105,13 +105,13 @@
       <div class="result-grid"><div><strong id="resultCorrect">0</strong><span>Acertos</span></div><div><strong id="resultTotal">20</strong><span>Perguntas</span></div></div>
       <div class="result-actions">
         <button class="primary-btn" id="restartSame" type="button">Treinar novamente</button>
-        <button class="ghost-btn" id="chooseAgain" type="button">Escolher outra partícula</button>
+        <button class="ghost-btn" id="chooseAgain" type="button">Escolher outro módulo</button>
         <a class="ghost-btn" href="quiz.html">Fazer Quiz JLPT</a>
       </div>
     </section>
   </main>
 
-  <script src="assets/particles-quiz-data.js?v=20260613-particles-v1"></script>
-  <script src="assets/particles-quiz.js?v=20260613-particles-v1"></script>
+  <script src="assets/particles-quiz-data.js?v=20260613-particles-v2"></script>
+  <script src="assets/particles-quiz.js?v=20260613-particles-v2"></script>
 </body>
 </html>
