@@ -21,8 +21,10 @@
   const premiumPanel = document.querySelector("#premiumPanel");
   const appToast = document.querySelector("#appToast");
   let toastTimer;
+  let activeAudio;
 
   function showScreen(name) {
+    if (name !== "lesson") stopActiveAudio();
     screens.forEach((screen) => {
       screen.hidden = screen.dataset.screen !== name;
     });
@@ -79,6 +81,7 @@
   }
 
   function renderLesson() {
+    stopActiveAudio();
     const freeCards = state.module.cards.filter((card) => card.free);
     const card = freeCards[state.cardIndex];
     const progress = ((state.cardIndex + 1) / freeCards.length) * 100;
@@ -90,25 +93,111 @@
     document.querySelector("#lessonNext").textContent = state.cardIndex === freeCards.length - 1 ? "Iniciar quiz" : "Próximo";
 
     lessonCard.innerHTML = `
+      <div class="lesson-media">${renderLessonMedia(card)}</div>
       <p class="lesson-situation">${card.situation}</p>
       <p class="lesson-japanese" lang="ja">${card.japanese}</p>
       <p class="lesson-portuguese">${card.portuguese}</p>
       <div class="lesson-note"><span>Como usar</span><p>${card.note}</p></div>
-      <button class="audio-button" id="audioButton" type="button" aria-describedby="audioStatus">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4zm12-1a5 5 0 0 1 0 6m2-8a8 8 0 0 1 0 10"/></svg>
-        Ouvir pronúncia
-      </button>
+      ${renderAudioControls(card)}
     `;
 
-    document.querySelector("#audioButton").addEventListener("click", announceAudio);
+    const lessonImage = lessonCard.querySelector(".lesson-image[src]");
+    if (lessonImage) {
+      lessonImage.addEventListener("error", () => {
+        lessonImage.outerHTML = lessonImagePlaceholder(card);
+      }, { once: true });
+    }
+
+    audioStatus.textContent = "";
+    lessonCard.querySelectorAll(".audio-button").forEach((button) => {
+      button.addEventListener("click", () => playCardAudio(button));
+    });
   }
 
-  function announceAudio(event) {
-    const button = event.currentTarget;
+  function audioIcon() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4zm12-1a5 5 0 0 1 0 6m2-8a8 8 0 0 1 0 10"/></svg>';
+  }
+
+  function imagePlaceholderIcon() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><circle cx="9" cy="9.5" r="1.4"/><path d="M4 16l4.5-4.5L12 15l3.5-3.5L20 15.5"/></svg>';
+  }
+
+  function renderLessonMedia(card) {
+    if (card.image) {
+      return `<img class="lesson-image" src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt || "")}" loading="lazy" decoding="async">`;
+    }
+    return lessonImagePlaceholder(card);
+  }
+
+  function lessonImagePlaceholder(card) {
+    return `
+      <div class="lesson-image lesson-image--placeholder" role="img" aria-label="${escapeAttribute(card.imageAlt || "Ilustração em preparação")}">
+        ${imagePlaceholderIcon()}
+        <span>Ilustração em preparação</span>
+      </div>
+    `;
+  }
+
+  function renderAudioControls(card) {
+    const buttons = [`
+      <button class="audio-button" type="button" data-audio-src="${escapeAttribute(card.audio || "")}" data-audio-status="Reproduzindo pronúncia." aria-describedby="audioStatus">
+        ${audioIcon()}
+        Ouvir pronúncia
+      </button>
+    `];
+    if (card.audioSlow) {
+      buttons.push(`
+        <button class="audio-button audio-button--slow" type="button" data-audio-src="${escapeAttribute(card.audioSlow)}" data-audio-status="Reproduzindo pronúncia em ritmo lento." aria-describedby="audioStatus">
+          ${audioIcon()}
+          Ouvir devagar
+        </button>
+      `);
+    }
+    return `<div class="audio-controls">${buttons.join("")}</div>`;
+  }
+
+  function playCardAudio(button) {
+    const src = button.dataset.audioSrc;
+    stopActiveAudio();
+
+    if (!src) {
+      button.classList.add("is-playing");
+      audioStatus.textContent = "Áudio demonstrativo. A pronúncia será adicionada em uma próxima versão.";
+      showToast("Áudio em preparação.");
+      window.setTimeout(() => button.classList.remove("is-playing"), 700);
+      return;
+    }
+
+    const audio = new Audio(src);
+    activeAudio = audio;
+    const stopPlaying = () => {
+      button.classList.remove("is-playing");
+      if (activeAudio === audio) activeAudio = undefined;
+    };
     button.classList.add("is-playing");
-    audioStatus.textContent = "Áudio demonstrativo. A pronúncia será adicionada em uma próxima versão.";
-    showToast("Pronúncia disponível em breve.");
-    window.setTimeout(() => button.classList.remove("is-playing"), 700);
+    audioStatus.textContent = button.dataset.audioStatus;
+
+    audio.addEventListener("ended", stopPlaying);
+    audio.addEventListener("error", () => {
+      stopPlaying();
+      audioStatus.textContent = "Áudio em preparação.";
+      showToast("Áudio em preparação.");
+    });
+    audio.play().catch(() => {
+      stopPlaying();
+      audioStatus.textContent = "Áudio em preparação.";
+      showToast("Áudio em preparação.");
+    });
+  }
+
+  function stopActiveAudio() {
+    if (!activeAudio) return;
+    activeAudio.pause();
+    activeAudio.currentTime = 0;
+    activeAudio = undefined;
+    lessonCard.querySelectorAll(".audio-button.is-playing").forEach((button) => {
+      button.classList.remove("is-playing");
+    });
   }
 
   function showToast(message) {
@@ -189,7 +278,7 @@
   }
 
   function escapeAttribute(value) {
-    return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
   function answerQuiz(answer, button) {

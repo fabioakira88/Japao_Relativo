@@ -1,6 +1,11 @@
 (function () {
   "use strict";
 
+  // Optional media fields supported on each card by survival.js:
+  //   image      -> "/assets/survival/images/<card-id>.webp" (placeholder shown when absent)
+  //   imageAlt   -> accessible description of `image`
+  //   audio      -> "/assets/survival/audio/<card-id>.mp3" (fallback message shown when absent)
+  //   audioSlow  -> "/assets/survival/audio/<card-id>-slow.mp3" (adds a second "Ouvir devagar" button)
   const modules = [
     {
       id: "restaurante",
