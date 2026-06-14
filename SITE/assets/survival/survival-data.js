@@ -12,6 +12,8 @@
       order: "01",
       title: "Restaurante",
       japaneseTitle: "レストラン",
+      japaneseReading: "れすとらん",
+      japaneseRomaji: "resutoran",
       status: "available",
       level: "Essencial",
       duration: "5 min",
@@ -22,6 +24,9 @@
           id: "restaurante-01",
           situation: "Entrando no restaurante",
           japanese: "いらっしゃいませ",
+          hiragana: "いらっしゃいませ",
+          romaji: "irasshaimase",
+          speechText: "いらっしゃいませ",
           portuguese: "Bem-vindo.",
           note: "Saudação comum quando o cliente entra.",
           image: "/assets/survival/images/restaurant-001.webp",
@@ -32,6 +37,9 @@
           id: "restaurante-02",
           situation: "Recebendo o cardápio",
           japanese: "メニューはこちらです",
+          hiragana: "めにゅーはこちらです",
+          romaji: "menyuu wa kochira desu",
+          speechText: "メニューはこちらです",
           portuguese: "Aqui está o cardápio.",
           note: "Frase comum dita pelo atendente.",
           image: "/assets/survival/images/restaurant-002.webp",
@@ -41,7 +49,10 @@
         {
           id: "restaurante-03",
           situation: "Perguntando recomendação",
-          japanese: "おすすめは何ですか？",
+          japanese: "おすすめは<ruby>何<rt>なに</rt></ruby>ですか？",
+          hiragana: "おすすめはなにですか？",
+          romaji: "osusume wa nani desu ka?",
+          speechText: "おすすめは何ですか？",
           portuguese: "O que você recomenda?",
           note: "Útil quando você não sabe o que pedir.",
           image: "/assets/survival/images/restaurant-003.webp",
@@ -51,7 +62,10 @@
         {
           id: "restaurante-04",
           situation: "Pedir água",
-          japanese: "お水をお願いします",
+          japanese: "お<ruby>水<rt>みず</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
+          hiragana: "おみずをおねがいします",
+          romaji: "omizu o onegai shimasu",
+          speechText: "お水をお願いします",
           portuguese: "Água, por favor.",
           note: "Uma forma educada e direta de pedir água.",
           image: "/assets/survival/images/restaurant-004.webp",
@@ -61,7 +75,10 @@
         {
           id: "restaurante-05",
           situation: "Fazer o pedido",
-          japanese: "これをお願いします",
+          japanese: "これをお<ruby>願<rt>ねが</rt></ruby>いします",
+          hiragana: "これをおねがいします",
+          romaji: "kore o onegai shimasu",
+          speechText: "これをお願いします",
           portuguese: "Este, por favor.",
           note: "Use apontando para o item escolhido no cardápio.",
           image: "/assets/survival/images/restaurant-005.webp",
@@ -71,7 +88,10 @@
         {
           id: "restaurante-06",
           situation: "Pedir a conta",
-          japanese: "お会計をお願いします",
+          japanese: "お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
+          hiragana: "おかいけいをおねがいします",
+          romaji: "okaikei o onegai shimasu",
+          speechText: "お会計をお願いします",
           portuguese: "A conta, por favor.",
           note: "Frase útil para encerrar o atendimento.",
           image: "/assets/survival/images/restaurant-006.webp",
@@ -84,36 +104,72 @@
           id: "restaurante-quiz-01",
           question: "Você quer perguntar “O que você recomenda?”",
           options: [
-            "おすすめは何ですか？",
-            "お会計をお願いします",
-            "メニューはこちらです",
-            "いらっしゃいませ"
+            {
+              id: "recommendation",
+              japanese: "おすすめは<ruby>何<rt>なに</rt></ruby>ですか？",
+              hiragana: "おすすめはなにですか？",
+              romaji: "osusume wa nani desu ka?",
+              portuguese: "O que você recomenda?"
+            },
+            {
+              id: "bill",
+              japanese: "お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
+              hiragana: "おかいけいをおねがいします",
+              romaji: "okaikei o onegai shimasu",
+              portuguese: "A conta, por favor."
+            },
+            {
+              id: "menu",
+              japanese: "メニューはこちらです",
+              hiragana: "めにゅーはこちらです",
+              romaji: "menyuu wa kochira desu",
+              portuguese: "Aqui está o cardápio."
+            },
+            {
+              id: "welcome",
+              japanese: "いらっしゃいませ",
+              hiragana: "いらっしゃいませ",
+              romaji: "irasshaimase",
+              portuguese: "Bem-vindo."
+            }
           ],
-          correctAnswer: "おすすめは何ですか？",
-          explanation: "おすすめ significa recomendação; 何ですか pergunta o que é."
+          correctAnswer: "recommendation",
+          explanation: "おすすめ significa recomendação; なにですか pergunta o que é."
         },
         {
           id: "restaurante-quiz-02",
-          question: "メニューはこちらです significa:",
+          question: "O que significa esta frase?",
+          prompt: {
+            japanese: "メニューはこちらです",
+            hiragana: "めにゅーはこちらです",
+            romaji: "menyuu wa kochira desu",
+            portuguese: "Escolha a tradução correta."
+          },
           options: [
-            "A conta está aqui.",
-            "Aqui está o cardápio.",
-            "O que você recomenda?",
-            "Água, por favor."
+            { id: "bill-here", portuguese: "A conta está aqui." },
+            { id: "menu-here", portuguese: "Aqui está o cardápio." },
+            { id: "recommendation-pt", portuguese: "O que você recomenda?" },
+            { id: "water-pt", portuguese: "Água, por favor." }
           ],
-          correctAnswer: "Aqui está o cardápio.",
+          correctAnswer: "menu-here",
           explanation: "こちら indica algo ou uma direção próxima de quem fala."
         },
         {
           id: "restaurante-quiz-03",
-          question: "いらっしゃいませ é usado quando:",
+          question: "Quando esta expressão é usada?",
+          prompt: {
+            japanese: "いらっしゃいませ",
+            hiragana: "いらっしゃいませ",
+            romaji: "irasshaimase",
+            portuguese: "Bem-vindo."
+          },
           options: [
-            "O cliente pede a conta.",
-            "O atendente entrega o cardápio.",
-            "O cliente entra no estabelecimento.",
-            "O restaurante está fechando."
+            { id: "asks-bill", portuguese: "O cliente pede a conta." },
+            { id: "gets-menu", portuguese: "O atendente entrega o cardápio." },
+            { id: "enters", portuguese: "O cliente entra no estabelecimento." },
+            { id: "closing", portuguese: "O restaurante está fechando." }
           ],
-          correctAnswer: "O cliente entra no estabelecimento.",
+          correctAnswer: "enters",
           explanation: "É a saudação tradicional de boas-vindas em lojas e restaurantes."
         }
       ]
@@ -122,7 +178,9 @@
       id: "hospital",
       order: "02",
       title: "Hospital",
-      japaneseTitle: "病院",
+      japaneseTitle: "<ruby>病院<rt>びょういん</rt></ruby>",
+      japaneseReading: "びょういん",
+      japaneseRomaji: "byouin",
       status: "soon",
       description: "Explique sintomas e entenda as primeiras orientações."
     },
@@ -130,7 +188,9 @@
       id: "prefeitura",
       order: "03",
       title: "Prefeitura",
-      japaneseTitle: "市役所",
+      japaneseTitle: "<ruby>市役所<rt>しやくしょ</rt></ruby>",
+      japaneseReading: "しやくしょ",
+      japaneseRomaji: "shiyakusho",
       status: "soon",
       description: "Documentos, senhas e perguntas essenciais no balcão."
     },
@@ -138,7 +198,9 @@
       id: "fabrica",
       order: "04",
       title: "Fábrica",
-      japaneseTitle: "工場",
+      japaneseTitle: "<ruby>工場<rt>こうじょう</rt></ruby>",
+      japaneseReading: "こうじょう",
+      japaneseRomaji: "koujou",
       status: "soon",
       description: "Instruções frequentes e vocabulário de segurança."
     },
@@ -146,7 +208,9 @@
       id: "trem",
       order: "05",
       title: "Trem",
-      japaneseTitle: "電車",
+      japaneseTitle: "<ruby>電車<rt>でんしゃ</rt></ruby>",
+      japaneseReading: "でんしゃ",
+      japaneseRomaji: "densha",
       status: "soon",
       description: "Plataformas, conexões e ajuda durante o trajeto."
     },
@@ -154,7 +218,9 @@
       id: "escola",
       order: "06",
       title: "Escola",
-      japaneseTitle: "学校",
+      japaneseTitle: "<ruby>学校<rt>がっこう</rt></ruby>",
+      japaneseReading: "がっこう",
+      japaneseRomaji: "gakkou",
       status: "soon",
       description: "Conversas básicas com professores e secretaria."
     }

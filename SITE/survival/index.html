@@ -11,7 +11,7 @@
   <meta property="og:description" content="Japonês essencial para situações reais. Treine o módulo Restaurante gratuitamente.">
   <meta property="og:url" content="https://japaorelativo.com/survival/">
   <title>Japão Relativo Survival · Japonês para situações reais</title>
-  <link rel="stylesheet" href="../assets/survival/survival.css?v=20260614-media-infra">
+  <link rel="stylesheet" href="../assets/survival/survival.css?v=20260614-accessible-restaurant">
 </head>
 <body>
   <main class="survival-app">
@@ -80,6 +80,7 @@
       </div>
       <article class="quiz-card">
         <h2 id="quizQuestion"></h2>
+        <div class="quiz-prompt-language" id="quizPrompt" hidden></div>
         <div class="quiz-options" id="quizOptions" role="group" aria-label="Alternativas"></div>
       </article>
       <div class="quiz-feedback" id="quizFeedback" role="status" hidden></div>
@@ -94,7 +95,7 @@
       <p class="unlock-score"><strong id="resultScore">0/3</strong> acertos no quiz</p>
       <ul class="locked-list" id="lockedList" aria-label="Conteúdo premium bloqueado"></ul>
       <div class="unlock-actions">
-        <button class="primary-button" id="openPremiumPanel" type="button">Desbloquear módulo completo</button>
+        <button class="primary-button" id="openPremiumPanel" type="button">Conteúdo premium em preparação</button>
         <button class="ghost-button" id="repeatModule" type="button">Repetir demonstração</button>
         <button class="ghost-button" type="button" data-show-screen="modules">Ver outros módulos</button>
       </div>
@@ -105,7 +106,7 @@
       <div class="panel-content" role="dialog" aria-modal="true" aria-labelledby="premiumPanelTitle">
         <p class="eyebrow">Japão Relativo Survival</p>
         <h2 id="premiumPanelTitle">Versão Premium em desenvolvimento.</h2>
-        <p>Estamos preparando os módulos completos para situações reais no Japão.</p>
+        <p>Em breve: módulos completos para restaurante, konbini, fábrica, hospital e prefeitura.</p>
         <button class="primary-button" id="notifyPremium" type="button">Quero ser avisado</button>
         <button class="text-button" id="closePremiumPanel" type="button">Agora não</button>
       </div>
@@ -114,7 +115,7 @@
     <div class="app-toast" id="appToast" role="status" aria-live="polite" hidden></div>
   </main>
 
-  <script src="../assets/survival/survival-data.js?v=20260614-restaurant-images"></script>
-  <script src="../assets/survival/survival.js?v=20260614-media-infra"></script>
+  <script src="../assets/survival/survival-data.js?v=20260614-accessible-restaurant"></script>
+  <script src="../assets/survival/survival.js?v=20260614-accessible-restaurant"></script>
 </body>
 </html>

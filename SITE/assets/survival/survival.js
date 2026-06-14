@@ -22,6 +22,7 @@
   const appToast = document.querySelector("#appToast");
   let toastTimer;
   let activeAudio;
+  let activeUtterance;
 
   function showScreen(name) {
     if (name !== "lesson") stopActiveAudio();
@@ -42,7 +43,7 @@
         <button class="module-card${available ? "" : " is-soon"}" type="button"
           data-module-id="${item.id}" ${available ? "" : "disabled"}>
           <span class="module-number">${item.order}</span>
-          <span class="module-japanese">${item.japaneseTitle}</span>
+          <span class="module-japanese">${renderJapaneseCompact(item)}</span>
           <strong>${item.title}</strong>
           <span>${item.description}</span>
           <em>${available ? "Abrir módulo" : "Em breve"}</em>
@@ -56,7 +57,7 @@
     if (!state.module || state.module.status !== "available") return;
 
     document.querySelector("#introEyebrow").textContent = `Módulo ${state.module.order} · ${state.module.level}`;
-    document.querySelector("#introJapanese").textContent = state.module.japaneseTitle;
+    document.querySelector("#introJapanese").innerHTML = renderJapaneseCompact(state.module);
     document.querySelector("#introTitle").textContent = state.module.title;
     document.querySelector("#introCopy").textContent = state.module.introduction;
     document.querySelector("#introDuration").textContent = state.module.duration;
@@ -95,8 +96,7 @@
     lessonCard.innerHTML = `
       <div class="lesson-media">${renderLessonMedia(card)}</div>
       <p class="lesson-situation">${card.situation}</p>
-      <p class="lesson-japanese" lang="ja">${card.japanese}</p>
-      <p class="lesson-portuguese">${card.portuguese}</p>
+      ${renderJapaneseBlock(card, "lesson-language")}
       <div class="lesson-note"><span>Como usar</span><p>${card.note}</p></div>
       ${renderAudioControls(card)}
     `;
@@ -140,7 +140,7 @@
 
   function renderAudioControls(card) {
     const buttons = [`
-      <button class="audio-button" type="button" data-audio-src="${escapeAttribute(card.audio || "")}" data-audio-status="Reproduzindo pronúncia." aria-describedby="audioStatus">
+      <button class="audio-button" type="button" data-audio-src="${escapeAttribute(card.audio || "")}" data-speech-text="${escapeAttribute(card.speechText || card.hiragana || "")}" data-audio-status="Reproduzindo pronúncia." aria-describedby="audioStatus">
         ${audioIcon()}
         Ouvir pronúncia
       </button>
@@ -161,10 +161,7 @@
     stopActiveAudio();
 
     if (!src) {
-      button.classList.add("is-playing");
-      audioStatus.textContent = "Áudio demonstrativo. A pronúncia será adicionada em uma próxima versão.";
-      showToast("Áudio em preparação.");
-      window.setTimeout(() => button.classList.remove("is-playing"), 700);
+      speakJapanese(button);
       return;
     }
 
@@ -191,13 +188,46 @@
   }
 
   function stopActiveAudio() {
-    if (!activeAudio) return;
-    activeAudio.pause();
-    activeAudio.currentTime = 0;
-    activeAudio = undefined;
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+      activeAudio = undefined;
+    }
+    if (activeUtterance && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      activeUtterance = undefined;
+    }
     lessonCard.querySelectorAll(".audio-button.is-playing").forEach((button) => {
       button.classList.remove("is-playing");
     });
+  }
+
+  function speakJapanese(button) {
+    const text = button.dataset.speechText;
+    if (!text || !("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
+      audioStatus.textContent = "Áudio não disponível neste navegador.";
+      showToast("Áudio não disponível neste navegador.");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    activeUtterance = utterance;
+    utterance.lang = "ja-JP";
+    utterance.rate = .86;
+    utterance.pitch = 1;
+    const stopSpeaking = () => {
+      button.classList.remove("is-playing");
+      if (activeUtterance === utterance) activeUtterance = undefined;
+    };
+    utterance.addEventListener("end", stopSpeaking);
+    utterance.addEventListener("error", () => {
+      stopSpeaking();
+      audioStatus.textContent = "Áudio não disponível neste navegador.";
+      showToast("Áudio não disponível neste navegador.");
+    });
+    button.classList.add("is-playing");
+    audioStatus.textContent = "Reproduzindo pronúncia em japonês.";
+    window.speechSynthesis.speak(utterance);
   }
 
   function showToast(message) {
@@ -272,13 +302,48 @@
     document.querySelector("#quizProgress").style.width = `${progress}%`;
     document.querySelector("#quizProgressBar").setAttribute("aria-valuenow", String(Math.round(progress)));
     document.querySelector("#quizQuestion").textContent = item.question;
+    document.querySelector("#quizPrompt").innerHTML = item.prompt ? renderJapaneseBlock(item.prompt, "quiz-prompt-language") : "";
+    document.querySelector("#quizPrompt").hidden = !item.prompt;
     quizOptions.innerHTML = item.options.map((option) => `
-      <button type="button" data-answer="${escapeAttribute(option)}">${option}</button>
+      <button type="button" data-answer="${escapeAttribute(option.id)}">${renderQuizOption(option)}</button>
     `).join("");
   }
 
   function escapeAttribute(value) {
     return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function escapeHtml(value) {
+    return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function renderJapaneseCompact(item) {
+    return `
+      <span class="jp-main" lang="ja">${item.japaneseTitle}</span>
+      <small lang="ja">${escapeHtml(item.japaneseReading)}</small>
+      <small>${escapeHtml(item.japaneseRomaji)}</small>
+    `;
+  }
+
+  function renderJapaneseBlock(item, className) {
+    return `
+      <div class="language-block ${className}">
+        <p class="jp-main" lang="ja">${item.japanese}</p>
+        <p class="jp-reading" lang="ja">${escapeHtml(item.hiragana)}</p>
+        <p class="jp-romaji">${escapeHtml(item.romaji)}</p>
+        <p class="jp-portuguese">${escapeHtml(item.portuguese)}</p>
+      </div>
+    `;
+  }
+
+  function renderQuizOption(option) {
+    if (!option.japanese) return `<span class="option-portuguese">${escapeHtml(option.portuguese)}</span>`;
+    return `
+      <span class="option-japanese" lang="ja">${option.japanese}</span>
+      <span class="option-reading" lang="ja">${escapeHtml(option.hiragana)}</span>
+      <span class="option-romaji">${escapeHtml(option.romaji)}</span>
+      <span class="option-portuguese">${escapeHtml(option.portuguese)}</span>
+    `;
   }
 
   function answerQuiz(answer, button) {
@@ -296,7 +361,12 @@
 
     feedback.hidden = false;
     feedback.classList.add(correct ? "is-correct" : "is-wrong");
-    feedback.innerHTML = `<strong>${correct ? "Resposta certa." : "Quase."}</strong><p>${item.explanation}</p>`;
+    const correctOption = item.options.find((option) => option.id === item.correctAnswer);
+    feedback.innerHTML = `
+      <strong>${correct ? "Resposta certa." : "Quase. Veja a resposta correta:"}</strong>
+      ${correctOption.japanese ? renderJapaneseBlock(correctOption, "feedback-language") : `<p class="feedback-answer">${escapeHtml(correctOption.portuguese)}</p>`}
+      <p>${escapeHtml(item.explanation)}</p>
+    `;
     quizNext.disabled = false;
   }
 
