@@ -24,6 +24,8 @@
           japanese: "いらっしゃいませ",
           portuguese: "Bem-vindo.",
           note: "Saudação comum quando o cliente entra.",
+          image: "/assets/survival/images/restaurant-001.webp",
+          imageAlt: "Cliente entrando em um restaurante japonês e sendo recebido pelo atendente.",
           free: true
         },
         {
@@ -32,6 +34,8 @@
           japanese: "メニューはこちらです",
           portuguese: "Aqui está o cardápio.",
           note: "Frase comum dita pelo atendente.",
+          image: "/assets/survival/images/restaurant-002.webp",
+          imageAlt: "Atendente entregando o cardápio a um cliente em um restaurante japonês.",
           free: true
         },
         {
@@ -40,6 +44,8 @@
           japanese: "おすすめは何ですか？",
           portuguese: "O que você recomenda?",
           note: "Útil quando você não sabe o que pedir.",
+          image: "/assets/survival/images/restaurant-003.webp",
+          imageAlt: "Cliente perguntando ao atendente qual prato do restaurante ele recomenda.",
           free: true
         },
         {
@@ -48,6 +54,8 @@
           japanese: "お水をお願いします",
           portuguese: "Água, por favor.",
           note: "Uma forma educada e direta de pedir água.",
+          image: "/assets/survival/images/restaurant-004.webp",
+          imageAlt: "Cliente pedindo um copo de água ao atendente de um restaurante japonês.",
           free: false
         },
         {
@@ -56,6 +64,8 @@
           japanese: "これをお願いします",
           portuguese: "Este, por favor.",
           note: "Use apontando para o item escolhido no cardápio.",
+          image: "/assets/survival/images/restaurant-005.webp",
+          imageAlt: "Cliente apontando para um prato no cardápio enquanto faz o pedido.",
           free: false
         },
         {
@@ -64,6 +74,8 @@
           japanese: "お会計をお願いします",
           portuguese: "A conta, por favor.",
           note: "Frase útil para encerrar o atendimento.",
+          image: "/assets/survival/images/restaurant-006.webp",
+          imageAlt: "Cliente solicitando a conta ao final de uma refeição em um restaurante japonês.",
           free: false
         }
       ],
