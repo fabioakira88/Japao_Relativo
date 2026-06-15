@@ -18,7 +18,6 @@
   const feedback = document.querySelector("#quizFeedback");
   const quizNext = document.querySelector("#quizNext");
   const audioStatus = document.querySelector("#audioStatus");
-  const premiumPanel = document.querySelector("#premiumPanel");
   const appToast = document.querySelector("#appToast");
   let toastTimer;
   let activeAudio;
@@ -244,28 +243,6 @@
     }, 2600);
   }
 
-  function hideToast() {
-    window.clearTimeout(toastTimer);
-    appToast.classList.remove("is-visible");
-    appToast.hidden = true;
-  }
-
-  function openPremiumPanel() {
-    hideToast();
-    premiumPanel.hidden = false;
-    document.querySelector("#notifyPremium").focus();
-  }
-
-  function closePremiumPanel() {
-    premiumPanel.hidden = true;
-    document.querySelector("#openPremiumPanel").focus();
-  }
-
-  function notifyPremium() {
-    closePremiumPanel();
-    showToast("Avisos da versão Premium estarão disponíveis em breve.");
-  }
-
   function moveLesson(direction) {
     const freeCards = state.module.cards.filter((card) => card.free);
     if (direction < 0 && state.cardIndex > 0) {
@@ -406,14 +383,6 @@
   document.querySelector("#lessonNext").addEventListener("click", () => moveLesson(1));
   document.querySelector("#quizNext").addEventListener("click", nextQuiz);
   document.querySelector("#repeatModule").addEventListener("click", startLessons);
-  document.querySelector("#openPremiumPanel").addEventListener("click", openPremiumPanel);
-  document.querySelector("#closePremiumPanel").addEventListener("click", closePremiumPanel);
-  document.querySelector("#closePremiumBackdrop").addEventListener("click", closePremiumPanel);
-  document.querySelector("#notifyPremium").addEventListener("click", notifyPremium);
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !premiumPanel.hidden) closePremiumPanel();
-  });
-
   renderModules();
   showScreen("modules");
 })();
