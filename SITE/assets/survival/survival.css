@@ -110,10 +110,14 @@ h2 { margin-bottom: 14px; font-size: clamp(2.35rem, 11vw, 3.2rem); line-height: 
 .thanks-screen { min-height: calc(100svh - 64px); display: grid; align-content: center; padding: 36px 22px; }
 .thanks-mark { width: 62px; height: 62px; display: grid; place-items: center; margin-bottom: 24px; color: var(--gold); border: 1px solid rgba(176, 138, 87, .55); font-family: var(--serif); font-size: 1.25rem; }
 .thanks-screen h1 { max-width: 350px; margin-bottom: 20px; font-size: clamp(2.8rem, 13vw, 4rem); }
+.manual-access-note { margin: 2px 0 24px; padding: 16px; color: rgba(250, 247, 240, .7); background: rgba(176, 138, 87, .1); border-left: 2px solid var(--gold); }
+.manual-access-note strong { display: block; margin-bottom: 7px; color: var(--gold); font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; }
+.manual-access-note p { margin: 0; font-size: .72rem; line-height: 1.6; }
 .thanks-steps { margin: 4px 0 28px; padding: 0; list-style: none; border-top: 1px solid rgba(250, 247, 240, .14); }
 .thanks-steps li { min-height: 62px; display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 10px; color: rgba(250, 247, 240, .66); border-bottom: 1px solid rgba(250, 247, 240, .14); font-size: .72rem; line-height: 1.5; }
 .thanks-steps span { color: var(--gold); font-size: .58rem; font-weight: 700; }
 .thanks-actions { display: grid; gap: 9px; }
+.manual-access-footnote { margin: 13px 0 0; color: rgba(250, 247, 240, .46); font-size: .58rem; line-height: 1.55; text-align: center; }
 
 .intro-topline, .lesson-topline, .quiz-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 24px; }
 .text-button { padding: 0; color: var(--muted); background: none; border: 0; font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
