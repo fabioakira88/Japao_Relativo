@@ -65,7 +65,9 @@
   }
 
   function renderRoadmap() {
-    introRoadmap.innerHTML = state.module.cards.map((card, index) => `
+    const freeCards = state.module.cards.map((card) => ({ ...card, free: true }));
+    const premiumTeasers = state.module.premiumTeasers.map((card) => ({ ...card, free: false }));
+    introRoadmap.innerHTML = [...freeCards, ...premiumTeasers].map((card, index) => `
       <li class="${card.free ? "" : "is-locked"}">
         <span>${String(index + 1).padStart(2, "0")}</span>
         <strong>${card.situation}</strong>
@@ -359,7 +361,7 @@
   }
 
   function renderUnlock() {
-    const lockedCards = state.module.cards.filter((card) => !card.free);
+    const lockedCards = state.module.premiumTeasers;
     document.querySelector("#resultScore").textContent = `${state.score}/${state.module.quiz.length}`;
     document.querySelector("#lockedList").innerHTML = lockedCards.map((card) => `
       <li>${lockIcon()}<span><strong>${card.situation}</strong><small>Conteúdo premium</small></span></li>

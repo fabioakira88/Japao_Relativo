@@ -58,46 +58,12 @@
           image: "/assets/survival/images/restaurant-003.webp",
           imageAlt: "Cliente perguntando ao atendente qual prato do restaurante ele recomenda.",
           free: true
-        },
-        {
-          id: "restaurante-04",
-          situation: "Pedir água",
-          japanese: "お<ruby>水<rt>みず</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
-          hiragana: "おみずをおねがいします",
-          romaji: "omizu o onegai shimasu",
-          speechText: "お水をお願いします",
-          portuguese: "Água, por favor.",
-          note: "Uma forma educada e direta de pedir água.",
-          image: "/assets/survival/images/restaurant-004.webp",
-          imageAlt: "Cliente pedindo um copo de água ao atendente de um restaurante japonês.",
-          free: false
-        },
-        {
-          id: "restaurante-05",
-          situation: "Fazer o pedido",
-          japanese: "これをお<ruby>願<rt>ねが</rt></ruby>いします",
-          hiragana: "これをおねがいします",
-          romaji: "kore o onegai shimasu",
-          speechText: "これをお願いします",
-          portuguese: "Este, por favor.",
-          note: "Use apontando para o item escolhido no cardápio.",
-          image: "/assets/survival/images/restaurant-005.webp",
-          imageAlt: "Cliente apontando para um prato no cardápio enquanto faz o pedido.",
-          free: false
-        },
-        {
-          id: "restaurante-06",
-          situation: "Pedir a conta",
-          japanese: "お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
-          hiragana: "おかいけいをおねがいします",
-          romaji: "okaikei o onegai shimasu",
-          speechText: "お会計をお願いします",
-          portuguese: "A conta, por favor.",
-          note: "Frase útil para encerrar o atendimento.",
-          image: "/assets/survival/images/restaurant-006.webp",
-          imageAlt: "Cliente solicitando a conta ao final de uma refeição em um restaurante japonês.",
-          free: false
         }
+      ],
+      premiumTeasers: [
+        { id: "restaurante-premium-04", situation: "Pedir água" },
+        { id: "restaurante-premium-05", situation: "Fazer o pedido" },
+        { id: "restaurante-premium-06", situation: "Pedir a conta" }
       ],
       quiz: [
         {
@@ -112,11 +78,11 @@
               portuguese: "O que você recomenda?"
             },
             {
-              id: "bill",
-              japanese: "お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします",
-              hiragana: "おかいけいをおねがいします",
-              romaji: "okaikei o onegai shimasu",
-              portuguese: "A conta, por favor."
+              id: "good-morning",
+              japanese: "おはようございます",
+              hiragana: "おはようございます",
+              romaji: "ohayou gozaimasu",
+              portuguese: "Bom dia."
             },
             {
               id: "menu",
@@ -149,7 +115,7 @@
             { id: "bill-here", portuguese: "A conta está aqui." },
             { id: "menu-here", portuguese: "Aqui está o cardápio." },
             { id: "recommendation-pt", portuguese: "O que você recomenda?" },
-            { id: "water-pt", portuguese: "Água, por favor." }
+            { id: "restaurant-closed", portuguese: "O restaurante está fechado." }
           ],
           correctAnswer: "menu-here",
           explanation: "こちら indica algo ou uma direção próxima de quem fala."
