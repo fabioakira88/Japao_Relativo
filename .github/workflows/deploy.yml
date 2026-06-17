@@ -42,6 +42,9 @@ jobs:
           if [ -d SITE/survival ]; then
             cp -R SITE/survival _site/survival
           fi
+          if [ -d SITE/cursos ]; then
+            cp -R SITE/cursos _site/cursos
+          fi
           cp CNAME _site/CNAME
           touch _site/.nojekyll
 

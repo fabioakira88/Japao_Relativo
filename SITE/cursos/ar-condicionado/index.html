@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c0f0e">
+  <meta name="description" content="Curso interativo: Higienização de Ar-Condicionado no Japão.">
+  <link rel="canonical" href="https://japaorelativo.com/cursos/ar-condicionado/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Higienização de Ar-Condicionado no Japão">
+  <meta property="og:description" content="MVP inicial de curso em cards sobre higienização de ar-condicionado no Japão.">
+  <meta property="og:url" content="https://japaorelativo.com/cursos/ar-condicionado/">
+  <title>Higienização de Ar-Condicionado no Japão · JR Cursos</title>
+  <link rel="stylesheet" href="../../assets/cursos/cursos.css?v=20260616-mvp">
+</head>
+<body>
+  <main class="course-app" data-course-id="ar-condicionado">
+    <header class="course-header">
+      <a class="brand" href="../../index.html" aria-label="Ir para a Home do Japão Relativo">
+        <span class="brand-mark">JR.</span>
+        <span class="brand-name">Japão Relativo</span>
+      </a>
+      <span class="header-label">Cursos</span>
+    </header>
+
+    <section class="screen" data-screen="intro">
+      <div class="topline">
+        <p class="eyebrow" id="courseEyebrow">JR Cursos</p>
+        <a class="text-button" href="../">Cursos</a>
+      </div>
+      <h2 id="courseTitle"></h2>
+      <p class="course-copy" id="courseIntro"></p>
+      <span class="course-stat"><span id="courseDuration">8 min</span> · demonstração gratuita</span>
+      <ol class="roadmap" id="courseRoadmap" aria-label="Conteúdo do curso"></ol>
+      <button class="primary-button" id="startCourse" type="button">Começar curso</button>
+    </section>
+
+    <section class="screen course-screen" data-screen="lesson" hidden>
+      <div class="topline">
+        <p class="eyebrow" id="lessonMeta">Card 1 de 3</p>
+        <button class="text-button" type="button" data-show-screen="intro">Sair</button>
+      </div>
+      <div class="progress-shell">
+        <div class="progress-label"><span>Aulas gratuitas</span><span>Aprender</span></div>
+        <div class="progress-track" id="lessonProgressBar" role="progressbar" aria-label="Progresso das aulas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="lessonProgress"></div>
+        </div>
+      </div>
+      <article class="lesson-card" id="lessonCard"></article>
+      <nav class="bottom-nav" aria-label="Navegação das aulas">
+        <button class="nav-button" id="lessonBack" type="button">Voltar</button>
+        <button class="primary-button" id="lessonNext" type="button">Próximo</button>
+      </nav>
+    </section>
+
+    <section class="screen course-screen" data-screen="quiz" hidden>
+      <div class="topline">
+        <p class="eyebrow" id="quizMeta">Pergunta 1 de 3</p>
+        <button class="text-button" type="button" data-show-screen="intro">Sair</button>
+      </div>
+      <div class="progress-shell">
+        <div class="progress-label"><span>Quiz gratuito</span><span>Praticar</span></div>
+        <div class="progress-track" id="quizProgressBar" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="quizProgress"></div>
+        </div>
+      </div>
+      <article class="quiz-card">
+        <h2 id="quizQuestion"></h2>
+        <div class="quiz-options" id="quizOptions" role="group" aria-label="Alternativas"></div>
+      </article>
+      <div class="quiz-feedback" id="quizFeedback" role="status" hidden></div>
+      <button class="primary-button" id="quizNext" type="button" disabled>Próxima pergunta</button>
+    </section>
+
+    <section class="screen screen-dark" data-screen="unlock" hidden>
+      <div class="unlock-mark" aria-hidden="true">JR.</div>
+      <p class="eyebrow">Demonstração concluída</p>
+      <h2>Continue no curso completo.</h2>
+      <p class="lead">Você viu os fundamentos. O módulo completo avança para preparação, proteção e procedimento prático.</p>
+      <p class="course-stat"><strong id="resultScore">0/3</strong> acertos no quiz</p>
+      <ul class="locked-list" id="lockedList" aria-label="Conteúdo premium bloqueado"></ul>
+      <button class="primary-button" id="temporaryCta" type="button">Curso completo em preparação</button>
+      <button class="ghost-button" id="repeatCourse" type="button">Repetir demonstração</button>
+    </section>
+
+    <div class="course-toast" id="courseToast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <script src="../../assets/cursos/cursos-data.js?v=20260616-mvp"></script>
+  <script src="../../assets/cursos/cursos.js?v=20260616-mvp"></script>
+</body>
+</html>
