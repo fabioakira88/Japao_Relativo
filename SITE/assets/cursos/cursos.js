@@ -47,8 +47,8 @@
 
   function renderCourses() {
     if (!courseGrid) return;
-    courseGrid.innerHTML = courses.map((course) => `
-      <a class="course-card" href="${escapeHtml(course.slug)}/" data-course-id="${escapeHtml(course.id)}">
+    courseGrid.innerHTML = courses.map((course, index) => `
+      <a class="course-card" href="${escapeHtml(course.slug)}/" data-course-id="${escapeHtml(course.id)}" data-course-number="${String(index + 1).padStart(2, "0")}">
         <strong>${escapeHtml(course.title)}</strong>
         <span>${escapeHtml(course.description)}</span>
         <em>Abrir curso</em>
