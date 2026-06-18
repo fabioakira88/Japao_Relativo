@@ -45,6 +45,23 @@ button:disabled { cursor: default; opacity: .42; }
 .brand-mark { color: var(--gold); font-family: var(--serif); font-size: 1.35rem; }
 .brand-name { font-family: var(--serif); font-size: 1rem; white-space: nowrap; }
 .header-label { color: rgba(250, 247, 240, .52); font-size: .56rem; letter-spacing: .18em; text-transform: uppercase; }
+.breadcrumb {
+  padding: 14px 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.breadcrumb a { color: var(--ink); text-decoration: none; }
+.screen-dark .breadcrumb,
+.course-app > .breadcrumb:first-of-type { color: rgba(250, 247, 240, .48); }
+.screen-dark .breadcrumb a,
+.course-app > .breadcrumb:first-of-type a { color: rgba(250, 247, 240, .74); }
+.breadcrumb span { color: var(--gold); }
 
 .screen { min-height: calc(100svh - 64px); padding: 30px 18px 28px; }
 .screen-dark {

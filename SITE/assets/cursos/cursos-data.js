@@ -6,12 +6,12 @@
       id: "ar-condicionado",
       slug: "ar-condicionado",
       title: "Higienização de Ar-Condicionado no Japão",
-      eyebrow: "JR Cursos · Casa e trabalho",
+      eyebrow: "Guia Prático · Casa e trabalho",
       level: "MVP inicial",
       duration: "8 min",
       status: "available",
       description: "Aprenda os fundamentos para entender a higienização de ar-condicionado em residências japonesas.",
-      introduction: "Um curso introdutório em cards para quem quer diferenciar limpeza simples, higienização interna e preparação básica antes de qualquer serviço.",
+      introduction: "Um guia introdutório em cards para quem quer diferenciar limpeza simples, higienização interna e preparação básica antes de qualquer serviço.",
       freeCards: [
         {
           id: "ar-001",

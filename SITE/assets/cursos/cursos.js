@@ -51,7 +51,7 @@
       <a class="course-card" href="${escapeHtml(course.slug)}/" data-course-id="${escapeHtml(course.id)}" data-course-number="${String(index + 1).padStart(2, "0")}">
         <strong>${escapeHtml(course.title)}</strong>
         <span>${escapeHtml(course.description)}</span>
-        <em>Abrir curso</em>
+        <em>Abrir guia</em>
       </a>
     `).join("");
   }
@@ -178,7 +178,7 @@
     document.querySelector("#lessonNext").addEventListener("click", () => moveLesson(1));
     document.querySelector("#quizNext").addEventListener("click", nextQuiz);
     document.querySelector("#repeatCourse").addEventListener("click", startLessons);
-    document.querySelector("#temporaryCta").addEventListener("click", () => showToast("Curso completo em preparação."));
+    document.querySelector("#temporaryCta").addEventListener("click", () => showToast("Guia completo em preparação."));
     quizOptions.addEventListener("click", (event) => {
       const option = event.target.closest("[data-answer]");
       if (option) answerQuiz(option.dataset.answer, option);

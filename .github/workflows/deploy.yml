@@ -45,6 +45,9 @@ jobs:
           if [ -d SITE/cursos ]; then
             cp -R SITE/cursos _site/cursos
           fi
+          if [ -d SITE/guias ]; then
+            cp -R SITE/guias _site/guias
+          fi
           for route in financas-no-japao imposto-residencial-juminzei-japao-2026 como-ler-holerite-japones-descontos-salario shakai-hoken-brasileiros-japao-2026 furusato-nozei-passo-a-passo-brasileiros-japao-2026 fuyou-dependentes-japao-impostos-2026; do
             if [ -d "SITE/$route" ]; then
               cp -R "SITE/$route" "_site/$route"
