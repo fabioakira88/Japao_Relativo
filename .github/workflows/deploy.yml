@@ -36,6 +36,9 @@ jobs:
           mkdir -p _site
           cp SITE/*.html _site/
           cp SITE/sitemap.xml _site/sitemap.xml
+          if [ -f SITE/robots.txt ]; then
+            cp SITE/robots.txt _site/robots.txt
+          fi
           if [ -d SITE/assets ]; then
             cp -R SITE/assets _site/assets
           fi
