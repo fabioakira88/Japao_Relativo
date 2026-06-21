@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Higienização de ar-condicionado residencial no Japão</title>
+  <desc id="desc">Ilustração de ar-condicionado residencial japonês com filtro sendo limpo e elementos de manutenção preventiva.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f2ed"/>
+      <stop offset="0.52" stop-color="#d8d1c5"/>
+      <stop offset="1" stop-color="#111514"/>
+    </linearGradient>
+    <linearGradient id="unit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#d8d1c5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#080908" flood-opacity="0.28"/>
+    </filter>
+    <pattern id="mesh" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M0 11h22M11 0v22" stroke="#111514" stroke-opacity="0.16" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1008" cy="118" r="220" fill="#b28a55" opacity="0.13"/>
+  <circle cx="188" cy="596" r="260" fill="#a51f2b" opacity="0.10"/>
+  <g opacity="0.16" stroke="#fffaf0" stroke-width="2">
+    <path d="M90 128h310M790 530h280M820 165h225"/>
+    <path d="M1040 165l38 24-38 24M400 128l38 24-38 24M1070 530l38 24-38 24" fill="none"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="176" y="118" width="848" height="210" rx="28" fill="url(#unit)"/>
+    <rect x="216" y="158" width="768" height="54" rx="14" fill="#111514" opacity="0.08"/>
+    <rect x="244" y="242" width="710" height="42" rx="13" fill="#111514" opacity="0.16"/>
+    <path d="M284 264h630" stroke="#111514" stroke-opacity="0.25" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="932" cy="184" r="12" fill="#418957" opacity="0.9"/>
+  </g>
+  <g transform="translate(306 342) rotate(-7)" filter="url(#shadow)">
+    <rect width="300" height="178" rx="18" fill="#fffaf0"/>
+    <rect x="25" y="22" width="250" height="134" rx="12" fill="url(#mesh)"/>
+    <path d="M34 46h232M34 80h232M34 114h232" stroke="#111514" stroke-opacity="0.28" stroke-width="3"/>
+  </g>
+  <g transform="translate(686 362)" filter="url(#shadow)">
+    <rect x="0" y="66" width="104" height="160" rx="22" fill="#111514" opacity="0.86"/>
+    <rect x="21" y="0" width="62" height="86" rx="18" fill="#fffaf0"/>
+    <rect x="34" y="18" width="36" height="44" rx="8" fill="#b28a55" opacity="0.35"/>
+    <path d="M52 66c-42 60-30 112 0 160c30-48 42-100 0-160z" fill="#a51f2b" opacity="0.72"/>
+  </g>
+  <g fill="none" stroke="#fffaf0" stroke-linecap="round" opacity="0.74">
+    <path d="M696 266c-48 24-96 24-144 0" stroke-width="8"/>
+    <path d="M720 292c-72 42-150 42-222 0" stroke-width="6" opacity="0.58"/>
+    <path d="M748 318c-102 62-210 62-312 0" stroke-width="4" opacity="0.42"/>
+  </g>
+  <g fill="#fffaf0" opacity="0.82">
+    <circle cx="274" cy="548" r="7"/><circle cx="246" cy="574" r="4"/><circle cx="882" cy="428" r="5"/><circle cx="910" cy="458" r="7"/>
+  </g>
+</svg>

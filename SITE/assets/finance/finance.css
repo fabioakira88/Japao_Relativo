@@ -88,6 +88,7 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
 }
 
 .content-card {
+  max-width: 100%;
   padding: clamp(26px, 5vw, 56px);
   background: rgba(255, 250, 240, .74);
   border: 1px solid rgba(25, 25, 25, .12);
@@ -109,20 +110,26 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
 .article-body ul, .article-body ol { padding-left: 1.2rem; }
 .article-body li { margin-bottom: 10px; }
 .note-box, .faq-box, .also-box {
+  max-width: 100%;
   margin: 34px 0;
   padding: 22px;
   background: rgba(178, 138, 85, .08);
   border: 1px solid var(--jr-line);
+  overflow-wrap: anywhere;
 }
 .note-box p, .faq-box p, .also-box p { margin-bottom: 10px; }
 
 .hub-grid {
+  min-width: 0;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 28px;
 }
 .hub-card {
+  min-width: 0;
+  max-width: 100%;
   min-height: 270px;
   padding: 24px;
   display: flex;
@@ -140,8 +147,8 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
 }
 .hub-card:hover { transform: translateY(-3px); border-color: rgba(178, 138, 85, .76); box-shadow: 0 24px 58px rgba(9, 12, 10, .24); }
 .hub-card em { display: none; }
-.hub-card strong { margin-top: 14px; color: #fffaf0; font-family: var(--jr-serif); font-size: 1.75rem; font-weight: 500; line-height: 1.05; }
-.hub-card span { margin-top: 12px; color: rgba(255, 250, 240, .82); font-size: .86rem; line-height: 1.55; }
+.hub-card strong { margin-top: 14px; color: #fffaf0; font-family: var(--jr-serif); font-size: 1.75rem; font-weight: 500; line-height: 1.05; overflow-wrap: anywhere; word-break: normal; }
+.hub-card span { margin-top: 12px; color: rgba(255, 250, 240, .82); font-size: .86rem; line-height: 1.55; overflow-wrap: anywhere; }
 
 .read-next {
   display: grid;
