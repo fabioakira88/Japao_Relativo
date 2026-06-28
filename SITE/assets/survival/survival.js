@@ -2,6 +2,7 @@
   "use strict";
 
   const modules = window.SURVIVAL_MODULES || [];
+  const config = window.SURVIVAL_CONFIG || {};
   const state = {
     module: null,
     cardIndex: 0,
@@ -49,6 +50,7 @@
         </button>
       `;
     }).join("");
+    syncCheckoutLinks();
   }
 
   function openModule(moduleId) {
@@ -94,8 +96,9 @@
     document.querySelector("#lessonBack").disabled = state.cardIndex === 0;
     document.querySelector("#lessonNext").textContent = state.cardIndex === freeCards.length - 1 ? "Iniciar quiz" : "Próximo";
 
+    const lessonMedia = renderLessonMedia(card);
     lessonCard.innerHTML = `
-      <div class="lesson-media">${renderLessonMedia(card)}</div>
+      ${lessonMedia ? `<div class="lesson-media">${lessonMedia}</div>` : ""}
       <p class="lesson-situation">${card.situation}</p>
       ${renderJapaneseBlock(card, "lesson-language")}
       <div class="lesson-note"><span>Como usar</span><p>${card.note}</p></div>
@@ -105,7 +108,7 @@
     const lessonImage = lessonCard.querySelector(".lesson-image[src]");
     if (lessonImage) {
       lessonImage.addEventListener("error", () => {
-        lessonImage.outerHTML = lessonImagePlaceholder(card);
+        lessonImage.closest(".lesson-media")?.remove();
       }, { once: true });
     }
 
@@ -119,24 +122,11 @@
     return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4zm12-1a5 5 0 0 1 0 6m2-8a8 8 0 0 1 0 10"/></svg>';
   }
 
-  function imagePlaceholderIcon() {
-    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><circle cx="9" cy="9.5" r="1.4"/><path d="M4 16l4.5-4.5L12 15l3.5-3.5L20 15.5"/></svg>';
-  }
-
   function renderLessonMedia(card) {
     if (card.image) {
       return `<img class="lesson-image" src="${escapeAttribute(card.image)}" alt="${escapeAttribute(card.imageAlt || "")}" loading="lazy" decoding="async">`;
     }
-    return lessonImagePlaceholder(card);
-  }
-
-  function lessonImagePlaceholder(card) {
-    return `
-      <div class="lesson-image lesson-image--placeholder" role="img" aria-label="${escapeAttribute(card.imageAlt || "Ilustração em preparação")}">
-        ${imagePlaceholderIcon()}
-        <span>Ilustração em preparação</span>
-      </div>
-    `;
+    return "";
   }
 
   function renderAudioControls(card) {
@@ -148,7 +138,7 @@
     `];
     if (card.audioSlow) {
       buttons.push(`
-        <button class="audio-button audio-button--slow" type="button" data-audio-src="${escapeAttribute(card.audioSlow)}" data-audio-status="Reproduzindo pronúncia em ritmo lento." aria-describedby="audioStatus">
+        <button class="audio-button audio-button--slow" type="button" data-audio-src="${escapeAttribute(card.audioSlow)}" data-speech-text="${escapeAttribute(card.speechText || card.hiragana || "")}" data-speech-rate="0.68" data-audio-status="Reproduzindo pronúncia em ritmo lento." aria-describedby="audioStatus">
           ${audioIcon()}
           Ouvir devagar
         </button>
@@ -178,13 +168,11 @@
     audio.addEventListener("ended", stopPlaying);
     audio.addEventListener("error", () => {
       stopPlaying();
-      audioStatus.textContent = "Áudio em preparação.";
-      showToast("Áudio em preparação.");
+      speakJapanese(button);
     });
     audio.play().catch(() => {
       stopPlaying();
-      audioStatus.textContent = "Áudio em preparação.";
-      showToast("Áudio em preparação.");
+      speakJapanese(button);
     });
   }
 
@@ -214,7 +202,7 @@
     const utterance = new SpeechSynthesisUtterance(text);
     activeUtterance = utterance;
     utterance.lang = "ja-JP";
-    utterance.rate = .86;
+    utterance.rate = Number(button.dataset.speechRate || .86);
     utterance.pitch = 1;
     const stopSpeaking = () => {
       button.classList.remove("is-playing");
@@ -362,10 +350,21 @@
 
   function renderUnlock() {
     const lockedCards = state.module.premiumTeasers;
+    const unlockTitle = document.querySelector("#unlockTitle");
+    const unlockLead = document.querySelector("#unlockLead");
+    if (unlockTitle) unlockTitle.textContent = `Continue no ${state.module.title.toLowerCase()}.`;
+    if (unlockLead) unlockLead.textContent = `Você já reconhece três situações de ${state.module.title.toLowerCase()}. O conteúdo completo prepara você para continuar o atendimento com mais segurança.`;
     document.querySelector("#resultScore").textContent = `${state.score}/${state.module.quiz.length}`;
     document.querySelector("#lockedList").innerHTML = lockedCards.map((card) => `
       <li>${lockIcon()}<span><strong>${card.situation}</strong><small>Conteúdo premium</small></span></li>
     `).join("");
+  }
+
+  function syncCheckoutLinks() {
+    if (!config.checkoutUrl) return;
+    document.querySelectorAll(".checkout-link").forEach((link) => {
+      link.href = config.checkoutUrl;
+    });
   }
 
   moduleGrid.addEventListener("click", (event) => {

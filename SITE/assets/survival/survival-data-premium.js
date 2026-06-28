@@ -10,7 +10,9 @@
       romaji: "omizu o onegai shimasu",
       speechText: "お水をお願いします",
       portuguese: "Água, por favor.",
-      note: "Uma forma educada e direta de pedir água."
+      note: "Uma forma educada e direta de pedir água.",
+      audio: "/assets/survival/audio/restaurante-premium-04.mp3",
+      audioSlow: "/assets/survival/audio/restaurante-premium-04-slow.mp3"
     },
     {
       id: "restaurante-premium-05",
@@ -20,7 +22,9 @@
       romaji: "kore o onegai shimasu",
       speechText: "これをお願いします",
       portuguese: "Este, por favor.",
-      note: "Use apontando para o item escolhido no cardápio."
+      note: "Use apontando para o item escolhido no cardápio.",
+      audio: "/assets/survival/audio/restaurante-premium-05.mp3",
+      audioSlow: "/assets/survival/audio/restaurante-premium-05-slow.mp3"
     },
     {
       id: "restaurante-premium-06",
@@ -30,7 +34,9 @@
       romaji: "okaikei o onegai shimasu",
       speechText: "お会計をお願いします",
       portuguese: "A conta, por favor.",
-      note: "Frase útil para encerrar o atendimento."
+      note: "Frase útil para encerrar o atendimento.",
+      audio: "/assets/survival/audio/restaurante-premium-06.mp3",
+      audioSlow: "/assets/survival/audio/restaurante-premium-06-slow.mp3"
     }
   ];
 

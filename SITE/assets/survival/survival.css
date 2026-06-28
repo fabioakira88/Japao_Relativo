@@ -182,23 +182,8 @@ h2 { margin-bottom: 14px; font-size: clamp(2.35rem, 11vw, 3.2rem); line-height: 
 .lesson-card { min-height: clamp(350px, calc(100svh - 300px), 480px); padding: 22px; display: flex; flex-direction: column; background: var(--cream); border: 1px solid var(--line); box-shadow: 0 20px 52px rgba(21, 24, 23, .1); }
 .lesson-situation { color: var(--red); font-size: .58rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
 .lesson-media { min-height: 240px; margin: 14px 0 20px; display: grid; place-items: center; overflow: hidden; background: #151815; border: 1px solid var(--line); }
-.lesson-image, .lesson-image--placeholder { display: block; width: 100%; height: min(46svh, 400px); border: 0; }
+.lesson-image { display: block; width: 100%; height: min(46svh, 400px); border: 0; }
 .lesson-image { object-fit: contain; object-position: center; background: #151815; }
-.lesson-image--placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: linear-gradient(160deg, rgba(176, 138, 87, .12), rgba(176, 138, 87, .03));
-  color: var(--muted);
-  font-size: .54rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  text-align: center;
-}
-.lesson-image--placeholder svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .5; }
 .language-block { display: grid; gap: 5px; }
 .language-block p { margin: 0; }
 .lesson-language { margin-bottom: 18px; }
@@ -267,7 +252,7 @@ h2 { margin-bottom: 14px; font-size: clamp(2.35rem, 11vw, 3.2rem); line-height: 
   .premium-card-mark { margin: -16px -16px 20px; }
   .lesson-media { margin: 0 0 12px; }
   .lesson-media { min-height: 210px; }
-  .lesson-image, .lesson-image--placeholder { height: min(42svh, 300px); }
+  .lesson-image { height: min(42svh, 300px); }
   .lesson-language .jp-main { font-size: 1.7rem; }
   .lesson-language .jp-portuguese { font-size: 1.05rem; }
   .lesson-note { margin-top: 12px; padding-top: 12px; }

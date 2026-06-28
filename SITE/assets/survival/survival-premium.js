@@ -11,6 +11,7 @@
   const audioStatus = document.querySelector("#premiumAudioStatus");
   const toast = document.querySelector("#premiumToast");
   let cardIndex = 0;
+  let activeAudio;
   let activeUtterance;
   let toastTimer;
 
@@ -40,7 +41,12 @@
     }, 2600);
   }
 
-  function stopSpeech() {
+  function stopAudio() {
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+      activeAudio = undefined;
+    }
     if (activeUtterance && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       activeUtterance = undefined;
@@ -50,7 +56,6 @@
   }
 
   function speakJapanese(button) {
-    stopSpeech();
     const text = button.dataset.speechText;
     if (!text || !("speechSynthesis" in window) || typeof window.SpeechSynthesisUtterance !== "function") {
       audioStatus.textContent = "Áudio não disponível neste navegador.";
@@ -61,7 +66,7 @@
     const utterance = new SpeechSynthesisUtterance(text);
     activeUtterance = utterance;
     utterance.lang = "ja-JP";
-    utterance.rate = .86;
+    utterance.rate = Number(button.dataset.speechRate || .86);
     utterance.addEventListener("end", () => {
       button.classList.remove("is-playing");
       if (activeUtterance === utterance) activeUtterance = undefined;
@@ -76,8 +81,35 @@
     window.speechSynthesis.speak(utterance);
   }
 
+  function playCardAudio(button) {
+    const src = button.dataset.audioSrc;
+    stopAudio();
+    if (!src) {
+      speakJapanese(button);
+      return;
+    }
+
+    const audio = new Audio(src);
+    activeAudio = audio;
+    const stopPlaying = () => {
+      button.classList.remove("is-playing");
+      if (activeAudio === audio) activeAudio = undefined;
+    };
+    button.classList.add("is-playing");
+    audioStatus.textContent = button.dataset.audioStatus || "Reproduzindo pronúncia.";
+    audio.addEventListener("ended", stopPlaying);
+    audio.addEventListener("error", () => {
+      stopPlaying();
+      speakJapanese(button);
+    });
+    audio.play().catch(() => {
+      stopPlaying();
+      speakJapanese(button);
+    });
+  }
+
   function renderCard() {
-    stopSpeech();
+    stopAudio();
     const card = cards[cardIndex];
     const percentage = ((cardIndex + 1) / cards.length) * 100;
     cardMeta.textContent = `Restaurante completo · Card ${cardIndex + 4} de 6`;
@@ -96,13 +128,19 @@
       </div>
       <div class="lesson-note"><span>Como usar</span><p>${escapeHtml(card.note)}</p></div>
       <div class="audio-controls">
-        <button class="audio-button" type="button" data-speech-text="${escapeAttribute(card.speechText)}" aria-describedby="premiumAudioStatus">
+        <button class="audio-button" type="button" data-audio-src="${escapeAttribute(card.audio || "")}" data-speech-text="${escapeAttribute(card.speechText)}" data-audio-status="Reproduzindo pronúncia." aria-describedby="premiumAudioStatus">
           ${audioIcon()}
           Ouvir pronúncia
         </button>
+        <button class="audio-button audio-button--slow" type="button" data-audio-src="${escapeAttribute(card.audioSlow || "")}" data-speech-text="${escapeAttribute(card.speechText)}" data-speech-rate="0.68" data-audio-status="Reproduzindo pronúncia em ritmo lento." aria-describedby="premiumAudioStatus">
+          ${audioIcon()}
+          Ouvir devagar
+        </button>
       </div>
     `;
-    cardContainer.querySelector(".audio-button").addEventListener("click", (event) => speakJapanese(event.currentTarget));
+    cardContainer.querySelectorAll(".audio-button").forEach((button) => {
+      button.addEventListener("click", (event) => playCardAudio(event.currentTarget));
+    });
     audioStatus.textContent = "";
   }
 
