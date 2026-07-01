@@ -188,3 +188,36 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
   .hub-card { min-height: 210px; }
   .hub-card strong { font-size: 1.55rem; overflow-wrap: anywhere; hyphens: auto; }
 }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.jr-footer {
+  margin-top: 64px;
+  border-top: 1px solid rgba(176,138,87,.22);
+  padding: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.jr-footer__copy {
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(17,21,19,.42);
+}
+.jr-footer__links {
+  display: flex;
+  gap: 24px;
+}
+.jr-footer__links a {
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(17,21,19,.54);
+  text-decoration: none;
+  transition: color .2s;
+}
+.jr-footer__links a:hover { color: var(--jr-gold, #B08A57); }

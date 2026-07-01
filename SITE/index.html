@@ -23,6 +23,8 @@
   <meta name="twitter:description" content="Japão Relativo reúne análises sobre sociedade, cultura, notícias e vida real no Japão.">
   <meta name="twitter:image" content="https://japaorelativo.com/assets/logo.png">
 <title>Japão Relativo — O Japão por Vários Ângulos</title>
+<link rel="preload" as="image" href="assets/hero/hero-fuji-sakura-desktop.webp" media="(min-width: 829px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero/hero-fuji-sakura-mobile.webp" media="(max-width: 828px)" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&amp;family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif+JP:wght@300;400;700&amp;display=swap" rel="stylesheet">
 
 <style>
@@ -4141,12 +4143,19 @@ function buildFadeHero() {
   var container = document.getElementById("heroSlides");
   if (!container) return;
 
-  var heroBanners = [
-    "assets/hero/fuji-sakura.png",
-    "assets/hero/arrozal.png",
-    "assets/hero/tokyo.png",
-    "assets/hero/folclore.png",
-    "assets/hero/arquitetura.png"
+  var isMobile = window.innerWidth <= 828;
+  var heroBanners = isMobile ? [
+    "assets/hero/hero-fuji-sakura-mobile.webp",
+    "assets/hero/hero-arrozal-mobile.webp",
+    "assets/hero/hero-tokyo-mobile.webp",
+    "assets/hero/hero-folclore-mobile.webp",
+    "assets/hero/hero-arquitetura-mobile.webp"
+  ] : [
+    "assets/hero/hero-fuji-sakura-desktop.webp",
+    "assets/hero/hero-arrozal-desktop.webp",
+    "assets/hero/hero-tokyo-desktop.webp",
+    "assets/hero/hero-folclore-desktop.webp",
+    "assets/hero/hero-arquitetura-desktop.webp"
   ];
 
   heroPostsData = posts.filter(function(p){ return p.tag === "Not\u00edcia"; }).slice(0, 6);
