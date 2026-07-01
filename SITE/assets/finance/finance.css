@@ -194,6 +194,42 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
 
 .finance-card {
   min-height: 240px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.finance-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--card-image);
+  background-size: cover;
+  background-position: center;
+  opacity: .72;
+  transform: scale(1.02);
+  transition: transform .22s ease, opacity .22s ease;
+}
+
+.finance-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(11, 15, 13, .12) 0%, rgba(11, 15, 13, .48) 44%, rgba(11, 15, 13, .88) 100%),
+    radial-gradient(circle at 84% 16%, rgba(178, 138, 85, .24), transparent 38%);
+}
+
+.finance-card:hover::before {
+  opacity: .84;
+  transform: scale(1.06);
+}
+
+.finance-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .finance-card em {
@@ -212,7 +248,13 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
   background:
     linear-gradient(180deg, rgba(17, 21, 19, .08), rgba(17, 21, 19, .78)),
     radial-gradient(circle at 88% 12%, rgba(165, 31, 43, .28), transparent 30%),
-  #111514;
+    #111514;
+}
+
+.finance-card.is-news::after {
+  background:
+    linear-gradient(180deg, rgba(11, 15, 13, .08) 0%, rgba(11, 15, 13, .42) 42%, rgba(11, 15, 13, .9) 100%),
+    radial-gradient(circle at 88% 14%, rgba(165, 31, 43, .26), transparent 34%);
 }
 
 .finance-card-link {
