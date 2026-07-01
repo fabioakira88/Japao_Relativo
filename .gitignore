@@ -4,11 +4,28 @@
 ._*
 Thumbs.db
 
+# Dependencias, builds e artifacts locais
+node_modules/
+dist/
+build/
+_site/
+
+# Caches de ferramentas
+.cache/
+.parcel-cache/
+.vite/
+.next/
+.nuxt/
+.pytest_cache/
+coverage/
+
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
 .env
+.env.*
+!.env.example
 venv/
 
 # Claude
@@ -16,7 +33,19 @@ venv/
 
 # Temporários
 *.log
+logs/
 *.tmp
+*.temp
+*.swp
+*.swo
+*.local
+
+# Saidas e acervos brutos locais
+EXPORTS/
+BRANDING/
+JAPAO_RELATIVO_IMAGES/
+SOCIAL_MEDIA/
+VIDEO/
 
 # Backups de HTML
 *.bak
