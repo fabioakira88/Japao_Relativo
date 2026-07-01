@@ -150,6 +150,164 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
 .hub-card strong { margin-top: 14px; color: #fffaf0; font-family: var(--jr-serif); font-size: 1.75rem; font-weight: 500; line-height: 1.05; overflow-wrap: anywhere; word-break: normal; }
 .hub-card span { margin-top: 12px; color: rgba(255, 250, 240, .82); font-size: .86rem; line-height: 1.55; overflow-wrap: anywhere; }
 
+.finance-section {
+  margin-top: clamp(44px, 7vw, 76px);
+  scroll-margin-top: 24px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading > span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--jr-gold);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  max-width: 680px;
+  color: rgba(17, 21, 19, .66);
+}
+
+.finance-news-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.finance-news-grid .hub-card:nth-child(1),
+.finance-news-grid .hub-card:nth-child(2) {
+  grid-column: span 3;
+}
+
+.finance-news-grid .hub-card:nth-child(n+3) {
+  grid-column: span 2;
+}
+
+.finance-card {
+  min-height: 240px;
+}
+
+.finance-card em {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: auto;
+  color: rgba(255, 250, 240, .58);
+  font-size: .64rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.finance-card.is-news {
+  background:
+    linear-gradient(180deg, rgba(17, 21, 19, .08), rgba(17, 21, 19, .78)),
+    radial-gradient(circle at 88% 12%, rgba(165, 31, 43, .28), transparent 30%),
+  #111514;
+}
+
+.finance-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.finance-card .finance-card-link {
+  color: #fffaf0;
+}
+
+.finance-card-link:focus-visible {
+  outline: 2px solid rgba(178, 138, 85, .9);
+  outline-offset: 4px;
+}
+
+.inline-tip {
+  color: #fffaf0;
+  text-decoration: underline;
+  text-decoration-color: rgba(178, 138, 85, .78);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.finance-card .inline-tip {
+  color: #fffaf0;
+}
+
+.inline-tip:focus-visible {
+  outline: 2px solid rgba(178, 138, 85, .9);
+  outline-offset: 3px;
+}
+
+.finance-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.finance-note {
+  min-width: 0;
+  padding: 22px;
+  background: rgba(17, 21, 19, .04);
+  border: 1px solid var(--jr-line);
+}
+
+.finance-note strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--jr-serif);
+  font-size: 1.28rem;
+  font-weight: 500;
+}
+
+.finance-note p {
+  margin: 0;
+  color: rgba(17, 21, 19, .68);
+  font-size: .94rem;
+  line-height: 1.65;
+}
+
+.finance-glossary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.finance-glossary a {
+  min-width: 0;
+  padding: 16px;
+  color: var(--jr-ink);
+  background: rgba(255, 250, 240, .52);
+  border: 1px solid var(--jr-line);
+  text-decoration: none;
+  font-family: var(--jr-serif);
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.finance-glossary span {
+  display: block;
+  margin-top: 6px;
+  color: rgba(17, 21, 19, .58);
+  font-family: var(--jr-sans);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.finance-footer-nav .read-next {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .read-next {
   display: grid;
   gap: 12px;
@@ -187,6 +345,12 @@ h3 { margin: 26px 0 10px; font-size: 1.35rem; line-height: 1.18; }
   .hub-grid { grid-template-columns: 1fr; }
   .hub-card { min-height: 210px; }
   .hub-card strong { font-size: 1.55rem; overflow-wrap: anywhere; hyphens: auto; }
+  .finance-news-grid { grid-template-columns: 1fr; }
+  .finance-news-grid .hub-card:nth-child(n) { grid-column: auto; }
+  .finance-impact-grid,
+  .finance-glossary,
+  .finance-footer-nav .read-next { grid-template-columns: 1fr; }
+  .finance-card { min-height: 210px; }
 }
 
 /* ============================================================
