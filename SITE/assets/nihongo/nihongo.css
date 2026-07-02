@@ -1,0 +1,342 @@
+/* nihongo.css — Módulo Japão Relativo */
+/* Complementa finance.css. Não substitui variáveis nem redefine base. */
+
+/* ——— SEÇÕES ——————————————————————————— */
+.nh-section { margin-top: clamp(54px, 8vw, 88px); }
+
+.nh-eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--jr-gold);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.nh-section-head { margin-bottom: 28px; }
+.nh-section-head h2 { margin-top: 0; margin-bottom: 10px; }
+.nh-section-head p { max-width: 640px; color: rgba(17,21,19,.62); margin: 0; line-height: 1.7; }
+
+/* ——— PROVA / STATS ——————————————————— */
+.nh-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--jr-line);
+}
+.nh-proof-item { display: grid; gap: 3px; }
+.nh-proof-item strong {
+  color: var(--jr-ink);
+  font-family: var(--jr-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.nh-proof-item span {
+  color: rgba(17,21,19,.52);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ——— LEVEL BADGE ————————————————————— */
+.level-badge {
+  display: inline-flex;
+  padding: 3px 8px;
+  background: rgba(178,138,85,.1);
+  border: 1px solid rgba(178,138,85,.28);
+  color: var(--jr-gold);
+  font-size: .5rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.level-badge.is-n5 { background: rgba(178,138,85,.08); }
+.level-badge.is-n4 { background: rgba(165,31,43,.08); border-color: rgba(165,31,43,.3); color: var(--jr-red); }
+.level-badge.is-n3 { background: rgba(17,21,19,.06); border-color: rgba(17,21,19,.2); color: rgba(17,21,19,.7); }
+
+/* ——— TRILHA ————————————————————————— */
+.nh-trilha { display: grid; gap: 0; counter-reset: nh-step; }
+.nh-trilha-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--jr-line);
+  align-items: start;
+  text-decoration: none;
+  color: var(--jr-ink);
+  transition: color .15s;
+  counter-increment: nh-step;
+}
+.nh-trilha-item:hover .nh-trilha-num { color: var(--jr-red); }
+.nh-trilha-num {
+  color: var(--jr-gold);
+  font-family: var(--jr-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  padding-top: 2px;
+  transition: color .15s;
+}
+.nh-trilha-item h3 {
+  margin: 0 0 4px;
+  font-family: var(--jr-sans);
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.nh-trilha-item p {
+  margin: 0;
+  color: rgba(17,21,19,.58);
+  font-size: .8rem;
+  line-height: 1.55;
+}
+.nh-trilha-arrow {
+  align-self: start;
+  padding-top: 2px;
+  color: rgba(17,21,19,.28);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+/* ——— DARK STRIP ————————————————————— */
+.nh-dark-strip {
+  margin: clamp(48px,7vw,80px) calc(-1 * clamp(26px,5vw,56px));
+  padding: clamp(38px,6vw,64px) clamp(26px,5vw,56px);
+  background: #0d1110;
+  border-top: 1px solid rgba(178,138,85,.18);
+  border-bottom: 1px solid rgba(178,138,85,.18);
+  color: var(--jr-cream);
+}
+.nh-dark-strip .nh-eyebrow { color: var(--jr-gold); }
+.nh-dark-strip .nh-section-head h2 { color: var(--jr-cream); }
+.nh-dark-strip .nh-section-head p { color: rgba(255,250,240,.54); }
+
+/* ——— GRIDS ————————————————————————— */
+.nh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+.nh-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+/* ——— PARTICLE CARD ——————————————————— */
+.particle-card {
+  position: relative;
+  min-height: 210px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--jr-cream);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(178,138,85,.18), transparent 40%),
+    #111514;
+  border: 1px solid rgba(255,250,240,.09);
+  transition: border-color .18s, transform .18s;
+}
+.particle-card:hover {
+  border-color: rgba(178,138,85,.6);
+  transform: translateY(-3px);
+}
+.particle-card__deco {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 7.5rem;
+  font-weight: 400;
+  color: rgba(255,250,240,.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.particle-card__badge { margin-bottom: auto; }
+.particle-card__particle {
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--jr-gold);
+  line-height: 1;
+  margin: 12px 0 6px;
+}
+.particle-card__title {
+  font-family: var(--jr-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--jr-cream);
+  margin: 0 0 6px;
+  line-height: 1.22;
+}
+.particle-card__example {
+  font-size: .73rem;
+  color: rgba(255,250,240,.48);
+  line-height: 1.45;
+  font-style: italic;
+}
+
+/* ——— ADVERB CARD ———————————————————— */
+.adverb-card {
+  position: relative;
+  min-height: 186px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--jr-ink);
+  background: rgba(255,250,240,.78);
+  border: 1px solid rgba(17,21,19,.12);
+  overflow: hidden;
+  transition: border-color .18s, transform .18s;
+}
+.adverb-card:hover {
+  border-color: rgba(178,138,85,.58);
+  transform: translateY(-3px);
+}
+.adverb-card__deco {
+  position: absolute;
+  bottom: -18px;
+  right: 6px;
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 6rem;
+  font-weight: 400;
+  color: rgba(17,21,19,.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.adverb-card__word {
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--jr-red);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.adverb-card__romaji {
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: rgba(17,21,19,.42);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.adverb-card__meaning {
+  font-family: var(--jr-serif);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--jr-ink);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.adverb-card__nuance {
+  margin-top: auto;
+  font-size: .74rem;
+  color: rgba(17,21,19,.54);
+  line-height: 1.5;
+}
+
+/* ——— COMPARISON TABLE ——————————————— */
+.nh-compare {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: .9rem;
+}
+.nh-compare th {
+  padding: 10px 14px;
+  text-align: left;
+  background: rgba(17,21,19,.05);
+  border-bottom: 2px solid var(--jr-gold);
+  font-family: var(--jr-serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+.nh-compare td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--jr-line);
+  vertical-align: top;
+  line-height: 1.65;
+}
+.nh-compare td.cell-particle {
+  color: var(--jr-red);
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 1.2rem;
+  width: 56px;
+  white-space: nowrap;
+}
+
+/* ——— JAPANESE SAMPLE ———————————————— */
+.japanese-sample {
+  display: block;
+  margin: 16px 0;
+  padding: 16px 20px;
+  background: rgba(17,21,19,.04);
+  border-left: 3px solid var(--jr-gold);
+  font-family: "Yu Mincho","Hiragino Mincho ProN",Georgia,serif;
+  font-size: 1.32rem;
+  line-height: 1.65;
+  color: var(--jr-ink);
+}
+
+/* ——— DARK TOOL CARD ————————————————— */
+.nh-tool-card {
+  min-height: 160px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: var(--jr-cream);
+  background:
+    radial-gradient(circle at 80% 14%, rgba(165,31,43,.22), transparent 36%),
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02)),
+    #111514;
+  border: 1px solid rgba(255,250,240,.09);
+  transition: border-color .18s, transform .18s;
+}
+.nh-tool-card:hover { border-color: rgba(165,31,43,.5); transform: translateY(-3px); }
+.nh-tool-card strong {
+  font-family: var(--jr-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--jr-cream);
+  margin-bottom: 8px;
+}
+.nh-tool-card span {
+  font-size: .8rem;
+  color: rgba(255,250,240,.56);
+  line-height: 1.5;
+}
+.nh-tool-card em {
+  margin-bottom: auto;
+  color: var(--jr-red);
+  font-size: .56rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* ——— RESPONSIVE ————————————————————— */
+@media (max-width: 900px) {
+  .nh-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .nh-grid, .nh-grid-2, .nh-tool-grid { grid-template-columns: 1fr; }
+  .particle-card__deco { font-size: 5rem; }
+  .nh-trilha-item { grid-template-columns: 38px 1fr; }
+}
