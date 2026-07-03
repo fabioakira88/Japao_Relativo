@@ -1,0 +1,14 @@
+<svg width='512' height='512' xmlns='http://www.w3.org/2000/svg'>
+  <rect width='512' height='512' fill='#0b0f0d'/>
+  <defs>
+    <radialGradient id='g' cx='80%' cy='15%' r='60%'>
+      <stop offset='0%' stop-color='#b28a55' stop-opacity='0.30'/>
+      <stop offset='100%' stop-color='#b28a55' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect width='512' height='512' fill='url(#g)'/>
+  <rect x='0' y='0' width='512' height='5' fill='#b28a55'/>
+  <!-- JR. posicionado à esquerda com tamanho controlado -->
+  <text x='60' y='310' font-family='Georgia, Times New Roman, serif' font-size='200' font-weight='normal' fill='#fffaf0'>JR.</text>
+  <text x='62' y='385' font-family='Helvetica Neue, Helvetica, Arial, sans-serif' font-size='26' fill='#b28a55' letter-spacing='5'>JAPÃO RELATIVO</text>
+</svg>
