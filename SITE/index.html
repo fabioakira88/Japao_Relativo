@@ -1083,6 +1083,15 @@ body{background:#f5f2ed;color:var(--ink2)}
   .jr-latest-card-title{font-size:.88rem}
 }
 
+
+/* ── hero slides: texto overlay por categoria ────────────────────── */
+.hero-slide-inner{position:absolute;bottom:0;left:0;right:0;padding:48px 56px 60px;z-index:2;pointer-events:none}
+.hero-slide-cat{display:block;font-family:var(--font-support);font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:rgba(176,138,87,0.9);margin-bottom:14px}
+.hero-slide-title{font-family:var(--font-headline);font-size:clamp(2rem,4.2vw,4.6rem);font-weight:500;line-height:.95;color:var(--cream);max-width:780px;text-shadow:0 16px 50px rgba(0,0,0,.55);margin-bottom:14px}
+.hero-slide-sub{font-family:var(--font-support);font-size:clamp(.88rem,1.15vw,1rem);font-weight:300;line-height:1.72;color:rgba(245,241,234,.68);max-width:580px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:1000px){.hero-slide-inner{padding:36px 24px 44px}}
+@media(max-width:640px){.hero-slide-inner{padding:24px 18px 34px}.hero-slide-sub{display:none}}
+
 </style>
   <link rel="canonical" href="https://japaorelativo.com/">
 </head>
@@ -1304,7 +1313,7 @@ const DB = {
     coverCall:"Três dias. Montanha. Lama. Música.",
     tag:"Cultura",
     date:"2026-07-03",
-    thumb:"assets/covers/fuji-rock-festival-japao-julho-2026.jpg",
+    thumb:"assets/covers/gion-matsuri-kyoto-2026.jpg",
     content:`<p><strong>Desde 1997, o Fuji Rock Festival transforma a estação de esqui de Naeba, em Niigata, num dos maiores encontros de música ao ar livre do mundo.</strong> Em 2026, o evento volta de 25 a 27 de julho com mais de dez palcos espalhados pela montanha, artistas internacionais e a tradição de chuva que virou parte da identidade do festival.</p>
 <h2>O que é o Fuji Rock</h2>
 <p>O Fuji Rock não acontece na base do Monte Fuji. Naeba fica em Niigata, na costa norte do Japão — escolhida pela topografia montanhosa e pelo espaço. O festival tem palcos com nomes próprios: Green Stage, White Stage, Red Marquee, Field of Heaven. Cada um tem personalidade diferente, de grandes headliners ao experimentalismo independente.</p>
@@ -1326,7 +1335,7 @@ const DB = {
     coverCall:"Doze tochas. Uma montanha. Mil anos.",
     tag:"Cultura",
     date:"2026-07-03",
-    thumb:"assets/covers/nachi-no-hi-matsuri-julho-2026.jpg",
+    thumb:"assets/covers/tenjin-matsuri-osaka-2026.jpg",
     content:`<p><strong>Todo dia 14 de julho, doze tochas de cipestre em chamas descem a escadaria do Kumano Nachi Taisha numa cerimônia que mistura fogo, água, espiritualidade e mais de mil anos de tradição contínua.</strong> O Nachi no Hi Matsuri é um dos festivais mais visualmente impactantes do Japão — e praticamente desconhecido fora dos circuitos xintoístas.</p>
 <h2>O que acontece no festival</h2>
 <p>O ritual recria o encontro entre os deuses e os portadores sagrados. Doze mikoshi (santuários portáteis) são carregados escadaria abaixo enquanto doze portadores sustentam tochas de madeira de cipestre que chegam a seis metros de altura e 50 quilos. O fogo purifica o caminho. A cachoeira de Nachi — a mais alta do Japão com queda contínua de 133 metros — serve de pano de fundo.</p>
@@ -1346,7 +1355,7 @@ const DB = {
     coverCall:"Teto aberto, cerveja gelada, verão japonês.",
     tag:"Cultura",
     date:"2026-07-03",
-    thumb:"assets/covers/beer-garden-japao-verao-2026.jpg",
+    thumb:"assets/covers/por-que-o-consumo-de-alcool-e-tao-presente-na-cultura-japonesa.jpg",
     content:`<p><strong>No Japão, o beer garden não é um bar com mesas do lado de fora.</strong> É um evento sazonal com data marcada, buffet de churrasco, cerveja em quantidade controlada por tempo de sessão e uma atmosfera social que combina o formalismo japonês com a permissão de estar descontraído. É uma das raras ocasiões em que os japoneses se permitem barulho em público.</p>
 <h2>Como funciona</h2>
 <p>A maioria dos beer gardens opera com sistema de reserva e taxa fixa por pessoa — geralmente entre 3.500 e 6.000 ienes, incluindo buffet e bebida à vontade por 90 ou 120 minutos. Hotéis como o Sapporo Park Hotel, grandes lojas de departamento (Mitsukoshi, Isetan) e espaços como o topo do Roppongi Hills têm edições famosas. Cervejeiras como Asahi, Sapporo e Kirin também abrem espaços temáticos sazonais.</p>
@@ -1366,7 +1375,7 @@ const DB = {
     coverCall:"29 mil km de costa e a maioria ainda não foi.",
     tag:"Dicas",
     date:"2026-07-03",
-    thumb:"assets/covers/praias-japonesas-verao-guia-2026.jpg",
+    thumb:"assets/covers/umi-no-hi-dia-do-mar-japao-2026.jpg",
     content:`<p><strong>O Japão tem 29 mil quilômetros de costa e praias abertas para banho praticamente em todas as prefeituras litorâneas.</strong> A maioria dos brasileiros que mora no país nunca foi a uma praia japonesa — ou foi uma vez a Kamakura e achou que era o padrão. Não é.</p>
 <h2>Shonan — a praia de Tóquio</h2>
 <p>A costa de Shonan, entre Kamakura e Chigasaki, é a mais próxima de Tóquio (40 a 60 minutos de trem). Em julho e agosto fica lotada. Chegar antes das 10h ou depois das 16h faz diferença. Enoshima é o destino clássico com ilha conectada por passeio a pé, frutos do mar e pôr do sol famoso.</p>
@@ -1388,7 +1397,7 @@ const DB = {
     coverCall:"O Japão explode em cor toda semana de julho a agosto.",
     tag:"Cultura",
     date:"2026-07-03",
-    thumb:"assets/covers/hanabi-guia-festivais-fogos-2026.jpg",
+    thumb:"assets/covers/tanabata-lenda-festival-japao.jpg",
     content:`<p><strong>De julho ao início de setembro, o Japão tem um festival de fogos artificiais quase todo fim de semana.</strong> O Sumida Hanabi em Tóquio é o mais famoso — e o mais disputado. Mas tem opções igualmente impressionantes com menos gente, melhores ângulos e, em alguns casos, história mais antiga.</p>
 <h2>Edogawa e Ichikawa Hanabi</h2>
 <p>Na mesma semana do Sumida, o festival de Edogawa e Ichikawa acontece no rio que divide Tóquio de Chiba. Dois municípios, dois palcos de lançamento simultâneos, 14 mil fogos. A multidão é menor que no Sumida e há mais espaço para se sentar. Data: geralmente o mesmo sábado do Sumida.</p>
@@ -5310,39 +5319,46 @@ function buildFadeHero() {
   var container = document.getElementById("heroSlides");
   if (!container) return;
 
-  var isMobile = window.innerWidth <= 828;
-  var heroBanners = isMobile ? [
-    "assets/hero/hero-fuji-sakura-mobile.webp",
-    "assets/hero/hero-arrozal-mobile.webp",
-    "assets/hero/hero-tokyo-mobile.webp",
-    "assets/hero/hero-folclore-mobile.webp",
-    "assets/hero/hero-arquitetura-mobile.webp"
-  ] : [
-    "assets/hero/hero-fuji-sakura-desktop.webp",
-    "assets/hero/hero-arrozal-desktop.webp",
-    "assets/hero/hero-tokyo-desktop.webp",
-    "assets/hero/hero-folclore-desktop.webp",
-    "assets/hero/hero-arquitetura-desktop.webp"
+  // 1 post por categoria principal — mostra a proposta editorial do site
+  var sections = [
+    { label: 'NOTÍCIA',  fn: function(p) { return p.tag === 'Notícia'; } },
+    { label: 'CULTURA',  fn: function(p) { return p.tag === 'Cultura'; } },
+    { label: 'IDIOMA',   fn: function(p) { return p.tag === 'Idioma'; } },
+    { label: 'ANIME',    fn: function(p) { return p.tag === 'Anime'; } },
+    { label: 'DICAS',    fn: function(p) { return p.tag === 'Dicas'; } },
+    { label: 'ARTIGOS',  fn: function(p) { return p.tag === 'Artigos'; } }
   ];
 
-  heroPostsData = posts.filter(function(p){ return p.tag === "Not\u00edcia"; }).slice(0, 6);
-  heroAllData = heroPostsData.slice();
+  var items = sections.map(function(s) {
+    var post = posts.find(s.fn);
+    return post ? { post: post, label: s.label } : null;
+  }).filter(Boolean);
 
-  heroBanners.forEach(function(src, index) {
-    var slide = document.createElement("div");
-    slide.className = "hero-bg-slide" + (index === 0 ? " active" : "");
-    slide.style.backgroundImage = "url(\"" + src + "\")";
+  if (!items.length) return;
+
+  items.forEach(function(item, index) {
+    var slide = document.createElement('div');
+    slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
+    slide.style.backgroundImage = 'url("' + item.post.thumb + '")';
+    slide.style.cursor = 'pointer';
+    slide.addEventListener('click', function() { showPost(item.post.slug); });
+    slide.innerHTML =
+      '<div class="hero-slide-inner">' +
+        '<span class="hero-slide-cat">' + item.label + '</span>' +
+        '<h2 class="hero-slide-title">' + item.post.title + '</h2>' +
+        '<p class="hero-slide-sub">' + (item.post.subtitle || '') + '</p>' +
+      '</div>';
     container.appendChild(slide);
   });
 
-  var slides = container.querySelectorAll(".hero-bg-slide");
+  var allSlides = container.querySelectorAll('.hero-bg-slide');
   var current = 0;
-  if (slides.length < 2) return;
+  if (allSlides.length < 2) return;
 
   setInterval(function() {
-    slides[current].classList.remove("active");
-    current = (current + 1) % slides.length;
-    slides[current].classList.add("active");
+    allSlides[current].classList.remove('active');
+    current = (current + 1) % allSlides.length;
+    allSlides[current].classList.add('active');
   }, 5600);
 }
 
