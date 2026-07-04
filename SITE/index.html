@@ -1253,29 +1253,32 @@ body{background:#f5f2ed;color:var(--ink2)}
     linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.28) 42%, transparent 72%);
 }
 
-/* ── Camada textual: UMA por vez ── */
-#heroSection .hero-slide-inner {
+/* ── Painel de texto único (fora dos slides) ── */
+/* Abordagem: 1 elemento, sempre visível, atualizado via JS.        */
+/* Elimina FOUC por design: nenhum opacity juggling em 6 elementos. */
+#heroSection .hero-text-panel {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   padding: 0 56px 64px;
   z-index: 10;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity .4s ease;
-}
-#heroSection .hero-bg-slide.active .hero-slide-inner {
   opacity: 1;
-  transition: opacity .6s ease .85s;
+  transition: opacity .28s ease;
 }
-/* Scrim suave atrás do texto */
-#heroSection .hero-slide-inner::before {
+#heroSection .hero-text-panel.hero-panel-fading {
+  opacity: 0;
+}
+/* Scrim atrás do texto */
+#heroSection .hero-text-panel::before {
   content: '';
   position: absolute;
   inset: 0 -60px -64px -60px;
-  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.38) 55%, rgba(0,0,0,.58) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.42) 52%, rgba(0,0,0,.62) 100%);
   z-index: -1;
   pointer-events: none;
 }
+/* Compatibilidade: se houver hero-slide-inner (fallback), manter invisível */
+#heroSection .hero-slide-inner { display: none !important; }
 
 /* ── Categoria ── */
 #heroSection .hero-slide-cat {
@@ -1323,7 +1326,7 @@ body{background:#f5f2ed;color:var(--ink2)}
   #heroSection { min-height: 52vh; }
   #heroSection::after { left: 24px; right: 24px; bottom: 40px; }
   #heroSection .nav { padding: 20px 24px; }
-  #heroSection .hero-slide-inner { padding: 0 24px 48px; }
+  #heroSection .hero-text-panel { padding: 0 24px 48px; }
 }
 
 /* ════════════ RESPONSIVO: 760px ════════════
@@ -1394,12 +1397,23 @@ body{background:#f5f2ed;color:var(--ink2)}
       linear-gradient(0deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.42) 52%, transparent 80%);
   }
 
-  #heroSection .hero-slide-inner { padding: 0 18px 40px; }
+  #heroSection .hero-text-panel { padding: 0 18px 44px; }
   #heroSection .hero-slide-title {
-    font-size: clamp(1.9rem, 7.5vw, 2.6rem);
-    max-width: 14ch;
+    font-size: clamp(1.75rem, 7vw, 2.4rem);
+    max-width: 16ch;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
   }
-  #heroSection .hero-slide-sub { display: none; }
+  #heroSection .hero-slide-sub {
+    font-size: clamp(.82rem, 3.8vw, .95rem);
+    line-height: 1.42;
+    max-width: 36ch;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: .85;
+  }
 }
 
 </style>
@@ -1432,6 +1446,11 @@ body{background:#f5f2ed;color:var(--ink2)}
     </button>
   </nav>
   <div class="hero-bg-slides" id="heroSlides"></div>
+  <div class="hero-text-panel" id="heroTextPanel" aria-live="polite" aria-atomic="true">
+    <span class="hero-slide-cat" id="ht-cat"></span>
+    <h2 class="hero-slide-title" id="ht-title"></h2>
+    <p class="hero-slide-sub" id="ht-sub"></p>
+  </div>
 </section>
 
 <!-- ======================== ÚLTIMAS PUBLICAÇÕES ======================== -->
@@ -5635,17 +5654,17 @@ function buildLatestStrip() {
 }
 
 function buildFadeHero() {
-  var container = document.getElementById("heroSlides");
-  if (!container) return;
+  var container = document.getElementById('heroSlides');
+  var panel     = document.getElementById('heroTextPanel');
+  if (!container || !panel) return;
 
-  // 1 post por categoria principal — mostra a proposta editorial do site
   var sections = [
-    { label: 'NOTÍCIA',  fn: function(p) { return p.tag === 'Notícia'; } },
-    { label: 'CULTURA',  fn: function(p) { return p.tag === 'Cultura'; } },
-    { label: 'IDIOMA',   fn: function(p) { return p.tag === 'Idioma'; } },
-    { label: 'ANIME',    fn: function(p) { return p.tag === 'Anime'; } },
-    { label: 'DICAS',    fn: function(p) { return p.tag === 'Dicas'; } },
-    { label: 'ARTIGOS',  fn: function(p) { return p.tag === 'Artigos'; } }
+    { label: 'NOTÍCIA', fn: function(p) { return p.tag === 'Notícia'; } },
+    { label: 'CULTURA', fn: function(p) { return p.tag === 'Cultura'; } },
+    { label: 'IDIOMA',  fn: function(p) { return p.tag === 'Idioma'; } },
+    { label: 'ANIME',   fn: function(p) { return p.tag === 'Anime'; } },
+    { label: 'DICAS',   fn: function(p) { return p.tag === 'Dicas'; } },
+    { label: 'ARTIGOS', fn: function(p) { return p.tag === 'Artigos'; } }
   ];
 
   var items = sections.map(function(s) {
@@ -5655,48 +5674,50 @@ function buildFadeHero() {
 
   if (!items.length) return;
 
+  // Slides carregam APENAS imagem de fundo — sem texto interno.
+  // Texto fica no #heroTextPanel único, fora dos slides.
+  // Isso elimina o FOUC por design: não há múltiplos elementos
+  // de texto que precisam de opacity management.
   items.forEach(function(item, index) {
     var slide = document.createElement('div');
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
     slide.style.backgroundImage = 'url("' + item.post.thumb + '")';
     slide.style.cursor = 'pointer';
     slide.addEventListener('click', function() { navigateTo(item.post.id); });
-    slide.innerHTML =
-      '<div class="hero-slide-inner">' +
-        '<span class="hero-slide-cat">' + item.label + '</span>' +
-        '<h2 class="hero-slide-title">' + item.post.title + '</h2>' +
-        '<p class="hero-slide-sub">' + (item.post.subtitle || '') + '</p>' +
-      '</div>';
     container.appendChild(slide);
   });
 
-  var allSlides = container.querySelectorAll('.hero-bg-slide');
+  var catEl   = document.getElementById('ht-cat');
+  var titleEl = document.getElementById('ht-title');
+  var subEl   = document.getElementById('ht-sub');
+
+  // Preencher painel com o primeiro slide (instantâneo, sem fade)
+  if (catEl)   catEl.textContent   = items[0].label;
+  if (titleEl) titleEl.textContent = items[0].post.title;
+  if (subEl)   subEl.textContent   = items[0].post.subtitle || '';
+
+  var allSlides = container.getElementsByClassName('hero-bg-slide');
   var current = 0;
   if (allSlides.length < 2) return;
 
-  // FOUC fix: suprimir transição inicial opacity:1→0
-  // (browser anima do valor inicial 1 até 0 via CSS, mostrando todos os textos)
-  var allInners = container.querySelectorAll('.hero-slide-inner');
-  allInners.forEach(function(el) {
-    el.style.transition = 'none';
-    el.style.opacity    = '0';
-  });
-  container.offsetHeight; // força reflow — "congela" opacity:0 como estado inicial
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      allInners.forEach(function(el) {
-        el.style.transition = '';
-        el.style.opacity    = '';
-      });
-      // Agora CSS toma conta: não-ativos ficam em 0 (sem transição),
-      // ativo recebe opacity:1 com delay .85s conforme CSS
-    });
-  });
+  // Fade do painel de texto ao trocar de slide
+  var fadeTimer = null;
+  function updatePanel(index) {
+    panel.classList.add('hero-panel-fading');
+    clearTimeout(fadeTimer);
+    fadeTimer = setTimeout(function() {
+      if (catEl)   catEl.textContent   = items[index].label;
+      if (titleEl) titleEl.textContent = items[index].post.title;
+      if (subEl)   subEl.textContent   = items[index].post.subtitle || '';
+      panel.classList.remove('hero-panel-fading');
+    }, 280);
+  }
 
   setInterval(function() {
     allSlides[current].classList.remove('active');
     current = (current + 1) % allSlides.length;
     allSlides[current].classList.add('active');
+    updatePanel(current);
   }, 5600);
 }
 
