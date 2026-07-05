@@ -47,13 +47,34 @@ logs/
 EXPORTS/
 BRANDING/
 JAPAO_RELATIVO_IMAGES/
+JAPAO_RELATIVO_IMAGES.zip
 SOCIAL_MEDIA/
 VIDEO/
 
-# Backups de HTML
+# Bases de dados e scripts de geração de conteúdo
+*.db
+*.sqlite
+*.sqlite3
+build_*.py
+
+# Relatórios de auditoria gerados automaticamente
+MISSION_*.md
+ASSET_*.md
+BACKUP_POLICY.md
+DEPLOY_CHECKLIST.md
+ENGINEERING_STRUCTURE.md
+REPOSITORY_STANDARDS.md
+TECHNICAL_DEBT.md
+
+# Backups de HTML e scripts antigos
 *.bak
 *.bak-*
 *.bak_*
+ARCHIVE/
 
-# Pastas vazias de staging
+# Documentação interna (não faz parte do site publicado)
+DOCS/
+AION_CONTENT_ENGINE/
+
+# Pastas de staging vazias
 SITE/Imagens JR/

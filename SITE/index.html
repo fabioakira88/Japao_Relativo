@@ -282,151 +282,15 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
       rgba(8,8,8,0.88) 100%
     );
 }
-.hero-news-label {
-  position:relative;
-  z-index:2;
-  width:min(720px, 100%);
-  margin:0;
-  padding-left:24px;
-  text-align:left;
-  background:transparent;
-  backdrop-filter:none;
-  border:none;
-  border-left:1px solid rgba(176,138,87,0.72);
-  border-radius:0;
-  box-shadow:none;
-  cursor:pointer;
-  transition:opacity .3s ease, transform .3s ease;
-}
-.hero-news-label:hover {
-  transform:translateX(4px);
-}
-.hsl-tag {
-  display:inline-block;
-  font-family:var(--font-support);
-  font-size:9px;
-  font-weight:500;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  background:transparent;
-  border:1px solid rgba(176,138,87,0.52);
-  padding:5px 11px;
-  border-radius:999px;
-  margin-bottom:18px;
-}
-.hsl-title {
-  font-family:var(--font-headline);
-  font-size:clamp(2.9rem, 5vw, 5.8rem);
-  font-weight:500;
-  letter-spacing:-0.035em;
-  line-height:0.95;
-  color:var(--cream);
-  max-width:760px;
-  text-wrap:balance;
-  text-shadow:0 20px 58px rgba(0,0,0,.55);
-}
-.hsl-excerpt {
-  font-family:var(--font-support);
-  font-size:clamp(.92rem, 1.15vw, 1.04rem);
-  font-weight:300;
-  color:rgba(245,241,234,.76);
-  line-height:1.68;
-  max-width:600px;
-  margin-top:22px;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  line-clamp:2;
-  overflow:hidden;
-}
-.hsl-cta {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:28px;
-  font-family:var(--font-support);
-  font-size:10px;
-  font-weight:500;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--cream);
-  border-bottom:1px solid rgba(176,138,87,.62);
-  padding-bottom:5px;
-}
 /* ============================================================
-   RESPONSIVO — NAV + HERO
+   RESPONSIVO — NAV
    ============================================================ */
-@media (max-width:1180px) {
-  .nav {
-    min-height:78px;
-    padding:18px 28px;
-  }
-  .nav-logo-img {
-    width:46px;
-    height:46px;
-  }
-  .nav-links {
-    gap:18px;
-  }
-  .nav-links a {
-    font-size:9px;
-    letter-spacing:.14em;
-  }
-  .hsl-title {
-    font-size:clamp(2.55rem, 5.4vw, 4.6rem);
-    max-width:660px;
-  }
-}
 @media (max-width:920px) {
-  .nav {
-    min-height:72px;
-    padding:14px 20px;
-  }
-  .nav-logo-img {
-    width:42px;
-    height:42px;
-  }
-  .nav-logo-text {
-    font-size:18px;
-  }
   .nav-links {
     display:none;
   }
   .nav-toggle {
     display:flex;
-  }
-  .hero {
-    min-height:680px;
-    padding:132px 20px 48px;
-  }
-  .hero-news-label {
-    width:100%;
-    padding-left:18px;
-  }
-  .hsl-title {
-    font-size:clamp(2.35rem, 10vw, 4rem);
-    max-width:100%;
-  }
-  .hsl-excerpt {
-    font-size:.94rem;
-    max-width:100%;
-  }
-}
-@media (max-width:520px) {
-  .hero {
-    min-height:640px;
-    padding-top:118px;
-    padding-bottom:42px;
-  }
-  .hsl-title {
-    font-size:clamp(2.15rem, 11vw, 3.35rem);
-    line-height:.98;
-  }
-  .hsl-excerpt {
-    margin-top:18px;
-    -webkit-line-clamp:3;
-    line-clamp:3;
   }
 }
 
@@ -1332,15 +1196,6 @@ body{background:#f5f2ed;color:var(--ink2)}
 }
 
 
-/* ── hero slides: texto overlay por categoria ────────────────────── */
-.hero-slide-inner{position:absolute;bottom:0;left:0;right:0;padding:48px 56px 60px;z-index:2;pointer-events:none;opacity:0;transition:opacity .4s ease}
-.hero-bg-slide.active .hero-slide-inner{opacity:1;transition:opacity .6s ease .85s}
-.hero-slide-inner::before{content:'';position:absolute;inset:0 -60px -60px -60px;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.42) 60%,rgba(0,0,0,.62) 100%);z-index:-1;pointer-events:none}
-.hero-slide-cat{display:block;font-family:var(--font-support);font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:rgba(176,138,87,0.9);margin-bottom:14px}
-.hero-slide-title{font-family:var(--font-headline);font-size:clamp(2.4rem,4.8vw,5.2rem);font-weight:500;line-height:0.96;color:var(--cream);max-width:11ch;text-shadow:0 2px 8px rgba(0,0,0,.9),0 8px 32px rgba(0,0,0,.75);margin-bottom:12px;text-wrap:balance}
-.hero-slide-sub{font-family:var(--font-support);font-size:clamp(1rem,1.2vw,1.2rem);font-weight:300;line-height:1.45;color:rgba(245,241,234,.78);max-width:56ch;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-shadow:0 1px 6px rgba(0,0,0,.8),0 4px 16px rgba(0,0,0,.6)}
-@media(max-width:1000px){.hero-slide-inner{padding:36px 24px 44px}}
-@media(max-width:640px){.hero-slide-inner{padding:24px 18px 34px}.hero-slide-sub{display:none}}
 
 
 /* ================================================================
@@ -1352,7 +1207,7 @@ body{background:#f5f2ed;color:var(--ink2)}
 /* ── Dimensões e overflow ── */
 #heroSection {
   position: relative;
-  min-height: 56vh;
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1376,31 +1231,25 @@ body{background:#f5f2ed;color:var(--ink2)}
   pointer-events: none;
 }
 
-/* ── NAV: logo esquerda, links direita, separador visual ── */
+/* ── NAV: logo esquerda, links direita ── */
 #heroSection .nav {
   position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   padding: 24px 56px;
-  background: transparent;
+  background: linear-gradient(180deg, rgba(5,5,5,0.56) 0%, rgba(5,5,5,0.18) 60%, rgba(5,5,5,0) 100%);
   border: none;
   width: auto;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
 }
-
-/* Logo: esquerda, separador visual à direita */
 #heroSection .nav .nav-logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  padding-right: 28px;
-  border-right: 1px solid rgba(245,241,234,.16);
-  margin-right: 0;
 }
 #heroSection .nav .nav-logo-text {
   font-family: var(--font-headline);
@@ -1419,16 +1268,14 @@ body{background:#f5f2ed;color:var(--ink2)}
   color: rgba(245,241,234,.42);
   font-style: normal;
 }
-
-/* Links: à direita da logo, com espaço entre */
+/* Links: empurrados para a direita */
 #heroSection .nav .nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
   list-style: none;
   padding: 0;
-  margin-left: 32px;
-  padding-top: 0;
+  margin-left: auto;
 }
 #heroSection .nav .nav-links a {
   font-family: var(--font-support);
