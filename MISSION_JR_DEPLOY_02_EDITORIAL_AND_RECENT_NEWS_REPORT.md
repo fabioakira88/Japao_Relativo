@@ -10,13 +10,15 @@
 
 ## HEAD Final
 
-`3e3aacf Add JR July editorial news and finance package`
+`98230e3 Limit JR Pages deploy triggers`
 
 ## Commits Criados Nesta Missão
 
 - `2c9f696 Fix GitHub Pages deploy workflow`
 - `3887f45 Fix JR recent content ordering and section limits`
 - `3e3aacf Add JR July editorial news and finance package`
+- `2e7a363 Add JR deploy editorial report`
+- `98230e3 Limit JR Pages deploy triggers`
 
 ## GitHub Pages
 
@@ -40,10 +42,12 @@ Ação tomada:
 
 - Removido o override experimental `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24` do workflow.
 - Deploy voltou a concluir com sucesso no commit `2c9f696`.
+- Após o relatório, o workflow foi limitado para rodar automaticamente apenas quando houver mudanças em `SITE/**`, `CNAME` ou `.github/workflows/deploy.yml`, evitando deploy desnecessário em commits documentais.
 
 Status final do Pages:
 
 - Deploy `28789096989`: success
+- Deploy final `28789968035`: success
 - Site público validado em `https://japaorelativo.com/`
 
 ## Conteúdos Novos Criados
@@ -159,6 +163,7 @@ Atualizações:
 ## Riscos Pendentes
 
 - O commit `191c221` é um commit vazio anterior, usado antes desta missão para tentar destravar Pages. Ele permanece no histórico porque não houve reset nem force push.
+- O run `28789665692` falhou porque o commit de relatório disparou Pages sem alterar `SITE`. Isso foi mitigado pelo commit `98230e3`, que limita os gatilhos automáticos do workflow.
 - O pacote editorial novo priorizou guias e matérias de serviço com fontes oficiais. Notícias quentes devem continuar sendo adicionadas em pacotes separados, com checagem fonte a fonte.
 - Algumas capas antigas do acervo ainda podem merecer auditoria visual futura.
 
