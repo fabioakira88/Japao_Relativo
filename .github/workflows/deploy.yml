@@ -3,6 +3,10 @@ name: Deploy Japão Relativo
 on:
   push:
     branches: [main]
+    paths:
+      - "SITE/**"
+      - "CNAME"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
