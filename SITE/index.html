@@ -5705,9 +5705,32 @@ Pode usar isso.</p>
 // STATE
 // ======================================================
 const posts = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
+
+const MONTHS_PT = {
+  janeiro: 0, fevereiro: 1, março: 2, marco: 2, abril: 3, maio: 4, junho: 5,
+  julho: 6, agosto: 7, setembro: 8, outubro: 9, novembro: 10, dezembro: 11
+};
+
+function parsePostDate(value) {
+  if (!value) return 0;
+  var raw = String(value).trim();
+  var iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) return Date.UTC(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]));
+  var br = raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').match(/^(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})$/);
+  if (br && MONTHS_PT[br[2]] !== undefined) return Date.UTC(Number(br[3]), MONTHS_PT[br[2]], Number(br[1]));
+  var fallback = Date.parse(raw);
+  return Number.isNaN(fallback) ? 0 : fallback;
+}
+
+function byRecentDate(a, b) {
+  var diff = parsePostDate(b.date) - parsePostDate(a.date);
+  return diff || posts.findIndex(function(p) { return p.id === a.id; }) - posts.findIndex(function(p) { return p.id === b.id; });
+}
+
+const recentPosts = [...posts].sort(byRecentDate);
 let visibleCount = 8;
 let currentFilter = 'all';
-let filteredPosts = [...posts];
+let filteredPosts = [...recentPosts];
 
 // ======================================================
 // RENDER FUNCTIONS
@@ -5770,14 +5793,14 @@ function buildMainGrid(items) {
   updateSectionHeading(currentFilter);
 
   const articleItems = isHome
-    ? posts.slice(0, 3)
+    ? recentPosts.slice(0, 3)
     : items.slice(0, 3);
   const featuredIds = articleItems.map(function(post) { return post.id; });
   const miniPosts = isHome
-    ? posts.filter(function(post) {
+    ? recentPosts.filter(function(post) {
         return post.tag === 'Notícia' && featuredIds.indexOf(post.id) === -1;
-      }).slice(0, 4)
-    : items.slice(3, 7);
+      }).slice(0, 6)
+    : items.slice(3, 9);
 
   articleItems.forEach(function(post, index) {
     const excerpt = extractExcerpt(post.content, 145);
@@ -5871,7 +5894,7 @@ function buildQuickNews() {
   const grid = document.getElementById('quickNewsGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  posts.filter(function(p){ return p.tag === 'Notícia'; }).slice(0, 8).forEach(function(post) {
+  recentPosts.filter(function(p){ return p.tag === 'Notícia'; }).slice(0, 9).forEach(function(post) {
     const a = document.createElement('a');
     a.className = 'quick-card';
     a.href = '#' + post.id;
@@ -5890,7 +5913,7 @@ function buildMoreGrid() {
   const grid = document.getElementById('moreGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  posts.slice(8, 16).forEach(function(post) {
+  recentPosts.slice(9, 21).forEach(function(post) {
     const excerpt = extractExcerpt(post.content, 90);
     const a = document.createElement('a');
     a.className = 'card-h';
@@ -5915,7 +5938,7 @@ function buildMoreGrid() {
 function buildStrip() {
   const strip = document.getElementById('strip');
   strip.innerHTML = '';
-  posts.slice(0, 3).forEach(function(post) {
+  recentPosts.slice(0, 3).forEach(function(post) {
     const a = document.createElement('a');
     a.className = 'strip-item';
     a.href = '#' + post.id;
@@ -5952,9 +5975,9 @@ const CATEGORY_MAP = {
 };
 
 function getPostsByCategory(cat) {
-  if (cat === 'all') return [...posts];
+  if (cat === 'all') return [...recentPosts];
   const tags = CATEGORY_MAP[cat] || [cat];
-  return posts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
+  return recentPosts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
 }
 
 function setActiveNav(cat) {
@@ -6115,10 +6138,10 @@ function buildLatestStrip() {
   var heroTags = ['Notícia','Cultura','Idioma','Anime','Dicas','Artigos'];
   var usedIds = {};
   heroTags.forEach(function(tag) {
-    var p = posts.find(function(x){ return x.tag === tag; });
+    var p = recentPosts.find(function(x){ return x.tag === tag; });
     if (p) usedIds[p.id] = true;
   });
-  var latest = posts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 5);
+  var latest = recentPosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 8);
   latest.forEach(function(post) {
     var a = document.createElement('a');
     a.className = 'jr-latest-card';
@@ -6151,7 +6174,7 @@ function buildFadeHero() {
   ];
 
   var items = sections.map(function(s) {
-    var post = posts.find(s.fn);
+    var post = recentPosts.find(s.fn);
     return post ? { post: post, label: s.label } : null;
   }).filter(Boolean);
 
