@@ -6405,6 +6405,9 @@ function buildFadeHero() {
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
     slide.style.backgroundImage = 'url("' + item.post.thumb + '")';
     slide.style.cursor = 'pointer';
+    slide.style.pointerEvents = index === 0 ? 'auto' : 'none';
+    slide.setAttribute('role', 'link');
+    slide.setAttribute('aria-label', item.post.title);
     slide.addEventListener('click', function() { navigateTo(item.post.id); });
     container.appendChild(slide);
   });
@@ -6417,9 +6420,33 @@ function buildFadeHero() {
   if (catEl)   catEl.textContent   = items[0].label;
   if (titleEl) titleEl.textContent = items[0].post.title;
   if (subEl)   subEl.textContent   = items[0].post.subtitle || '';
+  panel.style.cursor = 'pointer';
+  panel.setAttribute('role', 'link');
+  panel.setAttribute('tabindex', '0');
+  panel.setAttribute('aria-label', items[0].post.title);
 
   var allSlides = container.getElementsByClassName('hero-bg-slide');
   var current = 0;
+
+  function updateHeroTargets(index) {
+    Array.prototype.forEach.call(allSlides, function(slide, slideIndex) {
+      slide.style.pointerEvents = slideIndex === index ? 'auto' : 'none';
+      slide.setAttribute('aria-hidden', slideIndex === index ? 'false' : 'true');
+    });
+    panel.setAttribute('aria-label', items[index].post.title);
+  }
+
+  panel.addEventListener('click', function() {
+    navigateTo(items[current].post.id);
+  });
+
+  panel.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      navigateTo(items[current].post.id);
+    }
+  });
+  updateHeroTargets(current);
   if (allSlides.length < 2) return;
 
   // Fade do painel de texto ao trocar de slide
@@ -6437,8 +6464,10 @@ function buildFadeHero() {
 
   setInterval(function() {
     allSlides[current].classList.remove('active');
+    allSlides[current].style.pointerEvents = 'none';
     current = (current + 1) % allSlides.length;
     allSlides[current].classList.add('active');
+    updateHeroTargets(current);
     updatePanel(current);
   }, 5600);
 }
