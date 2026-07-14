@@ -631,6 +631,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .article-view {
   display:none;
   background:#f4f1ec;min-height:100vh;
+  width:100%;
+  overflow-x:hidden;
 }
 .article-header-hero {
   height:420px;position:relative;overflow:hidden;
@@ -648,6 +650,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   max-width:780px;margin:0 auto;
   padding:0 32px 80px;
   position:relative;margin-top:-80px;
+  box-sizing:border-box;
 }
 .btn-back {
   display:inline-flex;align-items:center;gap:8px;
@@ -672,6 +675,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-weight:500;letter-spacing:-1px;
   line-height:.98;color:#111;
   margin-bottom:16px;
+  max-width:100%;
+  overflow-wrap:anywhere;
 }
 .a-subtitle {
   font-size:clamp(1.05rem,2vw,1.28rem);
@@ -679,6 +684,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color:#4f4a43;
   margin:0 0 18px;
   font-weight:300;
+  max-width:100%;
+  overflow-wrap:anywhere;
 }
 .a-meta {
   display:flex;gap:16px;align-items:center;
@@ -688,7 +695,7 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color:#999;font-size:13px;
 }
 .a-meta .sep{color:#ccc}
-.a-body{font-size:17px;line-height:1.85;color:#222;font-family:var(--font-support);font-weight:300}
+.a-body{font-size:17px;line-height:1.85;color:#222;font-family:var(--font-support);font-weight:300;max-width:100%;overflow-wrap:break-word}
 .a-body p{margin-bottom:20px}
 .a-body h2 {
   font-family:var(--font-headline);
@@ -706,9 +713,10 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   color:#7a5020;font-style:italic;
   border-radius:0 6px 6px 0;
   font-size:16px;line-height:1.7;
+  overflow-wrap:anywhere;
 }
 .a-body strong{color:#000;font-weight:700}
-.a-body img{height:auto;max-width:100%}
+.a-body img{height:auto;max-width:100%;box-sizing:border-box}
 
 /* Reading mode */
 body.reading-mode .site-main { display:none }
@@ -722,14 +730,52 @@ body.reading-mode .nav {
 
 @media(max-width:1400px) {
   .article-header-hero{height:300px}
-  .article-inner{width:min(780px, calc(100vw - 64px))!important;max-width:calc(100vw - 64px)!important;padding:0 0 66px;margin:0 auto;margin-top:-58px}
+  .article-inner{width:calc(100% - 48px)!important;max-width:calc(100vw - 48px)!important;padding:0 0 66px;margin:0 auto;margin-top:-58px}
   #renderTarget{max-width:100%}
-  .article-view h1{max-width:100%;font-size:clamp(1.8rem,7.8vw,2.5rem);line-height:1.02;overflow-wrap:anywhere}
+  .article-view h1,
+  .a-subtitle,
+  .a-meta,
+  .a-body,
+  .a-body p,
+  .a-body li,
+  .a-body h2,
+  .a-body h3{max-width:100%;box-sizing:border-box}
+  .article-view h1{max-width:8.8em;font-size:clamp(1.72rem,7.2vw,2.25rem);line-height:1.04;overflow-wrap:anywhere;word-break:break-word}
   .a-subtitle{font-size:1rem;line-height:1.68;max-width:100%;overflow-wrap:anywhere}
   .a-meta{gap:10px 14px;flex-wrap:wrap}
   .a-body{font-size:16px;line-height:1.72;max-width:100%;overflow-wrap:anywhere}
   .a-body h2{font-size:2rem;line-height:1.05;margin-top:34px}
   .a-body h3{font-size:1.55rem;line-height:1.12}
+}
+
+@media(max-width:500px) {
+  .article-inner{
+    width:min(300px, calc(100vw - 96px))!important;
+    max-width:min(300px, calc(100vw - 96px))!important;
+    margin-left:24px!important;
+    margin-right:auto!important;
+  }
+  #renderTarget,
+  .article-view h1,
+  .a-subtitle,
+  .a-meta,
+  .a-body{
+    width:100%;
+    max-width:100%;
+  }
+  .article-view h1{
+    font-size:clamp(1.68rem,6.8vw,2.05rem);
+    letter-spacing:-.3px;
+  }
+  .a-body{
+    font-size:15.7px;
+  }
+  .a-body p,
+  .a-body li,
+  .a-body strong{
+    overflow-wrap:normal;
+    word-break:normal;
+  }
 }
 
 /* ============================================================
@@ -1720,6 +1766,70 @@ body{background:#f5f2ed;color:var(--ink2)}
 // DATABASE — Add new posts here easily!
 // ======================================================
 const DB = {
+
+  "amazon-flex-japao-passo-a-passo": {
+    title:"Amazon Flex No Japão: Passo A Passo Para Começar",
+    subtitle:"Antes de aceitar blocos no app, entenda a placa preta, o cadastro, os custos e a rotina real de entrega.",
+    description:"Guia prático para quem quer começar no Amazon Flex no Japão: requisitos, placa preta, cadastro no aplicativo, documentos, rotina no armazém, custos e cuidados legais.",
+    metaTitle:"Amazon Flex no Japão: passo a passo para começar",
+    metaDescription:"Veja como começar no Amazon Flex no Japão: disponibilidade por região, placa preta, cadastro no app, documentos, seguro, custos e rotina de entrega.",
+    keywords:["Amazon Flex Japão","como trabalhar com Amazon Flex no Japão","placa preta Japão entregas","kei van Amazon Flex","dicas trabalho Japão","entregador autônomo Japão"],
+    category:"Dicas / Trabalho",
+    coverCall:"Do app ao armazém: o que conferir antes da primeira rota.",
+    tag:"Dicas",
+    date:"2026-07-14",
+    thumb:"assets/covers/amazon-flex-japao-passo-a-passo-cover.jpg",
+    content:`<p><strong>Trabalhar com Amazon Flex no Japão pode parecer simples visto de fora: baixar um app, escolher um horário, buscar pacotes e entregar.</strong> Na prática, antes do primeiro bloco existe uma parte menos glamourosa e muito importante: veículo adequado, placa comercial, documentos, seguro, conta bancária, disponibilidade por região e responsabilidade de autônomo.</p>
+<img src="assets/covers/amazon-flex-japao-passo-a-passo-cover.jpg" alt="Kei van de entrega com placa comercial preta em frente a armazém japonês" style="width:100%;border-radius:10px;display:block;margin:24px 0;object-fit:cover;aspect-ratio:16/9;">
+<p>Este guia é para quem mora no Japão e quer entender o caminho com calma. As regras podem mudar conforme região, análise cadastral e exigências do aplicativo, então use a matéria como roteiro inicial e confirme sempre no site oficial do Amazon Flex Japão, no app e no escritório de transporte da sua área.</p>
+<h2>1. Entenda o que é o Amazon Flex</h2>
+<p>Na camada Amazon, o Amazon Flex funciona com parceiros de entrega independentes. Isso significa que você não entra como funcionário comum da Amazon: você atua como prestador autônomo, usando veículo próprio e administrando seus horários dentro dos blocos disponíveis no aplicativo.</p>
+<p>A própria página oficial japonesa descreve o programa como entrega com o seu próprio veículo, feita por <em>delivery partners</em> que são <em>kojin jigyonushi</em>, ou seja, trabalhadores/autônomos individuais. Essa diferença importa muito: quem é autônomo precisa cuidar de custos, documentos, impostos, seguro e regularidade da atividade.</p>
+<h2>2. Verifique se existe operação na sua região</h2>
+<p>Antes de comprar carro, trocar placa ou gastar com documentação, confirme se o Amazon Flex está disponível onde você pretende trabalhar. A disponibilidade depende de armazéns, estações de entrega e demanda local. O primeiro passo é acessar o site oficial <strong>flex.amazon.co.jp</strong> e seguir o fluxo do aplicativo para verificar região e cadastro.</p>
+<p>Mesmo dentro do Japão, não trate a experiência de outra província como regra universal. Aichi, Kanto, Kansai e outras áreas podem ter quantidade de blocos, armazéns e exigências práticas diferentes.</p>
+<h2>3. Confira sua situação legal antes de se cadastrar</h2>
+<p>Na camada legal japonesa, esta é uma etapa séria, principalmente para estrangeiros. Ter carteira de motorista japonesa ou permissão para dirigir não significa automaticamente que você pode exercer atividade autônoma de entrega. Verifique se sua habilitação cobre o veículo usado e se seu status de residência permite esse tipo de trabalho independente. Quem tem visto de estudante, dependente ou vínculo de trabalho específico deve confirmar limites de atividade, autorização extra e regras migratórias antes de começar.</p>
+<p>Também é recomendável organizar a parte fiscal como trabalhador autônomo. Dependendo do caso, pode ser necessário abrir atividade como <em>kojin jigyo</em> e declarar corretamente renda, despesas, combustível, manutenção, seguro e outros custos.</p>
+<h2>4. Veículo: por que a placa preta importa</h2>
+<p>Na prática de entregas comerciais com veículo leve no Japão, o caminho comum é usar um kei cargo, kei van ou kei truck adequado para transporte de carga, com placa preta de uso comercial. A placa amarela de kei particular não deve ser tratada como suficiente para atividade profissional de entrega.</p>
+<img src="assets/articles/amazon-flex-japao-passo-a-passo/placa-preta-documentos.jpg" alt="Documentos de veículo, chaves e placa comercial preta ilustrando a etapa de registro no Japão" style="width:100%;border-radius:10px;display:block;margin:24px 0;object-fit:cover;aspect-ratio:16/9;">
+<p>O processo normalmente envolve a notificação/registro da atividade de transporte leve de carga, conhecida em japonês como <em>kamotsu kei jidosha unso jigyo</em>. O procedimento passa pelo escritório de transporte competente da sua região e, depois, pela etapa de registro/placa junto à estrutura de inspeção e registro de veículos leves. Documentos, formulários e prazos variam, então confirme no balcão local antes de pagar qualquer serviço terceirizado.</p>
+<p>Resumo prático: se o carro ainda é particular, resolva a regularização comercial antes de contar com ele para entregar pacotes. O barato de “começar rápido” pode sair caro se a documentação, seguro ou atividade estiverem incompatíveis.</p>
+<h2>5. Seguro: não olhe só o preço</h2>
+<p>Entrega é uso comercial. Verifique se o seguro cobre atividade de entrega, uso profissional do veículo e eventuais danos durante o trabalho. O seguro obrigatório do veículo não substitui uma cobertura voluntária adequada para acidente, dano a terceiros e uso comercial.</p>
+<p>Antes de aceitar blocos, converse com a seguradora e explique exatamente o uso: entregas, veículo de carga leve, atividade autônoma e circulação frequente em áreas residenciais. Seguro barato que exclui a atividade real pode ser uma falsa economia.</p>
+<h2>6. Cadastro no aplicativo</h2>
+<p>Com região, veículo e documentação encaminhados, o cadastro acontece pelo aplicativo ou fluxo oficial do Amazon Flex. Em geral, você cria conta, informa dados pessoais, região de atuação, dados bancários e envia documentos solicitados. A lista pode incluir identidade, carteira de motorista, documentos do veículo, placa/registro comercial, seguro e etapas de treinamento ou orientação quando exigidas pelo sistema.</p>
+<p>Há relatos de cursos, vídeos, testes e aprovações em poucos dias, mas isso não deve ser tratado como promessa fixa. O que vale é o que aparecer no seu cadastro, na sua região e no momento da análise.</p>
+<h2>7. Como funciona o primeiro bloco</h2>
+<p>Depois de aprovado, o app mostra blocos disponíveis. Cada bloco indica local, horário, duração estimada e valor apresentado no sistema. Ao aceitar, você deve chegar ao armazém ou estação de entrega com antecedência, fazer o check-in pelo app, receber ou escanear os pacotes e organizar tudo no veículo antes de sair.</p>
+<img src="assets/articles/amazon-flex-japao-passo-a-passo/organizacao-pacotes-kei-van.jpg" alt="Pacotes organizados dentro de kei van para rota de entrega no Japão" style="width:100%;border-radius:10px;display:block;margin:24px 0;object-fit:cover;aspect-ratio:16/9;">
+<p>A organização dos pacotes é parte do trabalho. Separar por sequência, área, tamanho ou prioridade evita perder tempo em rua estreita, estacionamento difícil ou prédio sem elevador. Em bairros japoneses, parar errado por poucos minutos pode criar problema com vizinhos, polícia, administração do prédio ou trânsito local.</p>
+<h2>8. Rotina de entrega: o app ajuda, mas não faz tudo</h2>
+<p>Durante a rota, o app orienta endereços e confirma entregas. Mesmo assim, você precisa lidar com detalhes reais: apartamentos, interfone, caixa de entrega, chuva, calor, ruas apertadas, prédio com nome parecido, ausência do cliente e devolução de pacote quando a entrega não é possível.</p>
+<p>Boas práticas simples fazem diferença: dirigir sem pressa, não bloquear passagem, respeitar áreas de estacionamento, manter postura educada, cuidar para não deixar pacote em local inseguro e seguir exatamente a instrução do aplicativo.</p>
+<h2>9. Ganhos e custos: faça conta de autônomo</h2>
+<p>O pagamento costuma ser apresentado por bloco, não como salário mensal garantido. O valor real no bolso depende de quantos blocos você consegue pegar, da região, da demanda, do tempo gasto e dos seus custos.</p>
+<p>Na conta, inclua combustível, manutenção, pneus, óleo, seguro, estacionamento, pedágio quando houver, troca ou compra do veículo, impostos, saúde, previdência e eventual contabilidade. Guardar recibos e controlar despesas desde o primeiro mês é melhor do que tentar reconstruir tudo na época da declaração.</p>
+<h2>Checklist antes de começar</h2>
+<p><strong>Antes do primeiro bloco, confirme:</strong></p>
+<ul>
+  <li>Amazon Flex disponível na sua região pelo site/app oficial.</li>
+  <li>Status de residência compatível com trabalho autônomo.</li>
+  <li>Carteira de motorista válida no Japão.</li>
+  <li>Veículo adequado para entrega comercial.</li>
+  <li>Placa preta e registro/notificação de transporte leve quando aplicável.</li>
+  <li>Seguro cobrindo uso comercial de entrega.</li>
+  <li>Conta bancária japonesa para recebimento.</li>
+  <li>Documentos legíveis para upload no app.</li>
+  <li>Controle de custos, recibos e obrigações fiscais.</li>
+</ul>
+<h2>Veredito JR</h2>
+<p>Amazon Flex pode ser uma boa porta para quem já tem estrutura, dirige bem, gosta de rotina independente e sabe fazer conta. Mas não é “só um bico de aplicativo”. No Japão, a parte invisível do trabalho pesa: documentação correta, placa comercial, seguro, pontualidade, trânsito local e responsabilidade de autônomo.</p>
+<p>Se você tratar como negócio pequeno, com controle e regularidade, a chance de começar bem aumenta. Se tratar como improviso, o risco aparece justamente onde dói: documento, multa, seguro, custo e tempo.</p>
+<p><em>Fontes consultadas: Amazon Flex Japão, página oficial e FAQ oficial (https://flex.amazon.co.jp/ e https://flex.amazon.co.jp/faq); Ministério da Terra, Infraestrutura, Transporte e Turismo do Japão - MLIT (https://www.mlit.go.jp/); Lightweight Motor Vehicle Inspection Organization / Kei Jidosha Kensa Kyokai (https://www.keikenkyo.or.jp/). Confirme sempre as exigências atuais no app oficial e no escritório de transporte da sua região.</em></p>`
+  },
 
   "povo-ainu-japao-historia-cultura": {
     title:"Povo Ainu Do Japão: História, Cultura E Presente",
