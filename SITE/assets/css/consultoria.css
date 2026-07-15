@@ -18,7 +18,7 @@
   color: var(--jr-ink);
 }
 .jr-disclaimer svg { flex: 0 0 auto; margin-top: 2px; color: var(--jr-red); }
-.jr-disclaimer p { margin: 0; font-size: .88rem; line-height: 1.6; color: rgba(17, 21, 19, .82); }
+.jr-disclaimer p { min-width: 0; margin: 0; font-size: .88rem; line-height: 1.6; color: rgba(17, 21, 19, .82); }
 .jr-disclaimer strong { color: var(--jr-ink); }
 
 /* ---------- Hero da área ---------- */
@@ -261,6 +261,14 @@ dialog.consult-modal::backdrop { background: rgba(6, 8, 7, .66); }
 }
 
 @media (max-width: 720px) {
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 2.45rem);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    hyphens: none;
+  }
+  .jr-disclaimer { padding: 16px 14px; gap: 10px; }
   .consult-grid { grid-template-columns: 1fr; }
   .consult-form { grid-template-columns: 1fr; padding: 20px; }
   .consult-modal-inner { padding: 22px 18px 26px; }
