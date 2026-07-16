@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Viagem pelo Japão além dos cartões-postais com trem, montanha e litoral">
+  <rect width="1600" height="900" fill="#111514"/><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#23312f"/><stop offset="1" stop-color="#0e1211"/></linearGradient><rect width="1600" height="610" fill="url(#s)"/>
+  <circle cx="1230" cy="170" r="120" fill="#d9c6a0" opacity=".5"/><path d="M0 520l310-170 250 118 250-210 270 196 210-126 310 190v382H0z" fill="#26352f"/><path d="M0 610l420-110 240 66 350-118 240 70 350-92v474H0z" fill="#15201d"/>
+  <path d="M190 710c260-72 500-72 760 0s430 72 650 0v190H190z" fill="#0b0e0d"/><g transform="translate(450 602)"><rect width="700" height="110" rx="34" fill="#f5f1ea"/><rect x="60" y="28" width="110" height="45" rx="10" fill="#111514" opacity=".75"/><rect x="210" y="28" width="110" height="45" rx="10" fill="#111514" opacity=".75"/><rect x="360" y="28" width="110" height="45" rx="10" fill="#111514" opacity=".75"/><rect x="510" y="28" width="110" height="45" rx="10" fill="#111514" opacity=".75"/></g>
+  <path d="M330 795h940" stroke="#b08a57" stroke-width="14" stroke-linecap="round"/>
+</svg>
