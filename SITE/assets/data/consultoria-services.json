@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "area": "JR Apoio no Japão",
+    "lastReviewed": "2026-07",
+    "disclaimer": "O JR oferece apoio administrativo, digital e organizacional. Não presta consultoria jurídica, migratória, contábil ou tributária, não representa clientes perante órgãos públicos e não garante aprovação ou resultado."
+  },
+  "services": [
+    {
+      "id": "renovacao-periodo-permanencia",
+      "slug": "renovacao-periodo-permanencia",
+      "title": "Renovação do período de permanência",
+      "category": "Imigração e documentos",
+      "summary": "Apoio para organizar documentos e entender o procedimento oficial de renovação do período de permanência (zairyu kikan) antes do vencimento do seu status de residência.",
+      "audience": "Brasileiros no Japão com status de residência ativo que precisam continuar residindo além do período atualmente concedido, sem mudar de status.",
+      "jrCanHelp": [
+        "Explicar em português o que é o período de permanência e como ele difere do status de residência (visto)",
+        "Ajudar a organizar e conferir a lista de documentos geralmente exigidos antes do agendamento",
+        "Ajudar a localizar o Departamento de Imigração (Regional Immigration Services Bureau) responsável pela sua região",
+        "Orientar sobre prazos gerais de antecedência para reunir a documentação",
+        "Indicar quando a situação exige um gyōseishoshi (despachante administrativo licenciado) ou advogado"
+      ],
+      "jrCannotHelp": [
+        "Analisar a chance de aprovação do seu pedido",
+        "Recomendar estratégia migratória ou justificativa a apresentar",
+        "Redigir ou preencher o formulário oficial em seu nome",
+        "Apresentar ou protocolar o pedido perante a Imigração",
+        "Prometer ou garantir aprovação, prazo de análise ou resultado"
+      ],
+      "commonSteps": [
+        "Verificar a data de vencimento do período de permanência no zairyu card",
+        "Reunir os documentos gerais indicados para o seu status de residência",
+        "Preencher o formulário oficial de 在留期間更新許可申請 (Application for Extension of Period of Stay)",
+        "Levar os documentos ao Departamento de Imigração com jurisdição sobre seu endereço, ou enviar via sistema online quando disponível para o seu caso",
+        "Aguardar o processamento e retirar o novo zairyu card com a data atualizada"
+      ],
+      "generalDocuments": [
+        "Formulário oficial de renovação do período de permanência",
+        "Passaporte e zairyu card",
+        "Fotografia recente conforme especificação oficial",
+        "Documentos específicos do status de residência (trabalho, estudo, dependente, etc.), conforme lista oficial"
+      ],
+      "officialSources": [
+        { "name": "Immigration Services Agency of Japan / Ministério da Justiça — 在留期間更新許可申請", "url": "https://www.moj.go.jp/isa/applications/procedures/16-3.html" }
+      ],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "revisado com fonte oficial",
+      "riskLevel": "restricted",
+      "guideUrl": "/consultoria/renovacao-periodo-permanencia/",
+      "ctaLabel": "Entender o procedimento"
+    },
+    {
+      "id": "passaporte-brasileiro",
+      "slug": "passaporte-brasileiro",
+      "title": "Passaporte brasileiro",
+      "category": "Documentos consulares",
+      "summary": "Apoio para organizar a nova emissão de passaporte brasileiro junto ao posto consular responsável pela sua jurisdição no Japão, via sistema e-Consular.",
+      "audience": "Brasileiros no Japão que precisam de nova emissão de passaporte (primeira via, vencimento, extravio ou roubo) ou passaporte para filhos menores de 18 anos.",
+      "jrCanHelp": [
+        "Explicar o funcionamento do sistema e-Consular e o conceito de jurisdição consular",
+        "Ajudar a montar o checklist de documentos conforme idade e situação (maior de idade, menor de idade, extravio ou roubo)",
+        "Organizar a ordem dos passos: formulário eletrônico, RER, cadastro no e-Consular, agendamento",
+        "Esclarecer diferenças entre atendimento presencial e solicitação por correio, apenas conforme publicado pelo posto consular",
+        "Lembrar sobre CPF, foto e taxa consular como itens a preparar com antecedência"
+      ],
+      "jrCannotHelp": [
+        "Preencher ou enviar o formulário consular em nome do solicitante",
+        "Representar o solicitante perante o Consulado",
+        "Garantir prazo de emissão, agendamento ou entrega",
+        "Emitir, autenticar ou reter documentos oficiais",
+        "Substituir a autorização legal exigida para passaporte de menores"
+      ],
+      "commonSteps": [
+        "Identificar o posto consular responsável pela sua província de residência",
+        "Preencher o formulário eletrônico de passaporte e gerar o Recibo de Entrega de Requerimento (RER)",
+        "Cadastrar o pedido no sistema e-Consular e anexar os documentos solicitados",
+        "Aguardar validação do Consulado para liberar o agendamento presencial ou o envio por correio",
+        "Comparecer ao atendimento ou enviar a documentação, e retirar ou receber o novo passaporte"
+      ],
+      "generalDocuments": [
+        "Recibo de Entrega de Requerimento (RER) assinado",
+        "CPF regular (obrigatório para todos os solicitantes, inclusive menores)",
+        "Foto recente conforme especificação consular",
+        "Passaporte atual (ou outro documento de identidade, se vencido há mais de dois anos)",
+        "Comprovante de nacionalidade e de residência no Japão",
+        "Para menores de 18 anos: autorização de ambos os genitores"
+      ],
+      "officialSources": [
+        { "name": "Ministério das Relações Exteriores — Consulado-Geral do Brasil em Tóquio — Passaporte comum", "url": "https://www.gov.br/mre/pt-br/consulado-toquio/servicos-consulares/passaporte/passaporte-comum" },
+        { "name": "Ministério das Relações Exteriores — Passaporte para menores de 18 anos", "url": "https://www.gov.br/mre/pt-br/consulado-toquio/servicos-consulares/passaporte/passaporte-para-menores-de-18-anos" },
+        { "name": "Ministério das Relações Exteriores — Solicitações por correio", "url": "https://www.gov.br/mre/pt-br/consulado-toquio/servicos-consulares/passaporte/solicitacoes-por-correio" },
+        { "name": "Ministério das Relações Exteriores — Jurisdição consular no Japão (Tóquio, Nagoia, Hamamatsu)", "url": "https://www.gov.br/mre/pt-br/consulado-hamamatsu/jurisdicao-do-consulado-geral-em-hamamatsu" },
+        { "name": "Ministério das Relações Exteriores — Taxas consulares (Consulado-Geral em Tóquio)", "url": "https://www.gov.br/mre/pt-br/consulado-toquio/servicos-consulares/pagamentos-e-valores/taxas-consulares" },
+        { "name": "Sistema e-Consular", "url": "https://econsular.itamaraty.gov.br/" }
+      ],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "revisado com fonte oficial",
+      "riskLevel": "medium",
+      "guideUrl": "/consultoria/passaporte-brasileiro/",
+      "ctaLabel": "Ver checklist do passaporte"
+    },
+    {
+      "id": "kakutei-shinkoku",
+      "slug": "kakutei-shinkoku",
+      "title": "Kakutei Shinkoku e organização fiscal",
+      "category": "Impostos",
+      "summary": "Organização prévia de documentos e explicação em português sobre o Kakutei Shinkoku (declaração final de imposto de renda japonês), sem cálculo de imposto ou preenchimento em nome do contribuinte.",
+      "audience": "Brasileiros no Japão que precisam verificar se têm obrigação de declarar, ou que desejam solicitar restituição por meio da declaração.",
+      "jrCanHelp": [
+        "Explicar em português o que é o Kakutei Shinkoku e o período de rendimentos considerado (janeiro a dezembro)",
+        "Ajudar a organizar previamente documentos como o gensen chōshūhyō (comprovante de rendimentos retidos na fonte)",
+        "Explicar, em categorias gerais, temas como despesas médicas, remessas, seguros e rendimentos extras que costumam aparecer na declaração",
+        "Explicar a diferença entre atendimento pelo e-Tax e atendimento presencial na Receita japonesa (税務署)",
+        "Indicar quando procurar um zeirishi (contador licenciado) para orientação tributária personalizada"
+      ],
+      "jrCannotHelp": [
+        "Calcular o imposto devido ou o valor de restituição",
+        "Decidir quais deduções aplicar ao seu caso",
+        "Preencher ou enviar a declaração em nome do contribuinte",
+        "Oferecer aconselhamento tributário personalizado",
+        "Garantir restituição, prazo ou resultado da declaração"
+      ],
+      "commonSteps": [
+        "Verificar se há obrigação de declarar, considerando fontes de renda e situação de trabalho",
+        "Reunir o gensen chōshūhyō e demais documentos de rendimento do ano fiscal",
+        "Organizar categorias gerais de despesas e remessas que podem ser relevantes",
+        "Escolher entre declaração via e-Tax (online) ou atendimento presencial no 税務署 (escritório de imposto local)",
+        "Guardar comprovantes: correções, pedidos de restituição atrasados e retificações têm prazos próprios definidos pela Receita japonesa"
+      ],
+      "generalDocuments": [
+        "Gensen chōshūhyō (comprovante de rendimentos e retenção na fonte)",
+        "Documentos de outras fontes de renda, quando existirem",
+        "Comprovantes de categorias gerais como despesas médicas, seguros ou remessas, quando aplicável ao caso",
+        "Zairyu card e My Number, apenas conforme exigido no atendimento oficial"
+      ],
+      "officialSources": [
+        { "name": "National Tax Agency Japan — No.12011 Final tax return", "url": "https://www.nta.go.jp/english/taxes/individual/12011.htm" },
+        { "name": "National Tax Agency Japan — No.12018 Wage earners who must file a final tax return", "url": "https://www.nta.go.jp/english/taxes/individual/12018.htm" },
+        { "name": "National Tax Agency Japan — No.12009 Filing returns for refund", "url": "https://www.nta.go.jp/english/taxes/individual/12009.htm" },
+        { "name": "e-Tax — sistema oficial de declaração eletrônica", "url": "https://www.e-tax.nta.go.jp/kojin.html" }
+      ],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "revisado com fonte oficial",
+      "riskLevel": "restricted",
+      "guideUrl": "/consultoria/kakutei-shinkoku/",
+      "ctaLabel": "Organizar meus documentos fiscais"
+    },
+    {
+      "id": "shaken",
+      "slug": "shaken",
+      "title": "Shaken e serviços automotivos",
+      "category": "Veículo e trânsito",
+      "summary": "Apoio para organizar o vencimento do shaken (inspeção veicular obrigatória), reunir documentos e comparar caminhos disponíveis: concessionária, oficina, empresa especializada ou user shaken.",
+      "audience": "Brasileiros no Japão que possuem veículo próprio (comum ou kei-car) e precisam renovar o shaken antes do vencimento.",
+      "jrCanHelp": [
+        "Explicar em português o que é o shaken e por que ele é obrigatório",
+        "Ajudar a organizar documentos e prazos antes de procurar oficina, concessionária ou empresa especializada",
+        "Explicar, em linhas gerais, a diferença entre passar o shaken em concessionária, oficina, empresa especializada ou fazer o user shaken (ユーザー車検)",
+        "Ajudar a montar um checklist de itens a levar no dia do agendamento",
+        "Alertar sobre os riscos administrativos de deixar o shaken vencer"
+      ],
+      "jrCannotHelp": [
+        "Realizar a inspeção mecânica do veículo",
+        "Aprovar, reprovar ou garantir aprovação no shaken",
+        "Emitir laudo técnico ou atestado de segurança do veículo",
+        "Definir orçamento final de peças ou serviços de oficina",
+        "Representar o proprietário perante o órgão de inspeção"
+      ],
+      "commonSteps": [
+        "Verificar a data de vencimento no certificado do veículo (shaken shoumeisho)",
+        "Reunir os documentos: certificado do veículo, comprovante do seguro obrigatório (jibaiseki) e comprovante de pagamento do imposto do veículo",
+        "Escolher onde realizar o shaken: concessionária, oficina de confiança, empresa especializada ou user shaken",
+        "Agendar com antecedência, considerando a janela oficial de até 2 meses antes do vencimento",
+        "Levar o veículo e os documentos na data agendada e conferir o novo certificado emitido"
+      ],
+      "generalDocuments": [
+        "Certificado de inspeção do veículo (shaken shoumeisho) original",
+        "Comprovante do seguro obrigatório (jibaiseki hoken) válido para o novo período",
+        "Comprovante de pagamento do imposto do veículo, quando exigido",
+        "Carimbo (inkan), quando solicitado pelo posto de inspeção"
+      ],
+      "officialSources": [
+        { "name": "Ministério dos Transportes do Japão (MLIT) — Período de validade da inspeção veicular", "url": "https://www.jidoushatouroku-portal.mlit.go.jp/jidousha/kensatoroku/about/inspect/validity-period/index.html" },
+        { "name": "Light Motor Vehicle Inspection Organization (軽自動車検査協会) — Inspeção de continuação (shaken)", "url": "https://www.keikenkyo.or.jp/inspection/continuation.html" },
+        { "name": "Ministério dos Transportes do Japão (MLIT) — Comunicado oficial sobre ampliação do prazo para 2 meses antes do vencimento", "url": "https://www.mlit.go.jp/report/press/jidosha02_hh_000645.html" }
+      ],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "revisado com fonte oficial",
+      "riskLevel": "medium",
+      "guideUrl": "/consultoria/shaken/",
+      "ctaLabel": "Organizar meu shaken"
+    },
+    {
+      "id": "agendamentos-navegacao-digital",
+      "slug": "agendamentos-navegacao-digital",
+      "title": "Agendamentos e navegação digital",
+      "category": "Organização digital",
+      "summary": "Apoio para localizar sistemas oficiais de agendamento (imigração, consulado, prefeitura, hospitais) e navegar em sites e aplicativos japoneses em português.",
+      "audience": "Brasileiros no Japão com dificuldade para localizar ou usar sistemas oficiais de agendamento e sites em japonês.",
+      "jrCanHelp": [
+        "Ajudar a localizar o site ou sistema oficial correto para o agendamento desejado",
+        "Explicar em português, passo a passo, como navegar por um site ou aplicativo já identificado como oficial",
+        "Ajudar a organizar informações antes do agendamento (dados, documentos, horários disponíveis)",
+        "Esclarecer termos e telas em japonês recorrentes em sistemas de agendamento"
+      ],
+      "jrCannotHelp": [
+        "Realizar o agendamento em nome do cliente sem que ele acompanhe o processo",
+        "Garantir disponibilidade de vagas ou horários",
+        "Acessar sistemas com login, senha ou dados sensíveis do cliente",
+        "Representar o cliente perante o órgão público"
+      ],
+      "commonSteps": [
+        "Identificar o serviço ou órgão responsável pelo agendamento desejado",
+        "Confirmar que o sistema utilizado é o canal oficial correspondente",
+        "Organizar as informações e documentos que o sistema costuma solicitar",
+        "Acompanhar o cliente na navegação até a confirmação do agendamento"
+      ],
+      "generalDocuments": [],
+      "officialSources": [],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "sem guia dedicado ainda",
+      "riskLevel": "low",
+      "guideUrl": null,
+      "ctaLabel": "Falar sobre agendamentos"
+    },
+    {
+      "id": "organizacao-documentos",
+      "slug": "organizacao-documentos",
+      "title": "Organização de documentos",
+      "category": "Organização administrativa",
+      "summary": "Apoio para organizar, traduzir contextualmente e preparar cópias e checklists de documentos pessoais para uso em procedimentos oficiais no Japão ou no Brasil.",
+      "audience": "Brasileiros no Japão que precisam organizar documentação pessoal antes de um procedimento oficial, sem saber por onde começar.",
+      "jrCanHelp": [
+        "Ajudar a montar um checklist de documentos com base no que a fonte oficial do procedimento pede",
+        "Ajudar a organizar cópias, ordem e nomenclatura de arquivos físicos e digitais",
+        "Explicar, em termos gerais, a diferença entre cópia simples, cópia autenticada e tradução juramentada",
+        "Indicar quando é necessário um tradutor juramentado ou reconhecimento de firma oficial"
+      ],
+      "jrCannotHelp": [
+        "Traduzir documentos de forma juramentada ou oficial",
+        "Autenticar, legalizar ou reconhecer firma de documentos",
+        "Certificar a validade legal de um documento",
+        "Substituir cartório, tradutor juramentado ou órgão consular"
+      ],
+      "commonSteps": [
+        "Levantar exatamente quais documentos o procedimento oficial exige",
+        "Separar originais, cópias e traduções necessárias",
+        "Organizar os arquivos em ordem lógica para apresentação",
+        "Identificar se algum documento exige tradução juramentada ou reconhecimento oficial antes de prosseguir"
+      ],
+      "generalDocuments": [],
+      "officialSources": [],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "sem guia dedicado ainda",
+      "riskLevel": "low",
+      "guideUrl": null,
+      "ctaLabel": "Organizar meus documentos"
+    },
+    {
+      "id": "prefeitura-vida-cotidiana",
+      "slug": "prefeitura-vida-cotidiana",
+      "title": "Prefeitura e vida cotidiana",
+      "category": "Vida cotidiana",
+      "summary": "Apoio para entender procedimentos comuns de prefeitura (yakuba/shiyakusho) e vida cotidiana no Japão: mudança de endereço, registros básicos e localização do setor responsável.",
+      "audience": "Brasileiros no Japão que precisam resolver trâmites simples de prefeitura ou entender qual setor procurar.",
+      "jrCanHelp": [
+        "Ajudar a identificar qual setor da prefeitura (yakuba/shiyakusho) atende a sua necessidade",
+        "Explicar em português, de forma geral, como funcionam trâmites comuns como mudança de endereço",
+        "Ajudar a organizar documentos e formulários antes de ir à prefeitura",
+        "Esclarecer prazos gerais e consequências de atrasar registros básicos, quando publicados oficialmente"
+      ],
+      "jrCannotHelp": [
+        "Preencher ou protocolar formulários da prefeitura em nome do cliente",
+        "Representar o cliente perante a prefeitura ou qualquer órgão público",
+        "Garantir aprovação, prazo ou resultado do trâmite",
+        "Substituir orientação de gyōseishoshi para casos que exigem representação legal"
+      ],
+      "commonSteps": [
+        "Identificar o trâmite exato e o setor responsável na prefeitura local",
+        "Reunir os documentos gerais indicados no site oficial do município",
+        "Organizar o formulário e a ordem de apresentação",
+        "Comparecer à prefeitura, com o cliente sempre presente e responsável pela solicitação"
+      ],
+      "generalDocuments": [],
+      "officialSources": [],
+      "lastReviewed": "2026-07",
+      "reviewStatus": "sem guia dedicado ainda",
+      "riskLevel": "medium",
+      "guideUrl": null,
+      "ctaLabel": "Falar sobre um trâmite de prefeitura"
+    }
+  ]
+}

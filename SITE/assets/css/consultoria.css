@@ -1,0 +1,281 @@
+/* ============================================================
+   CONSULTORIA — JR Apoio no Japão
+   Segue os tokens visuais de assets/finance/finance.css
+   (preto profundo, bege editorial, vermelho japonês, dourado discreto).
+   Não redesenha header/footer/hero globais — apenas estende o
+   sistema existente com componentes próprios da área.
+   ============================================================ */
+
+.jr-disclaimer {
+  margin: 26px 0 8px;
+  padding: 18px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(165, 31, 43, .07);
+  border: 1px solid rgba(165, 31, 43, .3);
+  border-left: 4px solid var(--jr-red);
+  color: var(--jr-ink);
+}
+.jr-disclaimer svg { flex: 0 0 auto; margin-top: 2px; color: var(--jr-red); }
+.jr-disclaimer p { min-width: 0; margin: 0; font-size: .88rem; line-height: 1.6; color: rgba(17, 21, 19, .82); }
+.jr-disclaimer strong { color: var(--jr-ink); }
+
+/* ---------- Hero da área ---------- */
+.consult-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.consult-btn {
+  padding: 14px 22px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.consult-btn.is-primary { background: var(--jr-ink); color: var(--jr-cream); }
+.consult-btn.is-primary:hover { background: #000; }
+.consult-btn.is-secondary { background: transparent; color: var(--jr-ink); border-color: rgba(17, 21, 19, .3); }
+.consult-btn.is-secondary:hover { border-color: var(--jr-gold); color: var(--jr-gold); }
+.consult-btn:focus-visible { outline: 2px solid var(--jr-red); outline-offset: 2px; }
+
+/* ---------- Grade de serviços ---------- */
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.consult-card {
+  min-width: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  color: var(--jr-cream);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(178, 138, 85, .2), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025)),
+    #111514;
+  border: 1px solid rgba(25, 25, 25, .3);
+  box-shadow: 0 24px 60px rgba(35, 29, 22, .14);
+  font: inherit;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.consult-card:hover, .consult-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(178, 138, 85, .76);
+  box-shadow: 0 24px 58px rgba(9, 12, 10, .24);
+}
+.consult-card:focus-visible { outline: 2px solid var(--jr-gold); outline-offset: 3px; }
+.consult-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.consult-card-cat {
+  color: rgba(255, 250, 240, .58);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.consult-risk {
+  padding: 4px 9px;
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.consult-risk.is-low { color: #9fd3ab; }
+.consult-risk.is-medium { color: #e0c07a; }
+.consult-risk.is-restricted { color: #ef8d8d; }
+.consult-card strong {
+  font-family: var(--jr-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.12;
+  color: #fffaf0;
+}
+.consult-card span {
+  color: rgba(255, 250, 240, .78);
+  font-size: .86rem;
+  line-height: 1.55;
+}
+.consult-card-action {
+  margin-top: auto;
+  padding-top: 6px;
+  color: rgba(255, 250, 240, .86);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Modal ---------- */
+dialog.consult-modal {
+  /* !important necessário: o Chrome aplica geometria própria e forte para
+     <dialog>:modal (posição/tamanho). Sem !important nessas propriedades
+     específicas, o navegador ignora a largura definida aqui e o modal
+     transborda a viewport em telas estreitas. */
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 92vw !important;
+  max-width: 640px !important;
+  max-height: 88vh !important;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(25, 25, 25, .18);
+  background: var(--jr-cream);
+  color: var(--jr-ink);
+  box-shadow: 0 40px 120px rgba(9, 12, 10, .38);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+dialog.consult-modal::backdrop { background: rgba(6, 8, 7, .66); }
+.consult-modal-inner { max-height: 88vh; overflow-y: auto; overflow-x: hidden; padding: 30px 30px 34px; box-sizing: border-box; }
+.consult-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.consult-modal-head h2 { margin: 0 0 6px; font-family: var(--jr-serif); font-size: 1.65rem; font-weight: 500; line-height: 1.1; }
+.consult-modal-close {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(17, 21, 19, .2);
+  color: var(--jr-ink);
+  cursor: pointer;
+}
+.consult-modal-close:hover { border-color: var(--jr-red); color: var(--jr-red); }
+.consult-modal-close:focus-visible { outline: 2px solid var(--jr-red); outline-offset: 2px; }
+.consult-modal-meta { margin: 4px 0 18px; color: rgba(17, 21, 19, .56); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+.consult-modal-summary { margin: 0 0 20px; font-size: .98rem; line-height: 1.7; color: rgba(17, 21, 19, .82); }
+.consult-modal-section { margin-bottom: 20px; }
+.consult-modal-section h3 {
+  margin: 0 0 8px;
+  font-family: var(--jr-sans);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--jr-gold);
+}
+.consult-modal-section ul { margin: 0; padding-left: 1.15rem; }
+.consult-modal-section li { margin-bottom: 7px; font-size: .9rem; line-height: 1.6; color: rgba(17, 21, 19, .82); }
+.consult-modal-section.is-cannot h3 { color: var(--jr-red); }
+.consult-modal-sources { margin: 0; padding-left: 1.15rem; }
+.consult-modal-sources li { margin-bottom: 6px; font-size: .84rem; }
+.consult-modal-sources a { color: var(--jr-red); }
+.consult-modal-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(17, 21, 19, .12); }
+.consult-modal-fallback { padding: 18px; background: rgba(178, 138, 85, .1); border: 1px solid var(--jr-line); font-size: .88rem; line-height: 1.6; }
+
+/* ---------- Formulário de triagem ---------- */
+.consult-form-section { margin-top: clamp(44px, 7vw, 76px); scroll-margin-top: 24px; }
+.consult-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding: 28px;
+  background: rgba(255, 250, 240, .55);
+  border: 1px solid rgba(25, 25, 25, .14);
+}
+.consult-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.consult-field.is-full { grid-column: 1 / -1; }
+.consult-field label { font-size: .74rem; font-weight: 700; letter-spacing: .05em; color: rgba(17, 21, 19, .78); }
+.consult-field input,
+.consult-field select,
+.consult-field textarea {
+  min-height: 44px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: .92rem;
+  color: var(--jr-ink);
+  background: #fffaf0;
+  border: 1px solid rgba(17, 21, 19, .24);
+}
+.consult-field textarea { min-height: 96px; resize: vertical; }
+.consult-field input:focus-visible,
+.consult-field select:focus-visible,
+.consult-field textarea:focus-visible,
+.consult-field input:focus,
+.consult-field select:focus,
+.consult-field textarea:focus {
+  outline: 2px solid var(--jr-gold);
+  outline-offset: 1px;
+  border-color: var(--jr-gold);
+}
+.consult-field .consult-error {
+  display: none;
+  font-size: .76rem;
+  color: var(--jr-red);
+}
+.consult-field.has-error input,
+.consult-field.has-error select,
+.consult-field.has-error textarea { border-color: var(--jr-red); }
+.consult-field.has-error .consult-error { display: block; }
+.consult-checkbox-row { grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 10px; }
+.consult-checkbox-row input { width: 20px; height: 20px; min-height: 20px; flex: 0 0 auto; margin-top: 2px; }
+.consult-checkbox-row label { font-size: .82rem; line-height: 1.55; color: rgba(17, 21, 19, .78); }
+.consult-form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.consult-form-note {
+  grid-column: 1 / -1;
+  padding: 14px 16px;
+  background: rgba(178, 138, 85, .1);
+  border: 1px solid var(--jr-line);
+  font-size: .82rem;
+  line-height: 1.6;
+  color: rgba(17, 21, 19, .78);
+}
+.consult-summary-box {
+  grid-column: 1 / -1;
+  display: none;
+  padding: 18px;
+  background: #fffaf0;
+  border: 1px solid rgba(17, 21, 19, .2);
+  font-size: .86rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.consult-summary-box.is-visible { display: block; }
+.consult-form-status { grid-column: 1 / -1; font-size: .84rem; color: rgba(17, 21, 19, .7); min-height: 1.2em; }
+.consult-form-status[data-state="success"] { color: #2f6f45; }
+.consult-form-status[data-state="error"] { color: var(--jr-red); }
+.consult-noscript-box, .consult-nojson-box {
+  margin: 26px 0;
+  padding: 20px;
+  background: rgba(178, 138, 85, .08);
+  border: 1px solid var(--jr-line);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 2.45rem);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    hyphens: none;
+  }
+  .jr-disclaimer { padding: 16px 14px; gap: 10px; }
+  .consult-grid { grid-template-columns: 1fr; }
+  .consult-form { grid-template-columns: 1fr; padding: 20px; }
+  .consult-modal-inner { padding: 22px 18px 26px; }
+  .consult-modal-head h2 { font-size: 1.4rem; }
+  .consult-btn { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consult-card { transition: none; }
+}
