@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Checklist visual de moradia no Japão com cartões organizados">
+  <rect width="1600" height="900" fill="#f5f1ea"/><circle cx="1280" cy="170" r="260" fill="#b08a57" opacity=".2"/><circle cx="210" cy="760" r="320" fill="#a51f2b" opacity=".08"/>
+  <rect x="190" y="150" width="1220" height="600" rx="28" fill="#111514"/><g fill="#f5f1ea">
+    <rect x="270" y="240" width="430" height="96" rx="16" opacity=".95"/><rect x="270" y="382" width="430" height="96" rx="16" opacity=".86"/><rect x="270" y="524" width="430" height="96" rx="16" opacity=".78"/>
+    <rect x="790" y="240" width="430" height="96" rx="16" opacity=".95"/><rect x="790" y="382" width="430" height="96" rx="16" opacity=".86"/><rect x="790" y="524" width="430" height="96" rx="16" opacity=".78"/>
+  </g><g fill="none" stroke="#b08a57" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"><path d="M315 286l28 28 62-70"/><path d="M315 428l28 28 62-70"/><path d="M315 570l28 28 62-70"/><path d="M835 286l28 28 62-70"/></g>
+  <rect x="445" y="279" width="180" height="16" rx="8" fill="#111514" opacity=".32"/><rect x="445" y="421" width="210" height="16" rx="8" fill="#111514" opacity=".32"/><rect x="445" y="563" width="170" height="16" rx="8" fill="#111514" opacity=".32"/><rect x="965" y="279" width="190" height="16" rx="8" fill="#111514" opacity=".32"/>
+</svg>

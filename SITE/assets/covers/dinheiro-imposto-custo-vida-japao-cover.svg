@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Holerite, moedas e recibos japoneses organizados">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101513"/><stop offset="1" stop-color="#27312d"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#g)"/><circle cx="1240" cy="220" r="300" fill="#b08a57" opacity=".18"/><circle cx="400" cy="710" r="360" fill="#f5f1ea" opacity=".08"/>
+  <rect x="265" y="155" width="500" height="610" rx="22" fill="#f5f1ea" transform="rotate(-4 515 460)"/><rect x="850" y="205" width="440" height="520" rx="22" fill="#e0d2b8" transform="rotate(5 1070 465)"/>
+  <g fill="#111514" opacity=".24"><rect x="350" y="260" width="310" height="24" rx="12"/><rect x="350" y="335" width="260" height="18" rx="9"/><rect x="350" y="385" width="335" height="18" rx="9"/><rect x="350" y="435" width="285" height="18" rx="9"/></g>
+  <g fill="#b08a57"><circle cx="995" cy="540" r="88"/><circle cx="1120" cy="515" r="70"/><circle cx="1210" cy="592" r="54"/></g><g fill="#111514" opacity=".28"><circle cx="995" cy="540" r="42"/><circle cx="1120" cy="515" r="32"/><circle cx="1210" cy="592" r="24"/></g>
+  <path d="M240 785c300-80 520-60 760-10s400 30 600-40v165H240z" fill="#0a0d0c" opacity=".72"/>
+</svg>
