@@ -34,6 +34,7 @@
     }
   </script>
   <link rel="stylesheet" href="../assets/survival/survival.css?v=20260625-survival-complete">
+  <link rel="stylesheet" href="../assets/css/survival-flashcards.css?v=20260717-flashcards-mvp">
 </head>
 <body>
   <main class="survival-app">
@@ -65,6 +66,33 @@
         <h2 id="essentialPhrasesTitle">Frases para resolver problemas reais no Japão.</h2>
         <p class="offer-benefit">Antes de abrir um módulo, veja um roteiro rápido com frases para prefeitura, hospital, trabalho, mercado e telefone.</p>
         <a class="primary-button" href="../#frases-essenciais-problemas-reais-japao">Ler guia de frases essenciais</a>
+      </section>
+      <section class="survival-flashcards" data-flashcards-root data-flashcards-src="../assets/data/survival-flashcards.json" aria-labelledby="flashcardsTitle">
+        <div class="survival-flashcards__head">
+          <p class="eyebrow">Flashcards</p>
+          <h2 id="flashcardsTitle">Treino rápido estilo Anki</h2>
+          <p>Vire o card, ouça a frase e marque se você sabe usar no Japão real.</p>
+        </div>
+        <div class="flashcard-panel">
+          <div class="flashcard-toolbar">
+            <div class="flashcard-category">
+              <label for="flashcardCategory">Categoria</label>
+              <select id="flashcardCategory" data-flashcards-category aria-label="Filtrar flashcards por categoria">
+                <option>Carregando...</option>
+              </select>
+            </div>
+            <div class="flashcard-counters" aria-label="Progresso dos flashcards">
+              <div class="flashcard-counter"><span>Card</span><strong><span data-flashcards-current>0</span>/<span data-flashcards-total>0</span></strong></div>
+              <div class="flashcard-counter"><span>Sei</span><strong data-flashcards-known>0</strong></div>
+              <div class="flashcard-counter"><span>Revisar</span><strong data-flashcards-review>0</strong></div>
+            </div>
+          </div>
+          <div data-flashcards-body>
+            <p class="flashcard-loading">Carregando flashcards de sobrevivência...</p>
+          </div>
+          <div class="flashcard-status" data-flashcards-status aria-live="polite"><span>Status</span>Preparando treino.</div>
+          <button class="flashcard-reset" type="button" data-flashcards-reset>Resetar progresso</button>
+        </div>
       </section>
       <section class="offer-card" aria-labelledby="offerTitle">
         <p class="eyebrow">Módulo Restaurante completo</p>
@@ -172,5 +200,6 @@
 
   <script src="../assets/survival/survival-data.js?v=20260625-survival-complete"></script>
   <script src="../assets/survival/survival.js?v=20260625-survival-complete"></script>
+  <script src="../assets/js/survival-flashcards.js?v=20260717-flashcards-mvp"></script>
 </body>
 </html>
