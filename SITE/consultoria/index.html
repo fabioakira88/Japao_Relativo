@@ -17,7 +17,8 @@
   <meta property="og:description" content="Apoio administrativo, digital e organizacional em português para organizar documentos, localizar procedimentos oficiais e preparar seus próximos passos no Japão.">
   <meta property="og:url" content="https://japaorelativo.com/consultoria/">
   <link rel="stylesheet" href="../assets/finance/finance.css?v=20260619-visual-consistency">
-  <link rel="stylesheet" href="../assets/css/consultoria.css?v=20260714-mvp">
+  <link rel="stylesheet" href="../assets/css/consultoria.css?v=20260722-lead-intake">
+  <meta name="jr-consultoria-endpoint" content="">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -147,10 +148,14 @@
           <div class="section-heading">
             <span>Próximo passo</span>
             <h2 id="triagem-title">Solicitar orientação</h2>
-            <p>Preencha o formulário para organizar seu caso. O envio online direto ainda não está configurado — ao final, você recebe um resumo do atendimento com botão para copiar e enviar pelo canal de contato do JR.</p>
+            <p>Preencha o formulário para registrar sua solicitação. Os dados serão usados exclusivamente para analisar seu caso e responder pelo canal informado. Não envie documentos, senhas, PIN, My Number, dados bancários ou fotos de documentos.</p>
           </div>
 
           <form class="consult-form" id="triagemForm" novalidate>
+            <div class="consult-honeypot" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="consult-field">
               <label for="cf-nome">Nome *</label>
               <input type="text" id="cf-nome" name="nome" required autocomplete="name">
@@ -203,6 +208,7 @@
               <select id="cf-canal" name="canal" required>
                 <option value="">Selecione uma opção</option>
                 <option>E-mail</option>
+                <option>WhatsApp</option>
                 <option>Instagram</option>
                 <option>Facebook</option>
                 <option>Outro</option>
@@ -211,25 +217,27 @@
             </div>
             <div class="consult-field">
               <label for="cf-contato">Contato *</label>
-              <input type="text" id="cf-contato" name="contato" required placeholder="E-mail ou @usuário da rede social">
-              <span class="consult-error">Informe um contato.</span>
+              <input type="text" id="cf-contato" name="contato" required placeholder="E-mail, telefone internacional, @usuário ou URL do perfil" aria-describedby="cf-contato-help">
+              <span class="consult-help" id="cf-contato-help">Para WhatsApp, informe telefone com código internacional. Ex.: +81 90-1234-5678.</span>
+              <span class="consult-error">Informe um contato válido para o canal selecionado.</span>
             </div>
             <div class="consult-field is-full">
               <label for="cf-situacao">Situação resumida *</label>
               <textarea id="cf-situacao" name="situacao" required maxlength="600" placeholder="Descreva em poucas linhas o que você precisa resolver."></textarea>
-              <span class="consult-error">Descreva brevemente sua situação.</span>
+              <span class="consult-error">Descreva brevemente sua situação, com até 600 caracteres.</span>
             </div>
 
             <div class="consult-checkbox-row">
               <input type="checkbox" id="cf-privacidade" name="privacidade" required>
-              <label for="cf-privacidade">Li e entendi que o JR oferece apoio administrativo, digital e organizacional, não presta consultoria jurídica, migratória, contábil ou tributária, não representa clientes perante órgãos públicos e não garante aprovação ou resultado. *</label>
+              <label for="cf-privacidade">Li e entendi que o JR oferece apoio administrativo, digital e organizacional, não presta consultoria jurídica, migratória, contábil ou tributária, não representa clientes perante órgãos públicos, não garante aprovação ou resultado, e usará estes dados somente para analisar e responder à solicitação. O acesso é restrito à operação do atendimento, a retenção sugerida é de 12 meses após encerramento, posso solicitar exclusão antecipada, e os dados não serão usados para publicidade sem novo consentimento. *</label>
             </div>
 
-            <p class="consult-form-note">Não solicitamos My Number, senha, PIN, foto de zairyu card, foto de passaporte, dados bancários, documentos fiscais ou upload de arquivos neste formulário.</p>
+            <p class="consult-form-note">Não solicitamos My Number, senha, PIN, foto de zairyu card, foto de passaporte, dados bancários, documentos fiscais ou upload de arquivos neste formulário. Agendamentos consulares oficiais acontecem apenas pelo sistema oficial, após validação do Consulado, e são realizados pelo próprio interessado.</p>
 
             <div class="consult-form-actions">
-              <button type="submit" class="consult-btn is-primary">Gerar resumo do atendimento</button>
+              <button type="submit" class="consult-btn is-primary" id="cf-submit-btn">Enviar solicitação</button>
               <button type="button" class="consult-btn is-secondary" id="cf-copy-btn" hidden>Copiar resumo</button>
+              <button type="button" class="consult-btn is-secondary" id="cf-new-btn" hidden>Nova solicitação</button>
             </div>
             <p class="consult-form-status" id="cf-status" role="status" aria-live="polite"></p>
             <pre class="consult-summary-box" id="cf-summary-box" aria-live="polite"></pre>
@@ -266,6 +274,6 @@
   </div>
 
   <script src="../assets/js/jr-ga4.js?v=20260715-consultoria" defer></script>
-  <script src="../assets/js/consultoria.js?v=20260714-mvp" defer></script>
+  <script src="../assets/js/consultoria.js?v=20260722-lead-intake" defer></script>
 </body>
 </html>

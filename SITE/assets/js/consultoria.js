@@ -1,7 +1,7 @@
 /*
  * JR Apoio no Japão — Consultoria
  * Modal único e reutilizável alimentado por assets/data/consultoria-services.json,
- * grade de serviços, formulário de triagem (sem envio real) e eventos de analytics
+ * grade de serviços, formulário de triagem com envio configurável e eventos de analytics
  * opcionais (somente se window.gtag já existir).
  *
  * Este arquivo é usado tanto no hub (SITE/consultoria/index.html) quanto,
@@ -11,6 +11,9 @@
   "use strict";
 
   var DATA_URL = "/assets/data/consultoria-services.json";
+  var MAX_SITUACAO = 600;
+  var SUBMISSION_STORAGE_KEY = "jr_consultoria_submission_id";
+  var SUBMIT_TIMEOUT_MS = 20000;
   var RISK_LABEL = { low: "Risco baixo", medium: "Risco médio", restricted: "Risco restrito" };
 
   /* ---------------------------------------------------------------
@@ -253,11 +256,22 @@
   }
 
   /* ---------------------------------------------------------------
-   * Formulário de triagem — nunca finge enviar dados.
+   * Formulário de triagem — envia somente quando houver endpoint real.
    * ------------------------------------------------------------- */
   function setupForm() {
     var form = document.getElementById("triagemForm");
     if (!form) return;
+    var submitBtn = document.getElementById("cf-submit-btn") || form.querySelector('button[type="submit"]');
+    var copyBtn = document.getElementById("cf-copy-btn");
+    var newBtn = document.getElementById("cf-new-btn");
+    var status = document.getElementById("cf-status");
+    var box = document.getElementById("cf-summary-box");
+    var isSubmitting = false;
+    var hasConfirmedSuccess = false;
+    setupContactInput(form);
+    setupNewSubmissionButton(form, newBtn, submitBtn, copyBtn, status, box, function () {
+      hasConfirmedSuccess = false;
+    });
 
     var startedTracking = false;
     form.addEventListener(
@@ -273,31 +287,320 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var status = document.getElementById("cf-status");
-      var requiredFields = form.querySelectorAll("[required]");
-      var firstInvalid = null;
-      requiredFields.forEach(function (field) {
-        var wrap = field.closest(".consult-field");
-        var valid = field.type === "checkbox" ? field.checked : field.value.trim().length > 0;
-        if (wrap) wrap.classList.toggle("has-error", !valid);
-        if (!valid && !firstInvalid) firstInvalid = field;
-      });
-      if (firstInvalid) {
-        status.textContent = "Confira os campos destacados antes de continuar.";
-        status.dataset.state = "error";
-        firstInvalid.focus();
+      if (isSubmitting || hasConfirmedSuccess) return;
+
+      var validation = validateForm(form);
+      if (!validation.ok) {
+        showStatus(status, validation.message, "error");
+        if (validation.field && typeof validation.field.focus === "function") validation.field.focus();
         return;
       }
 
       var summary = buildSummary(form);
-      var box = document.getElementById("cf-summary-box");
-      box.textContent = summary;
-      box.classList.add("is-visible");
-      status.textContent =
-        "Resumo gerado. O envio online ainda não está configurado — use \"Copiar resumo\" e envie pelo canal de contato indicado no rodapé.";
-      status.dataset.state = "success";
-      document.getElementById("cf-copy-btn").hidden = false;
+      showSummary(box, summary);
+
+      var endpoint = getConsultoriaEndpoint();
+      if (!endpoint) {
+        showCopyFallback(copyBtn);
+        showStatus(
+          status,
+          "O envio online ainda precisa da URL do Google Apps Script. Seus dados foram preservados abaixo; use \"Copiar resumo\" como contingência.",
+          "error"
+        );
+        track("consultoria_submit_error", {
+          service: fieldValue(form, "cf-servico"),
+          reason: "endpoint_not_configured"
+        });
+        return;
+      }
+
+      isSubmitting = true;
+      setSubmitState(submitBtn, true);
+      showStatus(status, "Enviando solicitação…", "loading");
+
+      submitConsultoria(endpoint, buildPayload(form))
+        .then(function (result) {
+          if (!result || !result.ok || !result.protocolo) {
+            throw new Error(result && result.error ? result.error : "Resposta inválida do servidor.");
+          }
+          showStatus(status, "Solicitação enviada com sucesso. Protocolo: " + result.protocolo + ".", "success");
+          if (copyBtn) copyBtn.hidden = true;
+          if (newBtn) newBtn.hidden = false;
+          hasConfirmedSuccess = true;
+          lockFormAfterSuccess(form, submitBtn);
+          track("consultoria_submit_success", {
+            service: fieldValue(form, "cf-servico"),
+            protocolo: result.protocolo
+          });
+        })
+        .catch(function (err) {
+          showCopyFallback(copyBtn);
+          showStatus(
+            status,
+            isAbortError(err)
+              ? "O envio demorou mais de 20 segundos. Seus dados foram preservados; tente novamente para consultar o mesmo protocolo ou copie o resumo."
+              : "Não foi possível enviar agora. Seus dados foram preservados; copie o resumo e tente novamente mais tarde.",
+            "error"
+          );
+          track("consultoria_submit_error", {
+            service: fieldValue(form, "cf-servico"),
+            reason: (err && err.message) ? err.message.slice(0, 80) : "submit_failed"
+          });
+        })
+        .finally(function () {
+          isSubmitting = false;
+          if (!hasConfirmedSuccess) setSubmitState(submitBtn, false);
+        });
     });
+  }
+
+  function getConsultoriaEndpoint() {
+    var meta = document.querySelector('meta[name="jr-consultoria-endpoint"]');
+    var value = meta ? meta.getAttribute("content") : "";
+    if (!value && window.JR_CONSULTORIA_ENDPOINT) value = window.JR_CONSULTORIA_ENDPOINT;
+    value = String(value || "").trim();
+    return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(value) ? value : "";
+  }
+
+  function validateForm(form) {
+    var requiredFields = form.querySelectorAll("[required]");
+    var firstInvalid = null;
+    requiredFields.forEach(function (field) {
+      var wrap = field.closest(".consult-field");
+      var valid = field.type === "checkbox" ? field.checked : field.value.trim().length > 0;
+      if (wrap) wrap.classList.toggle("has-error", !valid);
+      if (!valid && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      return { ok: false, field: firstInvalid, message: "Confira os campos destacados antes de continuar." };
+    }
+
+    var contactValidation = validateContactForChannel(form);
+    if (!contactValidation.ok) {
+      return contactValidation;
+    }
+
+    var situacao = fieldValue(form, "cf-situacao");
+    var situacaoField = form.querySelector("#cf-situacao");
+    var situacaoWrap = situacaoField ? situacaoField.closest(".consult-field") : null;
+    if (situacao.length > MAX_SITUACAO) {
+      if (situacaoWrap) situacaoWrap.classList.add("has-error");
+      return { ok: false, field: situacaoField, message: "A situação resumida deve ter no máximo 600 caracteres." };
+    }
+    if (situacaoWrap) situacaoWrap.classList.remove("has-error");
+
+    var consent = form.querySelector("#cf-privacidade");
+    if (!consent || !consent.checked) {
+      return { ok: false, field: consent, message: "Para enviar, confirme o aviso de privacidade e limites do apoio." };
+    }
+
+    var honeypot = form.querySelector("#cf-website");
+    if (honeypot && honeypot.value.trim()) {
+      return { ok: false, field: null, message: "Não foi possível processar a solicitação." };
+    }
+
+    return { ok: true };
+  }
+
+  function setupContactInput(form) {
+    var channel = form.querySelector("#cf-canal");
+    var contact = form.querySelector("#cf-contato");
+    var help = form.querySelector("#cf-contato-help");
+    if (!channel || !contact) return;
+
+    function updateContactGuidance() {
+      var value = channel.value;
+      contact.type = value === "E-mail" ? "email" : "text";
+      contact.inputMode = value === "WhatsApp" ? "tel" : "text";
+      contact.autocomplete = value === "E-mail" ? "email" : value === "WhatsApp" ? "tel" : "off";
+      if (value === "WhatsApp") {
+        contact.placeholder = "+81 90-1234-5678";
+        if (help) help.textContent = "Informe telefone com código internacional. Ex.: +81 90-1234-5678.";
+      } else if (value === "E-mail") {
+        contact.placeholder = "nome@example.com";
+        if (help) help.textContent = "Informe um e-mail válido para retorno administrativo.";
+      } else if (value === "Instagram" || value === "Facebook") {
+        contact.placeholder = "@usuario ou URL do perfil";
+        if (help) help.textContent = "Informe @usuário ou a URL pública do perfil.";
+      } else {
+        contact.placeholder = "E-mail, telefone internacional, @usuário ou URL do perfil";
+        if (help) help.textContent = "Para WhatsApp, informe telefone com código internacional. Ex.: +81 90-1234-5678.";
+      }
+    }
+
+    channel.addEventListener("change", updateContactGuidance);
+    updateContactGuidance();
+  }
+
+  function validateContactForChannel(form) {
+    var channel = fieldValue(form, "cf-canal");
+    var contact = fieldValue(form, "cf-contato");
+    var field = form.querySelector("#cf-contato");
+    var wrap = field ? field.closest(".consult-field") : null;
+    var ok = true;
+    var message = "Informe um contato válido para o canal selecionado.";
+
+    if (channel === "E-mail") {
+      ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+      message = "Informe um e-mail válido.";
+    } else if (channel === "WhatsApp") {
+      ok = /^\+\d[\d\s().-]{7,22}$/.test(contact) && contact.replace(/\D/g, "").length >= 8;
+      message = "Informe o WhatsApp com código internacional. Ex.: +81 90-1234-5678.";
+    } else if (channel === "Instagram" || channel === "Facebook") {
+      ok = /^@[\w.]{2,50}$/.test(contact) || /^https?:\/\/[^\s]+$/i.test(contact);
+      message = "Informe @usuário ou a URL do perfil.";
+    }
+
+    if (wrap) wrap.classList.toggle("has-error", !ok);
+    return ok ? { ok: true } : { ok: false, field: field, message: message };
+  }
+
+  function buildPayload(form) {
+    return {
+      nome: fieldValue(form, "cf-nome"),
+      submission_id: getSubmissionId(),
+      servico: fieldValue(form, "cf-servico"),
+      provincia: fieldValue(form, "cf-provincia"),
+      cidade: fieldValue(form, "cf-cidade"),
+      prazo: fieldValue(form, "cf-prazo"),
+      tipo_ajuda: fieldValue(form, "cf-tipo-ajuda"),
+      situacao: fieldValue(form, "cf-situacao").slice(0, MAX_SITUACAO),
+      canal: fieldValue(form, "cf-canal"),
+      contato: fieldValue(form, "cf-contato"),
+      consentimento: !!(form.querySelector("#cf-privacidade") || {}).checked,
+      origem: window.location.href,
+      user_agent: navigator.userAgent || ""
+    };
+  }
+
+  function submitConsultoria(endpoint, payload) {
+    var controller = window.AbortController ? new AbortController() : null;
+    var timeoutId = controller
+      ? window.setTimeout(function () {
+          controller.abort();
+        }, SUBMIT_TIMEOUT_MS)
+      : null;
+
+    return fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload),
+      redirect: "follow",
+      signal: controller ? controller.signal : undefined
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.text();
+      })
+      .then(function (text) {
+        try {
+          return JSON.parse(text);
+        } catch (err) {
+          throw new Error("Resposta não JSON do servidor.");
+        }
+      })
+      .finally(function () {
+        if (timeoutId) window.clearTimeout(timeoutId);
+      });
+  }
+
+  function isAbortError(err) {
+    return !!(err && (err.name === "AbortError" || err.message === "AbortError"));
+  }
+
+  function showStatus(status, message, state) {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.state = state || "";
+  }
+
+  function showSummary(box, summary) {
+    if (!box) return;
+    box.textContent = summary;
+    box.classList.add("is-visible");
+  }
+
+  function showCopyFallback(copyBtn) {
+    if (copyBtn) copyBtn.hidden = false;
+  }
+
+  function setSubmitState(btn, busy) {
+    if (!btn) return;
+    if (!btn.dataset.idleText) btn.dataset.idleText = btn.textContent;
+    btn.disabled = !!busy;
+    btn.setAttribute("aria-busy", busy ? "true" : "false");
+    btn.textContent = busy ? "Enviando…" : btn.dataset.idleText;
+  }
+
+  function lockFormAfterSuccess(form, submitBtn) {
+    form.querySelectorAll("input, select, textarea").forEach(function (field) {
+      if (field.id !== "cf-website") field.disabled = true;
+    });
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.setAttribute("aria-busy", "false");
+      submitBtn.textContent = "Solicitação enviada";
+    }
+  }
+
+  function setupNewSubmissionButton(form, newBtn, submitBtn, copyBtn, status, box, resetSuccessFlag) {
+    if (!newBtn) return;
+    newBtn.addEventListener("click", function () {
+      form.reset();
+      form.querySelectorAll("input, select, textarea").forEach(function (field) {
+        field.disabled = false;
+        var wrap = field.closest(".consult-field");
+        if (wrap) wrap.classList.remove("has-error");
+      });
+      clearSubmissionId();
+      getSubmissionId();
+      if (box) {
+        box.textContent = "";
+        box.classList.remove("is-visible");
+      }
+      if (copyBtn) copyBtn.hidden = true;
+      newBtn.hidden = true;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.setAttribute("aria-busy", "false");
+        submitBtn.textContent = submitBtn.dataset.idleText || "Enviar solicitação";
+      }
+      showStatus(status, "", "");
+      if (typeof resetSuccessFlag === "function") resetSuccessFlag();
+      setupContactInput(form);
+      var first = form.querySelector("#cf-nome");
+      if (first) first.focus();
+    });
+  }
+
+  function getSubmissionId() {
+    try {
+      var current = window.sessionStorage.getItem(SUBMISSION_STORAGE_KEY);
+      if (current) return current;
+      var next = createSubmissionId();
+      window.sessionStorage.setItem(SUBMISSION_STORAGE_KEY, next);
+      return next;
+    } catch (err) {
+      return createSubmissionId();
+    }
+  }
+
+  function clearSubmissionId() {
+    try {
+      window.sessionStorage.removeItem(SUBMISSION_STORAGE_KEY);
+    } catch (err) {}
+  }
+
+  function createSubmissionId() {
+    var prefix = "jr_" + Date.now().toString(36) + "_";
+    if (window.crypto && window.crypto.getRandomValues) {
+      var bytes = new Uint8Array(12);
+      window.crypto.getRandomValues(bytes);
+      return prefix + Array.prototype.map.call(bytes, function (byte) {
+        return byte.toString(16).padStart(2, "0");
+      }).join("");
+    }
+    return prefix + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
   }
 
   function fieldValue(form, id) {
@@ -320,6 +623,7 @@
       "Situação resumida: " + (fieldValue(form, "cf-situacao") || "(não informado)"),
       "Canal de contato preferido: " + (fieldValue(form, "cf-canal") || "(não informado)"),
       "Contato: " + (fieldValue(form, "cf-contato") || "(não informado)"),
+      "Consentimento: " + ((form.querySelector("#cf-privacidade") || {}).checked ? "sim" : "não"),
       "-----------------------------------------",
       "Aviso: o JR oferece apoio administrativo, digital e organizacional.",
       "Não presta consultoria jurídica, migratória, contábil ou tributária,",
@@ -339,7 +643,7 @@
       function done(success) {
         if (status) {
           status.textContent = success
-            ? "Resumo copiado. Cole em e-mail, WhatsApp ou outro canal para enviar ao JR."
+            ? "Resumo copiado. Guarde o texto para enviar por um canal combinado com o JR ou tentar novamente mais tarde."
             : "Não foi possível copiar automaticamente. Selecione o texto do resumo manualmente.";
           status.dataset.state = success ? "success" : "error";
         }
