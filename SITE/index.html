@@ -7701,7 +7701,7 @@ function buildStrip() {
 // ======================================================
 const CATEGORY_MAP = {
   'Artigos':     ['Artigos', 'Cultura', 'Sociedade'],
-  'Noticia':     ['Notícia'],
+  'Notícia':     ['Notícia'],
   'Dicas':       ['Dicas', 'Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
   'Cultura Pop': ['Anime'],
   'Utilidades':  ['Utilidades', 'Dicas', 'Curiosidade', 'Saúde e Bem-Estar'],
@@ -7715,7 +7715,7 @@ function getPostsByCategory(cat) {
 
 function setActiveNav(cat) {
   document.querySelectorAll('.nav-links a[data-cat]').forEach(a => {
-    a.classList.toggle('active', a.dataset.cat === cat || (cat === 'Noticia' && a.dataset.cat === 'Notícia'));
+    a.classList.toggle('active', a.dataset.cat === cat);
   });
   document.querySelectorAll('.nav-links a[data-section]').forEach(a => {
     a.classList.remove('active');
@@ -7740,6 +7740,10 @@ if (filterGroup) {
 
 function filterCategory(cat) {
   document.body.classList.remove('about-visible');
+  document.body.classList.remove('reading-mode');
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
   currentFilter = cat;
   filteredPosts = getPostsByCategory(cat);
   visibleCount = 8;
@@ -7758,6 +7762,10 @@ function filterCategory(cat) {
 }
 
 function showAbout() {
+  document.body.classList.remove('reading-mode');
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
   document.body.classList.add('about-visible');
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const aboutLink = document.querySelector('.nav-links a[data-section="about"]');
@@ -7793,16 +7801,32 @@ function initCarousel() {
 // ======================================================
 // ARTICLE VIEW
 // ======================================================
-function openPost(id) {
-  const post = DB[id];
-  if (!post) return;
-  const heroBg = document.getElementById('articleHeroBg');
-  heroBg.style.backgroundImage = "url(\"" + normalizeAssetPath(post.thumb) + "\")";
+const HOME_TITLE = 'Japão Relativo — O Japão por Vários Ângulos';
+let homeMetaDescription = null;
+
+function getMetaDescription() {
   let metaDescription = document.querySelector('meta[name="description"]');
   if (!metaDescription) {
     metaDescription = document.createElement('meta');
     metaDescription.setAttribute('name', 'description');
     document.head.appendChild(metaDescription);
+  }
+  return metaDescription;
+}
+
+function restoreHomeMetaDescription() {
+  if (homeMetaDescription === null) return;
+  getMetaDescription().setAttribute('content', homeMetaDescription);
+}
+
+function openPost(id) {
+  const post = DB[id];
+  if (!post) return;
+  const heroBg = document.getElementById('articleHeroBg');
+  heroBg.style.backgroundImage = "url(\"" + normalizeAssetPath(post.thumb) + "\")";
+  const metaDescription = getMetaDescription();
+  if (homeMetaDescription === null) {
+    homeMetaDescription = metaDescription.getAttribute('content') || '';
   }
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   document.getElementById('renderTarget').innerHTML = `
@@ -7825,7 +7849,8 @@ function openPost(id) {
 
 function closePost() {
   document.body.classList.remove('reading-mode');
-  document.title = 'Japão Relativo — O Japão por Vários Ângulos';
+  document.title = HOME_TITLE;
+  restoreHomeMetaDescription();
   history.pushState(null, '', location.pathname);
   window.scrollTo(0, 0);
 }
@@ -7838,7 +7863,8 @@ window.addEventListener('popstate', function() {
     openPost(id);
   } else {
     document.body.classList.remove('reading-mode');
-    document.title = 'Japão Relativo — O Japão por Vários Ângulos';
+    document.title = HOME_TITLE;
+    restoreHomeMetaDescription();
     window.scrollTo(0, 0);
   }
 });
@@ -7994,21 +8020,15 @@ function initMarketBar() {
     var el = document.getElementById(id);
     if (el) el.textContent = value;
   }
-  function updateClocks() {
-    var now = new Date();
-    var jp = now.toLocaleTimeString('ja-JP', {timeZone:'Asia/Tokyo', hour:'2-digit', minute:'2-digit', hour12:false});
-    var br = now.toLocaleTimeString('pt-BR', {timeZone:'America/Sao_Paulo', hour:'2-digit', minute:'2-digit', hour12:false});
-    setText('w-jp', jp);
-    setText('w-br', br);
-  }
-  updateClocks();
-  setInterval(updateClocks, 1000);
 
   function applyRates(rates) {
-    if (!rates || !rates.JPY || !rates.BRL) return;
-    var usdJpy = Number(rates.JPY).toFixed(2);
-    var usdBrl = Number(rates.BRL).toFixed(2);
-    var jpyBrl = (Number(rates.BRL) / Number(rates.JPY)).toFixed(4);
+    if (!rates) return;
+    var jpyRate = Number(rates.JPY);
+    var brlRate = Number(rates.BRL);
+    if (!Number.isFinite(jpyRate) || !Number.isFinite(brlRate) || jpyRate <= 0) return;
+    var usdJpy = jpyRate.toFixed(2);
+    var usdBrl = brlRate.toFixed(2);
+    var jpyBrl = (brlRate / jpyRate).toFixed(4);
     setText('w-usd', usdJpy);
     setText('mini-usd', usdJpy);
     setText('w-usd-brl', usdBrl);
@@ -8019,12 +8039,27 @@ function initMarketBar() {
 
   applyRates({ JPY: 159.12, BRL: 5.01 });
 
-  fetch('https://open.er-api.com/v6/latest/USD')
-    .then(function(r){ return r.json(); })
+  function fetchWithTimeout(url, ms) {
+    var controller = new AbortController();
+    var timer = setTimeout(function() {
+      controller.abort();
+    }, ms);
+    return fetch(url, { signal: controller.signal }).finally(function() {
+      clearTimeout(timer);
+    });
+  }
+
+  function parseRatesResponse(response) {
+    if (!response.ok) throw new Error('Exchange API HTTP ' + response.status);
+    return response.json();
+  }
+
+  fetchWithTimeout('https://open.er-api.com/v6/latest/USD', 3500)
+    .then(parseRatesResponse)
     .then(function(data) { applyRates(data.rates || {}); })
     .catch(function(){
-      fetch('https://api.exchangerate-api.com/v4/latest/USD')
-        .then(function(r){ return r.json(); })
+      fetchWithTimeout('https://api.exchangerate-api.com/v4/latest/USD', 3500)
+        .then(parseRatesResponse)
         .then(function(data) { applyRates(data.rates || {}); })
         .catch(function(){});
     });
