@@ -117,19 +117,27 @@
         <button class="flashcard-study-card${state.flipped ? " is-flipped" : ""}" type="button" data-flashcard-flip aria-label="Virar card">
           <span class="flashcard-inner">
             <span class="flashcard-face flashcard-face--front">
-              <span class="flashcard-meta">
-                <span class="flashcard-pill">${escapeHtml(card.category)}</span>
-                <span class="flashcard-pill">${escapeHtml(statusLabel)}</span>
+              <span class="flashcard-face__top">
+                <span class="flashcard-meta">
+                  <span class="flashcard-pill">${escapeHtml(card.category)}</span>
+                  <span class="flashcard-pill flashcard-pill--status">${escapeHtml(statusLabel)}</span>
+                </span>
+                <span class="flashcard-badge">Flashcard</span>
               </span>
+              <span class="flashcard-accent" aria-hidden="true"></span>
               <span class="flashcard-situation">${escapeHtml(card.situation)}</span>
               <span class="flashcard-japanese" lang="ja">${escapeHtml(card.japanese)}</span>
-              <span class="flashcard-hint">Toque em “Virar card” ou no próprio card para ver leitura, romaji, tradução e contexto.</span>
+              <span class="flashcard-hint">Toque para virar e revisar leitura, romaji, tradução e contexto.</span>
             </span>
             <span class="flashcard-face flashcard-face--back">
-              <span class="flashcard-meta">
-                <span class="flashcard-pill">${escapeHtml(card.category)}</span>
-                <span class="flashcard-pill">${escapeHtml(statusLabel)}</span>
+              <span class="flashcard-face__top">
+                <span class="flashcard-meta">
+                  <span class="flashcard-pill">${escapeHtml(card.category)}</span>
+                  <span class="flashcard-pill flashcard-pill--status">${escapeHtml(statusLabel)}</span>
+                </span>
+                <span class="flashcard-badge flashcard-badge--back">Revisão</span>
               </span>
+              <span class="flashcard-accent flashcard-accent--back" aria-hidden="true"></span>
               <span class="flashcard-situation">${escapeHtml(card.situation)}</span>
               <span class="flashcard-japanese" lang="ja">${escapeHtml(card.japanese)}</span>
               <span class="flashcard-reading">
