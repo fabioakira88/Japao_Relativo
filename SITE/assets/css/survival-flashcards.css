@@ -371,3 +371,323 @@
     transition: none;
   }
 }
+
+/* Kanji pilot: an integrated, lighter editorial study surface within Survival. */
+.kanji-flashcards {
+  margin-top: 34px;
+  color: #13233b;
+  background:
+    radial-gradient(circle at 92% 6%, rgba(169, 30, 41, .12), transparent 12rem),
+    linear-gradient(145deg, #fcfaf5, #f2ede3);
+  border-color: rgba(19, 35, 59, .18);
+  box-shadow: 0 20px 48px rgba(5, 18, 33, .13);
+}
+
+.kanji-flashcards .survival-flashcards__head p,
+.kanji-flashcards .flashcard-category label,
+.kanji-flashcards .flashcard-counter span,
+.kanji-flashcards .flashcard-status span:first-child {
+  color: #a91e29;
+}
+
+.kanji-flashcards .survival-flashcards__head h2,
+.kanji-flashcards .survival-flashcards__head p,
+.kanji-flashcards .flashcard-counter strong {
+  color: #13233b;
+}
+
+.kanji-toolbar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kanji-toolbar .flashcard-category select,
+.kanji-search input {
+  min-height: 46px;
+  width: 100%;
+  padding: 0 13px;
+  color: #13233b;
+  background: rgba(255, 255, 255, .76);
+  border: 1px solid rgba(19, 35, 59, .22);
+  border-radius: 0;
+  font: inherit;
+}
+
+.kanji-search input::placeholder {
+  color: rgba(19, 35, 59, .52);
+}
+
+.kanji-search input:focus-visible,
+.kanji-toolbar select:focus-visible,
+.kanji-card__navigation .flashcard-action:focus-visible {
+  outline: 2px solid #a91e29;
+  outline-offset: 3px;
+}
+
+.kanji-counters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.kanji-flashcards .flashcard-counter {
+  background: rgba(19, 35, 59, .045);
+  border-color: rgba(19, 35, 59, .13);
+}
+
+.kanji-study-card,
+.kanji-study-card .flashcard-inner,
+.kanji-study-card .flashcard-face {
+  min-height: 590px;
+}
+
+.kanji-study-card .flashcard-face--front {
+  align-items: center;
+  justify-content: center;
+  color: #13233b;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.82), rgba(236,230,218,.92)),
+    #f8f3ea;
+  border-color: rgba(19, 35, 59, .18);
+  text-align: center;
+}
+
+.kanji-study-card .flashcard-meta {
+  position: absolute;
+  inset: 24px 22px auto;
+  justify-content: space-between;
+}
+
+.kanji-study-card .flashcard-pill {
+  color: #13233b;
+  border-color: rgba(19, 35, 59, .3);
+}
+
+.kanji-card__symbol {
+  font-family: var(--jp);
+  font-size: clamp(9rem, 39vw, 14rem);
+  line-height: .95;
+  color: #13233b;
+  text-shadow: 1px 2px 0 rgba(169, 30, 41, .18);
+}
+
+.kanji-card__front-reading {
+  margin-top: 22px;
+  color: #a91e29;
+  font-family: var(--jp);
+  font-size: clamp(1.6rem, 8vw, 2.2rem);
+}
+
+.kanji-study-card .flashcard-hint {
+  position: absolute;
+  right: 22px;
+  bottom: 24px;
+  left: 22px;
+  color: rgba(19, 35, 59, .64);
+}
+
+.kanji-card__back {
+  overflow-y: auto;
+  color: #13233b;
+  background: #fffdf8;
+  border-color: rgba(19, 35, 59, .18);
+}
+
+.kanji-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 28px;
+}
+
+.kanji-card__small-symbol {
+  color: #13233b;
+  font-family: var(--jp);
+  font-size: 3.6rem;
+  line-height: 1;
+}
+
+.kanji-card__heading strong,
+.kanji-card__heading span {
+  display: block;
+}
+
+.kanji-card__heading strong {
+  color: #13233b;
+  font-family: var(--jp);
+  font-size: 1.65rem;
+}
+
+.kanji-card__heading span {
+  margin-top: 4px;
+  color: rgba(19, 35, 59, .64);
+  font-size: .72rem;
+}
+
+.kanji-card__meaning {
+  margin: 16px 0;
+  color: #a91e29;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+}
+
+.kanji-card__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.kanji-card__facts div {
+  padding: 9px 10px;
+  background: rgba(19, 35, 59, .05);
+}
+
+.kanji-card__facts dt {
+  color: #a91e29;
+  font-size: .52rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.kanji-card__facts dd {
+  margin: 4px 0 0;
+  color: #13233b;
+  font-family: var(--jp);
+  font-size: .84rem;
+}
+
+.kanji-card__examples,
+.kanji-card__sentence {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(19, 35, 59, .14);
+}
+
+.kanji-card__examples > strong,
+.kanji-card__sentence > strong {
+  color: #13233b;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.kanji-card__examples ul {
+  display: grid;
+  gap: 7px;
+  margin: 9px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kanji-card__examples li {
+  display: grid;
+  gap: 2px;
+  color: rgba(19, 35, 59, .68);
+  font-size: .7rem;
+}
+
+.kanji-word {
+  color: #13233b;
+  font-family: var(--jp);
+  font-size: 1rem;
+}
+
+.kanji-card__sentence p {
+  margin: 8px 0 0;
+  color: #13233b;
+  font-size: .76rem;
+  line-height: 1.6;
+}
+
+.kanji-card__sentence p[lang="ja"] {
+  font-family: var(--jp);
+  font-size: 1rem;
+}
+
+.kanji-card__furigana {
+  color: rgba(19, 35, 59, .65) !important;
+  font-family: var(--jp);
+}
+
+.kanji-card__actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kanji-flashcards .flashcard-action,
+.kanji-flashcards .flashcard-review,
+.kanji-flashcards .flashcard-reset {
+  color: #13233b;
+  background: rgba(19, 35, 59, .05);
+  border-color: rgba(19, 35, 59, .18);
+}
+
+.kanji-flashcards .flashcard-action--primary,
+.kanji-flashcards .flashcard-review--easy {
+  color: #fffdf8;
+  background: #13233b;
+  border-color: #13233b;
+}
+
+.kanji-flashcards .flashcard-review--medium {
+  color: #13233b;
+  background: #d7b06a;
+  border-color: #d7b06a;
+}
+
+.kanji-flashcards .flashcard-review--hard {
+  color: #fffdf8;
+  background: #a91e29;
+  border-color: #a91e29;
+}
+
+.kanji-card__navigation,
+.kanji-reset-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.kanji-reset-actions .flashcard-reset {
+  width: 100%;
+}
+
+.kanji-flashcards .flashcard-status {
+  color: rgba(19, 35, 59, .7);
+  background: rgba(19, 35, 59, .045);
+  border-left-color: #a91e29;
+}
+
+@media (min-width: 900px) {
+  .kanji-toolbar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .kanji-study-card,
+  .kanji-study-card .flashcard-inner,
+  .kanji-study-card .flashcard-face {
+    min-height: 610px;
+  }
+}
+
+@media (max-width: 620px) {
+  .kanji-toolbar,
+  .kanji-counters,
+  .kanji-card__actions,
+  .kanji-card__navigation,
+  .kanji-reset-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .kanji-study-card,
+  .kanji-study-card .flashcard-inner,
+  .kanji-study-card .flashcard-face {
+    min-height: 710px;
+  }
+
+  .kanji-card__symbol {
+    font-size: min(49vw, 11rem);
+  }
+}

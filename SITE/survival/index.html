@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0c0f0e">
-  <meta name="description" content="Treine japonês para situações reais no Japão com o Japão Relativo Survival. Comece pelo módulo Restaurante.">
+  <meta name="description" content="Treine japonês para situações reais no Japão com frases de sobrevivência e flashcards de kanji do cotidiano.">
   <meta property="og:image" content="https://japaorelativo.com/assets/logo.png">
   <meta name="twitter:title" content="Japão Relativo Survival">
-  <meta name="twitter:description" content="Japonês essencial para situações reais. Treine o módulo Restaurante gratuitamente.">
+  <meta name="twitter:description" content="Japonês essencial para situações reais, com frases de sobrevivência e kanji do cotidiano.">
   <meta name="twitter:image" content="https://japaorelativo.com/assets/logo.png">
   <link rel="canonical" href="https://japaorelativo.com/survival/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Japão Relativo Survival">
-  <meta property="og:description" content="Japonês essencial para situações reais. Treine o módulo Restaurante gratuitamente.">
+  <meta property="og:description" content="Japonês essencial para situações reais, com frases de sobrevivência e kanji do cotidiano.">
   <meta property="og:url" content="https://japaorelativo.com/survival/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../assets/logo.png" type="image/png">
@@ -34,7 +34,7 @@
     }
   </script>
   <link rel="stylesheet" href="../assets/survival/survival.css?v=20260625-survival-complete">
-  <link rel="stylesheet" href="../assets/css/survival-flashcards.css?v=20260717-flashcards-mvp">
+  <link rel="stylesheet" href="../assets/css/survival-flashcards.css?v=20260806-kanji-pilot">
 </head>
 <body>
   <main class="survival-app">
@@ -92,6 +92,77 @@
           </div>
           <div class="flashcard-status" data-flashcards-status aria-live="polite"><span>Status</span>Preparando treino.</div>
           <button class="flashcard-reset" type="button" data-flashcards-reset>Resetar progresso</button>
+        </div>
+      </section>
+      <section class="survival-flashcards kanji-flashcards" data-kanji-flashcards-root data-kanji-flashcards-src="../assets/data/kanji-flashcards-pilot.json" aria-labelledby="kanjiFlashcardsTitle">
+        <div class="survival-flashcards__head">
+          <p class="eyebrow">Kanji do cotidiano</p>
+          <h2 id="kanjiFlashcardsTitle">Kanji por ano escolar</h2>
+          <p>Um piloto integrado com 20 kanjis úteis para vida real. A série exibida é a classificação escolar japonesa real; 2º e 3º anos são os filtros principais.</p>
+        </div>
+        <div class="flashcard-panel">
+          <div class="kanji-toolbar" aria-label="Filtros dos flashcards de kanji">
+            <div class="flashcard-category">
+              <label for="kanjiGrade">Ano escolar</label>
+              <select id="kanjiGrade" data-kanji-grade>
+                <option value="all">Todos os anos do piloto</option>
+                <option value="2">2º ano</option>
+                <option value="3">3º ano</option>
+                <option value="base">Base — 1º ano</option>
+                <option value="extension">Extensão — 4º ano</option>
+              </select>
+            </div>
+            <div class="flashcard-category">
+              <label for="kanjiStatus">Status</label>
+              <select id="kanjiStatus" data-kanji-status>
+                <option value="all">Todos</option>
+                <option value="favorites">Favoritos</option>
+                <option value="unstudied">Ainda não estudados</option>
+              </select>
+            </div>
+            <div class="flashcard-category">
+              <label for="kanjiDifficulty">Dificuldade</label>
+              <select id="kanjiDifficulty" data-kanji-difficulty>
+                <option value="all">Todas</option>
+                <option value="easy">Fácil</option>
+                <option value="medium">Médio</option>
+                <option value="hard">Difícil</option>
+              </select>
+            </div>
+            <div class="flashcard-category">
+              <label for="kanjiOrder">Ordem</label>
+              <select id="kanjiOrder" data-kanji-order>
+                <option value="sequential">Sequencial</option>
+                <option value="random">Aleatória</option>
+              </select>
+            </div>
+            <div class="flashcard-category">
+              <label for="kanjiDisplay">Frente do card</label>
+              <select id="kanjiDisplay" data-kanji-display>
+                <option value="kanji-only">Apenas kanji</option>
+                <option value="kanji-reading">Kanji e leitura</option>
+              </select>
+            </div>
+            <div class="flashcard-category kanji-search">
+              <label for="kanjiSearch">Buscar</label>
+              <input id="kanjiSearch" type="search" inputmode="search" data-kanji-search placeholder="Kanji, leitura ou significado" autocomplete="off">
+            </div>
+          </div>
+          <div class="kanji-counters" aria-label="Progresso da sessão de kanjis">
+            <div class="flashcard-counter"><span>Card</span><strong><span data-kanji-current>0</span>/<span data-kanji-total>0</span></strong></div>
+            <div class="flashcard-counter"><span>Sessão</span><strong data-kanji-percent>0%</strong></div>
+            <div class="flashcard-counter"><span>Fácil</span><strong data-kanji-easy>0</strong></div>
+            <div class="flashcard-counter"><span>Médio</span><strong data-kanji-medium>0</strong></div>
+            <div class="flashcard-counter"><span>Difícil</span><strong data-kanji-hard>0</strong></div>
+          </div>
+          <div data-kanji-body>
+            <p class="flashcard-loading">Carregando kanjis do piloto...</p>
+          </div>
+          <div class="flashcard-status" aria-live="polite"><span>Status</span><span data-kanji-status-message>Preparando sessão de kanjis.</span></div>
+          <div class="kanji-reset-actions">
+            <button class="flashcard-reset" type="button" data-kanji-reset-session>Reiniciar sessão</button>
+            <button class="flashcard-reset" type="button" data-kanji-reset-all>Resetar progresso dos kanjis</button>
+          </div>
         </div>
       </section>
       <section class="offer-card" aria-labelledby="offerTitle">
@@ -200,6 +271,6 @@
 
   <script src="../assets/survival/survival-data.js?v=20260625-survival-complete"></script>
   <script src="../assets/survival/survival.js?v=20260625-survival-complete"></script>
-  <script src="../assets/js/survival-flashcards.js?v=20260717-flashcards-mvp"></script>
+  <script src="../assets/js/survival-flashcards.js?v=20260806-kanji-pilot"></script>
 </body>
 </html>
