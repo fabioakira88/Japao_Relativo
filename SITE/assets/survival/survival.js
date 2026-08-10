@@ -2,7 +2,6 @@
   "use strict";
 
   const modules = window.SURVIVAL_MODULES || [];
-  const config = window.SURVIVAL_CONFIG || {};
   const state = {
     module: null,
     cardIndex: 0,
@@ -40,22 +39,25 @@
     moduleGrid.innerHTML = modules.map((item) => {
       const available = item.status === "available";
       return `
-        <button class="module-card${available ? "" : " is-soon"}" type="button"
-          data-module-id="${item.id}" ${available ? "" : "disabled"}>
+        <button class="module-card${available ? "" : " is-locked"}" type="button"
+          data-module-id="${item.id}" aria-disabled="${available ? "false" : "true"}">
           <span class="module-number">${item.order}</span>
           <span class="module-japanese">${renderJapaneseCompact(item)}</span>
           <strong>${item.title}</strong>
           <span>${item.description}</span>
-          <em>${available ? "Abrir módulo" : "Em breve"}</em>
+          <em>${available ? "Abrir grátis" : `${lockIcon()} Premium`}</em>
         </button>
       `;
     }).join("");
-    syncCheckoutLinks();
   }
 
   function openModule(moduleId) {
     state.module = modules.find((item) => item.id === moduleId);
-    if (!state.module || state.module.status !== "available") return;
+    if (!state.module) return;
+    if (state.module.status !== "available") {
+      showToast(`${state.module.title} ficará disponível na área Premium.`);
+      return;
+    }
 
     document.querySelector("#introEyebrow").textContent = `Módulo ${state.module.order} · ${state.module.level}`;
     document.querySelector("#introJapanese").innerHTML = renderJapaneseCompact(state.module);
@@ -352,19 +354,12 @@
     const lockedCards = state.module.premiumTeasers;
     const unlockTitle = document.querySelector("#unlockTitle");
     const unlockLead = document.querySelector("#unlockLead");
-    if (unlockTitle) unlockTitle.textContent = `Continue no ${state.module.title.toLowerCase()}.`;
-    if (unlockLead) unlockLead.textContent = `Você já reconhece três situações de ${state.module.title.toLowerCase()}. O conteúdo completo prepara você para continuar o atendimento com mais segurança.`;
+    if (unlockTitle) unlockTitle.textContent = `${state.module.title} completo.`;
+    if (unlockLead) unlockLead.textContent = `Você concluiu as ${state.module.cards.length} situações gratuitas deste módulo. Os próximos módulos ficam reservados para a futura área Premium.`;
     document.querySelector("#resultScore").textContent = `${state.score}/${state.module.quiz.length}`;
     document.querySelector("#lockedList").innerHTML = lockedCards.map((card) => `
       <li>${lockIcon()}<span><strong>${card.situation}</strong><small>Conteúdo premium</small></span></li>
     `).join("");
-  }
-
-  function syncCheckoutLinks() {
-    if (!config.checkoutUrl) return;
-    document.querySelectorAll(".checkout-link").forEach((link) => {
-      link.href = config.checkoutUrl;
-    });
   }
 
   moduleGrid.addEventListener("click", (event) => {
