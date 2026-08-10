@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0c0f0e">
-  <meta name="description" content="Treine japonês para situações reais no Japão com frases de sobrevivência e flashcards de kanji do cotidiano.">
+  <meta name="description" content="Treine japonês para situações reais no Japão com frases de sobrevivência, pronúncia e contexto para o cotidiano.">
   <meta property="og:image" content="https://japaorelativo.com/assets/logo.png">
   <meta name="twitter:title" content="Japão Relativo Survival">
-  <meta name="twitter:description" content="Japonês essencial para situações reais, com frases de sobrevivência e kanji do cotidiano.">
+  <meta name="twitter:description" content="Japonês essencial para situações reais, com frases, pronúncia e contexto de uso no cotidiano.">
   <meta name="twitter:image" content="https://japaorelativo.com/assets/logo.png">
   <link rel="canonical" href="https://japaorelativo.com/survival/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Japão Relativo Survival">
-  <meta property="og:description" content="Japonês essencial para situações reais, com frases de sobrevivência e kanji do cotidiano.">
+  <meta property="og:description" content="Japonês essencial para situações reais, com frases, pronúncia e contexto de uso no cotidiano.">
   <meta property="og:url" content="https://japaorelativo.com/survival/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="../assets/logo.png" type="image/png">
@@ -56,9 +56,9 @@
       <h1>Survival</h1>
       <p class="lead">Frases essenciais para atravessar situações cotidianas no Japão com menos dúvida e mais autonomia.</p>
       <div class="proof" aria-label="Resumo do aplicativo">
-        <span><strong>6</strong> situações por módulo</span>
-        <span><strong>3</strong> cards grátis</span>
-        <span><strong>1</strong> quiz rápido</span>
+        <span><strong>6</strong> situações grátis</span>
+        <span><strong>6</strong> perguntas</span>
+        <span><strong>8</strong> módulos premium</span>
       </div>
       <div class="module-grid" id="moduleGrid" aria-label="Módulos disponíveis"></div>
       <section class="offer-card" aria-labelledby="essentialPhrasesTitle">
@@ -94,79 +94,8 @@
           <button class="flashcard-reset" type="button" data-flashcards-reset>Resetar progresso</button>
         </div>
       </section>
-      <section class="survival-flashcards kanji-flashcards" data-kanji-flashcards-root data-kanji-flashcards-src="../assets/data/kanji-flashcards-pilot.json" aria-labelledby="kanjiFlashcardsTitle">
-        <div class="survival-flashcards__head">
-          <p class="eyebrow">Kanji do cotidiano</p>
-          <h2 id="kanjiFlashcardsTitle">Kanji por ano escolar</h2>
-          <p>Um piloto integrado com 20 kanjis úteis para vida real. A série exibida é a classificação escolar japonesa real; 2º e 3º anos são os filtros principais.</p>
-        </div>
-        <div class="flashcard-panel">
-          <div class="kanji-toolbar" aria-label="Filtros dos flashcards de kanji">
-            <div class="flashcard-category">
-              <label for="kanjiGrade">Ano escolar</label>
-              <select id="kanjiGrade" data-kanji-grade>
-                <option value="all">Todos os anos do piloto</option>
-                <option value="2">2º ano</option>
-                <option value="3">3º ano</option>
-                <option value="base">Base — 1º ano</option>
-                <option value="extension">Extensão — 4º ano</option>
-              </select>
-            </div>
-            <div class="flashcard-category">
-              <label for="kanjiStatus">Status</label>
-              <select id="kanjiStatus" data-kanji-status>
-                <option value="all">Todos</option>
-                <option value="favorites">Favoritos</option>
-                <option value="unstudied">Ainda não estudados</option>
-              </select>
-            </div>
-            <div class="flashcard-category">
-              <label for="kanjiDifficulty">Dificuldade</label>
-              <select id="kanjiDifficulty" data-kanji-difficulty>
-                <option value="all">Todas</option>
-                <option value="easy">Fácil</option>
-                <option value="medium">Médio</option>
-                <option value="hard">Difícil</option>
-              </select>
-            </div>
-            <div class="flashcard-category">
-              <label for="kanjiOrder">Ordem</label>
-              <select id="kanjiOrder" data-kanji-order>
-                <option value="sequential">Sequencial</option>
-                <option value="random">Aleatória</option>
-              </select>
-            </div>
-            <div class="flashcard-category">
-              <label for="kanjiDisplay">Frente do card</label>
-              <select id="kanjiDisplay" data-kanji-display>
-                <option value="kanji-only">Apenas kanji</option>
-                <option value="kanji-reading">Kanji e leitura</option>
-              </select>
-            </div>
-            <div class="flashcard-category kanji-search">
-              <label for="kanjiSearch">Buscar</label>
-              <input id="kanjiSearch" type="search" inputmode="search" data-kanji-search placeholder="Kanji, leitura ou significado" autocomplete="off">
-            </div>
-          </div>
-          <div class="kanji-counters" aria-label="Progresso da sessão de kanjis">
-            <div class="flashcard-counter"><span>Card</span><strong><span data-kanji-current>0</span>/<span data-kanji-total>0</span></strong></div>
-            <div class="flashcard-counter"><span>Sessão</span><strong data-kanji-percent>0%</strong></div>
-            <div class="flashcard-counter"><span>Fácil</span><strong data-kanji-easy>0</strong></div>
-            <div class="flashcard-counter"><span>Médio</span><strong data-kanji-medium>0</strong></div>
-            <div class="flashcard-counter"><span>Difícil</span><strong data-kanji-hard>0</strong></div>
-          </div>
-          <div data-kanji-body>
-            <p class="flashcard-loading">Carregando kanjis do piloto...</p>
-          </div>
-          <div class="flashcard-status" aria-live="polite"><span>Status</span><span data-kanji-status-message>Preparando sessão de kanjis.</span></div>
-          <div class="kanji-reset-actions">
-            <button class="flashcard-reset" type="button" data-kanji-reset-session>Reiniciar sessão</button>
-            <button class="flashcard-reset" type="button" data-kanji-reset-all>Resetar progresso dos kanjis</button>
-          </div>
-        </div>
-      </section>
       <section class="offer-card" aria-labelledby="offerTitle">
-        <p class="eyebrow">Módulo Restaurante completo</p>
+        <p class="eyebrow">Restaurante gratuito</p>
         <h2 id="offerTitle">Fale com mais segurança na sua próxima refeição.</h2>
         <p class="offer-benefit">Um guia direto para brasileiros, turistas e iniciantes que precisam usar japonês em restaurantes reais.</p>
         <div class="offer-details">
@@ -183,9 +112,8 @@
             <p>Entender o atendimento e concluir um pedido sem depender apenas de tradução automática.</p>
           </div>
         </div>
-        <p class="offer-price"><span>Acesso ao módulo</span><strong>¥980</strong></p>
-        <a class="primary-button checkout-link" href="https://buy.stripe.com/28E28j7dc9bNa5943zffy00" target="_blank" rel="noopener noreferrer">Comprar agora — ¥980</a>
-        <p class="checkout-microcopy">Pagamento seguro via Stripe. Acesso ao conteúdo após a confirmação.</p>
+        <a class="primary-button" href="#moduleGrid">Abrir módulo gratuito</a>
+        <p class="offer-note">Os demais módulos aparecerão como Premium até a área privada ficar pronta.</p>
       </section>
     </section>
 
@@ -197,7 +125,7 @@
       <p class="intro-japanese" id="introJapanese" lang="ja"></p>
       <h2 id="introTitle"></h2>
       <p class="intro-copy" id="introCopy"></p>
-      <span class="intro-stat"><span id="introDuration">5 min</span> · demonstração gratuita</span>
+      <span class="intro-stat"><span id="introDuration">8 min</span> · gratuito</span>
       <ol class="roadmap" id="introRoadmap" aria-label="Conteúdo do módulo"></ol>
       <button class="primary-button" id="startModule" type="button">Começar módulo</button>
     </section>
@@ -243,15 +171,13 @@
 
     <section class="screen screen-dark" data-screen="unlock" hidden>
       <div class="unlock-mark" aria-hidden="true">JR.</div>
-      <p class="eyebrow">Demonstração concluída</p>
-      <h2 id="unlockTitle">Continue no restaurante.</h2>
-      <p class="lead" id="unlockLead">Você já reconhece a chegada, o cardápio e uma recomendação. O módulo completo prepara você para concluir o atendimento.</p>
-      <p class="unlock-score"><strong id="resultScore">0/3</strong> acertos no quiz</p>
+      <p class="eyebrow">Módulo concluído</p>
+      <h2 id="unlockTitle">Restaurante completo.</h2>
+      <p class="lead" id="unlockLead">Você concluiu as 6 situações gratuitas do Restaurante.</p>
+      <p class="unlock-score"><strong id="resultScore">0/6</strong> acertos no quiz</p>
       <ul class="locked-list" id="lockedList" aria-label="Conteúdo premium bloqueado"></ul>
       <div class="unlock-actions">
-        <a class="primary-button checkout-link" href="https://buy.stripe.com/28E28j7dc9bNa5943zffy00" target="_blank" rel="noopener noreferrer">Comprar agora — ¥980</a>
-        <p class="checkout-microcopy checkout-microcopy--dark">Pagamento seguro via Stripe. Acesso ao conteúdo após a confirmação.</p>
-        <button class="ghost-button" id="repeatModule" type="button">Repetir demonstração</button>
+        <button class="primary-button" id="repeatModule" type="button">Repetir módulo</button>
         <button class="ghost-button" type="button" data-show-screen="modules">Ver outros módulos</button>
       </div>
     </section>
