@@ -10,6 +10,14 @@ const MODULE_LABELS = {
 const QUESTIONS_PER_MODULE = 20;
 const QUESTIONS = window.PARTICLE_QUESTIONS || [];
 const HAN_PATTERN = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
+const OPTION_COUNTS_BY_MODULE = {
+  "n5": 4,
+  "wa-ga": 2,
+  "ni-de": 2,
+  "wo-ni": 2,
+  "to-ya-mo": 3,
+  "kara-made-yori": 3
+};
 
 function auditParticleBank(questions) {
   const ids = new Set();
@@ -23,8 +31,9 @@ function auditParticleBank(questions) {
     ids.add(q.id);
     if (!MODULES.includes(q.module)) throw new Error("Módulo inválido: " + q.id);
     if (!["N5", "N4"].includes(q.level)) throw new Error("Nível inválido: " + q.id);
-    if (!Array.isArray(q.options) || q.options.length !== 4) throw new Error("Alternativas inválidas: " + q.id);
-    if (new Set(q.options).size !== 4) throw new Error("Alternativa duplicada: " + q.id);
+    const expectedOptions = OPTION_COUNTS_BY_MODULE[q.module];
+    if (!Array.isArray(q.options) || q.options.length !== expectedOptions) throw new Error("Alternativas inválidas: " + q.id);
+    if (new Set(q.options).size !== expectedOptions) throw new Error("Alternativa duplicada: " + q.id);
     if (!q.options.includes(q.correctAnswer)) throw new Error("Resposta ausente: " + q.id);
     if (!q.question || !q.translation || !q.explanationPtBr) throw new Error("Questão incompleta: " + q.id);
     if (HAN_PATTERN.test(q.question) || q.options.some(function(option) { return HAN_PATTERN.test(option); }) || HAN_PATTERN.test(q.explanationPtBr)) {
