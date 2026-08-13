@@ -319,19 +319,33 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://japaorelativo.com/obon-japao-memoria-ancestrais/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <loc>https://japaorelativo.com/nihongo/flashcards/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://japaorelativo.com/castelo-de-himeji-guia-japao/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <loc>https://japaorelativo.com/nihongo/flashcards/frases/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://japaorelativo.com/shirakawa-go-aldeia-gassho-zukuri/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <loc>https://japaorelativo.com/nihongo/yumi/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://japaorelativo.com/gundam-witch-from-mercury-bruxa-de-mercurio/</loc>
-    <lastmod>2026-08-11</lastmod>
-  </url>
+  <url><loc>https://japaorelativo.com/gundam-witch-from-mercury-bruxa-de-mercurio/</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/shirakawa-go-aldeia-gassho-zukuri/</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/castelo-de-himeji-guia-japao/</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/obon-japao-memoria-ancestrais/</loc><lastmod>2026-08-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/mutuca-japao-abu-verao/</loc><lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/obon-yasumi-espiritos-aguas-afogamentos/</loc><lastmod>2026-08-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/hakuba-alem-da-neve-alpes-do-norte/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/kiso-komagatake-alpes-centrais-japao/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/komagane-cidade-entre-alpes-japoneses/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/kamikochi-vale-protegido-alpes-japoneses/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/alpes-de-nagano-guia-cordilheiras-japao/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://japaorelativo.com/alpes-de-gifu-face-oeste-montanhas-hida/</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
