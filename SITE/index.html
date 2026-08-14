@@ -1935,6 +1935,19 @@ body::after{
   border:1px solid rgba(164,130,80,.38);
   filter:saturate(.78) contrast(1.05) brightness(.94)
 }
+.article-brand-lockup.is-elevacao{
+  align-items:flex-end;
+  gap:18px
+}
+.article-brand-lockup.is-elevacao img{
+  width:176px;
+  height:auto;
+  max-width:48vw;
+  object-fit:contain;
+  border:0;
+  border-radius:0;
+  filter:drop-shadow(0 14px 30px rgba(0,0,0,.44))
+}
 .a-tag{
   color:rgba(164,130,80,.9) !important
 }
@@ -1975,6 +1988,133 @@ body::after{
   }
   .editorial-mini-panel.is-news-list .mini-card-title{
     color:var(--cream) !important
+  }
+}
+
+/* Elevação mode: a editoria outdoor assume o hero e a marca. */
+body.elevacao-mode{
+  background:
+    radial-gradient(circle at 86% 18%,rgba(227,41,44,.22),transparent 22rem),
+    linear-gradient(180deg,#050706 0%,#0a1112 42%,#11140f 100%) !important
+}
+body.elevacao-mode .site-main{
+  background:
+    radial-gradient(circle at 82% 12%,rgba(227,41,44,.2),transparent 24rem),
+    linear-gradient(90deg,rgba(245,241,234,.035) 0 1px,transparent 1px 28px),
+    linear-gradient(180deg,#050706 0%,#0a1112 45%,#11140f 100%) !important
+}
+body.elevacao-mode .site-main::before{
+  background:
+    linear-gradient(122deg,rgba(245,241,234,.12) 1px,transparent 1px),
+    linear-gradient(58deg,rgba(227,41,44,.16) 1px,transparent 1px) !important;
+  background-size:86px 148px,86px 148px !important;
+  opacity:.1
+}
+body.elevacao-mode #heroSection{
+  background:#050706 !important
+}
+body.elevacao-mode #heroSection .nav{
+  padding:28px 56px !important;
+  background:linear-gradient(180deg,rgba(5,7,6,.86),rgba(5,7,6,.06)) !important
+}
+body.elevacao-mode #heroSection .nav .nav-logo{
+  margin-left:-8px;
+  gap:0
+}
+body.elevacao-mode .nav-logo-mark{
+  width:178px;
+  height:78px;
+  object-fit:contain;
+  object-position:left center;
+  border-radius:0;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.58));
+  box-shadow:none
+}
+body.elevacao-mode #heroSection .hero-bg-slide{
+  filter:saturate(.58) contrast(1.18) brightness(.62) grayscale(.24) !important
+}
+body.elevacao-mode #heroSection .hero-bg-slide::after{
+  background:
+    linear-gradient(90deg,rgba(5,7,6,.9) 0%,rgba(5,7,6,.52) 42%,rgba(5,7,6,.18) 72%,rgba(5,7,6,.08) 100%),
+    linear-gradient(0deg,rgba(5,7,6,.86) 0%,rgba(5,7,6,.42) 45%,transparent 76%),
+    radial-gradient(circle at 76% 54%,rgba(227,41,44,.28),transparent 23%) !important
+}
+body.elevacao-mode #heroSection .hero-text-panel::before{
+  background:linear-gradient(180deg,transparent 0%,rgba(5,7,6,.54) 48%,rgba(5,7,6,.9) 100%) !important
+}
+body.elevacao-mode #heroSection .jr-editorial-stamp{
+  color:rgba(245,241,234,.72)
+}
+body.elevacao-mode #heroSection .hero-slide-cat{
+  color:rgba(245,241,234,.82) !important
+}
+body.elevacao-mode #heroSection .hero-slide-cat::before{
+  background:#e3292c
+}
+body.elevacao-mode #heroSection .hero-slide-title{
+  max-width:10.5ch;
+  font-family:var(--font-support);
+  font-weight:800;
+  letter-spacing:.01em;
+  text-transform:uppercase
+}
+body.elevacao-mode #heroSection .hero-slide-sub{
+  max-width:40ch;
+  text-transform:uppercase;
+  letter-spacing:.06em
+}
+body.elevacao-mode .section.editorial-section.is-elevacao{
+  background:
+    radial-gradient(circle at 82% 0,rgba(227,41,44,.16),transparent 22rem),
+    linear-gradient(180deg,#050706 0%,#0a1112 44%,#11140f 100%) !important
+}
+body.elevacao-mode .section.editorial-section.is-elevacao .editorial-card-body::before{
+  width:192px;
+  height:70px;
+  margin:0 0 22px -2px;
+  background-position:left center;
+  filter:drop-shadow(0 18px 34px rgba(0,0,0,.5))
+}
+body.elevacao-mode .section.editorial-section.is-elevacao .section-label{
+  color:#e3292c !important
+}
+body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
+  font-family:var(--font-support);
+  font-weight:800;
+  letter-spacing:.01em;
+  text-transform:uppercase
+}
+@media(max-width:760px){
+  body.elevacao-mode #heroSection .nav{
+    padding:18px 16px !important
+  }
+  body.elevacao-mode #heroSection .nav .nav-logo{
+    margin-left:-4px
+  }
+  body.elevacao-mode .nav-logo-mark{
+    width:156px;
+    height:62px
+  }
+  body.elevacao-mode #heroSection .hero-text-panel{
+    padding:0 22px 76px !important
+  }
+  body.elevacao-mode #heroSection .hero-slide-title{
+    font-size:clamp(2.35rem,11vw,3.6rem);
+    max-width:10ch
+  }
+  body.elevacao-mode .section.editorial-section.is-elevacao .editorial-card-body::before{
+    width:170px;
+    height:58px;
+    margin:0 0 18px 0
+  }
+  .article-brand-lockup.is-elevacao{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px
+  }
+  .article-brand-lockup.is-elevacao img{
+    width:168px;
+    max-width:64vw
   }
 }
 
@@ -9206,6 +9346,7 @@ function filterCategory(cat) {
   document.body.classList.remove('about-visible');
   document.body.classList.remove('reading-mode');
   document.body.classList.remove('reading-elevacao');
+  setElevacaoMode(cat === 'Elevação');
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -9217,7 +9358,7 @@ function filterCategory(cat) {
     b.classList.toggle('active', b.dataset.filter === cat);
   });
   setActiveNav(cat);
-  if (cat === 'all') {
+  if (cat === 'all' || cat === 'Elevação') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     setTimeout(() => {
@@ -9229,6 +9370,7 @@ function filterCategory(cat) {
 function showAbout() {
   document.body.classList.remove('reading-mode');
   document.body.classList.remove('reading-elevacao');
+  setElevacaoMode(false);
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -9350,12 +9492,13 @@ function openPost(id) {
   }
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   updateArticleMeta(post, id);
+  const brandLogo = isElevacao ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-editorial-logo.png';
+  const brandAlt = isElevacao ? 'Elevação' : '';
   document.getElementById('renderTarget').innerHTML = `
-    <div class="article-brand-lockup">
-      <img src="assets/brand/jr-editorial-logo.png" alt="" aria-hidden="true">
+    <div class="article-brand-lockup${isElevacao ? ' is-elevacao' : ''}">
+      <img src="${brandLogo}" alt="${brandAlt}" ${isElevacao ? '' : 'aria-hidden="true"'}>
       <span class="editorial-stamp">${getEditorialStamp(post)}</span>
     </div>
-    ${isElevacao ? `<div class="article-elevacao-brand"><img src="assets/elevacao/elevacao-logo.png" alt="Elevação"><span>Trail · Trekking · Hike · Outdoor</span></div>` : ''}
     <div class="a-tag">${post.tag}</div>
     <h1>${post.title}</h1>
     ${post.subtitle ? `<p class="a-subtitle">${post.subtitle}</p>` : ''}
@@ -9368,6 +9511,7 @@ function openPost(id) {
   `;
   normalizeContentAssets(document.getElementById("renderTarget"));
   initCarousel();
+  setElevacaoMode(isElevacao);
   document.body.classList.add('reading-mode');
   document.body.classList.toggle('reading-elevacao', isElevacao);
   document.title = post.metaTitle || post.title + ' — Japão Relativo';
@@ -9377,6 +9521,7 @@ function openPost(id) {
 function closePost() {
   document.body.classList.remove('reading-mode');
   document.body.classList.remove('reading-elevacao');
+  setElevacaoMode(currentFilter === 'Elevação');
   document.title = HOME_TITLE;
   restoreHomeMetaDescription();
   history.pushState(null, '', location.pathname);
@@ -9392,6 +9537,7 @@ window.addEventListener('popstate', function() {
   } else {
     document.body.classList.remove('reading-mode');
     document.body.classList.remove('reading-elevacao');
+    setElevacaoMode(currentFilter === 'Elevação');
     document.title = HOME_TITLE;
     restoreHomeMetaDescription();
     window.scrollTo(0, 0);
@@ -9462,15 +9608,44 @@ function getCurrentHeroItems() {
     });
 }
 
-function buildFadeHero() {
+function getElevacaoHeroItems() {
+  return recentPosts
+    .filter(function(post) {
+      return isElevationPost(post) && post.id && post.title && post.thumb;
+    })
+    .slice(0, 6)
+    .map(function(post) {
+      return {
+        post: post,
+        label: 'TRILHAS · TREKKING · OUTDOOR'
+      };
+    });
+}
+
+var heroRotationTimer = null;
+var heroCurrentItems = [];
+var heroCurrentIndex = 0;
+
+function getHeroStamp(post) {
+  if (document.body.classList.contains('elevacao-mode')) {
+    return 'ELEVAÇÃO <i></i> OUTDOOR';
+  }
+  return getEditorialStamp(post);
+}
+
+function renderHeroItems(items) {
   var container = document.getElementById('heroSlides');
   var panel     = document.getElementById('heroTextPanel');
   if (!container || !panel) return;
+  if (heroRotationTimer) {
+    clearInterval(heroRotationTimer);
+    heroRotationTimer = null;
+  }
   container.innerHTML = '';
 
-  var items = getCurrentHeroItems();
-
   if (!items.length) return;
+  heroCurrentItems = items;
+  heroCurrentIndex = 0;
 
   // Slides carregam APENAS imagem de fundo — sem texto interno.
   // Texto fica no #heroTextPanel único, fora dos slides.
@@ -9494,7 +9669,7 @@ function buildFadeHero() {
   var subEl   = document.getElementById('ht-sub');
 
   // Preencher painel com o primeiro slide (instantâneo, sem fade)
-  if (stampEl) stampEl.innerHTML = getEditorialStamp(items[0].post);
+  if (stampEl) stampEl.innerHTML = getHeroStamp(items[0].post);
   if (catEl)   catEl.textContent   = items[0].label;
   if (titleEl) titleEl.textContent = items[0].post.title;
   if (subEl)   subEl.textContent   = items[0].post.subtitle || '';
@@ -9514,16 +9689,16 @@ function buildFadeHero() {
     panel.setAttribute('aria-label', items[index].post.title);
   }
 
-  panel.addEventListener('click', function() {
+  panel.onclick = function() {
     navigateTo(items[current].post.id);
-  });
+  };
 
-  panel.addEventListener('keydown', function(e) {
+  panel.onkeydown = function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       navigateTo(items[current].post.id);
     }
-  });
+  };
   updateHeroTargets(current);
   if (allSlides.length < 2) return;
 
@@ -9534,21 +9709,42 @@ function buildFadeHero() {
     clearTimeout(fadeTimer);
     fadeTimer = setTimeout(function() {
       if (catEl)   catEl.textContent   = items[index].label;
-      if (stampEl) stampEl.innerHTML   = getEditorialStamp(items[index].post);
+      if (stampEl) stampEl.innerHTML   = getHeroStamp(items[index].post);
       if (titleEl) titleEl.textContent = items[index].post.title;
       if (subEl)   subEl.textContent   = items[index].post.subtitle || '';
       panel.classList.remove('hero-panel-fading');
     }, 280);
   }
 
-  setInterval(function() {
+  heroRotationTimer = setInterval(function() {
     allSlides[current].classList.remove('active');
     allSlides[current].style.pointerEvents = 'none';
     current = (current + 1) % allSlides.length;
+    heroCurrentIndex = current;
     allSlides[current].classList.add('active');
     updateHeroTargets(current);
     updatePanel(current);
   }, 5600);
+}
+
+function buildFadeHero() {
+  renderHeroItems(document.body.classList.contains('elevacao-mode') ? getElevacaoHeroItems() : getCurrentHeroItems());
+}
+
+function setElevacaoMode(active) {
+  var logo = document.querySelector('#heroSection .nav-logo-mark');
+  var logoLink = document.querySelector('#heroSection .nav-logo');
+  document.body.classList.toggle('elevacao-mode', !!active);
+  if (logo) {
+    logo.src = active ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-editorial-logo.png';
+    logo.alt = active ? 'Elevação' : '';
+    logo.setAttribute('aria-hidden', active ? 'false' : 'true');
+  }
+  if (logoLink) {
+    logoLink.setAttribute('aria-label', active ? 'Elevação — início da editoria' : 'Japão Relativo — início');
+  }
+  renderHeroItems(active ? getElevacaoHeroItems() : getCurrentHeroItems());
+  buildLatestStrip();
 }
 
 function initMarketBar() {
@@ -9628,7 +9824,7 @@ function redirectLegacyQuizLink() {
   }
   var cat = params.get('cat');
   if (cat) {
-    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades'];
+    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades','Elevação'];
     if (validCats.includes(cat)) {
       filterCategory(cat);
       setTimeout(function() {
