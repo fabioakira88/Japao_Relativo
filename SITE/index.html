@@ -1714,24 +1714,23 @@ body::after{
   gap:12px
 }
 .nav-logo-mark{
-  width:42px;
-  height:42px;
-  object-fit:cover;
+  width:72px;
+  height:72px;
+  object-fit:contain;
   border-radius:50%;
-  border:1px solid rgba(164,130,80,.36);
-  filter:saturate(.78) contrast(1.05) brightness(.94);
+  filter:saturate(.9) contrast(1.04) brightness(.96);
   box-shadow:0 16px 36px rgba(0,0,0,.42)
 }
 #heroSection .nav .nav-logo-text{
-  color:var(--cream) !important
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap
 }
 #heroSection .nav .nav-logo-text::after{
-  content:"";
-  display:block;
-  width:82px;
-  height:1px;
-  margin-top:8px;
-  background:linear-gradient(90deg,var(--signal),transparent)
+  display:none
 }
 #heroSection .hero-bg-slide{
   filter:saturate(.76) contrast(1.08) brightness(.82) !important
@@ -1964,8 +1963,9 @@ body::after{
   background:var(--signal) !important
 }
 @media(max-width:760px){
-  .nav-logo-mark{width:34px;height:34px}
-  #heroSection .hero-text-panel{padding:0 18px 48px !important}
+  body::after{display:none}
+  .nav-logo-mark{width:76px;height:76px}
+  #heroSection .hero-text-panel{padding:0 22px 72px !important}
   .site-main::after{display:none}
   .editorial-card::after{display:none}
   .editorial-stamp{margin-bottom:14px}
@@ -1989,7 +1989,7 @@ body::after{
 <section class="hero" id="heroSection">
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
-      <img class="nav-logo-mark" src="assets/logo.png" alt="" aria-hidden="true">
+      <img class="nav-logo-mark" src="assets/brand/jr-editorial-logo.png" alt="" aria-hidden="true">
       <span class="nav-logo-text">JR.<span>relativo</span></span>
     </a>
     <ul class="nav-links">
@@ -9352,7 +9352,7 @@ function openPost(id) {
   updateArticleMeta(post, id);
   document.getElementById('renderTarget').innerHTML = `
     <div class="article-brand-lockup">
-      <img src="assets/logo.png" alt="" aria-hidden="true">
+      <img src="assets/brand/jr-editorial-logo.png" alt="" aria-hidden="true">
       <span class="editorial-stamp">${getEditorialStamp(post)}</span>
     </div>
     ${isElevacao ? `<div class="article-elevacao-brand"><img src="assets/elevacao/elevacao-logo.png" alt="Elevação"><span>Trail · Trekking · Hike · Outdoor</span></div>` : ''}
