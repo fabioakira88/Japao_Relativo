@@ -9023,6 +9023,365 @@ Pode usar isso.</p>
   }
 };
 
+function elevacaoArticleContent(cover, alt, caption, intro, sections, sources) {
+  return [
+    `<figure class="article-figure"><img src="${cover}" alt="${alt}" loading="lazy" decoding="async"><figcaption>${caption}</figcaption></figure>`,
+    `<p><strong>${intro}</strong></p>`,
+    sections.map(function(section) {
+      var body = section.items
+        ? `<ul>${section.items.map(function(item) { return `<li>${item}</li>`; }).join('')}</ul>`
+        : section.paragraphs.map(function(paragraph) { return `<p>${paragraph}</p>`; }).join('');
+      return `<h2>${section.title}</h2>${body}`;
+    }).join(''),
+    `<h2>Antes de sair</h2><p>Use este texto como orientação editorial, não como autorização automática para entrar em qualquer rota. Em trilhas no Japão, confirme previsão, acesso, fechamento de trilha, horário de transporte, condição física do grupo e regras locais no dia da saída.</p>`,
+    `<h2>Fontes consultadas</h2><ul>${sources.map(function(source) { return `<li><a href="${source.url}" target="_blank" rel="noopener">${source.label}</a></li>`; }).join('')}</ul>`,
+    `<p><em>Origem editorial:</em> pauta do calendário Notion da Elevação, publicada no Japão Relativo em 14 de agosto de 2026.</p>`
+  ].join('\n');
+}
+
+Object.assign(DB, {
+  "hiking-trekking-montanhismo-diferenca": {
+    title:"Hiking, trekking e montanhismo: qual é a diferença?",
+    subtitle:"Entenda a diferença prática entre caminhada, hiking, trekking e montanhismo antes de escolher uma rota no Japão.",
+    description:"Guia da Elevação explicando hiking, trekking e montanhismo: duração, terreno, autonomia, risco e exemplos práticos para quem caminha no Japão.",
+    metaTitle:"Hiking, trekking e montanhismo: entenda a diferença",
+    metaDescription:"Entenda a diferença entre caminhada, hiking, trekking e montanhismo antes de escolher uma rota no Japão.",
+    keywords:["hiking trekking diferença","montanhismo no Japão","trilhas no Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Primeiros passos",
+    date:"1 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+    coverCall:"Nem toda caminhada é trekking, e nem todo trekking é montanhismo.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+      "Paisagem alpina de Hakuba usada como imagem editorial para explicar modalidades de caminhada.",
+      "Elevação: antes de escolher a rota, entenda o tipo de atividade.",
+      "No uso cotidiano, muita gente chama qualquer saída para a natureza de trilha. Para planejar bem, porém, vale separar hiking, trekking e montanhismo.",
+      [
+        {title:"Caminhada e hiking",paragraphs:["Caminhada é o termo mais amplo. Pode ser parque urbano, caminho rural, rota curta em floresta ou percurso sinalizado. Hiking costuma indicar uma caminhada em ambiente natural, geralmente feita em algumas horas ou em um dia, com retorno previsto e menor necessidade de autonomia.","No Japão, muitos destinos turísticos combinam trechos de hiking com teleférico, ônibus, templo, mirante ou estrada de acesso. A facilidade de chegar ao início da rota não elimina clima, desnível e risco de se perder."]},
+        {title:"Trekking",paragraphs:["Trekking costuma envolver percurso mais longo, mais autonomia e maior exposição. Pode durar um dia inteiro ou vários dias, exigir mochila mais completa, leitura de mapa, gestão de água, alimentação e plano de retorno.","A diferença não é só distância. Uma rota curta, mas isolada, com lama, calor, vento ou desnível forte pode exigir mentalidade de trekking."]},
+        {title:"Montanhismo",paragraphs:["Montanhismo entra quando o objetivo e o terreno se aproximam da montanha como ambiente técnico: altitude, crista exposta, neve, gelo, rocha, abrigo, equipamento específico ou necessidade de avaliar risco de queda e mudança rápida de tempo.","No Japão, áreas alpinas acessíveis por teleférico podem parecer simples no mapa, mas passar de um circuito turístico para uma crista muda completamente a atividade."]},
+        {title:"Como escolher o termo certo",items:["Se dura poucas horas, é sinalizada e tem fuga fácil, pense como hiking.", "Se exige autonomia, navegação e gestão de energia, pense como trekking.", "Se envolve altitude, neve, exposição ou técnica, trate como montanhismo.", "Na dúvida, planeje pelo cenário mais difícil, não pela palavra mais bonita."]}
+      ],
+      [{label:"Japan National Tourism Organization: Hiking in Japan",url:"https://www.japan.travel/en/guide/hiking/"}]
+    )
+  },
+  "dez-itens-essenciais-trilha": {
+    title:"Os 10 itens essenciais para qualquer trilha",
+    subtitle:"Uma checklist base para sair com mais segurança, mesmo em trilhas curtas.",
+    description:"Checklist da Elevação com dez itens essenciais para trilhas no Japão: água, roupa, mapa, luz, comida, proteção e primeiros socorros.",
+    metaTitle:"10 itens essenciais para trilha no Japão",
+    metaDescription:"Checklist com dez itens essenciais para levar em trilhas no Japão, de caminhadas curtas a rotas mais longas.",
+    keywords:["10 itens essenciais trilha","checklist trilha Japão","equipamentos hiking","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"2 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+    coverCall:"O essencial é aquilo que resolve problema quando o passeio deixa de ser simples.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+      "Vale de montanha usado como imagem editorial para checklist de trilha.",
+      "Elevação: checklist simples, útil e repetível.",
+      "A mochila de trilha não precisa ser enorme, mas precisa responder a problemas previsíveis: frio, chuva, sede, escuro, ferimento, rota errada e atraso.",
+      [
+        {title:"A checklist base",items:["Água suficiente e forma de conseguir mais quando a rota permitir.", "Comida simples, calórica e fácil de acessar.", "Mapa offline ou impresso, não apenas sinal de celular.", "Bateria carregada e, em rotas longas, power bank.", "Lanterna de cabeça, mesmo que a volta esteja prevista para antes do pôr do sol.", "Camada contra frio e vento.", "Proteção de chuva.", "Kit pequeno de primeiros socorros e remédios pessoais.", "Apito ou forma simples de chamar atenção.", "Saco para lixo e itens para não deixar rastro."]},
+        {title:"Por que levar em trilha curta",paragraphs:["Acidentes pequenos ficam grandes quando a volta atrasa. Uma torção leve, uma parada para ajudar alguém, mudança de tempo ou erro de bifurcação pode transformar duas horas em seis.","O objetivo da checklist não é carregar medo. É comprar margem: tempo, calor, energia, orientação e capacidade de esperar resgate se necessário."]},
+        {title:"Adapte ao Japão",paragraphs:["Em áreas úmidas, leve proteção contra chuva mesmo com previsão razoável. No verão, água e eletrólitos ganham peso. Em montanha com teleférico, confira último horário de descida e não use esse horário como meta de chegada."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "como-escolher-trilha-compativel-nivel": {
+    title:"Como escolher uma trilha compatível com seu nível",
+    subtitle:"A rota certa não é a mais famosa: é a que combina distância, desnível, clima, tempo e experiência.",
+    description:"Guia para escolher trilhas compatíveis com seu nível no Japão, considerando desnível, distância, clima, acesso, horários e margem de segurança.",
+    metaTitle:"Como escolher uma trilha compatível com seu nível",
+    metaDescription:"Aprenda a escolher trilhas no Japão considerando nível físico, desnível, distância, clima, acesso e tempo de retorno.",
+    keywords:["escolher trilha nível","trilha iniciante Japão","hiking para iniciantes","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Primeiros passos",
+    date:"3 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
+    coverCall:"Nível de trilha não se mede só por quilometragem.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
+      "Paisagem de vale e montanhas usada como imagem editorial para escolha de trilha.",
+      "Elevação: escolha a trilha pelo conjunto, não pela fama.",
+      "Uma trilha compatível é aquela que você consegue terminar com margem. No Japão, muita rota famosa parece acessível nas redes, mas muda de dificuldade com calor, chuva, neve residual, transporte e lotação.",
+      [
+        {title:"Cinco perguntas antes de decidir",items:["Qual é a distância total, ida e volta?", "Qual é o ganho de elevação, não apenas a altitude máxima?", "Existe transporte de volta ou preciso retornar pelo mesmo caminho?", "Há água, banheiro, abrigo ou ponto de fuga?", "O grupo inteiro consegue manter o ritmo necessário?"]},
+        {title:"O erro do iniciante",paragraphs:["O erro comum é escolher pela foto do cume. A foto mostra o destino, não o custo para chegar: subida acumulada, descida nos joelhos, tempo parado, calor, vento e cansaço mental.","Para a primeira saída, prefira trilha sinalizada, com acesso simples, previsão estável e possibilidade de desistir sem drama."]},
+        {title:"Regra de margem",paragraphs:["Se o cálculo diz que você termina às 16h, planeje como se fosse terminar às 15h. Se há último ônibus, último teleférico ou anoitecer próximo, reduza a ambição. A montanha não negocia com horário de postagem."]}
+      ],
+      [{label:"Japan National Tourism Organization: Hiking in Japan",url:"https://www.japan.travel/en/guide/hiking/"}]
+    )
+  },
+  "desnivel-acumulado-dificuldade-trilha": {
+    title:"Desnível acumulado: o número que muda a dificuldade",
+    subtitle:"Altitude máxima impressiona, mas o ganho acumulado costuma explicar por que a trilha cansa.",
+    description:"Entenda desnível acumulado em trilhas: diferença entre altitude máxima, ganho de elevação, perda de elevação e esforço real na rota.",
+    metaTitle:"Desnível acumulado: o número que muda a trilha",
+    metaDescription:"Entenda por que o ganho de elevação pesa mais que a altitude máxima na dificuldade de uma trilha.",
+    keywords:["desnível acumulado","ganho de elevação","altitude trilha","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Técnica",
+    date:"4 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+    coverCall:"O corpo sente cada subida, mesmo quando o mapa parece curto.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+      "Cordilheiras de Nagano usadas como imagem editorial para explicar desnível acumulado.",
+      "Desnível acumulado é a soma das subidas, não apenas a diferença entre começo e fim.",
+      [
+        {title:"Altitude máxima não conta tudo",paragraphs:["Uma trilha pode começar a 1.800 metros e terminar a 2.200 metros, mas subir e descer várias vezes no caminho. No papel, a diferença final parece pequena. Na perna, o esforço é grande.","Por isso, ao comparar rotas, observe distância, ganho de elevação e perda de elevação. Uma rota curta com 900 metros de subida pode ser mais pesada que uma longa quase plana."]},
+        {title:"Subida e descida cansam de formas diferentes",paragraphs:["A subida cobra coração, pulmão e ritmo. A descida cobra joelho, tornozelo, atenção e controle. Quando a rota tem sobe-e-desce constante, o gasto aparece em camadas.","Em trilhas japonesas com degraus, raízes, lama ou rocha, a descida pode consumir mais tempo que o esperado."]},
+        {title:"Como usar esse número",items:["Para iniciantes, trate ganhos altos como alerta mesmo que a distância pareça curta.", "Compare o desnível com sua experiência recente, não com o condicionamento imaginado.", "Some calor, peso da mochila e horário de retorno ao cálculo.", "Se o mapa tiver muitas curvas de nível próximas, espere trecho íngreme."]}
+      ],
+      [{label:"National Parks of Japan: site oficial",url:"https://www.japan.travel/national-parks/"}]
+    )
+  },
+  "planejar-horario-retorno-antes-subida": {
+    title:"Como planejar o horário de retorno antes da subida",
+    subtitle:"Defina o horário de virada antes de começar, não quando o cansaço já tomou a decisão por você.",
+    description:"Tutorial sobre horário de retorno em trilhas: como definir turnaround time, controlar atrasos e evitar descidas tardias no Japão.",
+    metaTitle:"Horário de retorno na trilha: como planejar",
+    metaDescription:"Aprenda a definir horário de retorno antes da subida para evitar descidas tardias e perda de transporte em trilhas no Japão.",
+    keywords:["horário de retorno trilha","turnaround time","segurança hiking Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Segurança",
+    date:"5 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+    coverCall:"Subir é opcional; voltar é obrigatório.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+      "Montanha dos Alpes Centrais usada como imagem editorial para planejamento de retorno.",
+      "O horário de retorno é a decisão que protege a descida.",
+      [
+        {title:"O que é horário de virada",paragraphs:["É o momento combinado para parar de avançar e voltar, mesmo que o cume esteja perto. Ele deve ser definido antes da trilha, com base em luz do dia, transporte, clima, energia do grupo e dificuldade da descida.","Sem essa regra, a cabeça negocia demais: “só mais quinze minutos”, “já está perto”, “vamos acelerar depois”. Na montanha, esse tipo de promessa costuma piorar o problema."]},
+        {title:"Como calcular",items:["Veja o horário do pôr do sol e reduza margem.", "Confira último ônibus, trem, barco ou teleférico.", "Estime a descida com folga, especialmente em lama, neve ou rocha.", "Inclua pausas, fotos, banheiro, alimentação e atrasos.", "Defina um ponto em que todos aceitam voltar sem discussão."]},
+        {title:"Quando desistir cedo",paragraphs:["Tempo fechando, pessoa lenta demais, dor no joelho, pouca água, bateria baixa e perda de rota são motivos suficientes para virar. O cume continua lá. O retorno seguro é a parte principal da trilha."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "agua-na-trilha-quanto-levar-calor": {
+    title:"Água na trilha: quanto levar no calor",
+    subtitle:"Não existe número universal: calor, subida, umidade e acesso à água mudam a conta.",
+    description:"Guia da Elevação para calcular água em trilhas no calor japonês, considerando duração, suor, umidade, fontes e margem de segurança.",
+    metaTitle:"Água na trilha: quanto levar no calor",
+    metaDescription:"Aprenda a planejar água para trilhas no calor do Japão sem depender de um número universal.",
+    keywords:["água na trilha","quanto levar de água hiking","calor trilha Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Nutrição",
+    date:"6 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+    coverCall:"No verão japonês, sede atrasada é sinal ruim.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+      "Vale com água e montanhas usado como imagem editorial para hidratação em trilhas.",
+      "A quantidade de água depende de duração, calor, umidade, esforço, sombra e possibilidade real de reabastecer.",
+      [
+        {title:"Comece pela rota",paragraphs:["Veja tempo estimado, ganho de elevação, exposição ao sol e pontos de água. Se não houver fonte confiável ou loja no caminho, a água precisa sair com você desde o início.","Em áreas naturais do Japão, água bonita não significa água potável. Use apenas pontos indicados como seguros ou trate a água com método adequado."]},
+        {title:"Calor muda tudo",paragraphs:["O verão japonês combina temperatura alta e umidade. O corpo sua muito, mas a evaporação nem sempre refresca. Em subida, o consumo aumenta rápido.","Leve mais do que o cálculo mínimo e beba em intervalos. Esperar sede forte pode significar que você já está atrasado na reposição."]},
+        {title:"Sinais de alerta",items:["Dor de cabeça, tontura, náusea ou confusão.", "Cãibras associadas a suor intenso.", "Urina muito escura ou ausência de vontade de urinar.", "Pessoa parando demais, irritada ou andando sem coordenação."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "golpe-calor-montanha-sinais-resposta": {
+    title:"Golpe de calor na montanha: sinais e resposta",
+    subtitle:"No verão japonês, calor pode ser risco de montanha mesmo longe do asfalto.",
+    description:"Alerta da Elevação sobre golpe de calor na montanha: prevenção, sinais iniciais, resposta rápida e quando abandonar a trilha.",
+    metaTitle:"Golpe de calor na montanha: sinais e resposta",
+    metaDescription:"Reconheça sinais de golpe de calor em trilhas no Japão e saiba quando parar, resfriar e abandonar a rota.",
+    keywords:["golpe de calor trilha","heatstroke Japão","trilha verão Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Segurança",
+    date:"7 de Agosto de 2026",
+    thumb:"assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg",
+    coverCall:"Calor não espera o cume para virar emergência.",
+    content:elevacaoArticleContent(
+      "assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg",
+      "Imagem editorial de verão usada para alerta de calor em trilhas.",
+      "Golpe de calor não é apenas desconforto. Em trilha, ele reduz julgamento, coordenação e capacidade de voltar.",
+      [
+        {title:"Sinais que não devem ser ignorados",items:["Tontura, dor de cabeça, náusea ou fraqueza fora do normal.", "Pele muito quente, suor intenso ou parada repentina do suor.", "Confusão, irritação, fala estranha ou tropeços repetidos.", "Cãibras fortes, pulso acelerado e incapacidade de manter ritmo."]},
+        {title:"Resposta imediata",paragraphs:["Pare a atividade, procure sombra, reduza roupa, resfrie pescoço, axilas e virilha quando possível, ofereça água em pequenos goles se a pessoa estiver consciente e lúcida. Não force alguém confuso a continuar.","Se houver alteração de consciência, piora rápida, desmaio ou incapacidade de caminhar, trate como emergência e acione ajuda local."]},
+        {title:"Prevenção realista",paragraphs:["Comece cedo, reduza objetivo em dias de alerta, proteja a cabeça, beba antes da sede forte e aceite voltar. A trilha certa no verão é muitas vezes a rota mais curta, sombreada e com saída clara."]}
+      ],
+      [{label:"Japan Meteorological Agency",url:"https://www.jma.go.jp/jma/indexe.html"}]
+    )
+  },
+  "como-montar-mochila-sem-destruir-costas": {
+    title:"Como montar uma mochila sem destruir as costas",
+    subtitle:"Distribuição de peso e acesso rápido importam tanto quanto o que você leva.",
+    description:"Tutorial para montar mochila de trilha: peso próximo às costas, itens de acesso rápido, equilíbrio lateral e organização para segurança.",
+    metaTitle:"Como montar mochila de trilha sem destruir as costas",
+    metaDescription:"Aprenda a organizar mochila de trilha com peso equilibrado, acesso rápido e menos sofrimento nas costas.",
+    keywords:["montar mochila trilha","organizar mochila hiking","mochila trekking Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"8 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+    coverCall:"Mochila boa mal montada vira mochila ruim.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+      "Montanhas de Gifu usadas como imagem editorial para organização de mochila.",
+      "Montar mochila é decidir onde cada problema fica: água, frio, chuva, comida, emergência e conforto.",
+      [
+        {title:"Distribuição básica",paragraphs:["Itens mais pesados devem ficar próximos das costas e numa altura intermediária, para não puxar o corpo para trás. Coisas leves e volumosas podem ir ao fundo. Itens de uso frequente precisam ficar acessíveis.","Evite pendurar objetos balançando por fora. Além de incomodar, eles prendem em galhos, desequilibram e fazem barulho."]},
+        {title:"Acesso rápido",items:["Capa de chuva ou jaqueta impermeável.", "Água e comida de caminhada.", "Mapa, celular, power bank e lanterna.", "Kit simples de primeiros socorros.", "Luvas, gorro ou camada corta-vento em montanha fria."]},
+        {title:"Teste antes de sair",paragraphs:["Ajuste alças, barrigueira e peitoral ainda em casa. Caminhe alguns minutos. Se a mochila parece torta na rua, na trilha ela só piora."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "bota-ou-tenis-de-trilha-qual-escolher": {
+    title:"Bota ou tênis de trilha: qual escolher?",
+    subtitle:"A resposta depende de terreno, carga, clima, tornozelo e experiência.",
+    description:"Comparativo entre bota e tênis de trilha para hiking e trekking no Japão, com foco em terreno, carga, chuva, lama e conforto.",
+    metaTitle:"Bota ou tênis de trilha: qual escolher?",
+    metaDescription:"Compare bota e tênis de trilha para escolher calçado conforme terreno, carga, clima e experiência.",
+    keywords:["bota ou tênis de trilha","calçado hiking Japão","sapato trekking","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"9 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+    coverCall:"O melhor calçado é o que combina com a rota e com seu pé.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+      "Terreno alpino usado como imagem editorial para escolha de calçado de trilha.",
+      "Bota e tênis de trilha não são hierarquia. São ferramentas diferentes.",
+      [
+        {title:"Quando a bota ajuda",paragraphs:["Bota costuma proteger mais contra torção, pedra, lama, frio e carga pesada. Pode fazer sentido em trilhas longas, terreno irregular, mochila carregada, chuva, neve leve ou rotas onde bater o pé em rocha é provável.","O custo é peso, calor e tempo de adaptação. Bota nova em trilha longa é convite para bolha."]},
+        {title:"Quando o tênis funciona melhor",paragraphs:["Tênis de trilha é mais leve, seca mais rápido e cansa menos em rotas simples. Para hiking de um dia, trilha bem marcada e mochila leve, pode ser suficiente.","O limite aparece em lama profunda, pedra solta, frio, carga alta e tornozelo sem preparo."]},
+        {title:"Critério prático",items:["Experimente com a meia que vai usar.", "Deixe espaço para o pé inchar e descer sem bater a unha.", "Teste antes em caminhada curta.", "Priorize aderência do solado e conforto real, não aparência."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "bolhas-nos-pes-prevencao-trilha": {
+    title:"Bolhas nos pés: prevenção antes do primeiro passo",
+    subtitle:"Bolha pequena no começo pode decidir o fim da trilha.",
+    description:"Guia para prevenir bolhas nos pés em trilhas: meia, calçado, atrito, ajuste, pontos quentes e cuidados antes de piorar.",
+    metaTitle:"Bolhas nos pés: prevenção na trilha",
+    metaDescription:"Aprenda a prevenir bolhas nos pés antes e durante trilhas, com ajuste de calçado, meia e controle de atrito.",
+    keywords:["bolhas nos pés trilha","prevenir bolha hiking","meia para trilha","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Fisiologia",
+    date:"10 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
+    coverCall:"Conforto é segurança quando a volta ainda é longa.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
+      "Paisagem de montanha usada como imagem editorial para prevenção de bolhas.",
+      "Bolhas surgem de atrito, umidade, calor, pressão e repetição. A prevenção começa antes da trilha.",
+      [
+        {title:"Antes de sair",paragraphs:["Use calçado já testado. Ajuste cadarço para segurar o calcanhar sem esmagar os dedos. Escolha meia que reduza atrito e controle suor; algodão encharcado costuma piorar a situação.","Se você já conhece pontos de atrito, proteja antes de começar. Esperar machucar para agir é tarde demais."]},
+        {title:"Durante a trilha",paragraphs:["Parou e sentiu “ponto quente”? Pare de novo e resolva. Tire pedrinha, estique meia, seque o pé, ajuste cadarço e proteja a pele. Dois minutos nessa hora podem salvar horas depois.","Na descida, o pé escorrega para frente. Se a unha começa a bater, ajuste o travamento do calcanhar."]},
+        {title:"Cuidados básicos",items:["Não estoure bolha sem necessidade.", "Mantenha limpo e protegido.", "Se houver pus, vermelhidão aumentando ou dor forte, procure atendimento.", "Leve curativo adequado para atrito, não só band-aid comum."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "mapa-offline-sinal-celular-nao-e-navegacao": {
+    title:"Mapa offline: por que sinal de celular não é navegação",
+    subtitle:"Ter aplicativo não basta se o mapa, a bateria e a rota não foram preparados antes.",
+    description:"Guia sobre mapas offline em trilhas no Japão: baixar rota, economizar bateria, redundância e por que sinal de celular não é plano de navegação.",
+    metaTitle:"Mapa offline: sinal de celular não é navegação",
+    metaDescription:"Entenda por que baixar mapa offline é essencial em trilhas e como preparar celular, rota e bateria.",
+    keywords:["mapa offline trilha","GPS hiking Japão","navegação trilha","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Navegação",
+    date:"11 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+    coverCall:"GPS sem bateria é só peso no bolso.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+      "Montanhas de Nagano usadas como imagem editorial para navegação offline.",
+      "Sinal de celular é conveniência. Navegação é preparação.",
+      [
+        {title:"O problema do sinal",paragraphs:["Em montanhas, vales, florestas densas e áreas afastadas, o sinal pode cair exatamente quando você precisa confirmar uma bifurcação. Mesmo com sinal, chuva, tela molhada, frio e bateria baixa atrapalham.","Baixe o mapa antes, salve a rota, confira se funciona em modo avião e leve bateria extra em rotas longas."]},
+        {title:"Redundância simples",items:["Mapa offline no celular principal.", "Power bank e cabo funcionando.", "Prints de pontos críticos.", "Nome da rota e destino em japonês.", "Mapa impresso ou anotação de emergência quando a rota justificar."]},
+        {title:"Não siga a linha cegamente",paragraphs:["Aplicativos ajudam, mas não substituem leitura do terreno. Se a trilha real está fechada, desbarrancada ou coberta por neve, a linha antiga no mapa não manda mais que a segurança."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "curvas-de-nivel-sem-misterio": {
+    title:"Curvas de nível sem mistério",
+    subtitle:"Aprenda a enxergar subida, vale, crista e inclinação antes de pisar na trilha.",
+    description:"Tutorial da Elevação explicando curvas de nível em mapas de trilha: distância entre linhas, vale, crista, encosta e leitura básica do relevo.",
+    metaTitle:"Curvas de nível sem mistério para trilhas",
+    metaDescription:"Entenda curvas de nível e aprenda a ler relevo, inclinação, vale e crista em mapas de trilha.",
+    keywords:["curvas de nível","mapa topográfico trilha","ler mapa hiking","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Navegação",
+    date:"12 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+    coverCall:"O mapa mostra a subida antes da perna descobrir.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+      "Montanhas de Gifu usadas como imagem editorial para leitura de relevo.",
+      "Curvas de nível são linhas que conectam pontos de mesma altitude. Elas transformam relevo em desenho.",
+      [
+        {title:"A regra mais importante",paragraphs:["Linhas muito próximas indicam terreno íngreme. Linhas afastadas indicam terreno mais suave. Quando a trilha cruza várias linhas em pouco espaço, prepare-se para subida ou descida forte.","Quando a trilha acompanha a linha, tende a atravessar a encosta com menos ganho imediato de altitude."]},
+        {title:"Vale, crista e cume",paragraphs:["Curvas formando desenhos fechados podem indicar cume ou depressão, dependendo dos números de altitude. Linhas em V apontando para altitudes maiores geralmente indicam vale ou drenagem. Cristas aparecem como prolongamentos altos entre vales.","Essa leitura ajuda a prever onde pode haver água, vento, exposição, lama ou pontos de vista."]},
+        {title:"Use junto com tempo",paragraphs:["Mapa topográfico não diz tudo. Combine curvas de nível com distância, tipo de terreno, clima, peso da mochila e horário de retorno. A leitura boa reduz surpresa, mas não elimina atenção."]}
+      ],
+      [{label:"National Parks of Japan: site oficial",url:"https://www.japan.travel/national-parks/"}]
+    )
+  },
+  "bussola-orientacao-basica-sem-gps": {
+    title:"Bússola: orientação básica sem GPS",
+    subtitle:"Uma bússola simples ainda é útil quando tela, bateria e sinal falham.",
+    description:"Tutorial de orientação básica com bússola para trilhas: norte, mapa, direção geral, erro comum e uso como redundância ao GPS.",
+    metaTitle:"Bússola: orientação básica sem GPS",
+    metaDescription:"Aprenda o básico de bússola para trilhas e entenda por que ela continua útil como redundância ao GPS.",
+    keywords:["bússola trilha","orientação sem GPS","navegação hiking","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Navegação",
+    date:"13 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+    coverCall:"Tecnologia é ótima. Redundância é melhor.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+      "Paisagem de Hakuba usada como imagem editorial para orientação básica.",
+      "Bússola não serve apenas para aventura avançada. Ela ajuda a manter direção geral quando a referência visual some.",
+      [
+        {title:"O básico que importa",paragraphs:["A agulha aponta para o norte magnético. Com um mapa, você consegue orientar o papel, entender para que lado seguem vale, estrada, rio ou crista e evitar caminhar na direção oposta.","Em emergência, saber que a estrada está a oeste ou que o vale desce para sul pode impedir decisões piores."]},
+        {title:"Erros comuns",items:["Usar bússola perto de metal, celular ou ímã.", "Confundir direção aproximada com rota segura.", "Ignorar declinação magnética em navegação precisa.", "Achar que bússola substitui mapa e leitura do terreno."]},
+        {title:"Treine em lugar fácil",paragraphs:["Não espere se perder para aprender. Em parque, mirante ou trilha simples, compare mapa, bússola e paisagem. O objetivo é criar familiaridade antes da pressão."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}]
+    )
+  },
+  "o-que-fazer-ao-perceber-que-esta-perdido": {
+    title:"O que fazer ao perceber que está perdido",
+    subtitle:"A primeira decisão é parar de piorar o erro.",
+    description:"Alerta da Elevação sobre o que fazer ao perceber que está perdido em trilha: parar, avaliar, comunicar, conservar energia e evitar improviso perigoso.",
+    metaTitle:"Perdido na trilha: o que fazer primeiro",
+    metaDescription:"Saiba o que fazer ao perceber que está perdido em uma trilha: parar, avaliar, comunicar e evitar piorar a situação.",
+    keywords:["perdido na trilha","o que fazer se perder hiking","segurança trilha Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Segurança",
+    date:"14 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+    coverCall:"Quando a rota sumir, a pressa vira inimiga.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+      "Vale de Kamikochi usado como imagem editorial para segurança em caso de perda de rota.",
+      "Perceber que está perdido assusta, mas a resposta precisa ser lenta e organizada.",
+      [
+        {title:"Pare e reduza o erro",paragraphs:["A pior reação é acelerar sem direção. Pare em local seguro, respire, agasalhe se necessário, beba água e revise os últimos pontos reconhecíveis: placa, ponte, bifurcação, rio, escada, crista ou construção.","Se voltar poucos minutos leva a um ponto confirmado e seguro, pode ser a melhor decisão. Se não há certeza, evite transformar dúvida em deslocamento maior."]},
+        {title:"Comunique cedo",paragraphs:["Se houver sinal, envie localização, nome da rota, horário, condição do grupo e bateria restante. Ligue para serviços locais se houver risco real, ferimento, noite chegando ou incapacidade de retornar.","No Japão, tenha anotado o nome da montanha, início da trilha e destino em japonês. Isso ajuda muito em pedido de auxílio."]},
+        {title:"Conserve recursos",items:["Economize bateria e use modo avião entre checagens.", "Vista camada antes de esfriar.", "Fique visível e evite descer encosta sem trilha.", "Use apito em séries curtas se precisar chamar atenção.", "Não siga água ou barranco achando que sempre leva à civilização."]}
+      ],
+      [{label:"National Parks of Japan: Rules, Safety and Disaster Information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  }
+});
+
 // ======================================================
 // STATE
 // ======================================================
