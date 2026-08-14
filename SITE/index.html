@@ -9005,11 +9005,11 @@ function getExcerpt(html, len) {
 function buildLatestStrip() {
   var grid = document.getElementById('latestGrid');
   if (!grid) return;
-  var heroTags = ['Notícia','Cultura','Idioma','Anime','Elevação','Dicas','Artigos'];
+  grid.innerHTML = '';
+  var heroItems = getCurrentHeroItems();
   var usedIds = {};
-  heroTags.forEach(function(tag) {
-    var p = recentPosts.find(function(x){ return x.tag === tag; });
-    if (p) usedIds[p.id] = true;
+  heroItems.forEach(function(item) {
+    usedIds[item.post.id] = true;
   });
   var latest = recentPosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 8);
   latest.forEach(function(post) {
@@ -9029,25 +9029,27 @@ function buildLatestStrip() {
   });
 }
 
+function getCurrentHeroItems() {
+  return recentPosts
+    .filter(function(post) {
+      return post && post.id && post.title && post.thumb;
+    })
+    .slice(0, 7)
+    .map(function(post) {
+      return {
+        post: post,
+        label: String(post.tag || post.category || 'JR').toUpperCase()
+      };
+    });
+}
+
 function buildFadeHero() {
   var container = document.getElementById('heroSlides');
   var panel     = document.getElementById('heroTextPanel');
   if (!container || !panel) return;
+  container.innerHTML = '';
 
-  var sections = [
-    { label: 'NOTÍCIA', fn: function(p) { return p.tag === 'Notícia'; } },
-    { label: 'CULTURA', fn: function(p) { return p.tag === 'Cultura'; } },
-    { label: 'IDIOMA',  fn: function(p) { return p.tag === 'Idioma'; } },
-    { label: 'ANIME',   fn: function(p) { return p.tag === 'Anime'; } },
-    { label: 'ELEVAÇÃO', fn: function(p) { return p.tag === 'Elevação'; } },
-    { label: 'DICAS',   fn: function(p) { return p.tag === 'Dicas'; } },
-    { label: 'ARTIGOS', fn: function(p) { return p.tag === 'Artigos'; } }
-  ];
-
-  var items = sections.map(function(s) {
-    var post = recentPosts.find(s.fn);
-    return post ? { post: post, label: s.label } : null;
-  }).filter(Boolean);
+  var items = getCurrentHeroItems();
 
   if (!items.length) return;
 
