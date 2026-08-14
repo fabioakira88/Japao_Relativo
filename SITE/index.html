@@ -9024,6 +9024,12 @@ Pode usar isso.</p>
 };
 
 function elevacaoArticleContent(cover, alt, caption, intro, sections, sources) {
+  if (Array.isArray(intro)) {
+    sources = sections;
+    sections = intro;
+    intro = caption;
+    caption = "Elevação: orientação prática para trilhas no Japão.";
+  }
   return [
     `<figure class="article-figure"><img src="${cover}" alt="${alt}" loading="lazy" decoding="async"><figcaption>${caption}</figcaption></figure>`,
     `<p><strong>${intro}</strong></p>`,
@@ -9676,6 +9682,13 @@ function isElevationPost(post) {
   return !!(post && post.tag && tags.some(t => post.tag === t || post.tag.includes(t)));
 }
 
+function getPortalPosts() {
+  var portalPosts = recentPosts.filter(function(post) {
+    return !isElevationPost(post);
+  });
+  return portalPosts.length ? portalPosts : recentPosts;
+}
+
 function setActiveNav(cat) {
   document.querySelectorAll('.nav-links a[data-cat]').forEach(a => {
     a.classList.toggle('active', a.dataset.cat === cat);
@@ -9929,12 +9942,14 @@ function buildLatestStrip() {
   var grid = document.getElementById('latestGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  var heroItems = getCurrentHeroItems();
+  var isElevacao = document.body.classList.contains('elevacao-mode');
+  var sourcePosts = isElevacao ? recentPosts.filter(isElevationPost) : getPortalPosts();
+  var heroItems = isElevacao ? getElevacaoHeroItems() : getCurrentHeroItems();
   var usedIds = {};
   heroItems.forEach(function(item) {
     usedIds[item.post.id] = true;
   });
-  var latest = recentPosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 8);
+  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 8);
   latest.forEach(function(post) {
     var a = document.createElement('a');
     a.className = 'jr-latest-card';
@@ -9954,7 +9969,7 @@ function buildLatestStrip() {
 }
 
 function getCurrentHeroItems() {
-  return recentPosts
+  return getPortalPosts()
     .filter(function(post) {
       return post && post.id && post.title && post.thumb;
     })
