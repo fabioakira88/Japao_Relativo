@@ -1599,6 +1599,7 @@ body{background:#f5f2ed;color:var(--ink2)}
       <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Home</a></li>
       <li><a href="#grid-section" data-cat="Notícia" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
       <li><a href="#grid-section" data-cat="Artigos" onclick="filterCategory('Artigos');return false;">Artigos</a></li>
+      <li><a href="#grid-section" data-cat="Elevação" onclick="filterCategory('Elevação');return false;">Elevação</a></li>
       <li><a href="nihongo/">Idioma</a></li>
       <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
       <li><a href="guias/">Utilidades</a></li>
@@ -1747,6 +1748,7 @@ body{background:#f5f2ed;color:var(--ink2)}
       <ul>
         <li><a href="#" onclick="filterCategory('Notícia')">Notícias</a></li>
         <li><a href="#" onclick="filterCategory('Artigos')">Artigos</a></li>
+        <li><a href="#" onclick="filterCategory('Elevação')">Elevação</a></li>
         <li><a href="nihongo/">Idioma</a></li>
         <li><a href="quiz.html" title="Quiz JLPT — Nihongo">Quiz JLPT</a></li>
         <li><a href="#sobre" onclick="showAbout();return false;">Sobre mim</a></li>
@@ -1821,7 +1823,7 @@ const DB = {
     keywords:["Hakuba Nagano","Hakuba Valley","Alpes do Norte do Japão","turismo em Hakuba","Happo-one","Nagano"],
     category:"Turismo / Natureza",
     coverCall:"Hakuba não é apenas uma estação de esqui: é um território inteiro construído ao pé de montanhas de quase 3.000 metros.",
-    tag:"Turismo",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
@@ -1837,7 +1839,7 @@ const DB = {
     keywords:["Kiso-Komagatake","Monte Kiso-Komagatake","Alpes Centrais do Japão","Senjojiki Cirque","Komagane Ropeway"],
     category:"Montanhismo / Nagano",
     coverCall:"Um teleférico leva o visitante a 2.612 metros, mas a facilidade do acesso não reduz a força nem os riscos da alta montanha.",
-    tag:"Montanha",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
@@ -1853,7 +1855,7 @@ const DB = {
     keywords:["Komagane Nagano","o que fazer em Komagane","vale de Ina","acesso a Senjojiki","sauce katsudon"],
     category:"Turismo / Cidade",
     coverCall:"Komagane não é apenas o caminho até Senjojiki: é uma cidade do vale de Ina cuja identidade nasceu entre duas grandes cordilheiras.",
-    tag:"Turismo",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
@@ -1869,7 +1871,7 @@ const DB = {
     keywords:["Kamikochi","Kamikochi Nagano","Alpes Japoneses","Kappa Bridge","como chegar a Kamikochi"],
     category:"Natureza protegida / Nagano",
     coverCall:"Kamikochi parece uma paisagem intocada, mas sua preservação depende de regras rígidas, controle de carros e escolhas diárias dos visitantes.",
-    tag:"Natureza",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
@@ -1885,7 +1887,7 @@ const DB = {
     keywords:["Alpes de Nagano","Alpes Japoneses","Alpes do Norte","Alpes Centrais","Alpes do Sul","Hida","Kiso","Akaishi"],
     category:"Geografia / Alpes Japoneses",
     coverCall:"Nagano não possui um único conjunto de Alpes: a província é o ponto de encontro dos Alpes do Norte, Centrais e do Sul.",
-    tag:"Guia",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
@@ -1901,7 +1903,7 @@ const DB = {
     keywords:["Alpes de Gifu","Alpes do Norte do Japão","montanhas Hida","Okuhida","Shinhotaka Ropeway","Hirayu Onsen"],
     category:"Geografia / Gifu",
     coverCall:"Do lado de Gifu, os Alpes Japoneses aparecem como vales profundos, onsen e acessos por Okuhida.",
-    tag:"Guia",
+    tag:"Elevação",
     date:"13 de Agosto de 2026",
     readingTime:"8 min",
     thumb:"assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
@@ -1933,7 +1935,7 @@ const DB = {
     keywords:["mutuca Japão","mutuka Japão","アブ","abu japonês","picada de mutuca","insetos no Japão","verão japonês"],
     category:"Vida no Japão / Segurança",
     coverCall:"No rio bonito do verão japonês, nem todo perigo faz barulho.",
-    tag:"Segurança",
+    tag:"Elevação",
     date:"12 de Agosto de 2026",
     readingTime:"7 min",
     thumb:"assets/covers/mutuca-japao-abu-verao-cover.png",
@@ -2125,7 +2127,7 @@ const DB = {
     ],
     "category": "Cultura / Segurança",
     "coverCall": "Natureza japonesa também exige distância e respeito.",
-    "tag": "Segurança",
+    "tag": "Elevação",
     "date": "2026-08-10",
     "readingTime": "7 min",
     "thumb": "assets/covers/ursos-japao-como-evitar-encontros-cover.jpg",
@@ -4360,7 +4362,7 @@ const DB = {
     keywords:["Yama no Hi","Dia das Montanhas Japão","feriados japoneses","山の日"],
     category:"Cultura japonesa / Feriados",
     coverCall:"O Japão também olha para cima.",
-    tag:"Cultura",
+    tag:"Elevação",
     date:"2026-07-05",
     thumb:"assets/covers/yama-no-hi-dia-das-montanhas-japao-cover.jpg",
     content:`<p><strong>Yama no Hi, o Dia das Montanhas, é um feriado recente, mas conversa com uma relação antiga.</strong> Grande parte do território japonês é montanhoso, e essa geografia aparece na religião, na agricultura, nas trilhas e até no modo como cidades foram construídas.</p>
@@ -5692,7 +5694,7 @@ const DB = {
     keywords:["Monte Fuji 2026","escalada Monte Fuji","trilha Yoshida","taxa Monte Fuji","turismo Japão"],
     category:"Turismo no Japão / Montanhismo",
     coverCall:"O que mudou para subir o Fuji",
-    tag:"Dicas",
+    tag:"Elevação",
     date:"12 de Junho de 2026",
     thumb:"assets/covers/temporada-escalada-monte-fuji-2026.jpg",
     content:`<p><strong>O Monte Fuji parece acessível quando observado das cidades ao redor, mas subir seus 3.776 metros não é uma caminhada comum.</strong> A temporada oficial concentra milhares de visitantes em poucas semanas, e as autoridades endureceram controles para reduzir acidentes, congestionamento e o chamado <em>bullet climbing</em>: subir durante a noite sem descanso adequado.</p>
@@ -8036,7 +8038,7 @@ Pode usar isso.</p>
   },
   "montanhas-do-japao-terminam-em-san-e-dake": {
     title:"Por que algumas montanhas do Japão terminam em DAKE e outras em SAN?",
-    tag:"Cultura",date:"03 de Dezembro de 2025",
+    tag:"Elevação",date:"03 de Dezembro de 2025",
     thumb:"assets/covers/montanhas-do-japao-terminam-em-san-e-dake.jpg",
     content:`<p>Você já reparou que algumas montanhas do Japão terminam em -san e outras em -dake? Essa diferença vai além da língua.</p>
 <h2>O Significado de -San</h2>
@@ -8758,6 +8760,7 @@ const CATEGORY_MAP = {
   'Notícia':     ['Notícia'],
   'Dicas':       ['Dicas', 'Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
   'Cultura Pop': ['Anime'],
+  'Elevação':    ['Elevação', 'Montanha', 'Natureza', 'Montanhismo', 'Trekking', 'Hike', 'Trail', 'Camping', 'Bushcraft'],
   'Utilidades':  ['Utilidades', 'Dicas', 'Curiosidade', 'Saúde e Bem-Estar'],
 };
 
@@ -9002,7 +9005,7 @@ function getExcerpt(html, len) {
 function buildLatestStrip() {
   var grid = document.getElementById('latestGrid');
   if (!grid) return;
-  var heroTags = ['Notícia','Cultura','Idioma','Anime','Dicas','Artigos'];
+  var heroTags = ['Notícia','Cultura','Idioma','Anime','Elevação','Dicas','Artigos'];
   var usedIds = {};
   heroTags.forEach(function(tag) {
     var p = recentPosts.find(function(x){ return x.tag === tag; });
@@ -9036,6 +9039,7 @@ function buildFadeHero() {
     { label: 'CULTURA', fn: function(p) { return p.tag === 'Cultura'; } },
     { label: 'IDIOMA',  fn: function(p) { return p.tag === 'Idioma'; } },
     { label: 'ANIME',   fn: function(p) { return p.tag === 'Anime'; } },
+    { label: 'ELEVAÇÃO', fn: function(p) { return p.tag === 'Elevação'; } },
     { label: 'DICAS',   fn: function(p) { return p.tag === 'Dicas'; } },
     { label: 'ARTIGOS', fn: function(p) { return p.tag === 'Artigos'; } }
   ];

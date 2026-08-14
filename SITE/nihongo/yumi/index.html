@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff7ed">
+  <title>Nihongo Yumi · Flashcards gratuitos de japonês</title>
+  <meta name="description" content="Treine a coleção Nihongo Yumi com 250 kanji organizados por série, leitura, romaji, significado em português e progresso local.">
+  <link rel="canonical" href="https://japaorelativo.com/nihongo/yumi/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nihongo Yumi · Flashcards gratuitos de japonês">
+  <meta property="og:description" content="Treine a coleção Nihongo Yumi com 250 kanji organizados por série, leitura, romaji, significado em português e progresso local.">
+  <meta property="og:url" content="https://japaorelativo.com/nihongo/yumi/">
+  <meta property="og:image" content="https://japaorelativo.com/assets/nihongo/yumi-mascot.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nihongo Yumi · Flashcards gratuitos de japonês">
+  <meta name="twitter:description" content="Treine a coleção Nihongo Yumi com 250 kanji organizados por série, leitura, romaji, significado em português e progresso local.">
+  <meta name="twitter:image" content="https://japaorelativo.com/assets/nihongo/yumi-mascot.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/nihongo/yumi.css?v=20260811-yumi-static">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"Nihongo Yumi · Flashcards gratuitos de japonês","description":"Treine a coleção Nihongo Yumi com 250 kanji organizados por série, leitura, romaji, significado em português e progresso local.","inLanguage":"pt-BR","url":"https://japaorelativo.com/nihongo/yumi/","provider":{"@type":"Organization","name":"Japão Relativo","url":"https://japaorelativo.com/"}}</script>
+</head>
+<body class="yumi-page">
+<div class="yumi-shell">
+  <header class="yumi-header">
+    <a class="yumi-brand" href="/nihongo/" aria-label="Voltar ao Nihongo">
+      <img src="/assets/nihongo/yumi-mascot.png" alt="Mascote hamster do Yumi" width="320" height="320">
+      <span><strong>Nihongo Yumi</strong><span>Aplicação gratuita do campus Nihongo</span></span>
+    </a>
+    <nav class="yumi-nav" aria-label="Navegação Yumi">
+      <a class="yumi-chip" href="/nihongo/">Nihongo</a>
+      <a class="yumi-chip" href="/nihongo/yumi/" aria-current="page">Yumi</a>
+      <a class="yumi-chip" href="/quiz-particulas.html">Partículas</a>
+    </nav>
+  </header>
+  <main class="yumi-grid" data-yumi-app="kanji" data-yumi-src="/assets/data/yumi-kanji-cards.json">
+    <aside class="yumi-panel" aria-label="Controles do Nihongo Yumi">
+      <p class="yumi-kicker">Nihongo Yumi</p>
+      <h1 class="yumi-app-title">Flashcards Yumi.</h1>
+      <p class="yumi-app-copy">App independente com mascote, flip 3D, filtros, progresso e estatísticas. Coleção atual: 250 cartões organizados por série.</p>
+      <h2>Controles</h2>
+      <div class="yumi-controls">
+        <div class="yumi-field"><label for="series">Série</label><select class="yumi-select" id="series" data-yumi-series><option value="all">Todas</option><option value="grade1">1ª série</option><option value="grade2">2ª série</option><option value="grade3">3ª série</option></select></div>
+        <div class="yumi-field"><label for="status">Status</label><select class="yumi-select" id="status" data-yumi-filter-status><option value="all">Todos</option><option value="new">Novos</option><option value="learned">Aprendidos</option><option value="difficult">Difíceis</option></select></div>
+        <div class="yumi-field"><label for="order">Ordem</label><select class="yumi-select" id="order" data-yumi-order><option value="session">Sequencial</option><option value="shuffle">Embaralhada</option></select></div>
+      </div>
+      <div class="yumi-stats" aria-label="Estatísticas"><div class="yumi-stat"><span>Card</span><strong><span data-yumi-current>0</span>/<span data-yumi-total>0</span></strong></div><div class="yumi-stat"><span>Aprendidos</span><strong data-yumi-learned>0</strong></div><div class="yumi-stat"><span>Difíceis</span><strong data-yumi-difficult>0</strong></div><div class="yumi-stat"><span>Total</span><strong>250</strong></div></div>
+      <div class="yumi-progress"><div class="yumi-progress-top"><span>Progresso geral</span><strong data-yumi-percent>0%</strong></div><div class="yumi-progress-track"><div class="yumi-progress-bar" data-yumi-bar></div></div></div>
+      <div class="yumi-dashboard" data-yumi-dashboard aria-label="Dashboard do progresso"></div>
+    </aside>
+    <section class="yumi-stage" aria-label="Flashcard atual"><div data-yumi-body><p class="yumi-status">Carregando cartões...</p></div><div class="yumi-status" data-yumi-status role="status" aria-live="polite">Preparando Nihongo Yumi.</div></section>
+  </main>
+  <script src="/assets/nihongo/yumi-flashcards.js?v=20260811-yumi-static"></script>
+<footer class="yumi-footer" aria-label="Rodapé"><span>© 2026 Japão Relativo</span><nav><a href="/">Início</a><a href="/nihongo/">Nihongo</a><a href="/nihongo/yumi/">Nihongo Yumi</a></nav></footer></div>
+</body>
+</html>
