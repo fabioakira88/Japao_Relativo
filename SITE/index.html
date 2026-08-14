@@ -360,33 +360,20 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
   font-weight:500;
   line-height:0.95;letter-spacing:-1px;color:var(--ink2);
 }
-.quiz-idioma-cta{
-  display:inline-flex;align-items:center;
-  padding:10px 18px;
-  font-family:var(--font-support);font-size:10px;font-weight:400;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--accent);
-  border:1px solid rgba(176,138,87,.38);
-  transition:background .18s,color .18s,border-color .18s;
-  white-space:nowrap;
-  align-self:flex-end;
-}
-.quiz-idioma-cta:hover{background:var(--accent);color:var(--cream);border-color:var(--accent)}
-.quiz-home-cta{padding:0 56px 112px;background:#f5f2ed;color:var(--ink)}
-.quiz-home-inner{max-width:1320px;margin:0 auto;padding:48px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;background:linear-gradient(135deg,#111514,#20231f);color:var(--cream);box-shadow:0 28px 70px rgba(35,29,22,.18);position:relative;overflow:hidden}
-.quiz-home-inner::after{content:"日本語";position:absolute;right:-18px;bottom:-74px;color:rgba(176,138,87,.09);font-family:'Noto Serif JP',serif;font-size:13rem;line-height:1;pointer-events:none}
-.quiz-home-copy{position:relative;z-index:1}
-.quiz-home-eyebrow{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.quiz-home-title{font-family:var(--font-headline);font-size:clamp(2.7rem,5vw,5.4rem);font-weight:500;line-height:.9;max-width:730px}
-.quiz-home-desc{margin-top:20px;max-width:620px;color:rgba(245,241,234,.65);line-height:1.75}
-.quiz-home-levels{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.quiz-home-levels span{min-width:40px;padding:7px 10px;border:1px solid rgba(176,138,87,.42);color:rgba(245,241,234,.78);font-size:9px;letter-spacing:.13em;text-align:center}
-.quiz-home-actions{display:grid;gap:10px;position:relative;z-index:1}
-.quiz-home-action{position:relative;z-index:1;min-width:190px;min-height:54px;padding:0 22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(176,138,87,.6);color:var(--cream);font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
-.quiz-home-action:hover{background:var(--signal);border-color:var(--signal)}
-.quiz-home-action.is-secondary{min-height:44px;border-color:rgba(245,241,234,.18);color:rgba(245,241,234,.7);font-size:8px}
-.quiz-particles-promo{max-width:300px;margin-top:10px;padding:16px;border:1px solid rgba(245,241,234,.12);background:rgba(245,241,234,.035)}
-.quiz-particles-promo strong{display:block;color:var(--gold);font-family:var(--font-headline);font-size:1.25rem;font-weight:500}
-.quiz-particles-promo p{margin-top:6px;color:rgba(245,241,234,.55);font-size:11px;line-height:1.55}
+.elevacao-home-cta{padding:0 56px 112px;background:#f5f2ed;color:var(--ink)}
+.elevacao-home-inner{max-width:1320px;margin:0 auto;padding:46px 52px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:48px;align-items:center;background:radial-gradient(circle at 15% 18%,rgba(238,238,232,.2),transparent 28%),radial-gradient(circle at 86% 58%,rgba(174,24,28,.32),transparent 34%),linear-gradient(135deg,#0a0d0b 0%,#172117 48%,#2b3025 100%);color:var(--cream);box-shadow:0 28px 70px rgba(35,29,22,.2);position:relative;overflow:hidden}
+.elevacao-home-inner::before{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.07),transparent 32%),repeating-linear-gradient(118deg,rgba(245,241,234,.045) 0 1px,transparent 1px 22px);opacity:.72;pointer-events:none}
+.elevacao-home-copy,.elevacao-home-brand{position:relative;z-index:1}
+.elevacao-home-eyebrow{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#f0efe8;margin-bottom:14px}
+.elevacao-home-title{font-family:var(--font-headline);font-size:clamp(2.8rem,5.2vw,5.7rem);font-weight:500;line-height:.9;max-width:760px;color:#f8f6ef}
+.elevacao-home-desc{margin-top:20px;max-width:650px;color:rgba(245,241,234,.72);line-height:1.75}
+.elevacao-home-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.elevacao-home-tags span{padding:7px 10px;border:1px solid rgba(245,241,234,.22);color:rgba(245,241,234,.82);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:rgba(0,0,0,.16)}
+.elevacao-home-brand{display:grid;justify-items:center;gap:20px}
+.elevacao-logo-card{width:min(100%,340px);aspect-ratio:1;display:grid;place-items:center;background:#050505;border:1px solid rgba(245,241,234,.14);box-shadow:0 28px 68px rgba(0,0,0,.32)}
+.elevacao-logo-card img{width:88%;height:88%;object-fit:contain;display:block}
+.elevacao-home-action{min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(245,241,234,.42);color:#f8f6ef;font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:.2s}
+.elevacao-home-action:hover{background:#e3292c;border-color:#e3292c;color:#fff}
 .guide-hub-section{padding:0 56px 112px;background:#f5f2ed;color:var(--ink)}
 .guide-hub-inner{max-width:1320px;margin:0 auto;border-top:1px solid rgba(25,25,25,.14);padding-top:58px}
 .guide-hub-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:28px}
@@ -726,6 +713,23 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 }
 .a-body strong{color:#000;font-weight:700}
 .a-body img{height:auto;max-width:100%;box-sizing:border-box}
+.article-elevacao-brand{margin:0 0 24px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,#080a08,#1c2618 64%,#2d3328);border:1px solid rgba(227,41,44,.28);box-shadow:0 18px 50px rgba(35,29,22,.16)}
+.article-elevacao-brand img{width:148px;max-width:42%;height:auto;object-fit:contain;display:block}
+.article-elevacao-brand span{color:rgba(245,241,234,.78);font-size:9px;letter-spacing:.2em;text-transform:uppercase;text-align:right}
+body.reading-elevacao .article-view{background:#11160f}
+body.reading-elevacao .article-header-hero .ah-img{filter:saturate(.86) contrast(1.08) brightness(.5)}
+body.reading-elevacao .article-header-hero .ah-overlay{background:linear-gradient(transparent 28%,rgba(17,22,15,1) 100%)}
+body.reading-elevacao .article-inner{color:#f5f1ea}
+body.reading-elevacao .btn-back{background:rgba(17,22,15,.82);color:#f5f1ea;border-color:rgba(245,241,234,.18)}
+body.reading-elevacao .btn-back:hover{background:#e3292c;color:#fff}
+body.reading-elevacao .a-tag{color:#e3292c}
+body.reading-elevacao .article-view h1{color:#f8f6ef}
+body.reading-elevacao .a-subtitle{color:rgba(245,241,234,.74)}
+body.reading-elevacao .a-meta{border-color:rgba(245,241,234,.16);color:rgba(245,241,234,.56)}
+body.reading-elevacao .a-body{color:rgba(245,241,234,.84)}
+body.reading-elevacao .a-body h2,body.reading-elevacao .a-body h3{color:#f8f6ef}
+body.reading-elevacao .a-body strong{color:#fff}
+body.reading-elevacao .a-body em{background:rgba(227,41,44,.1);border-left-color:#e3292c;color:#f5f1ea}
 
 /* Reading mode */
 body.reading-mode .site-main { display:none }
@@ -1083,6 +1087,30 @@ body{background:#f5f2ed;color:var(--ink2)}
 .editorial-card.is-wide .editorial-card-excerpt{color:rgba(245,241,234,.74)}
 .editorial-card.is-wide .editorial-card-date{color:rgba(220,190,140,.82)}
 .editorial-card.is-wide .editorial-card-read{color:rgba(245,241,234,.88)}
+.section.editorial-section.is-elevacao{
+  background-color:#10140f;
+  background-image:
+    radial-gradient(circle at 18% 8%,rgba(245,241,234,.14),transparent 22%),
+    radial-gradient(circle at 82% 20%,rgba(213,31,36,.18),transparent 28%),
+    linear-gradient(180deg,#080a08 0,#172014 36%,#263020 100%);
+  color:#f5f1ea
+}
+.section.editorial-section.is-elevacao .section-header{border-bottom-color:rgba(245,241,234,.16)}
+.section.editorial-section.is-elevacao .section-label{color:#f0efe8}
+.section.editorial-section.is-elevacao .section-label::before{background:#e3292c}
+.section.editorial-section.is-elevacao .section-title{color:#f8f6ef}
+.section.editorial-section.is-elevacao .editorial-card{color:#f5f1ea;border-bottom-color:rgba(245,241,234,.14)}
+.section.editorial-section.is-elevacao .editorial-card::before{opacity:.9;background:radial-gradient(circle at 78% 30%,rgba(227,41,44,.16),transparent 36%)}
+.section.editorial-section.is-elevacao .editorial-card-img-wrap{background:#070907;box-shadow:0 28px 70px rgba(0,0,0,.36)}
+.section.editorial-section.is-elevacao .editorial-card-img{filter:saturate(.86) contrast(1.08) brightness(.84)}
+.section.editorial-section.is-elevacao .editorial-card-body::before{content:"";display:block;width:132px;height:48px;margin-bottom:18px;background:url('assets/elevacao/elevacao-logo.png') center/contain no-repeat;filter:drop-shadow(0 12px 26px rgba(0,0,0,.42))}
+.section.editorial-section.is-elevacao .editorial-card-index{color:rgba(245,241,234,.66)}
+.section.editorial-section.is-elevacao .editorial-card-tag{color:#e3292c}
+.section.editorial-section.is-elevacao .editorial-card-title{color:#f8f6ef}
+.section.editorial-section.is-elevacao .editorial-card-excerpt{color:rgba(245,241,234,.72)}
+.section.editorial-section.is-elevacao .editorial-card-date{color:rgba(245,241,234,.56)}
+.section.editorial-section.is-elevacao .editorial-card-read{color:#f8f6ef}
+.section.editorial-section.is-elevacao .editorial-card-read::after{background:#e3292c}
 .editorial-mini-panel{margin-top:0;padding-top:8px}
 .editorial-mini-head{padding-bottom:20px;border-bottom:1px solid rgba(25,25,25,.13)}
 .editorial-mini-market{color:rgba(25,25,25,.55)}
@@ -1230,13 +1258,11 @@ body{background:#f5f2ed;color:var(--ink2)}
   .guide-hub-grid{grid-template-columns:1fr;gap:16px}
   .guide-hub-card{min-height:255px;padding:24px}
   .guide-hub-card::after{font-size:7rem}
-  .quiz-home-cta{padding:0 24px 72px}
-  .quiz-home-inner{padding:34px 26px;display:block}
-  .quiz-home-inner::after{font-size:8rem;bottom:-42px}
-  .quiz-home-title{font-size:clamp(2.7rem,13vw,4rem)}
-  .quiz-home-actions{margin-top:28px}
-  .quiz-home-action{width:100%}
-  .quiz-particles-promo{max-width:none}
+  .elevacao-home-cta{padding:0 24px 72px}
+  .elevacao-home-inner{padding:32px 24px;grid-template-columns:1fr;gap:28px}
+  .elevacao-home-title{font-size:clamp(2.7rem,13vw,4rem)}
+  .elevacao-logo-card{width:min(100%,280px)}
+  .elevacao-home-action{width:100%}
 }
 
 
@@ -1644,8 +1670,6 @@ body{background:#f5f2ed;color:var(--ink2)}
       <div class="section-label">Publicações Recentes</div>
       <h2 class="section-title">Últimos artigos</h2>
     </div>
-    <a class="quiz-idioma-cta" id="quizCtaLink" href="quiz.html" hidden
-       aria-label="Fazer quiz de japonês JLPT">Quiz JLPT →</a>
   </div>
   <div class="editorial-flow" id="newsGrid"></div>
 </section>
@@ -1683,24 +1707,22 @@ body{background:#f5f2ed;color:var(--ink2)}
   </div>
 </section>
 
-<!-- ======================== QUIZ JLPT CTA ======================== -->
-<section class="quiz-home-cta" aria-label="Teste seu nível de japonês">
-  <div class="quiz-home-inner">
-    <div class="quiz-home-copy">
-      <p class="quiz-home-eyebrow">Teste seu Nihongo</p>
-      <h2 class="quiz-home-title">Descubra agora seu nível real de japonês.</h2>
-      <p class="quiz-home-desc">Um diagnóstico autoral baseado nos níveis JLPT, com 20 questões de vocabulário, gramática, kanji, partículas e leitura.</p>
-      <div class="quiz-home-levels" aria-label="Níveis disponíveis">
-        <span>N5</span><span>N4</span><span>N3</span><span>N2</span><span>N1</span>
+<!-- ======================== ELEVAÇÃO CTA ======================== -->
+<section class="elevacao-home-cta" aria-label="Elevação no Japão Relativo">
+  <div class="elevacao-home-inner">
+    <div class="elevacao-home-copy">
+      <p class="elevacao-home-eyebrow">Trail · Trekking · Hike · Outdoor</p>
+      <h2 class="elevacao-home-title">Elevação é a área de montanha do Japão Relativo.</h2>
+      <p class="elevacao-home-desc">Trilhas, trekking, camping, montanhismo, bushcraft e cultura outdoor no Japão em uma editoria própria, com clima de altitude e atenção aos cuidados reais de rota.</p>
+      <div class="elevacao-home-tags" aria-label="Temas da editoria Elevação">
+        <span>Trail</span><span>Trekking</span><span>Hike</span><span>Camping</span><span>Bushcraft</span>
       </div>
     </div>
-    <div class="quiz-home-actions">
-      <a class="quiz-home-action" href="quiz.html">Começar agora →</a>
-      <div class="quiz-particles-promo">
-        <strong>Treine Partículas Japonesas</strong>
-        <p>Aprenda a escolher は, が, を, に, で e outras partículas pelo contexto da frase.</p>
+    <div class="elevacao-home-brand">
+      <div class="elevacao-logo-card">
+        <img src="assets/elevacao/elevacao-logo.png" alt="Elevação">
       </div>
-      <a class="quiz-home-action is-secondary" href="quiz-particulas.html">Começar Quiz de Partículas →</a>
+      <a class="elevacao-home-action" href="#grid-section" onclick="filterCategory('Elevação');return false;">Ver Elevação →</a>
     </div>
   </div>
 </section>
@@ -1750,7 +1772,6 @@ body{background:#f5f2ed;color:var(--ink2)}
         <li><a href="#" onclick="filterCategory('Artigos')">Artigos</a></li>
         <li><a href="#" onclick="filterCategory('Elevação')">Elevação</a></li>
         <li><a href="nihongo/">Idioma</a></li>
-        <li><a href="quiz.html" title="Quiz JLPT — Nihongo">Quiz JLPT</a></li>
         <li><a href="#sobre" onclick="showAbout();return false;">Sobre mim</a></li>
         <li><a href="#" onclick="filterCategory('Anime')">Anime</a></li>
         <li><a href="#" onclick="filterCategory('Utilidades')">Utilidades</a></li>
@@ -8652,19 +8673,18 @@ function buildMainGrid(items) {
 }
 
 function updateSectionHeading(cat) {
+  const section = document.querySelector('.editorial-section');
   const label = document.querySelector('.editorial-section .section-label');
   const title = document.querySelector('.editorial-section .section-title');
-  const quizCta = document.getElementById('quizCtaLink');
   if (!label || !title) return;
+  if (section) section.classList.toggle('is-elevacao', cat === 'Elevação');
   if (cat === 'all') {
     label.textContent = 'Publicações Recentes';
     title.textContent = 'Últimos artigos';
-    if (quizCta) quizCta.hidden = true;
     return;
   }
-  label.textContent = 'Arquivo Editorial';
+  label.textContent = cat === 'Elevação' ? 'Trilhas · Trekking · Outdoor' : 'Arquivo Editorial';
   title.textContent = cat === 'Notícia' ? 'Notícias' : cat === 'Artigos' ? 'Artigos' : cat;
-  if (quizCta) quizCta.hidden = (cat !== 'Idioma');
 }
 
 function syncMiniMarket() {
@@ -8770,6 +8790,11 @@ function getPostsByCategory(cat) {
   return recentPosts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
 }
 
+function isElevationPost(post) {
+  const tags = CATEGORY_MAP['Elevação'];
+  return !!(post && post.tag && tags.some(t => post.tag === t || post.tag.includes(t)));
+}
+
 function setActiveNav(cat) {
   document.querySelectorAll('.nav-links a[data-cat]').forEach(a => {
     a.classList.toggle('active', a.dataset.cat === cat);
@@ -8798,6 +8823,7 @@ if (filterGroup) {
 function filterCategory(cat) {
   document.body.classList.remove('about-visible');
   document.body.classList.remove('reading-mode');
+  document.body.classList.remove('reading-elevacao');
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -8820,6 +8846,7 @@ function filterCategory(cat) {
 
 function showAbout() {
   document.body.classList.remove('reading-mode');
+  document.body.classList.remove('reading-elevacao');
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -8932,6 +8959,7 @@ function restoreHomeMetaDescription() {
 function openPost(id) {
   const post = DB[id];
   if (!post) return;
+  const isElevacao = isElevationPost(post);
   const heroBg = document.getElementById('articleHeroBg');
   heroBg.style.backgroundImage = "url(\"" + normalizeAssetPath(post.thumb) + "\")";
   const metaDescription = getMetaDescription();
@@ -8941,6 +8969,7 @@ function openPost(id) {
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   updateArticleMeta(post, id);
   document.getElementById('renderTarget').innerHTML = `
+    ${isElevacao ? `<div class="article-elevacao-brand"><img src="assets/elevacao/elevacao-logo.png" alt="Elevação"><span>Trail · Trekking · Hike · Outdoor</span></div>` : ''}
     <div class="a-tag">${post.tag}</div>
     <h1>${post.title}</h1>
     ${post.subtitle ? `<p class="a-subtitle">${post.subtitle}</p>` : ''}
@@ -8954,12 +8983,14 @@ function openPost(id) {
   normalizeContentAssets(document.getElementById("renderTarget"));
   initCarousel();
   document.body.classList.add('reading-mode');
+  document.body.classList.toggle('reading-elevacao', isElevacao);
   document.title = post.metaTitle || post.title + ' — Japão Relativo';
   window.scrollTo(0, 0);
 }
 
 function closePost() {
   document.body.classList.remove('reading-mode');
+  document.body.classList.remove('reading-elevacao');
   document.title = HOME_TITLE;
   restoreHomeMetaDescription();
   history.pushState(null, '', location.pathname);
@@ -8974,6 +9005,7 @@ window.addEventListener('popstate', function() {
     openPost(id);
   } else {
     document.body.classList.remove('reading-mode');
+    document.body.classList.remove('reading-elevacao');
     document.title = HOME_TITLE;
     restoreHomeMetaDescription();
     window.scrollTo(0, 0);
