@@ -37,24 +37,25 @@
    CSS VARIABLES & RESET
    ============================================================ */
 :root {
-  --black: #F5F1EA;
-  --dark: #0A0A0A;
-  --dark2: #111111;
-  --panel: #D6D0C4;
-  --red: #C1121F;
-  --red2: #C1121F;
-  --gold: #B08A57;
-  --gold2: #D6D0C4;
-  --white: #111111;
-  --muted: #6B6B6B;
+  --black: #090A0A;
+  --dark: #090A0A;
+  --dark2: #151515;
+  --panel: #151515;
+  --red: #B62C21;
+  --red2: #8F251C;
+  --gold: #A48250;
+  --gold2: #725C3B;
+  --white: #F0EADF;
+  --muted: #9A8F7E;
   --border: rgba(17,17,17,0.12);
   --border2: rgba(17,17,17,0.08);
-  --ink: #0A0A0A;
-  --ink2: #111111;
-  --cream: #F5F1EA;
-  --sand: #D6D0C4;
-  --accent: #B08A57;
-  --signal: #C1121F;
+  --ink: #090A0A;
+  --ink2: #151515;
+  --cream: #F0EADF;
+  --sand: #D8CBB8;
+  --accent: #A48250;
+  --signal: #B62C21;
+  --indigo: #101A22;
   --soft-gray: #6B6B6B;
   --font-headline: 'Cormorant Garamond', serif;
   --font-support: 'Inter', sans-serif;
@@ -1608,6 +1609,375 @@ body{background:#f5f2ed;color:var(--ink2)}
   }
 }
 
+/* ================================================================
+   JR EDITORIAL SIGNATURE — sumi, washi, bengara
+   ================================================================ */
+body{
+  background:
+    radial-gradient(circle at 0 100%,rgba(182,44,33,.2),transparent 28rem),
+    linear-gradient(180deg,#090A0A 0%,#101A22 48%,#151515 100%) !important;
+  color:var(--cream) !important
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.46'/%3E%3C/svg%3E");
+  opacity:.075;
+  mix-blend-mode:screen
+}
+body::after{
+  content:"";
+  position:fixed;
+  left:-11rem;
+  bottom:-15rem;
+  width:34rem;
+  aspect-ratio:1;
+  border-radius:50%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(182,44,33,.78),rgba(119,26,19,.64) 58%,transparent 60%),
+    radial-gradient(rgba(240,234,223,.12) .45px,transparent .7px);
+  background-size:auto,5px 5px;
+  opacity:.72
+}
+.site-main{
+  background:
+    linear-gradient(90deg,rgba(164,130,80,.06) 0 1px,transparent 1px 22px),
+    radial-gradient(circle at 88% 4%,rgba(164,130,80,.16),transparent 22rem),
+    linear-gradient(180deg,#090A0A 0%,#101A22 52%,#151515 100%) !important;
+  color:var(--cream) !important
+}
+.site-main::before{
+  content:"" !important;
+  display:block !important;
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(60deg,rgba(164,130,80,.18) 1px,transparent 1px),
+    linear-gradient(120deg,rgba(164,130,80,.12) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(164,130,80,.08) 1px,transparent 1px);
+  background-size:74px 128px,74px 128px,74px 128px;
+  background-position:right -18px top -14px;
+  opacity:.085;
+  mix-blend-mode:screen
+}
+.site-main::after{
+  content:"";
+  position:fixed;
+  right:-12vw;
+  top:16vh;
+  width:min(36rem,46vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    repeating-radial-gradient(ellipse at center,transparent 0 9px,rgba(164,130,80,.28) 10px 11px,transparent 12px 22px);
+  mask-image:linear-gradient(135deg,transparent 0 34%,#000 34% 72%,transparent 72%);
+  opacity:.28
+}
+.jr-editorial-stamp,.editorial-stamp{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-family:var(--font-support);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:.24em;
+  line-height:1;
+  text-transform:uppercase;
+  color:rgba(240,234,223,.74)
+}
+.jr-editorial-stamp i,.editorial-stamp i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--signal);
+  box-shadow:0 0 0 1px rgba(182,44,33,.22),0 0 18px rgba(182,44,33,.28)
+}
+#heroSection{
+  background:#090A0A !important
+}
+#heroSection::after{
+  background:linear-gradient(90deg,rgba(164,130,80,.86),rgba(164,130,80,0)) !important
+}
+#heroSection .nav{
+  background:linear-gradient(180deg,rgba(9,10,10,.82),rgba(9,10,10,.08)) !important
+}
+#heroSection .nav .nav-logo{
+  gap:12px
+}
+.nav-logo-mark{
+  width:42px;
+  height:42px;
+  object-fit:cover;
+  border-radius:50%;
+  border:1px solid rgba(164,130,80,.36);
+  filter:saturate(.78) contrast(1.05) brightness(.94);
+  box-shadow:0 16px 36px rgba(0,0,0,.42)
+}
+#heroSection .nav .nav-logo-text{
+  color:var(--cream) !important
+}
+#heroSection .nav .nav-logo-text::after{
+  content:"";
+  display:block;
+  width:82px;
+  height:1px;
+  margin-top:8px;
+  background:linear-gradient(90deg,var(--signal),transparent)
+}
+#heroSection .hero-bg-slide{
+  filter:saturate(.76) contrast(1.08) brightness(.82) !important
+}
+#heroSection .hero-bg-slide::after{
+  background:
+    linear-gradient(90deg,rgba(9,10,10,.9) 0%,rgba(9,10,10,.62) 38%,rgba(9,10,10,.16) 74%,rgba(9,10,10,.06) 100%),
+    linear-gradient(0deg,rgba(9,10,10,.78) 0%,rgba(9,10,10,.28) 46%,transparent 72%) !important
+}
+#heroSection .hero-text-panel{
+  padding:0 56px 72px !important
+}
+#heroSection .hero-text-panel::before{
+  background:linear-gradient(180deg,transparent 0%,rgba(9,10,10,.52) 54%,rgba(9,10,10,.82) 100%) !important
+}
+#heroSection .jr-editorial-stamp{
+  margin-bottom:18px
+}
+#heroSection .hero-slide-cat{
+  display:inline-flex !important;
+  align-items:center;
+  gap:9px;
+  margin-bottom:16px !important;
+  color:rgba(164,130,80,.96) !important
+}
+#heroSection .hero-slide-cat::before{
+  content:"";
+  width:28px;
+  height:1px;
+  background:var(--accent)
+}
+#heroSection .hero-slide-title{
+  color:var(--cream) !important;
+  text-shadow:0 16px 54px rgba(0,0,0,.72) !important
+}
+#heroSection .hero-slide-sub{
+  color:rgba(240,234,223,.78) !important
+}
+.jr-latest{
+  background:#090A0A !important;
+  border-color:rgba(164,130,80,.22) !important
+}
+.jr-latest-card{
+  background:#151515 !important
+}
+.jr-latest-card::before,.editorial-card-img-wrap::before,.mini-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(120deg,rgba(164,130,80,.2) 1px,transparent 1px),
+    linear-gradient(60deg,rgba(164,130,80,.12) 1px,transparent 1px);
+  background-size:58px 100px;
+  opacity:0;
+  mix-blend-mode:screen;
+  transition:opacity .28s ease
+}
+.jr-latest-card:hover::before,.editorial-card:hover .editorial-card-img-wrap::before,.mini-card:hover::before{
+  opacity:.2
+}
+.jr-latest-card-ov{
+  background:linear-gradient(180deg,rgba(9,10,10,.08),rgba(9,10,10,.84)) !important
+}
+.jr-latest-card-cat,.mini-card-tag,.editorial-card-tag{
+  color:rgba(164,130,80,.92) !important
+}
+.section.editorial-section{
+  background:
+    radial-gradient(circle at 0 0,rgba(182,44,33,.16),transparent 22rem),
+    linear-gradient(90deg,rgba(114,92,59,.08) 0 1px,transparent 1px 24px),
+    linear-gradient(180deg,#090A0A 0%,#101A22 22%,#151515 100%) !important;
+  color:var(--cream) !important
+}
+.section.editorial-section .section-header{
+  border-bottom-color:rgba(164,130,80,.24) !important
+}
+.section.editorial-section .section-label{
+  color:rgba(164,130,80,.92) !important
+}
+.section.editorial-section .section-label::before{
+  background:var(--signal) !important
+}
+.section.editorial-section .section-title{
+  color:var(--cream) !important
+}
+.editorial-card{
+  color:var(--cream) !important;
+  border-bottom-color:rgba(164,130,80,.22) !important
+}
+.editorial-card::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:4%;
+  width:min(170px,18vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--signal) 0 59%,transparent 60%);
+  opacity:.08;
+  z-index:-2;
+  transform:translateX(42%)
+}
+.editorial-card-img-wrap{
+  border:1px solid rgba(164,130,80,.22);
+  background:#090A0A !important;
+  box-shadow:0 24px 64px rgba(0,0,0,.34),inset 0 0 0 1px rgba(240,234,223,.03) !important
+}
+.editorial-card-img-wrap::after{
+  background:
+    linear-gradient(180deg,rgba(9,10,10,.04),rgba(9,10,10,.44)),
+    radial-gradient(circle at 88% 10%,rgba(164,130,80,.18),transparent 28%) !important;
+  mix-blend-mode:multiply
+}
+.editorial-stamp{
+  margin-bottom:18px
+}
+.editorial-card-index{
+  display:none
+}
+.editorial-card-title,.mini-card-title,.jr-latest-card-title{
+  color:var(--cream) !important
+}
+.editorial-card-excerpt{
+  color:rgba(240,234,223,.66) !important
+}
+.editorial-card-date{
+  color:rgba(164,130,80,.78) !important
+}
+.editorial-card-read{
+  color:rgba(240,234,223,.82) !important
+}
+.editorial-card-read::after{
+  background:var(--signal) !important
+}
+.editorial-mini-head{
+  border-bottom-color:rgba(164,130,80,.22) !important
+}
+.mini-card{
+  border:1px solid rgba(164,130,80,.18);
+  background:#090A0A !important
+}
+.mini-card::after{
+  background:linear-gradient(180deg,rgba(9,10,10,.05),rgba(9,10,10,.82)) !important
+}
+.guide-hub-section,.elevacao-home-cta,.consult-home-promo,.jr-sobre{
+  background:#151515 !important;
+  color:var(--cream) !important
+}
+.guide-hub-inner{
+  border-top-color:rgba(164,130,80,.22) !important
+}
+.guide-hub-title,.consult-home-title,.jr-sobre-titulo{
+  color:var(--cream) !important
+}
+.guide-hub-copy,.consult-home-desc,.jr-sobre-bio{
+  color:rgba(240,234,223,.66) !important
+}
+.guide-hub-card,.consult-home-inner{
+  background:
+    radial-gradient(circle at 110% 0,rgba(182,44,33,.18),transparent 30%),
+    linear-gradient(135deg,#090A0A,#101A22 58%,#151515) !important;
+  border-color:rgba(164,130,80,.22) !important
+}
+.elevacao-home-inner{
+  border:1px solid rgba(164,130,80,.24);
+  background:
+    radial-gradient(circle at 10% 100%,rgba(182,44,33,.24),transparent 25%),
+    linear-gradient(135deg,#090A0A,#101A22 54%,#151515) !important
+}
+.footer{
+  background:#090A0A !important;
+  border-top-color:rgba(164,130,80,.22) !important
+}
+.article-view{
+  background:
+    radial-gradient(circle at 100% 0,rgba(164,130,80,.12),transparent 24rem),
+    linear-gradient(180deg,#090A0A,#151515) !important;
+  color:var(--cream) !important
+}
+.article-header-hero .ah-img{
+  filter:saturate(.72) contrast(1.08) brightness(.48) !important
+}
+.article-header-hero .ah-overlay{
+  background:linear-gradient(transparent 26%,#090A0A 100%) !important
+}
+.article-inner{
+  color:var(--cream) !important
+}
+.article-brand-lockup{
+  margin:0 0 22px;
+  display:flex;
+  align-items:center;
+  gap:13px
+}
+.article-brand-lockup img{
+  width:54px;
+  height:54px;
+  object-fit:cover;
+  border-radius:50%;
+  border:1px solid rgba(164,130,80,.38);
+  filter:saturate(.78) contrast(1.05) brightness(.94)
+}
+.a-tag{
+  color:rgba(164,130,80,.9) !important
+}
+.article-view h1{
+  color:var(--cream) !important
+}
+.a-subtitle,.a-body{
+  color:rgba(240,234,223,.76) !important
+}
+.a-body h2,.a-body h3,.a-body strong{
+  color:var(--cream) !important
+}
+.a-body h2{
+  border-left-color:var(--signal) !important
+}
+.a-meta{
+  color:rgba(240,234,223,.5) !important;
+  border-color:rgba(164,130,80,.22) !important
+}
+.btn-back{
+  color:var(--cream) !important;
+  background:rgba(9,10,10,.82) !important;
+  border-color:rgba(164,130,80,.3) !important
+}
+.btn-back:hover{
+  background:var(--signal) !important
+}
+@media(max-width:760px){
+  .nav-logo-mark{width:34px;height:34px}
+  #heroSection .hero-text-panel{padding:0 18px 48px !important}
+  .site-main::after{display:none}
+  .editorial-card::after{display:none}
+  .editorial-stamp{margin-bottom:14px}
+  .editorial-mini-panel.is-news-list .mini-card{
+    color:var(--cream) !important;
+    border-bottom-color:rgba(164,130,80,.18) !important
+  }
+  .editorial-mini-panel.is-news-list .mini-card-title{
+    color:var(--cream) !important
+  }
+}
+
 </style>
   <link rel="canonical" href="https://japaorelativo.com/">
 </head>
@@ -1619,6 +1989,7 @@ body{background:#f5f2ed;color:var(--ink2)}
 <section class="hero" id="heroSection">
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
+      <img class="nav-logo-mark" src="assets/logo.png" alt="" aria-hidden="true">
       <span class="nav-logo-text">JR.<span>relativo</span></span>
     </a>
     <ul class="nav-links">
@@ -1640,6 +2011,7 @@ body{background:#f5f2ed;color:var(--ink2)}
   </nav>
   <div class="hero-bg-slides" id="heroSlides"></div>
   <div class="hero-text-panel" id="heroTextPanel" aria-live="polite" aria-atomic="true">
+    <span class="jr-editorial-stamp" id="heroStamp">JR. <i></i> JAPÃO RELATIVO</span>
     <span class="hero-slide-cat" id="ht-cat"></span>
     <h2 class="hero-slide-title" id="ht-title"></h2>
     <p class="hero-slide-sub" id="ht-sub"></p>
@@ -8590,6 +8962,14 @@ function extractExcerpt(html, maxLen) {
   return text.length > maxLen ? text.slice(0, maxLen) + '…' : text;
 }
 
+function getEditorialLabel(post) {
+  return String((post && (post.tag || post.category)) || 'JR').toUpperCase();
+}
+
+function getEditorialStamp(post) {
+  return 'JR. <i></i> ' + getEditorialLabel(post);
+}
+
 function navigateTo(id) {
   history.pushState({ postId: id }, '', '#' + id);
   openPost(id);
@@ -8623,6 +9003,7 @@ function buildMainGrid(items) {
         <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="eager" decoding="async" onerror="handleCardImageError(this)">
       </div>
       <div class="editorial-card-body">
+        <div class="editorial-stamp">${getEditorialStamp(post)}</div>
         <div class="editorial-card-index">${String(index + 1).padStart(2, '0')} / Documento</div>
         <div class="editorial-card-tag">${post.tag}</div>
         <div class="editorial-card-title">${post.title}</div>
@@ -8658,6 +9039,7 @@ function buildMainGrid(items) {
       a.innerHTML = `
         <img class="mini-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
         <div class="mini-card-body">
+          <div class="editorial-stamp">${getEditorialStamp(post)}</div>
           <div class="mini-card-tag">${post.tag}</div>
           <div class="mini-card-title">${post.title}</div>
         </div>`;
@@ -8969,6 +9351,10 @@ function openPost(id) {
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   updateArticleMeta(post, id);
   document.getElementById('renderTarget').innerHTML = `
+    <div class="article-brand-lockup">
+      <img src="assets/logo.png" alt="" aria-hidden="true">
+      <span class="editorial-stamp">${getEditorialStamp(post)}</span>
+    </div>
     ${isElevacao ? `<div class="article-elevacao-brand"><img src="assets/elevacao/elevacao-logo.png" alt="Elevação"><span>Trail · Trekking · Hike · Outdoor</span></div>` : ''}
     <div class="a-tag">${post.tag}</div>
     <h1>${post.title}</h1>
@@ -9054,6 +9440,7 @@ function buildLatestStrip() {
       '<div class="jr-latest-card-bg" style="background-image:url(\'' + post.thumb + '\')"></div>' +
       '<div class="jr-latest-card-ov"></div>' +
       '<div class="jr-latest-card-body">' +
+        '<div class="editorial-stamp">' + getEditorialStamp(post) + '</div>' +
         '<div class="jr-latest-card-cat">' + post.tag + '</div>' +
         '<div class="jr-latest-card-title">' + post.title + '</div>' +
       '</div>';
@@ -9102,10 +9489,12 @@ function buildFadeHero() {
   });
 
   var catEl   = document.getElementById('ht-cat');
+  var stampEl = document.getElementById('heroStamp');
   var titleEl = document.getElementById('ht-title');
   var subEl   = document.getElementById('ht-sub');
 
   // Preencher painel com o primeiro slide (instantâneo, sem fade)
+  if (stampEl) stampEl.innerHTML = getEditorialStamp(items[0].post);
   if (catEl)   catEl.textContent   = items[0].label;
   if (titleEl) titleEl.textContent = items[0].post.title;
   if (subEl)   subEl.textContent   = items[0].post.subtitle || '';
@@ -9145,6 +9534,7 @@ function buildFadeHero() {
     clearTimeout(fadeTimer);
     fadeTimer = setTimeout(function() {
       if (catEl)   catEl.textContent   = items[index].label;
+      if (stampEl) stampEl.innerHTML   = getEditorialStamp(items[index].post);
       if (titleEl) titleEl.textContent = items[index].post.title;
       if (subEl)   subEl.textContent   = items[index].post.subtitle || '';
       panel.classList.remove('hero-panel-fading');
