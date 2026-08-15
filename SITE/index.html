@@ -376,6 +376,8 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 .elevacao-home-action{min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(245,241,234,.42);color:#f8f6ef;font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:.2s}
 .elevacao-home-action:hover{background:#e3292c;border-color:#e3292c;color:#fff}
 .guide-hub-section{padding:0 56px 112px;background:#f5f2ed;color:var(--ink)}
+.knowledge-hub-section{padding-bottom:56px}
+.tools-hub-section{padding-bottom:112px}
 .guide-hub-inner{max-width:1320px;margin:0 auto;border-top:1px solid rgba(25,25,25,.14);padding-top:58px}
 .guide-hub-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:28px}
 .guide-hub-label{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--signal);display:flex;align-items:center;gap:10px}
@@ -2133,15 +2135,11 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
       <span class="nav-logo-text">JR.<span>relativo</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Home</a></li>
-      <li><a href="#grid-section" data-cat="Notícia" onclick="filterCategory('Notícia');return false;">Notícias</a></li>
-      <li><a href="#grid-section" data-cat="Artigos" onclick="filterCategory('Artigos');return false;">Artigos</a></li>
+      <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Início</a></li>
+      <li><a href="#grid-section" data-section="japao" onclick="showJapanEditorial();return false;">Japão</a></li>
       <li><a href="#grid-section" data-cat="Elevação" onclick="filterCategory('Elevação');return false;">Elevação</a></li>
-      <li><a href="nihongo/">Idioma</a></li>
-      <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
-      <li><a href="guias/">Utilidades</a></li>
-      <li><a href="financas-no-japao/">Finanças</a></li>
-      <li><a href="consultoria/">Consultoria</a></li>
+      <li><a href="nihongo/">Nihongo</a></li>
+      <li><a href="guias/">Guias</a></li>
       <li><a href="#sobre" data-section="about" onclick="showAbout();return false;">Sobre</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menu">
@@ -2179,44 +2177,11 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
 <section class="section editorial-section" id="grid-section">
   <div class="section-header">
     <div>
-      <div class="section-label">Publicações Recentes</div>
-      <h2 class="section-title">Últimos artigos</h2>
+      <div class="section-label">Revista / Editorial</div>
+      <h2 class="section-title">Seleção JR</h2>
     </div>
   </div>
   <div class="editorial-flow" id="newsGrid"></div>
-</section>
-
-<!-- ======================== GUIAS E CURSOS ======================== -->
-<section class="guide-hub-section" aria-labelledby="guideHubTitle">
-  <div class="guide-hub-inner">
-    <div class="guide-hub-head">
-      <div>
-        <div class="guide-hub-label">Guias e Ferramentas</div>
-        <h2 class="guide-hub-title" id="guideHubTitle">Aprenda o Japão real</h2>
-      </div>
-      <p class="guide-hub-copy">Caminhos práticos para entender dinheiro, idioma e sobrevivência cotidiana no Japão sem depender apenas de posts soltos.</p>
-    </div>
-    <div class="guide-hub-grid">
-      <a class="guide-hub-card is-guides" href="guias/">
-        <div class="guide-hub-tag">Guias</div>
-        <strong>Utilidades</strong>
-        <span>Utilidades para resolver situações do cotidiano japonês com clareza, método e contexto.</span>
-        <div class="guide-hub-action">Ver guias →</div>
-      </a>
-      <a class="guide-hub-card is-finance" href="financas-no-japao/">
-        <div class="guide-hub-tag">Finanças</div>
-        <strong>Finanças no Japão</strong>
-        <span>Juminzei, holerite, Shakai Hoken, Furusato Nozei e dependentes explicados em português claro.</span>
-        <div class="guide-hub-action">Abrir guia →</div>
-      </a>
-      <a class="guide-hub-card is-survival" href="nihongo/yumi/">
-        <div class="guide-hub-tag">Yumi Flashcards</div>
-        <strong>Yumi Flashcards</strong>
-        <span>Kanji, leituras e revisão espaçada em um app próprio do campus Nihongo.</span>
-        <div class="guide-hub-action">Abrir Yumi →</div>
-      </a>
-    </div>
-  </div>
 </section>
 
 <!-- ======================== ELEVAÇÃO CTA ======================== -->
@@ -2235,6 +2200,72 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
         <img src="assets/elevacao/elevacao-logo.png" alt="Elevação">
       </div>
       <a class="elevacao-home-action" href="#grid-section" onclick="filterCategory('Elevação');return false;">Ver Elevação →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== GUIAS ======================== -->
+<section class="guide-hub-section knowledge-hub-section" aria-labelledby="guideHubTitle">
+  <div class="guide-hub-inner">
+    <div class="guide-hub-head">
+      <div>
+        <div class="guide-hub-label">Conhecimento / Guias</div>
+        <h2 class="guide-hub-title" id="guideHubTitle">Guias do Japão</h2>
+      </div>
+      <p class="guide-hub-copy">Conteúdo evergreen para documentos, dinheiro, vida prática e decisões que pedem mais método do que feed.</p>
+    </div>
+    <div class="guide-hub-grid">
+      <a class="guide-hub-card is-guides" href="guias/">
+        <div class="guide-hub-tag">Guias</div>
+        <strong>Vida prática</strong>
+        <span>Utilidades para resolver situações do cotidiano japonês com clareza, método e contexto.</span>
+        <div class="guide-hub-action">Ver guias →</div>
+      </a>
+      <a class="guide-hub-card is-finance" href="financas-no-japao/">
+        <div class="guide-hub-tag">Finanças</div>
+        <strong>Finanças no Japão</strong>
+        <span>Juminzei, holerite, Shakai Hoken, Furusato Nozei e dependentes explicados em português claro.</span>
+        <div class="guide-hub-action">Abrir guia →</div>
+      </a>
+      <a class="guide-hub-card is-survival" href="survival/">
+        <div class="guide-hub-tag">Survival</div>
+        <strong>Japan Survival</strong>
+        <span>Frases e caminhos de emergência para prefeitura, hospital, trabalho, telefone e situações urgentes.</span>
+        <div class="guide-hub-action">Abrir survival →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FERRAMENTAS JR ======================== -->
+<section class="guide-hub-section tools-hub-section" aria-labelledby="toolsHubTitle">
+  <div class="guide-hub-inner">
+    <div class="guide-hub-head">
+      <div>
+        <div class="guide-hub-label">Produtos / Ferramentas JR</div>
+        <h2 class="guide-hub-title" id="toolsHubTitle">Nihongo em prática</h2>
+      </div>
+      <p class="guide-hub-copy">Apps e exercícios ficam em uma zona própria, separados da revista editorial, para estudar sem disputar atenção com as matérias.</p>
+    </div>
+    <div class="guide-hub-grid">
+      <a class="guide-hub-card is-yumi" href="nihongo/yumi/">
+        <div class="guide-hub-tag">Yumi</div>
+        <strong>Yumi Flashcards</strong>
+        <span>Kanji, leituras e revisão espaçada em um app próprio do campus Nihongo.</span>
+        <div class="guide-hub-action">Abrir Yumi →</div>
+      </a>
+      <a class="guide-hub-card is-flashcards" href="nihongo/flashcards/">
+        <div class="guide-hub-tag">Flashcards</div>
+        <strong>Flashcards</strong>
+        <span>Vocabulário, frases e revisão rápida para transformar contato com o japonês em rotina.</span>
+        <div class="guide-hub-action">Estudar →</div>
+      </a>
+      <a class="guide-hub-card is-quiz" href="quiz-particulas.html">
+        <div class="guide-hub-tag">Quiz</div>
+        <strong>Partículas</strong>
+        <span>Treino objetivo para fixar escolhas comuns de partículas japonesas no uso cotidiano.</span>
+        <div class="guide-hub-action">Fazer quiz →</div>
+      </a>
     </div>
   </div>
 </section>
@@ -2276,18 +2307,17 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
 <footer class="footer">
   <div class="footer-top">
 
-    <!-- Esquerda: Categorias + Redes Sociais -->
+    <!-- Esquerda: Editorias + Redes Sociais -->
     <div class="footer-col">
-      <h4>Categorias</h4>
+      <h4>Editorias</h4>
       <ul>
-        <li><a href="#" onclick="filterCategory('Notícia')">Notícias</a></li>
-        <li><a href="#" onclick="filterCategory('Artigos')">Artigos</a></li>
-        <li><a href="#" onclick="filterCategory('Elevação')">Elevação</a></li>
-        <li><a href="nihongo/">Idioma</a></li>
-        <li><a href="#sobre" onclick="showAbout();return false;">Sobre mim</a></li>
-        <li><a href="#" onclick="filterCategory('Anime')">Anime</a></li>
-        <li><a href="#" onclick="filterCategory('Utilidades')">Utilidades</a></li>
-        <li><a href="consultoria/">Consultoria</a></li>
+        <li><a href="#" onclick="filterCategory('all');return false;">Início</a></li>
+        <li><a href="#grid-section" onclick="showJapanEditorial();return false;">Japão</a></li>
+        <li><a href="#" onclick="filterCategory('Elevação');return false;">Elevação</a></li>
+        <li><a href="nihongo/">Nihongo</a></li>
+        <li><a href="guias/">Guias</a></li>
+        <li><a href="#sobre" onclick="showAbout();return false;">Sobre</a></li>
+        <li><a href="consultoria/">JR Apoio</a></li>
       </ul>
       <div class="footer-socials">
         <a class="social-link" href="https://www.instagram.com/__akira__jr?igsh=MTgyY3JsMHNubnQ4ZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram">
@@ -9485,14 +9515,15 @@ function buildMainGrid(items) {
   if (!grid) return;
   grid.innerHTML = '';
   const isHome = currentFilter === 'all';
+  const portalPosts = getPortalPosts();
   updateSectionHeading(currentFilter);
 
   const articleItems = isHome
-    ? recentPosts.slice(0, 3)
+    ? portalPosts.slice(0, 3)
     : items.slice(0, 3);
   const featuredIds = articleItems.map(function(post) { return post.id; });
   const miniPosts = isHome
-    ? recentPosts.filter(function(post) {
+    ? portalPosts.filter(function(post) {
         return post.tag === 'Notícia' && featuredIds.indexOf(post.id) === -1;
       }).slice(0, 6)
     : items.slice(3, 9);
@@ -9566,8 +9597,8 @@ function updateSectionHeading(cat) {
   if (!label || !title) return;
   if (section) section.classList.toggle('is-elevacao', cat === 'Elevação');
   if (cat === 'all') {
-    label.textContent = 'Publicações Recentes';
-    title.textContent = 'Últimos artigos';
+    label.textContent = 'Revista / Editorial';
+    title.textContent = 'Seleção JR';
     return;
   }
   label.textContent = cat === 'Elevação' ? 'Trilhas · Trekking · Outdoor' : 'Arquivo Editorial';
@@ -9672,7 +9703,7 @@ const CATEGORY_MAP = {
 };
 
 function getPostsByCategory(cat) {
-  if (cat === 'all') return [...recentPosts];
+  if (cat === 'all') return getPortalPosts();
   const tags = CATEGORY_MAP[cat] || [cat];
   return recentPosts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
 }
@@ -9694,7 +9725,7 @@ function setActiveNav(cat) {
     a.classList.toggle('active', a.dataset.cat === cat);
   });
   document.querySelectorAll('.nav-links a[data-section]').forEach(a => {
-    a.classList.remove('active');
+    a.classList.toggle('active', a.dataset.section === cat);
   });
 }
 
@@ -9737,6 +9768,15 @@ function filterCategory(cat) {
       document.getElementById('grid-section').scrollIntoView({ behavior: 'smooth' });
     }, 50);
   }
+}
+
+function showJapanEditorial() {
+  filterCategory('all');
+  setActiveNav('japao');
+  setTimeout(() => {
+    var el = document.getElementById('grid-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 50);
 }
 
 function showAbout() {
