@@ -1389,7 +1389,7 @@ body{background:var(--jr-paper);color:var(--ink2)}
 /* ── Dimensões e overflow ── */
 #heroSection {
   position: relative;
-  min-height: 100svh;
+  min-height: 84svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1518,6 +1518,7 @@ body{background:var(--jr-paper);color:var(--ink2)}
   padding: 0 56px 64px;
   z-index: 10;
   pointer-events: none;
+  max-width: min(100%, 1280px);
   opacity: 1;
   transition: opacity .28s ease;
 }
@@ -1551,11 +1552,11 @@ body{background:var(--jr-paper);color:var(--ink2)}
 /* ── Título ── */
 #heroSection .hero-slide-title {
   font-family: var(--font-headline);
-  font-size: clamp(2.35rem, 4.6vw, 4.9rem);
+  font-size: clamp(2.65rem, 4.25vw, 5.15rem);
   font-weight: 500;
-  line-height: .96;
-  max-width: 11.5ch;
-  letter-spacing: -0.03em;
+  line-height: .92;
+  max-width: min(640px, 58vw);
+  letter-spacing: 0;
   color: var(--cream);
   text-shadow: 0 2px 12px rgba(0,0,0,.85), 0 8px 32px rgba(0,0,0,.65);
   margin-bottom: 14px;
@@ -1579,10 +1580,11 @@ body{background:var(--jr-paper);color:var(--ink2)}
 
 /* ════════════ RESPONSIVO: 1000px ════════════ */
 @media(max-width:1000px) {
-  #heroSection { min-height: 52vh; }
+  #heroSection { min-height: 76vh; }
   #heroSection::after { left: 24px; right: 24px; bottom: 40px; }
   #heroSection .nav { padding: 20px 24px; }
   #heroSection .hero-text-panel { padding: 0 24px 48px; }
+  #heroSection .hero-slide-title { max-width: min(620px, 74vw); }
 }
 
 /* ════════════ RESPONSIVO: 760px ════════════
@@ -1631,6 +1633,10 @@ body{background:var(--jr-paper);color:var(--ink2)}
     padding-right: 0;
     border-right: none;
   }
+  #heroSection .nav-logo-mark {
+    width: 42px;
+    height: 42px;
+  }
   #heroSection .nav .nav-logo-text { font-size: 19px; }
   #heroSection .nav .nav-links { display: none; }
   #heroSection .nav-toggle { display: flex; }
@@ -1655,9 +1661,9 @@ body{background:var(--jr-paper);color:var(--ink2)}
 
   #heroSection .hero-text-panel { padding: 0 18px 44px; }
   #heroSection .hero-slide-title {
-    font-size: clamp(1.75rem, 7vw, 2.4rem);
-    max-width: 16ch;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.25rem, 10vw, 3.55rem);
+    max-width: 12ch;
+    letter-spacing: 0;
     margin-bottom: 8px;
   }
   #heroSection .hero-slide-sub {
@@ -1777,12 +1783,12 @@ body::after{
   gap:12px
 }
 .nav-logo-mark{
-  width:72px;
-  height:72px;
+  width:48px;
+  height:48px;
   object-fit:contain;
   border-radius:50%;
   filter:saturate(.9) contrast(1.04) brightness(.96);
-  box-shadow:0 16px 36px rgba(0,0,0,.42)
+  box-shadow:0 10px 24px rgba(0,0,0,.34)
 }
 #heroSection .nav .nav-logo-text{
   position:absolute;
@@ -1804,7 +1810,7 @@ body::after{
     linear-gradient(0deg,rgba(9,10,10,.78) 0%,rgba(9,10,10,.28) 46%,transparent 72%) !important
 }
 #heroSection .hero-text-panel{
-  padding:0 56px 72px !important
+  padding:0 56px 68px !important
 }
 #heroSection .hero-text-panel::before{
   background:linear-gradient(180deg,transparent 0%,rgba(9,10,10,.52) 54%,rgba(9,10,10,.82) 100%) !important
@@ -2310,9 +2316,9 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
     </div>
     <div class="guide-hub-grid">
       <a class="guide-hub-card is-yumi" href="nihongo/yumi/">
-        <div class="guide-hub-tag">Yumi</div>
+        <div class="guide-hub-tag">Kanji</div>
         <strong>Yumi Flashcards</strong>
-        <span>Kanji, leituras e revisão espaçada em um app próprio do campus Nihongo.</span>
+        <span>Aplicação exclusiva para memorizar kanji: leitura, significado, flip, progresso e revisão local.</span>
         <div class="guide-hub-action">Abrir Yumi →</div>
       </a>
       <a class="guide-hub-card is-flashcards" href="nihongo/flashcards/">
@@ -10038,6 +10044,137 @@ function getExcerpt(html, len) {
   return t.length > len ? t.slice(0, len) + '\u2026' : t;
 }
 
+var HERO_EDITORIAL_COPY = {
+  "obon-yasumi-espiritos-aguas-afogamentos": {
+    title: "Obon e as águas dos mortos",
+    subtitle: "Lenda, memória ancestral e riscos reais do verão japonês."
+  },
+  "obon-japao-memoria-ancestrais": {
+    title: "Obon é retorno",
+    subtitle: "Família, lanternas, ancestrais e o país em movimento."
+  },
+  "shirakawa-go-aldeia-gassho-zukuri": {
+    title: "Shirakawa-go ainda é aldeia",
+    subtitle: "Patrimônio, turismo e vida cotidiana entre as montanhas de Gifu."
+  },
+  "castelo-de-himeji-guia-japao": {
+    title: "A Garça Branca de Himeji",
+    subtitle: "Patrimônio Mundial, arquitetura defensiva e cinco séculos de história."
+  },
+  "gundam-witch-from-mercury-bruxa-de-mercurio": {
+    title: "A Bruxa de Mercúrio",
+    subtitle: "Gundam, juventude e tecnologia sob controle corporativo."
+  },
+  "previsao-cidade-nao-serve-para-cume": {
+    title: "O cume tem outro clima",
+    subtitle: "Altitude, vento e nuvens mudam a leitura da montanha."
+  },
+  "o-que-fazer-ao-perceber-que-esta-perdido-na-trilha": {
+    title: "Perdido na trilha",
+    subtitle: "Pare, observe, conserve recursos e evite transformar erro em resgate."
+  },
+  "bussola-orientacao-basica-sem-gps": {
+    title: "Bússola sem GPS",
+    subtitle: "Direção, mapa e terreno antes da bateria acabar."
+  },
+  "curvas-de-nivel-sem-misterio": {
+    title: "Curvas de nível",
+    subtitle: "O mapa já mostra onde a subida começa."
+  },
+  "mapa-offline-sinal-celular-nao-e-navegacao": {
+    title: "Mapa offline primeiro",
+    subtitle: "Sinal de celular não é plano de navegação."
+  },
+  "o-que-fazer-ao-perceber-que-esta-perdido": {
+    title: "Perdido na trilha",
+    subtitle: "A primeira decisão é parar de piorar o erro."
+  },
+  "hakuba-alem-da-neve-alpes-do-norte": {
+    title: "Hakuba além da neve",
+    subtitle: "Um vale moldado pelos Alpes do Norte do Japão."
+  },
+  "kiso-komagatake-alpes-centrais-japao": {
+    title: "Kiso-Komagatake",
+    subtitle: "O ponto alto dos Alpes Centrais exige respeito de montanha."
+  },
+  "komagane-cidade-entre-alpes-japoneses": {
+    title: "Komagane entre Alpes",
+    subtitle: "A cidade-base entre os Alpes Centrais e os Alpes do Sul."
+  },
+  "kamikochi-vale-protegido-alpes-japoneses": {
+    title: "Kamikochi protegido",
+    subtitle: "O vale alpino onde a paisagem pede cuidado."
+  },
+  "salario-minimo-japao-2026-conselho-central": {
+    title: "Salário mínimo em revisão",
+    subtitle: "A orientação é nacional, mas o valor final é provincial."
+  },
+  "turismo-japao-dados-jnto-como-ler-2026": {
+    title: "O turismo em números",
+    subtitle: "Dados da JNTO ajudam, mas não contam a cidade inteira."
+  },
+  "alerta-calor-wbgt-verao-japao-2026": {
+    title: "Calor além do termômetro",
+    subtitle: "WBGT mede o risco real do verão japonês."
+  },
+  "bicicletas-blue-ticket-japao-2026": {
+    title: "Bicicleta com regra",
+    subtitle: "O blue ticket muda a relação entre pedal e trânsito."
+  },
+  "rideshare-japao-calor-chuva-eventos-2026": {
+    title: "Rideshare à japonesa",
+    subtitle: "Um complemento regulado para lacunas reais de mobilidade."
+  },
+  "madoka-magia-walpurgisnacht-2026": {
+    title: "Madoka retorna",
+    subtitle: "A garota mágica que ensinou o público a desconfiar do milagre."
+  },
+  "bleach-tybw-2026-retorno-julho": {
+    title: "Bleach em encerramento",
+    subtitle: "Continuações longas precisam mais que nostalgia."
+  },
+  "jojo-steel-ball-run-netflix-2026": {
+    title: "Steel Ball Run",
+    subtitle: "JoJo muda de palco e volta ao centro da conversa global."
+  },
+  "sekiro-no-defeat-anime-2026": {
+    title: "Sekiro vira anime",
+    subtitle: "Quando o peso do controle precisa virar enquadramento."
+  },
+  "temporada-verao-2026-crunchyroll-curadoria": {
+    title: "A temporada ficou grande",
+    subtitle: "O problema agora é escolher o que merece tempo."
+  },
+  "por-que-o-japao-gosta-de-filas": {
+    title: "A tecnologia da fila",
+    subtitle: "Ordem pública como forma de evitar disputa explícita."
+  },
+  "omotenashi-limites-hospitalidade-japonesa": {
+    title: "Omotenashi tem limite",
+    subtitle: "Hospitalidade japonesa também é trabalho emocional."
+  },
+  "furusato-cidade-natal-japao-memoria": {
+    title: "Furusato",
+    subtitle: "Cidade natal, memória e retorno no imaginário japonês."
+  },
+  "washoku-fermentacao-misso-shoyu-natto": {
+    title: "O sabor do tempo",
+    subtitle: "Missô, shoyu e natto como inteligência cotidiana."
+  },
+  "ma-pausa-espaco-vida-japonesa": {
+    title: "Ma",
+    subtitle: "A pausa que organiza espaço, fala e convivência."
+  }
+};
+
+function getHeroDisplayTitle(post) {
+  return (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].title) || post.heroTitle || post.title;
+}
+
+function getHeroDisplaySubtitle(post) {
+  return (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].subtitle) || post.heroSubtitle || post.subtitle || '';
+}
+
 
 function buildLatestStrip() {
   var grid = document.getElementById('latestGrid');
@@ -10146,8 +10283,8 @@ function renderHeroItems(items) {
   // Preencher painel com o primeiro slide (instantâneo, sem fade)
   if (stampEl) stampEl.innerHTML = getHeroStamp(items[0].post);
   if (catEl)   catEl.textContent   = items[0].label;
-  if (titleEl) titleEl.textContent = items[0].post.title;
-  if (subEl)   subEl.textContent   = items[0].post.subtitle || '';
+  if (titleEl) titleEl.textContent = getHeroDisplayTitle(items[0].post);
+  if (subEl)   subEl.textContent   = getHeroDisplaySubtitle(items[0].post);
   panel.style.cursor = 'pointer';
   panel.setAttribute('role', 'link');
   panel.setAttribute('tabindex', '0');
@@ -10185,8 +10322,8 @@ function renderHeroItems(items) {
     fadeTimer = setTimeout(function() {
       if (catEl)   catEl.textContent   = items[index].label;
       if (stampEl) stampEl.innerHTML   = getHeroStamp(items[index].post);
-      if (titleEl) titleEl.textContent = items[index].post.title;
-      if (subEl)   subEl.textContent   = items[index].post.subtitle || '';
+      if (titleEl) titleEl.textContent = getHeroDisplayTitle(items[index].post);
+      if (subEl)   subEl.textContent   = getHeroDisplaySubtitle(items[index].post);
       panel.classList.remove('hero-panel-fading');
     }, 280);
   }
