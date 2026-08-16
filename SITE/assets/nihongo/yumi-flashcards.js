@@ -135,7 +135,6 @@
             <span class="yumi-face">
               <span class="yumi-meta"><span class="yumi-pill">${escapeHtml(card.seriesLabel)}</span><span class="yumi-pill">${escapeHtml(label)}</span></span>
               <span class="yumi-kanji" lang="ja">${escapeHtml(card.kanji)}</span>
-              <span class="yumi-front-reading" lang="ja">${escapeHtml(card.reading)}</span>
               <span class="yumi-hint">Toque para revelar leitura, romaji e significados.</span>
             </span>
             <span class="yumi-face yumi-face-back">

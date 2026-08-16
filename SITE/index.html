@@ -2153,6 +2153,89 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
   letter-spacing:.01em;
   text-transform:uppercase
 }
+body.anime-mode #heroSection{
+  background:#090a0a
+}
+body.anime-mode #heroSection .hero-bg-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(9,10,10,.88) 0%,rgba(9,10,10,.58) 46%,rgba(9,10,10,.16) 100%),
+    radial-gradient(circle at 78% 18%,rgba(182,44,33,.24),transparent 34%),
+    linear-gradient(180deg,rgba(9,10,10,.08) 0%,rgba(9,10,10,.72) 100%);
+}
+body.anime-mode #heroSection .hero-slide-cat::before{
+  background:var(--jr-bengara)
+}
+body.anime-mode #heroSection .hero-slide-title{
+  max-width:12ch;
+  font-family:var(--font-headline);
+  color:var(--jr-washi)
+}
+body.anime-mode #heroSection .hero-slide-sub{
+  max-width:42ch
+}
+body.anime-mode .section.editorial-section.is-anime{
+  position:relative;
+  overflow:hidden;
+  background-color:#090a0a;
+  background-image:
+    linear-gradient(135deg,rgba(164,130,80,.16) 0 1px,transparent 1px 44px),
+    radial-gradient(circle at 86% 12%,rgba(182,44,33,.2),transparent 22rem),
+    linear-gradient(180deg,#090a0a 0%,#101a22 45%,#151515 100%) !important;
+  color:var(--jr-washi)
+}
+body.anime-mode .section.editorial-section.is-anime::before{
+  content:"ANIME";
+  position:absolute;
+  right:clamp(22px,6vw,82px);
+  top:58px;
+  font-family:var(--font-support);
+  font-size:clamp(4.5rem,15vw,14rem);
+  font-weight:800;
+  letter-spacing:.02em;
+  color:rgba(240,234,223,.035);
+  pointer-events:none
+}
+body.anime-mode .section.editorial-section.is-anime .section-header{
+  border-bottom-color:rgba(164,130,80,.26)
+}
+body.anime-mode .section.editorial-section.is-anime .section-label{
+  color:var(--jr-gold)
+}
+body.anime-mode .section.editorial-section.is-anime .section-label::before{
+  background:var(--jr-bengara)
+}
+body.anime-mode .section.editorial-section.is-anime .section-title,
+body.anime-mode .section.editorial-section.is-anime .editorial-card-title{
+  color:var(--jr-washi)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card{
+  color:var(--jr-washi);
+  border-bottom-color:rgba(240,234,223,.14)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-img-wrap{
+  background:#08090a;
+  box-shadow:0 30px 80px rgba(0,0,0,.36)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-img{
+  filter:saturate(.96) contrast(1.08) brightness(.9)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-tag,
+body.anime-mode .section.editorial-section.is-anime .editorial-card-date,
+body.anime-mode .section.editorial-section.is-anime .editorial-card-index{
+  color:rgba(164,130,80,.86)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-excerpt{
+  color:rgba(240,234,223,.72)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-read{
+  color:var(--jr-washi)
+}
+body.anime-mode .section.editorial-section.is-anime .editorial-card-read::after{
+  background:var(--jr-bengara)
+}
 @media(max-width:760px){
   body.elevacao-mode #heroSection .nav{
     padding:18px 16px !important
@@ -2175,6 +2258,13 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
     width:170px;
     height:58px;
     margin:0 0 18px 0
+  }
+  body.anime-mode #heroSection .hero-slide-title{
+    max-width:11ch
+  }
+  body.anime-mode .section.editorial-section.is-anime::before{
+    top:64px;
+    right:20px
   }
   .article-brand-lockup.is-elevacao{
     align-items:flex-start;
@@ -2205,6 +2295,7 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
       <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Início</a></li>
       <li><a href="#grid-section" data-section="japao" onclick="showJapanEditorial();return false;">Japão</a></li>
       <li><a href="#grid-section" data-cat="Elevação" onclick="filterCategory('Elevação');return false;">Elevação</a></li>
+      <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
       <li><a href="nihongo/">Nihongo</a></li>
       <li><a href="guias/">Guias</a></li>
       <li><a href="#sobre" data-section="about" onclick="showAbout();return false;">Sobre</a></li>
@@ -2722,9 +2813,9 @@ const DB = {
     tag:"Anime",
     date:"2026-08-15",
     readingTime:"5 min",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/madoka.svg",
     content:`<p><strong><em>Puella Magi Madoka Magica</em> retorna aos cinemas japoneses em 28 de agosto de 2026 com <em>Walpurgisnacht: Rising</em>, segundo a Aniplex.</strong> A notícia pesa porque Madoka não foi apenas um sucesso: ela reorganizou expectativas sobre o gênero magical girl.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Ilustração editorial original inspirada em estética japonesa para matéria de anime, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/madoka.svg" alt="Capa editorial original para Madoka Magica, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <p>A força da franquia está no contraste entre delicadeza visual, contrato, sacrifício e horror existencial. O retorno não vende só reencontro com personagens; vende a pergunta que sempre sustentou a obra: qual é o preço de desejar algo absoluto?</p>
 <h2>Por que acompanhar</h2><p>Para novos fãs, o filme pode reabrir debates sobre autoria, Shaft, direção visual e influência de Madoka em obras posteriores. Para antigos, é a continuação de uma conversa que ficou suspensa desde <em>Rebellion</em>.</p>
 <h2>Fontes consultadas</h2><ul><li><a href="https://www.aniplex.co.jp/lineup/madoka-walpurgisnacht/" target="_blank" rel="noopener">Aniplex: Walpurgisnacht: Rising</a></li><li><a href="https://www.aniplex.co.jp/news/detail/?id=69872" target="_blank" rel="noopener">Aniplex: data de estreia</a></li></ul>`
@@ -2742,9 +2833,9 @@ const DB = {
     tag:"Anime",
     date:"2026-08-15",
     readingTime:"5 min",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/bleach-tybw.svg",
     content:`<p><strong>A página oficial da Aniplex lista a volta de <em>BLEACH Thousand-Year Blood War</em> em julho de 2026, com novas janelas de transmissão a partir do fim do mês.</strong> Para fãs de longa data, o retorno carrega sensação de conclusão; para novos espectadores, mostra uma indústria cada vez mais preparada para reativar franquias com acabamento contemporâneo.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Arte editorial original para matéria de anime, sem uso de personagens oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original usada para evitar reprodução de arte protegida.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/bleach-tybw.svg" alt="Capa editorial original para Bleach TYBW, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original usada para evitar reprodução de arte protegida.</figcaption></figure>
 <p>Bleach sempre misturou design marcante, duelo espiritual e senso de estilo. A fase TYBW mostrou que continuações tardias podem funcionar quando respeitam o imaginário visual e atualizam ritmo, som e impacto de cena.</p>
 <h2>O que observar</h2><p>Mais do que confirmar quem vence, a temporada vale por como organiza legado. Obras longas precisam equilibrar fãs antigos, espectadores que chegam por streaming e a pressão de transformar memória em produto atual.</p>
 <h2>Fontes consultadas</h2><ul><li><a href="https://www.aniplex.co.jp/lineup/bleach-anime/" target="_blank" rel="noopener">Aniplex: BLEACH Thousand-Year Blood War</a></li><li><a href="https://www.aniplex.co.jp/anime/" target="_blank" rel="noopener">Aniplex: lineup 2026</a></li></ul>`
@@ -2802,9 +2893,9 @@ const DB = {
     tag:"Anime",
     date:"2026-08-15",
     readingTime:"5 min",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/temporada-anime.svg",
     content:`<p><strong>A lineup de verão 2026 da Crunchyroll mostra o tamanho atual do mercado: estreias, continuações, dublagens, simulcasts e obras de nicho competindo pelo mesmo fim de noite do espectador.</strong></p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original para curadoria de temporada.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/temporada-anime.svg" alt="Capa editorial original para curadoria de temporada de anime, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original para curadoria de temporada.</figcaption></figure>
 <p>O excesso muda o papel da crítica. Já não basta listar tudo. A função editorial é separar porta de entrada, obra de acompanhamento semanal, experimento visual e título que pode esperar.</p>
 <h2>Como escolher</h2><p>Observe estúdio, diretor, material original, janela de exibição e conversa real dos episódios iniciais. Hype ajuda a descobrir, mas não precisa mandar na agenda. A boa temporada é aquela que você consegue acompanhar com prazer, não com culpa.</p>
 <h2>Fontes consultadas</h2><ul><li><a href="https://www.crunchyroll.com/news/seasonal-lineup/2026/6/17/summer-anime-2026-crunchyroll" target="_blank" rel="noopener">Crunchyroll: Summer 2026 Anime Season Lineup</a></li></ul>`
@@ -5469,23 +5560,137 @@ const DB = {
 <p><em>Fonte: Cabinet Office do Japão, calendários nacionais e materiais turísticos sobre montanhismo no Japão.</em></p>`
   },
   "keiro-no-hi-respeito-aos-idosos-japao": {
-    title:"Keirō No Hi: O Dia Do Respeito Aos Idosos",
-    subtitle:"O feriado revela gratidão, longevidade e o desafio demográfico de uma sociedade que envelhece rápido.",
-    description:"Keirō no Hi é o feriado japonês de respeito aos idosos, ligado à gratidão, família e envelhecimento da sociedade.",
+    title:"Keirō no Hi: o Dia do Respeito aos Idosos no Japão",
+    subtitle:"Em 21 de setembro de 2026, o feriado revela gratidão, longevidade e o desafio demográfico de uma sociedade que envelhece rápido.",
+    description:"Keirō no Hi é o feriado japonês de respeito aos idosos. Em 2026, cai em 21 de setembro, a terceira segunda-feira do mês.",
     metaTitle:"Keirō no Hi: o Dia do Respeito aos Idosos",
     metaDescription:"Entenda o Keirō no Hi, feriado japonês que homenageia idosos e reflete a longevidade da sociedade japonesa.",
     keywords:["Keiro no Hi","Dia do Respeito aos Idosos","feriados japoneses","敬老の日"],
     category:"Cultura japonesa / Feriados",
     coverCall:"Gratidão em uma sociedade longeva.",
     tag:"Cultura",
-    date:"2026-07-05",
+    date:"21 de Setembro de 2026",
     thumb:"assets/covers/keiro-no-hi-respeito-aos-idosos-japao-cover.jpg",
-    content:`<p><strong>Keirō no Hi é o feriado japonês dedicado ao respeito pelos idosos.</strong> A data celebra longevidade, contribuição familiar e gratidão, mas também toca em uma das maiores questões do Japão contemporâneo: o envelhecimento populacional.</p>
+    content:`<p><strong>Keirō no Hi é o feriado japonês dedicado ao respeito pelos idosos. Em 2026, ele cai em 21 de setembro.</strong> A data celebra longevidade, contribuição familiar e gratidão, mas também toca em uma das maiores questões do Japão contemporâneo: o envelhecimento populacional.</p>
 <h2>Entre afeto e realidade social</h2>
 <p>Famílias visitam avós, municípios organizam homenagens e comunidades reconhecem moradores de idade avançada. Ao mesmo tempo, o feriado lembra que viver mais exige redes de cuidado, serviços públicos, saúde acessível e convivência menos solitária.</p>
 <h2>O que a data ensina</h2>
 <p>O respeito aos idosos no Japão não é apenas cerimônia. Ele aparece em linguagem, etiqueta, transporte, bairro e trabalho. Keirō no Hi transforma essa ideia em calendário nacional, com todos os limites e contradições que uma sociedade real carrega.</p>
 <p><em>Fonte: Cabinet Office do Japão, calendários nacionais e dados públicos sobre envelhecimento populacional.</em></p>`
+  },
+  "gozan-okuribi-kyoto-agosto": {
+    title:"Gozan no Okuribi: o fogo que encerra o Obon em Kyoto",
+    subtitle:"Em 16 de agosto, montanhas de Kyoto acendem caracteres gigantes para despedir os espíritos ancestrais.",
+    description:"Gozan no Okuribi é a cerimônia de fogo de Kyoto em 16 de agosto, ligada ao encerramento do Obon e à despedida dos ancestrais.",
+    metaTitle:"Gozan no Okuribi: o fogo do Obon em Kyoto",
+    metaDescription:"Entenda o Gozan no Okuribi, cerimônia de 16 de agosto em Kyoto que acende fogueiras nas montanhas para encerrar o Obon.",
+    keywords:["Gozan no Okuribi","Kyoto agosto","Obon Kyoto","Daimonji","五山送り火"],
+    category:"Cultura japonesa / Datas comemorativas",
+    coverCall:"Kyoto despede os ancestrais com fogo nas montanhas.",
+    tag:"Cultura",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/obon-japao-memoria-ancestrais-cover.jpg",
+    content:`<p><strong>Gozan no Okuribi acontece em Kyoto na noite de 16 de agosto e marca o encerramento simbólico do Obon.</strong> Grandes fogueiras são acesas em montanhas ao redor da cidade, formando caracteres e formas vistos à distância.</p>
+<figure class="article-figure"><img src="assets/covers/obon-japao-memoria-ancestrais-cover.jpg" alt="Capa editorial sobre Obon e memória ancestral no Japão." loading="lazy" decoding="async"><figcaption>O fogo funciona como despedida ritual dos espíritos ancestrais.</figcaption></figure>
+<h2>O que significa</h2><p>No imaginário do Obon, os ancestrais retornam temporariamente ao mundo dos vivos. O okuribi, fogo de envio, ajuda a conduzir esses espíritos de volta. Em Kyoto, essa despedida se tornou uma das imagens mais fortes do verão.</p>
+<h2>Por que não é só espetáculo</h2><p>Para visitantes, o evento pode parecer show visual. Para a cidade, ele carrega memória familiar, religiosidade, bairro, calendário e continuidade. O fogo é visto, mas o sentido está na despedida.</p>
+<h2>Como observar com respeito</h2><p>Áreas de visualização lotam muito. Evite bloquear ruas residenciais, entrar em propriedades privadas ou tratar a cerimônia como festa barulhenta. É uma noite bonita, mas também uma noite de memória.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://kyoto.travel/en/season_festivals/gozan_okuribi.html" target="_blank" rel="noopener">Kyoto City Official Travel Guide: Gozan Okuribi</a></li><li><a href="https://www.japan.travel/en/spot/79/" target="_blank" rel="noopener">JNTO: Kyoto Gozan Okuribi</a></li></ul>`
+  },
+  "jizo-bon-fim-de-agosto-japao": {
+    title:"Jizō Bon: a festa de fim de agosto dedicada às crianças",
+    subtitle:"Em bairros de Kyoto e Kansai, o fim do verão ganha uma celebração pequena, local e comunitária.",
+    description:"Jizō Bon é uma tradição de fim de agosto em comunidades japonesas, especialmente em Kansai, dedicada a Jizō e à proteção das crianças.",
+    metaTitle:"Jizō Bon: tradição de fim de agosto no Japão",
+    metaDescription:"Conheça o Jizō Bon, celebração comunitária de fim de agosto dedicada às crianças e ao bodisatva Jizō.",
+    keywords:["Jizo Bon","Jizō Bon","地蔵盆","datas agosto Japão","Kyoto tradição"],
+    category:"Cultura japonesa / Datas comemorativas",
+    coverCall:"O verão termina no bairro, não só no calendário.",
+    tag:"Cultura",
+    date:"23 de Agosto de 2026",
+    thumb:"assets/covers/nagoshi-no-harae-purificacao-japao.jpg",
+    content:`<p><strong>Jizō Bon é uma celebração comunitária associada ao fim de agosto, muito presente em Kyoto e em áreas de Kansai.</strong> A data gira em torno de Jizō, figura budista ligada à proteção das crianças e dos viajantes.</p>
+<figure class="article-figure"><img src="assets/covers/nagoshi-no-harae-purificacao-japao.jpg" alt="Imagem editorial de ritual japonês tradicional." loading="lazy" decoding="async"><figcaption>Jizō Bon é menos turístico e mais ligado ao bairro.</figcaption></figure>
+<h2>Uma data de comunidade</h2><p>Diferente dos grandes matsuri turísticos, Jizō Bon costuma aparecer em escala de vizinhança: crianças, famílias, pequenos altares, lanternas, doces, brincadeiras e cuidado local. É uma tradição em que o bairro se reconhece.</p>
+<h2>Por que importa</h2><p>A data mostra um Japão que nem sempre aparece em roteiro. Não é apenas templo famoso ou festival enorme. É a cultura cotidiana da rua, da associação de moradores, da criança que cresce aprendendo o calendário do próprio bairro.</p>
+<h2>Como perceber</h2><p>Quem mora no Japão pode encontrar pequenos altares decorados e atividades locais no fim de agosto. Como muitas celebrações são de bairro, observe com discrição e respeite se não for evento aberto a visitantes.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.kyoto-kankou.or.jp/" target="_blank" rel="noopener">Kyoto Tourism Federation</a></li><li><a href="https://www.bunka.go.jp/english/" target="_blank" rel="noopener">Agency for Cultural Affairs</a></li></ul>`
+  },
+  "bosai-no-hi-prevencao-desastres-setembro": {
+    title:"Bōsai no Hi: 1º de setembro e a cultura japonesa de preparação",
+    subtitle:"O Dia de Prevenção de Desastres lembra terremotos, tufões, incêndios e a rotina de estar pronto.",
+    description:"Bōsai no Hi, em 1º de setembro, é o Dia de Prevenção de Desastres no Japão, ligado à memória do Grande Terremoto de Kanto.",
+    metaTitle:"Bōsai no Hi: Dia de Prevenção de Desastres no Japão",
+    metaDescription:"Entenda o Bōsai no Hi, celebrado em 1º de setembro, e por que preparação para desastre faz parte da vida no Japão.",
+    keywords:["Bōsai no Hi","Dia de Prevenção de Desastres","1 setembro Japão","防災の日","terremoto Japão"],
+    category:"Sociedade / Datas comemorativas",
+    coverCall:"No Japão, preparo não é paranoia: é calendário.",
+    tag:"Sociedade",
+    date:"1 de Setembro de 2026",
+    thumb:"assets/covers/terremoto-miyagi-6-3-maio-2026.jpg",
+    content:`<p><strong>1º de setembro é o Bōsai no Hi, o Dia de Prevenção de Desastres no Japão.</strong> A data foi criada em memória do Grande Terremoto de Kanto de 1923 e reforça uma ideia central da vida japonesa: desastre não se improvisa.</p>
+<figure class="article-figure"><img src="assets/covers/terremoto-miyagi-6-3-maio-2026.jpg" alt="Imagem editorial sobre terremotos e preparação no Japão." loading="lazy" decoding="async"><figcaption>Preparação vira hábito quando o risco faz parte do território.</figcaption></figure>
+<h2>O que acontece</h2><p>Escolas, empresas, prefeituras e comunidades costumam realizar treinamentos, revisão de rotas de evacuação, checagem de kits e exercícios de comunicação. A data também abre uma semana de atenção à prevenção.</p>
+<h2>Para brasileiros no Japão</h2><p>O essencial é saber onde evacuar, como receber alertas, quais documentos levar, onde fica o abrigo da cidade e como falar o endereço em japonês. Ter água, comida simples, remédios, bateria externa e lanterna não é exagero.</p>
+<h2>Mais que terremoto</h2><p>Bōsai inclui terremotos, tufões, enchentes, deslizamentos, incêndios e interrupções de transporte. Setembro também está dentro da temporada de tufões, o que torna a data ainda mais prática.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.bousai.go.jp/" target="_blank" rel="noopener">Cabinet Office: Disaster Management in Japan</a></li><li><a href="https://www.jma.go.jp/jma/indexe.html" target="_blank" rel="noopener">Japan Meteorological Agency</a></li></ul>`
+  },
+  "choyo-no-sekku-kiku-setembro": {
+    title:"Chōyō no Sekku: 9 de setembro e o festival dos crisântemos",
+    subtitle:"Uma das cinco festas sazonais japonesas preserva a ligação entre número, flor, longevidade e outono.",
+    description:"Chōyō no Sekku, em 9 de setembro, é uma data tradicional japonesa associada ao crisântemo, à longevidade e ao calendário sazonal.",
+    metaTitle:"Chōyō no Sekku: festival dos crisântemos",
+    metaDescription:"Conheça o Chōyō no Sekku, data de 9 de setembro ligada ao crisântemo, longevidade e tradição sazonal japonesa.",
+    keywords:["Choyo no Sekku","Chōyō no Sekku","菊の節句","crisântemo Japão","9 de setembro Japão"],
+    category:"Cultura japonesa / Datas comemorativas",
+    coverCall:"O nono dia do nono mês marca a flor da longevidade.",
+    tag:"Cultura",
+    date:"9 de Setembro de 2026",
+    thumb:"assets/covers/bunka-no-hi-dia-da-cultura-japao-cover.jpg",
+    content:`<p><strong>Chōyō no Sekku, celebrado em 9 de setembro, é uma das antigas festas sazonais do calendário japonês.</strong> Também é conhecido como Kiku no Sekku, a festa dos crisântemos.</p>
+<figure class="article-figure"><img src="assets/covers/bunka-no-hi-dia-da-cultura-japao-cover.jpg" alt="Imagem editorial sobre cultura japonesa tradicional." loading="lazy" decoding="async"><figcaption>O crisântemo liga estética, longevidade e calendário sazonal.</figcaption></figure>
+<h2>Por que 9 de setembro</h2><p>Na tradição de origem chinesa assimilada pelo Japão, números ímpares eram associados a força yang. O nono dia do nono mês concentra essa repetição, e o crisântemo aparece como flor ligada à longevidade e proteção.</p>
+<h2>Como aparece hoje</h2><p>A data não é feriado nacional e não ocupa o cotidiano como Ano Novo ou Obon. Ainda assim, sobrevive em exposições de crisântemos, referências culturais, cerimônias e linguagem sazonal.</p>
+<h2>O que observar</h2><p>Em setembro, a estética do verão começa a ceder espaço ao outono. Chōyō no Sekku ajuda a perceber que o calendário japonês não é feito só de feriados oficiais: há camadas de datas sazonais, flores, alimentos e pequenos rituais.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.bunka.go.jp/english/" target="_blank" rel="noopener">Agency for Cultural Affairs</a></li><li><a href="https://www.kunaicho.go.jp/e-about/seido/symbol.html" target="_blank" rel="noopener">Imperial Household Agency: chrysanthemum symbol</a></li></ul>`
+  },
+  "shubun-no-hi-e-higan-setembro": {
+    title:"Shūbun no Hi e Higan: o equinócio de outono no Japão",
+    subtitle:"Em 23 de setembro de 2026, o feriado une mudança de estação, túmulos familiares e equilíbrio entre luz e sombra.",
+    description:"Shūbun no Hi é o feriado japonês do equinócio de outono. Em 2026, cai em 23 de setembro e se conecta ao período budista de Higan.",
+    metaTitle:"Shūbun no Hi: equinócio de outono no Japão",
+    metaDescription:"Entenda o Shūbun no Hi, feriado japonês do equinócio de outono em 23 de setembro de 2026, e sua relação com Higan.",
+    keywords:["Shubun no Hi","秋分の日","Higan","equinócio de outono Japão","feriado setembro Japão"],
+    category:"Cultura japonesa / Feriados",
+    coverCall:"Quando dia e noite se equilibram, o Japão visita seus mortos.",
+    tag:"Cultura",
+    date:"23 de Setembro de 2026",
+    thumb:"assets/covers/keiro-no-hi-respeito-aos-idosos-japao-cover.jpg",
+    content:`<p><strong>Shūbun no Hi é o feriado japonês do equinócio de outono. Em 2026, ele cai em 23 de setembro.</strong> A data marca a mudança sazonal e se conecta ao período budista de Higan, quando muitas famílias visitam túmulos.</p>
+<figure class="article-figure"><img src="assets/covers/keiro-no-hi-respeito-aos-idosos-japao-cover.jpg" alt="Imagem editorial sobre memória familiar e respeito no Japão." loading="lazy" decoding="async"><figcaption>O equinócio combina estação, família e memória.</figcaption></figure>
+<h2>O sentido da data</h2><p>O equinócio é o momento em que dia e noite ficam próximos do equilíbrio. Na cultura japonesa, essa passagem ganhou leitura espiritual: lembrar ancestrais, limpar túmulos, oferecer flores e reorganizar a relação com a família.</p>
+<h2>Higan</h2><p>Higan acontece em torno dos equinócios de primavera e outono. Não é apenas um dia, mas um período em que templos, cemitérios e casas familiares recebem atenção especial.</p>
+<h2>Para quem vive no Japão</h2><p>O feriado pode afetar transporte, funcionamento de serviços e movimento em áreas próximas a cemitérios e templos. Também é uma boa chance de perceber como memória familiar permanece no calendário cotidiano.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html" target="_blank" rel="noopener">Cabinet Office: feriados nacionais</a></li><li><a href="https://www.nao.ac.jp/en/" target="_blank" rel="noopener">National Astronomical Observatory of Japan</a></li></ul>`
+  },
+  "tsukimi-chushu-no-meigetsu-2026": {
+    title:"Tsukimi 2026: a lua de outono e o costume de contemplar o céu",
+    subtitle:"Em 25 de setembro de 2026, o Chūshū no Meigetsu recoloca a lua no centro da estação.",
+    description:"Tsukimi é a contemplação da lua de outono no Japão. Em 2026, o Chūshū no Meigetsu cai em 25 de setembro.",
+    metaTitle:"Tsukimi 2026: lua de outono no Japão",
+    metaDescription:"Conheça o Tsukimi, tradição japonesa de contemplar a lua de outono. Em 2026, o Chūshū no Meigetsu cai em 25 de setembro.",
+    keywords:["Tsukimi 2026","Chushu no Meigetsu","十五夜","lua de outono Japão","setembro Japão"],
+    category:"Cultura japonesa / Datas comemorativas",
+    coverCall:"O outono japonês começa também olhando para cima.",
+    tag:"Cultura",
+    date:"25 de Setembro de 2026",
+    thumb:"assets/covers/tanabata-lenda-festival-japao.jpg",
+    content:`<p><strong>Tsukimi é o costume japonês de contemplar a lua de outono.</strong> Em 2026, o Chūshū no Meigetsu, a lua famosa do meio do outono, cai em 25 de setembro.</p>
+<figure class="article-figure"><img src="assets/covers/tanabata-lenda-festival-japao.jpg" alt="Imagem editorial noturna usada para tradição sazonal japonesa." loading="lazy" decoding="async"><figcaption>Tsukimi transforma céu, comida e estação em ritual discreto.</figcaption></figure>
+<h2>O que se faz no Tsukimi</h2><p>A imagem clássica reúne lua cheia, susuki, bolinhos tsukimi dango e ofertas sazonais. Em casas, templos, jardins e eventos, a data convida a observar o céu com calma.</p>
+<h2>Mais que paisagem bonita</h2><p>Tsukimi fala de estação. O calor do verão começa a recuar, a luz muda e o calendário passa a chamar atenção para colheita, céu limpo e alimento. A lua vira centro de uma percepção sazonal.</p>
+<h2>Onde aparece hoje</h2><p>Além de eventos tradicionais, Tsukimi aparece em produtos sazonais, menus, doces, decoração e campanhas comerciais. Mesmo quando vira marketing, ainda preserva a ideia de que o Japão organiza o ano por sinais visuais e alimentares.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://eco.mtk.nao.ac.jp/koyomi/yoko/" target="_blank" rel="noopener">National Astronomical Observatory of Japan: calendário</a></li><li><a href="https://www.japan.travel/en/guide/september/" target="_blank" rel="noopener">JNTO: setembro no Japão</a></li></ul>`
   },
   "bunka-no-hi-dia-da-cultura-japao": {
     title:"Bunka No Hi: O Dia Da Cultura",
@@ -10167,10 +10372,10 @@ Object.assign(DB, {
     tag:"Anime",
     category:"Anime / Clássicos",
     date:"16 de Agosto de 2026",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/akira.svg",
     coverCall:"Neo-Tokyo virou linguagem visual para imaginar o futuro em ruínas.",
     content:`<p><strong><em>Akira</em>, lançado em 1988 e dirigido por Katsuhiro Otomo, é um dos filmes que mudaram a forma como o mundo enxergava anime.</strong> Antes dele, muita gente fora do Japão ainda associava animação japonesa a televisão infantil ou produto de nicho. Depois dele, ficou difícil ignorar que anime também podia ser cinema adulto, urbano, político e tecnicamente ambicioso.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/akira.svg" alt="Capa editorial original para Akira, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <h2>Nascimento de Neo-Tokyo</h2><p>A história nasce do mangá de Otomo e se passa em uma Neo-Tokyo reconstruída depois de uma catástrofe. A cidade é personagem: congestionada, violenta, luminosa, cheia de concreto, protestos, gangues, laboratórios e trauma político.</p><p>Kaneda e Tetsuo entram nesse mundo como jovens atravessados por abandono, raiva e desejo de poder. A escala cresce até o colapso, mas o centro emocional continua sendo a relação entre amizade, inveja e perda de controle.</p>
 <h2>Por que virou clássico</h2><p>O impacto de <em>Akira</em> está na soma rara entre animação detalhada, ritmo cinematográfico, desenho de cidade e sensação de fim de era. O filme parece sempre prestes a explodir. Cada moto, luz, corredor e massa de concreto comunica um Japão que avançou tecnologicamente sem resolver suas feridas.</p><p>O anime ajudou a consolidar no Ocidente a imagem de que a animação japonesa podia lidar com corpo, política, mutação, juventude e destruição de forma mais radical do que a animação comercial dominante.</p>
 <h2>Legado</h2><p>Seu legado aparece em videoclipes, filmes, games, moda, ficção científica e no próprio vocabulário visual do cyberpunk. Mais do que um clássico para rever, <em>Akira</em> virou uma espécie de origem compartilhada para imaginar metrópoles saturadas e juventudes sem futuro garantido.</p>
@@ -10186,10 +10391,10 @@ Object.assign(DB, {
     tag:"Anime",
     category:"Anime / Clássicos",
     date:"16 de Agosto de 2026",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/cowboy-bebop.svg",
     coverCall:"No espaço de Cowboy Bebop, todo mundo carrega um passado que ainda cobra juros.",
     content:`<p><strong><em>Cowboy Bebop</em>, exibido em 1998, é um clássico porque parece ao mesmo tempo muito japonês e profundamente cosmopolita.</strong> A série dirigida por Shinichiro Watanabe mistura ficção científica, western, cinema noir, artes marciais, humor seco e jazz como se tudo sempre tivesse pertencido ao mesmo mundo.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para perfil de anime clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/cowboy-bebop.svg" alt="Capa editorial original para Cowboy Bebop, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <h2>A nave como casa provisória</h2><p>A Bebop não é uma nave heroica. É um lugar de contas atrasadas, comida pouca, silêncio, pequenos golpes e convivência improvisada. Spike, Jet, Faye, Ed e Ein formam uma família torta, reunida menos por destino grandioso e mais por falta de outro lugar para ficar.</p><p>Essa estrutura dá à série sua força: cada episódio parece aventura independente, mas a melancolia vai se acumulando. O passado de cada personagem se aproxima devagar, até ficar impossível continuar fugindo.</p>
 <h2>Som, gênero e estilo</h2><p>A trilha de Yoko Kanno não acompanha a série; ela define seu pulso. Jazz, blues, funk, rock e baladas melancólicas transformam a narrativa em experiência musical. O anime não explica demais. Ele deixa que montagem, silêncio, cor e som façam parte do texto.</p>
 <h2>Legado</h2><p><em>Cowboy Bebop</em> virou porta de entrada para muita gente que dizia não gostar de anime. Seu legado está na elegância adulta: ação sem excesso, tristeza sem discurso pesado e personagens que parecem legais justamente porque estão quebrados.</p>
@@ -10205,10 +10410,10 @@ Object.assign(DB, {
     tag:"Anime",
     category:"Anime / Clássicos",
     date:"16 de Agosto de 2026",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/evangelion.svg",
     coverCall:"Evangelion entrou no robô para falar do que quebra por dentro.",
     content:`<p><strong><em>Neon Genesis Evangelion</em>, exibido em 1995, começou como anime de robô gigante e terminou como uma das obras mais discutidas da cultura pop japonesa.</strong> Criado por Hideaki Anno e produzido pela Gainax, o anime pegou a tradição mecha e deslocou o centro da pergunta: não era apenas como vencer o inimigo, mas o que a guerra faz com adolescentes obrigados a pilotar.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria sobre anime clássico psicológico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/evangelion.svg" alt="Capa editorial original para Evangelion, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <h2>Robôs, anjos e gente quebrada</h2><p>A premissa apresenta adolescentes pilotando unidades Eva contra entidades chamadas Anjos. Mas o anime logo revela que o espetáculo mecânico é apenas uma superfície. Shinji, Rei, Asuka, Misato e Gendo são definidos por abandono, culpa, desejo de reconhecimento e dificuldade de contato humano.</p><p>O vocabulário religioso, as telas técnicas, os silêncios e os cortes secos criam uma obra que parece sempre entre ficção científica, ritual e terapia interrompida.</p>
 <h2>Por que abalou o gênero</h2><p>Evangelion não matou o mecha heroico, mas abriu um rombo nele. O piloto não é só escolhido: é pressionado, usado, observado e quebrado. A máquina não é extensão gloriosa do corpo; é também prisão, ferida e dependência.</p>
 <h2>Legado</h2><p>O legado de Evangelion aparece em animes psicológicos, debates de fandom, cinema, música, design e na própria ideia de que uma obra popular pode ser ao mesmo tempo produto comercial e crise autoral. Poucos animes foram tão interpretados, parodiados e revisitados.</p>
@@ -10224,10 +10429,10 @@ Object.assign(DB, {
     tag:"Anime",
     category:"Anime / Clássicos",
     date:"16 de Agosto de 2026",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/ghost-in-the-shell.svg",
     coverCall:"Quando corpo, memória e rede se misturam, o humano deixa de ser óbvio.",
     content:`<p><strong><em>Ghost in the Shell</em>, lançado em 1995 e dirigido por Mamoru Oshii, é um dos filmes centrais do cyberpunk japonês.</strong> Adaptado do mangá de Masamune Shirow, o anime pergunta o que ainda chamamos de humano quando corpo, cérebro, memória e rede podem ser manipulados.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime cyberpunk clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/ghost-in-the-shell.svg" alt="Capa editorial original para Ghost in the Shell, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <h2>A Major e o fantasma</h2><p>A protagonista, Motoko Kusanagi, vive em um corpo cibernético e trabalha em operações de segurança pública. O caso investigado pelo filme envolve invasão de mentes, identidade fabricada e uma inteligência que desafia categorias simples de vida.</p><p>O título sugere a tensão principal: existe um fantasma dentro da máquina? Ou o fantasma também é efeito de memória, linguagem e rede?</p>
 <h2>Estética da cidade conectada</h2><p>O filme combina ação policial, filosofia, silêncio contemplativo e uma cidade úmida, vertical, atravessada por informação. Diferente de obras que usam tecnologia só como decoração, <em>Ghost in the Shell</em> trata tecnologia como transformação íntima.</p>
 <h2>Legado</h2><p>Seu impacto alcançou cinema, games, design, ficção científica e debates sobre inteligência artificial. Antes de redes sociais, avatares e algoritmos cotidianos, o filme já tratava identidade como algo instável, editável e politicamente disputado.</p>
@@ -10243,14 +10448,313 @@ Object.assign(DB, {
     tag:"Anime",
     category:"Anime / Clássicos",
     date:"16 de Agosto de 2026",
-    thumb:"assets/covers/anime-default.png",
+    thumb:"assets/covers/anime-editorial/serial-experiments-lain.svg",
     coverCall:"Lain entendeu cedo que estar conectado não significa estar junto.",
     content:`<p><strong><em>Serial Experiments Lain</em>, exibido em 1998, parece mais atual quanto mais o tempo passa.</strong> A série acompanha Lain Iwakura, uma garota quieta que começa a entrar em contato com a Wired, rede que funciona como espelho estranho da internet e da presença digital.</p>
-<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime clássico sobre internet e identidade, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/serial-experiments-lain.svg" alt="Capa editorial original para Serial Experiments Lain, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
 <h2>Uma obra sobre desaparecer online</h2><p>Lain não trata tecnologia como ferramenta neutra. A rede muda memória, reputação, corpo, amizade e sensação de realidade. A protagonista parece existir em camadas: a menina da escola, a presença online, a imagem projetada pelos outros e algo maior que escapa da identidade comum.</p><p>O anime usa silêncio, ruído elétrico, repetição e desconforto para criar uma experiência menos narrativa tradicional e mais estado mental.</p>
 <h2>Por que envelheceu tão bem</h2><p>Em 1998, a vida conectada ainda parecia promessa distante para muita gente. Hoje, a pergunta de Lain é cotidiana: quanto de nós vive na rede? Quem controla a versão digital de uma pessoa? O que acontece quando presença vira dado?</p>
 <h2>Legado</h2><p><em>Serial Experiments Lain</em> virou obra de culto porque não tenta ser confortável. Sua influência aparece em discussões sobre identidade digital, isolamento, comunidades online e ansiedade tecnológica. É um clássico não por explicar a internet, mas por sentir cedo o seu peso psíquico.</p>
 <h2>Fontes consultadas</h2><ul><li><a href="https://www.nbcuni.co.jp/rondorobe/anime/lain/" target="_blank" rel="noopener">Serial Experiments Lain: site oficial</a></li><li><a href="https://www.genco.co.jp/" target="_blank" rel="noopener">GENCO</a></li></ul>`
+  },
+  "steins-gate-anime-jogo-visual-novel": {
+    title:"Steins;Gate: o anime que nasceu de jogo e transformou viagem no tempo em paranoia",
+    subtitle:"Visual novel, Akihabara, laboratório improvisado e uma pergunta simples: quanto custa mudar uma linha do tempo?",
+    description:"Artigo sobre Steins;Gate, anime originado de visual novel, sua estrutura de mistério, viagem no tempo e impacto cultural.",
+    metaTitle:"Steins;Gate: anime que nasceu de jogo",
+    metaDescription:"Entenda Steins;Gate como anime originado de visual novel e por que sua viagem no tempo ainda funciona.",
+    keywords:["Steins Gate","anime de jogo","visual novel","anime de raciocínio","Akihabara"],
+    tag:"Anime",
+    category:"Anime / Jogos",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/steins-gate.svg",
+    coverCall:"Tempo, culpa e escolhas dentro de um laboratório pequeno demais.",
+    content:`<p><strong><em>Steins;Gate</em> nasceu como visual novel e virou uma das adaptações mais lembradas quando o assunto é anime vindo de jogo.</strong> Sua força não está apenas na viagem no tempo, mas na forma como cada escolha pequena começa a cobrar um preço emocional.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/steins-gate.svg" alt="Capa editorial original para Steins;Gate, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Por que funciona como anime</h2><p>A visual novel permite caminhos, repetição e descoberta gradual. O anime traduz isso como tensão acumulada: mensagens, experimentos, versões possíveis de um mesmo evento e a sensação de que entender demais também é perigoso.</p><p>Akihabara não aparece só como cenário pop. Ela vira laboratório social, lugar onde tecnologia, fantasia de gênio e solidão urbana se misturam.</p>
+<h2>O que observar</h2><p>O começo pode parecer leve, quase bagunçado, mas esse contraste é parte do mecanismo. Quanto mais o tom escurece, mais o espectador percebe que o humor inicial era uma proteção contra uma história de culpa.</p>
+<h2>Para quem é</h2><p>Bom para quem gosta de mistério, ficção científica, personagens que escondem fragilidade atrás de pose e narrativas em que cada decisão altera o peso da próxima cena.</p>`
+  },
+  "fate-stay-night-anime-jogo-visual-novel": {
+    title:"Fate/stay night: quando uma visual novel vira mitologia de anime",
+    subtitle:"Guerra do Santo Graal, pactos, heróis históricos e a expansão de uma franquia que saiu dos jogos.",
+    description:"Artigo sobre Fate/stay night como anime originado de visual novel e como a franquia transformou jogo, lenda e ação em universo pop.",
+    metaTitle:"Fate/stay night: anime originado de jogo",
+    metaDescription:"Entenda Fate/stay night como adaptação de visual novel e porta de entrada para uma grande franquia de anime.",
+    keywords:["Fate stay night","anime de jogo","visual novel","Fate anime","Type-Moon"],
+    tag:"Anime",
+    category:"Anime / Jogos",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/fate-stay-night.svg",
+    coverCall:"Uma guerra ritual onde mito vira contrato.",
+    content:`<p><strong><em>Fate/stay night</em> veio de uma visual novel e se tornou uma das portas mais conhecidas para universos de anime nascidos de jogo.</strong> A ideia central é direta e poderosa: mestres invocam espíritos heroicos para disputar o Santo Graal.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/fate-stay-night.svg" alt="Capa editorial original para Fate/stay night, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O apelo da estrutura</h2><p>Como visual novel, Fate trabalha rotas, escolhas e leituras diferentes de personagens. No anime, isso vira uma arquitetura de versões: a mesma premissa pode ganhar ênfase romântica, trágica, filosófica ou de ação conforme a adaptação.</p>
+<h2>Mais que luta bonita</h2><p>O charme está no atrito entre mito e desejo pessoal. Figuras heroicas carregam glória, trauma e contradição. Mestres humanos querem vencer, mas também projetam carência, culpa e ambição nos próprios servos.</p>
+<h2>Como entrar</h2><p>Quem chega agora não precisa entender toda a franquia de uma vez. Comece por uma adaptação central, entenda a lógica do ritual e depois explore as ramificações como variações de um mesmo tabuleiro.</p>`
+  },
+  "persona-4-animation-anime-jogo-rpg": {
+    title:"Persona 4 The Animation: RPG, televisão e mistério em cidade pequena",
+    subtitle:"O jogo virou anime mantendo o coração da franquia: vínculos, investigação e identidade.",
+    description:"Artigo sobre Persona 4 The Animation, adaptação de RPG japonês para anime e seu uso de mistério, social links e vida escolar.",
+    metaTitle:"Persona 4 The Animation: anime de RPG",
+    metaDescription:"Persona 4 The Animation mostra como um RPG pode virar anime preservando mistério, cotidiano e vínculos.",
+    keywords:["Persona 4 The Animation","anime de jogo","RPG japonês","Atlus","anime investigação"],
+    tag:"Anime",
+    category:"Anime / Jogos",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/persona-4.svg",
+    coverCall:"Todo mistério começa depois da aula.",
+    content:`<p><strong><em>Persona 4 The Animation</em> adapta um RPG em que investigação sobrenatural e vida escolar caminham juntas.</strong> A graça não está apenas em descobrir culpados, mas em ver como amizade e rotina sustentam personagens diante de um lado oculto da cidade.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/persona-4.svg" alt="Capa editorial original para Persona 4, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Do RPG para o episódio</h2><p>No jogo, a progressão depende de calendário, combate e laços sociais. O anime transforma essa estrutura em ritmo episódico: escola, investigação, humor, tensão e pequenos arcos de autoconhecimento.</p>
+<h2>Identidade como tema</h2><p>Persona funciona porque monstros e poderes não são decoração. Eles externalizam partes negadas da personalidade. A aventura vira uma forma pop de falar sobre aceitar aquilo que cada personagem tenta esconder.</p>
+<h2>Por que vale ver</h2><p>É uma boa entrada para quem quer entender como RPG japonês, mistério e anime de grupo conseguem se misturar sem perder o tom cotidiano.</p>`
+  },
+  "pokemon-anime-nascido-dos-jogos": {
+    title:"Pokémon: o anime que nasceu dos jogos e virou rotina global",
+    subtitle:"Antes de ser memória afetiva mundial, Pokémon era uma ideia de captura, troca e aventura portátil.",
+    description:"Artigo sobre Pokémon como anime originado dos videogames e sua transformação em fenômeno cultural global.",
+    metaTitle:"Pokémon: anime que nasceu dos jogos",
+    metaDescription:"Entenda como Pokémon saiu dos jogos para o anime e virou uma rotina global de aventura, coleção e amizade.",
+    keywords:["Pokémon anime","anime de jogo","Nintendo","Game Freak","anime infantil japonês"],
+    tag:"Anime",
+    category:"Anime / Jogos",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/pokemon.svg",
+    coverCall:"A aventura portátil que virou calendário de infância.",
+    content:`<p><strong><em>Pokémon</em> é um dos exemplos mais fortes de anime nascido de jogo.</strong> A base veio dos videogames: explorar, encontrar criaturas, treinar, trocar e seguir viagem. O anime transformou essa lógica em companhia semanal.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/pokemon.svg" alt="Capa editorial original para Pokémon, sem criaturas, bolas ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Por que a fórmula atravessou gerações</h2><p>A premissa é simples o bastante para crianças e expansiva o bastante para durar décadas. Cada região renova descoberta, amizade, rivalidade e coleção. O anime deu rosto emocional a uma mecânica de jogo.</p>
+<h2>Mais que propaganda</h2><p>É fácil tratar Pokémon como produto multimídia, mas seu impacto cultural vem da regularidade. Episódios, jogos, cartas, cinema e brinquedos criaram um ecossistema onde muita gente aprendeu a reconhecer o Japão pop antes mesmo de saber o que era anime.</p>
+<h2>O ponto editorial</h2><p>Pokémon importa porque mostra como uma ideia de design de jogo pode virar narrativa seriada, hábito familiar e língua comum entre públicos muito diferentes.</p>`
+  },
+  "devil-may-cry-anime-jogo-acao": {
+    title:"Devil May Cry: quando estilo de jogo precisa virar ritmo de anime",
+    subtitle:"A adaptação de um game de ação só funciona quando entende espada, pose, exagero e pausa.",
+    description:"Artigo sobre Devil May Cry como anime originado de jogo de ação e os desafios de adaptar estilo, combate e atmosfera.",
+    metaTitle:"Devil May Cry: anime de jogo de ação",
+    metaDescription:"Devil May Cry mostra o desafio de transformar combate estilizado de game em ritmo visual de anime.",
+    keywords:["Devil May Cry anime","anime de jogo","Capcom","anime de ação","adaptação de game"],
+    tag:"Anime",
+    category:"Anime / Jogos",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/devil-may-cry.svg",
+    coverCall:"Estilo não é acessório; é a própria mecânica.",
+    content:`<p><strong><em>Devil May Cry</em> carrega um desafio típico de anime vindo de jogo de ação: traduzir sensação de controle em imagem.</strong> No game, o jogador sente combo, tempo, risco e recompensa. No anime, isso precisa virar coreografia, montagem e personalidade.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/devil-may-cry.svg" alt="Capa editorial original para Devil May Cry, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>A dificuldade da adaptação</h2><p>Jogo de ação estilizado vive de performance. Não basta mostrar luta: é preciso preservar excesso, ironia, música, pausa e impacto. Se tudo vira explicação, perde a graça. Se tudo vira barulho, perde o peso.</p>
+<h2>O que observar</h2><p>Adaptações desse tipo funcionam melhor quando entendem que personagem e combate são a mesma coisa. A forma como alguém luta comunica arrogância, cansaço, trauma e prazer.</p>
+<h2>Por que entra na lista</h2><p>Devil May Cry representa a ponte entre cultura de game japonesa, ação gótica e anime de estilo. É material perfeito para discutir adaptação além da fidelidade literal.</p>`
+  },
+  "another-terror-escolar-anime": {
+    title:"Another: terror escolar, silêncio e a ameaça de uma turma amaldiçoada",
+    subtitle:"O medo nasce menos do susto e mais da sensação de que todos sabem algo que você não sabe.",
+    description:"Artigo sobre Another, anime de terror escolar, sua atmosfera de maldição, silêncio coletivo e tensão gradual.",
+    metaTitle:"Another: anime de terror escolar",
+    metaDescription:"Another usa escola, maldição e silêncio coletivo para construir um terror japonês de tensão gradual.",
+    keywords:["Another anime","anime de terror","terror escolar","anime suspense","horror japonês"],
+    tag:"Anime",
+    category:"Anime / Terror",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/another.svg",
+    coverCall:"A sala de aula também pode ser um lugar assombrado.",
+    content:`<p><strong><em>Another</em> é um anime de terror escolar em que o desconforto vem da regra invisível.</strong> Há uma turma, uma presença deslocada, mortes estranhas e um pacto de silêncio que torna cada olhar suspeito.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/another.svg" alt="Capa editorial original para Another, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O medo social</h2><p>O anime usa escola como sistema fechado. Não é apenas o sobrenatural que ameaça; é a dificuldade de perguntar, a pressão de obedecer e a sensação de que o grupo prefere sacrificar alguém a romper a lógica da maldição.</p>
+<h2>Como assistir</h2><p>Funciona melhor quando visto como suspense de atmosfera. O excesso de explicação não é o centro. O centro é perceber como rotina, corredor, carteira vazia e pausa podem virar aviso.</p>`
+  },
+  "higurashi-terror-vila-cicadas": {
+    title:"Higurashi: terror rural, repetição e o som das cigarras",
+    subtitle:"Uma vila pequena, verão pesado e ciclos que transformam amizade em suspeita.",
+    description:"Artigo sobre Higurashi no Naku Koro ni como anime de terror rural, repetição narrativa e paranoia comunitária.",
+    metaTitle:"Higurashi: anime de terror rural",
+    metaDescription:"Higurashi mistura vila rural, repetição, paranoia e violência para criar terror japonês de comunidade fechada.",
+    keywords:["Higurashi","anime de terror","terror rural japonês","cicadas anime","suspense anime"],
+    tag:"Anime",
+    category:"Anime / Terror",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/higurashi.svg",
+    coverCall:"Quando a vila inteira parece saber demais.",
+    content:`<p><strong><em>Higurashi no Naku Koro ni</em> usa a vila rural como máquina de paranoia.</strong> O verão, o festival, as amizades e o som das cigarras criam um cotidiano que parece acolhedor até começar a repetir rachaduras.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/higurashi.svg" alt="Capa editorial original para Higurashi, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Repetição como terror</h2><p>A estrutura de ciclos é parte do medo. Cada versão mostra outra camada de confiança quebrada. O espectador entende que algo está errado, mas precisa reaprender quem parece ameaça a cada arco.</p>
+<h2>Por que marcou</h2><p>Higurashi mistura horror psicológico, mistério, violência e folclore de comunidade. O terror não vem só de mortes, mas da dúvida: quando a convivência vira armadilha?</p>`
+  },
+  "shiki-terror-vampirico-vila-japonesa": {
+    title:"Shiki: vampiros, aldeia e a pergunta sobre quem é o monstro",
+    subtitle:"O terror cresce quando sobrevivência e crueldade passam a usar a mesma máscara.",
+    description:"Artigo sobre Shiki, anime de terror vampírico em vila japonesa, moralidade, medo comunitário e inversão de vítima e predador.",
+    metaTitle:"Shiki: anime de terror vampírico",
+    metaDescription:"Shiki transforma vampiros e vila japonesa em debate sombrio sobre comunidade, medo e sobrevivência.",
+    keywords:["Shiki anime","anime de terror","vampiros anime","terror japonês","anime psicológico"],
+    tag:"Anime",
+    category:"Anime / Terror",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/shiki.svg",
+    coverCall:"A aldeia teme o monstro até agir como ele.",
+    content:`<p><strong><em>Shiki</em> começa como terror de vila e doença misteriosa, mas logo vira uma pergunta moral.</strong> Quando uma comunidade se sente ameaçada, até onde ela aceita ir para sobreviver?</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/shiki.svg" alt="Capa editorial original para Shiki, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O horror comunitário</h2><p>A vila é isolada, observadora e cheia de regras não ditas. A chegada do estranho aciona medo, boato e vigilância. Shiki usa vampirismo menos como glamour e mais como crise de convivência.</p>
+<h2>Por que incomoda</h2><p>A obra bagunça vítima e predador. Em certo ponto, o espectador já não consegue ver a reação humana como pura justiça. Esse desconforto é o que mantém Shiki relevante.</p>`
+  },
+  "yamishibai-terror-curto-folclore-urbano": {
+    title:"Yamishibai: terror curto como história contada no escuro",
+    subtitle:"Episódios breves, estética de teatro de papel e medo urbano em pequenas doses.",
+    description:"Artigo sobre Yamishibai, anime de terror em episódios curtos inspirado em kamishibai, folclore urbano e narrativa oral.",
+    metaTitle:"Yamishibai: anime de terror curto",
+    metaDescription:"Yamishibai usa formato curto e estética de teatro de papel para contar terror urbano japonês.",
+    keywords:["Yamishibai","anime de terror","kamishibai","terror curto","folclore urbano japonês"],
+    tag:"Anime",
+    category:"Anime / Terror",
+    date:"16 de Agosto de 2026",
+    readingTime:"4 min",
+    thumb:"assets/covers/anime-editorial/yamishibai.svg",
+    coverCall:"Uma história curta pode deixar a luz acesa por mais tempo.",
+    content:`<p><strong><em>Yamishibai</em> aposta no terror curto, quase como uma lenda contada antes de dormir.</strong> A estética remete ao kamishibai, teatro de papel japonês, e dá aos episódios uma sensação de narrativa oral.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/yamishibai.svg" alt="Capa editorial original para Yamishibai, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Medo em miniatura</h2><p>O formato curto favorece impacto. Não há tempo para grandes explicações. Uma regra estranha, uma imagem incômoda ou um final seco bastam para criar desconforto.</p>
+<h2>Por que vale acompanhar</h2><p>É boa porta de entrada para quem gosta de folclore urbano, histórias rápidas e terror que parece sair de boato de bairro. Yamishibai entende que o medo nem sempre precisa de espetáculo.</p>`
+  },
+  "paranoia-agent-terror-psicologico-satoshi-kon": {
+    title:"Paranoia Agent: terror psicológico na cidade ansiosa",
+    subtitle:"Satoshi Kon transforma boato, fuga e pressão social em uma ameaça coletiva.",
+    description:"Artigo sobre Paranoia Agent como anime de terror psicológico e comentário urbano sobre ansiedade, mídia e colapso social.",
+    metaTitle:"Paranoia Agent: terror psicológico em anime",
+    metaDescription:"Paranoia Agent, de Satoshi Kon, usa boato e ansiedade urbana para criar terror psicológico.",
+    keywords:["Paranoia Agent","Satoshi Kon","anime de terror psicológico","anime suspense","Mousou Dairinin"],
+    tag:"Anime",
+    category:"Anime / Terror",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/paranoia-agent.svg",
+    coverCall:"Às vezes o monstro é a cidade procurando uma saída.",
+    content:`<p><strong><em>Paranoia Agent</em>, de Satoshi Kon, é terror psicológico porque entende o medo como contágio social.</strong> Um agressor misterioso circula pela cidade, mas a série se interessa tanto pelo boato quanto pelo ataque.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/paranoia-agent.svg" alt="Capa editorial original para Paranoia Agent, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>A ameaça como escape</h2><p>Os personagens vivem pressões diferentes: trabalho, culpa, imagem pública, consumo, fracasso. O terror cresce quando a violência parece oferecer uma saída absurda para responsabilidades que ninguém suporta encarar.</p>
+<h2>Por que é importante</h2><p>A série antecipa conversas sobre mídia, viralização de medo e narrativa coletiva. O monstro não é só uma pessoa; é uma forma de a sociedade organizar sua própria ansiedade.</p>`
+  },
+  "death-note-raciocinio-jogo-moral": {
+    title:"Death Note: raciocínio, poder e o jogo moral mais famoso dos animes",
+    subtitle:"A disputa entre Light e L funciona porque cada plano também é uma pergunta ética.",
+    description:"Artigo sobre Death Note como anime de raciocínio, estratégia, moralidade e duelo intelectual.",
+    metaTitle:"Death Note: anime de raciocínio e estratégia",
+    metaDescription:"Death Note segue relevante por transformar investigação, poder e ética em duelo de raciocínio.",
+    keywords:["Death Note","anime de raciocínio","anime estratégia","Light Yagami","L anime"],
+    tag:"Anime",
+    category:"Anime / Raciocínio",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/death-note.svg",
+    coverCall:"Quem controla a regra tenta controlar a verdade.",
+    content:`<p><strong><em>Death Note</em> é um anime de raciocínio porque transforma cada episódio em disputa de hipótese.</strong> Light tenta construir um mundo onde sua vontade vira justiça; L tenta provar que essa justiça é apenas assassinato com método.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/death-note.svg" alt="Capa editorial original para Death Note, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O jogo intelectual</h2><p>O prazer da série está em acompanhar dedução, blefe, risco calculado e manipulação de informação. O espectador sabe mais que alguns personagens e menos que outros, criando uma tensão de tabuleiro.</p>
+<h2>Por que ainda prende</h2><p>Além do duelo mental, Death Note carrega uma pergunta simples e perigosa: se alguém tivesse poder absoluto para punir, quanto tempo levaria para chamar vaidade de justiça?</p>`
+  },
+  "monster-raciocinio-investigacao-moral": {
+    title:"Monster: investigação, culpa e raciocínio moral em forma de thriller",
+    subtitle:"Naoki Urasawa constrói suspense sem pressa, onde cada pista pesa na consciência.",
+    description:"Artigo sobre Monster como anime de raciocínio investigativo, thriller moral e narrativa de perseguição psicológica.",
+    metaTitle:"Monster: anime de investigação e raciocínio moral",
+    metaDescription:"Monster combina investigação, culpa e thriller psicológico em uma das narrativas mais adultas do anime.",
+    keywords:["Monster anime","Naoki Urasawa","anime de raciocínio","thriller anime","investigação anime"],
+    tag:"Anime",
+    category:"Anime / Raciocínio",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/monster.svg",
+    coverCall:"Algumas pistas não levam ao culpado; levam à própria culpa.",
+    content:`<p><strong><em>Monster</em> é um thriller de investigação em que raciocinar não significa apenas resolver o caso.</strong> O médico Tenma salva uma vida e depois precisa enfrentar as consequências morais dessa escolha.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/monster.svg" alt="Capa editorial original para Monster, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Suspense sem pressa</h2><p>A obra avança por pistas, encontros e memórias. Não depende de revelações explosivas a cada episódio. Seu raciocínio é acumulativo: cada pessoa encontrada amplia o mapa moral do crime.</p>
+<h2>Por que é adulto</h2><p>Monster pergunta o que torna alguém monstruoso e como uma sociedade fabrica silêncio ao redor do mal. É anime de raciocínio porque exige atenção, paciência e disposição para lidar com ambiguidade.</p>`
+  },
+  "psycho-pass-raciocinio-sistema-crime": {
+    title:"Psycho-Pass: raciocínio policial em um Japão governado por índices",
+    subtitle:"O crime não é apenas ato; é previsão, estatística e controle social.",
+    description:"Artigo sobre Psycho-Pass como anime de raciocínio policial, distopia tecnológica e crítica a sistemas de vigilância.",
+    metaTitle:"Psycho-Pass: anime de raciocínio policial",
+    metaDescription:"Psycho-Pass mistura investigação, distopia e vigilância para discutir crime previsto por sistema.",
+    keywords:["Psycho-Pass","anime de raciocínio","anime policial","distopia japonesa","Sibyl System"],
+    tag:"Anime",
+    category:"Anime / Raciocínio",
+    date:"16 de Agosto de 2026",
+    readingTime:"6 min",
+    thumb:"assets/covers/anime-editorial/psycho-pass.svg",
+    coverCall:"Quando o sistema mede a alma, quem audita o sistema?",
+    content:`<p><strong><em>Psycho-Pass</em> transforma investigação policial em debate sobre vigilância e confiança algorítmica.</strong> Em seu mundo, o risco criminal das pessoas é medido por sistema. A pergunta é se medir equivale a compreender.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/psycho-pass.svg" alt="Capa editorial original para Psycho-Pass, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O raciocínio contra a máquina</h2><p>O anime funciona quando coloca investigação humana diante de um sistema que parece objetivo. Evidência, intenção, trauma e risco viram números, mas os casos mostram que a vida escapa da planilha moral.</p>
+<h2>Por que continua atual</h2><p>Com debates sobre IA, predição e vigilância, Psycho-Pass parece menos futurista do que antes. Seu valor está em mostrar que tecnologia de segurança sempre carrega uma filosofia política escondida.</p>`
+  },
+  "promised-neverland-raciocinio-fuga": {
+    title:"The Promised Neverland: raciocínio de fuga, confiança e sobrevivência",
+    subtitle:"O terror inicial funciona como quebra-cabeça: observar, deduzir e agir antes de ser tarde.",
+    description:"Artigo sobre The Promised Neverland como anime de raciocínio, estratégia de fuga, confiança e suspense.",
+    metaTitle:"The Promised Neverland: anime de raciocínio",
+    metaDescription:"The Promised Neverland usa estratégia, observação e confiança para transformar fuga em jogo mental.",
+    keywords:["The Promised Neverland","anime de raciocínio","anime estratégia","suspense anime","Yakusoku no Neverland"],
+    tag:"Anime",
+    category:"Anime / Raciocínio",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/promised-neverland.svg",
+    coverCall:"Fugir exige pensar antes de correr.",
+    content:`<p><strong><em>The Promised Neverland</em> começa com uma revelação que muda tudo.</strong> A partir daí, a série vira um jogo de observação, confiança e planejamento: como escapar quando o inimigo controla espaço, informação e rotina?</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/promised-neverland.svg" alt="Capa editorial original para The Promised Neverland, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O tabuleiro da fuga</h2><p>O raciocínio aparece em mapas mentais, testes de confiança, pistas escondidas e decisões sob pressão. O perigo não está só fora da casa; está na possibilidade de alguém saber mais do que demonstra.</p>
+<h2>Por que marcou</h2><p>A primeira fase da obra prende porque combina afeto e estratégia. O espectador torce, mas também calcula. Cada passo errado pode entregar todo o grupo.</p>`
+  },
+  "kaiji-raciocinio-aposta-pressao": {
+    title:"Kaiji: raciocínio sob dívida, aposta e pressão psicológica",
+    subtitle:"Poucos animes mostram tão bem como pensar fica difícil quando o medo aperta.",
+    description:"Artigo sobre Kaiji como anime de raciocínio, apostas, dívida, risco, blefe e pressão psicológica.",
+    metaTitle:"Kaiji: anime de raciocínio e aposta",
+    metaDescription:"Kaiji transforma dívida, jogo e medo em um dos animes de raciocínio mais tensos.",
+    keywords:["Kaiji anime","anime de raciocínio","anime de aposta","jogo psicológico","estratégia anime"],
+    tag:"Anime",
+    category:"Anime / Raciocínio",
+    date:"16 de Agosto de 2026",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-editorial/kaiji.svg",
+    coverCall:"A lógica muda quando perder significa cair.",
+    content:`<p><strong><em>Kaiji</em> é anime de raciocínio em estado bruto: dívida, vergonha, aposta e medo.</strong> As regras dos jogos parecem simples, mas a pressão psicológica transforma cálculo básico em batalha de sobrevivência.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/kaiji.svg" alt="Capa editorial original para Kaiji, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>O jogo como tortura social</h2><p>Kaiji não trata aposta como glamour. A tensão vem do desespero de gente sem margem. Blefe, probabilidade e leitura do adversário importam, mas a série sabe que pobreza e medo distorcem qualquer decisão.</p>
+<h2>Por que assistir</h2><p>É uma obra excelente para quem gosta de estratégia, mas não quer raciocínio limpo de laboratório. Em Kaiji, pensar é difícil porque o corpo está em pânico.</p>`
+  },
+  "proximas-temporadas-kimetsu-dragon-ball-super-classicos": {
+    title:"Próximas sagas de anime: Kimetsu no Yaiba, Dragon Ball Super e clássicos para acompanhar",
+    subtitle:"Sinopses editoriais para entender o que vem por aí sem confundir rumor com anúncio oficial.",
+    description:"Guia de sinopses sobre próximas fases de Kimetsu no Yaiba, Dragon Ball Super e outros clássicos de anime em andamento ou relevantes para acompanhar.",
+    metaTitle:"Próximas temporadas: Kimetsu, Dragon Ball Super e clássicos",
+    metaDescription:"Sinopses das próximas fases de Kimetsu no Yaiba, Dragon Ball Super e outros clássicos, com cuidado para separar anúncio oficial de expectativa.",
+    keywords:["Kimetsu no Yaiba próxima temporada","Dragon Ball Super próxima temporada","animes clássicos","sinopse anime","anime 2026"],
+    tag:"Anime",
+    category:"Anime / Sinopses",
+    date:"16 de Agosto de 2026",
+    readingTime:"7 min",
+    thumb:"assets/covers/anime-editorial/shonen-classicos-proximas-sagas.svg",
+    coverCall:"Nem todo hype é data; sinopse boa começa separando anúncio de rumor.",
+    content:`<p><strong>Anime de franquia grande vive entre anúncio oficial, rumor e expectativa de fã.</strong> Por isso, esta curadoria resume as próximas fases mais importantes sem inventar calendário quando a produção ainda não confirmou data.</p>
+<figure class="article-figure"><img src="assets/covers/anime-editorial/shonen-classicos-proximas-sagas.svg" alt="Capa editorial original para próximas sagas de anime clássico, sem personagens ou logotipos oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Kimetsu no Yaiba: Castelo Infinito</h2><p>A próxima grande fase de <em>Kimetsu no Yaiba</em> avança pelo arco do Castelo Infinito, tratado oficialmente como projeto cinematográfico. A sinopse essencial é o fechamento da guerra contra Muzan e as Luas Superiores: os caçadores entram em um espaço instável, vertical e quase impossível de dominar, onde cada confronto cobra o peso acumulado de treinamento, perda e promessa.</p><p>Editorialmente, o interesse está em como a obra deixa de ser apenas jornada de crescimento e vira campanha final. Tanjiro, Nezuko, os Hashira e os demônios sobreviventes entram em uma estrutura de batalha mais concentrada, com menos respiro cotidiano e mais sensação de despedida.</p>
+<h2>Dragon Ball Super: Beerus</h2><p>A fase <em>Beerus</em>, anunciada para o outono japonês de 2026, recoloca <em>Dragon Ball Super</em> no ponto em que a franquia reaprendeu a pensar escala divina. A sinopse gira em torno do encontro entre guerreiros mortais e uma entidade de destruição que não funciona como vilão comum: Beerus não quer dominar o mundo; ele testa força, equilíbrio e respeito cósmico.</p><p>O valor dessa fase é lembrar que Dragon Ball muda quando a pergunta deixa de ser apenas “quem é mais forte?” e passa a ser “qual é o tamanho real do universo?”. A chegada de deuses, anjos e novos patamares de ki reorganiza a franquia para sagas posteriores.</p>
+<h2>Dragon Ball Super: Patrulha Galáctica</h2><p>O projeto <em>The Galactic Patrol</em> aparece como desenvolvimento futuro da franquia, ainda sem data pública consolidada. A sinopse editorial esperada é uma expansão mais espacial: patrulheiros, prisões cósmicas, ameaças fora da Terra e um universo em que Goku e Vegeta não são apenas defensores do planeta, mas peças dentro de uma ordem galáctica maior.</p><p>Enquanto não houver calendário fechado, o ponto correto é acompanhar como a produção posiciona essa fase: continuação direta, adaptação de material conhecido ou reorganização para televisão/streaming.</p>
+<h2>One Piece: Elbaph</h2><p>Entre os clássicos ainda vivos, <em>One Piece</em> segue como caso raro de obra que envelhece junto com o público sem abandonar aventura. A fase de Elbaph interessa porque promete mitologia de gigantes, história antiga e respostas que a série plantou por muitos anos.</p><p>A sinopse para acompanhar é simples: depois de atravessar governos, ilhas-laboratório, guerras e segredos do século perdido, a tripulação entra em um território onde lenda e política voltam a se misturar.</p>
+<h2>Bleach: Thousand-Year Blood War</h2><p><em>Bleach</em> continua relevante porque sua fase final transforma retorno nostálgico em encerramento de escala. A sinopse do arco TYBW é guerra total: linhagens espirituais, passado da Soul Society, poderes Quincy e personagens antigos reposicionados diante de um conflito que já existia antes deles.</p><p>O que vale observar é a diferença entre voltar por saudade e voltar com acabamento contemporâneo. A nova fase funciona quando usa tecnologia de produção atual para reforçar estilo, silêncio e impacto visual.</p>
+<h2>Gundam e o futuro da porta de entrada</h2><p>Depois de <em>The Witch from Mercury</em>, Gundam provou novamente que pode criar ponto de entrada para públicos novos sem abandonar seus temas centrais: indústria, guerra, juventude, corpo e poder corporativo. A sinopse das próximas leituras de Gundam deve partir menos de robô gigante e mais de sistema social.</p><p>Quando uma nova fase aparecer, a pergunta editorial correta será: ela usa mecha como espetáculo ou como forma de discutir quem controla tecnologia e quem paga o preço?</p>
+<h2>Como acompanhar sem cair em rumor</h2><p>Para franquias grandes, o melhor método é separar três coisas: anúncio oficial, janela de exibição e especulação de fã. Sinopse pode preparar o leitor para o clima da obra, mas data e formato precisam vir de site oficial, distribuidora, estúdio ou plataforma.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://kimetsu.com/anime/" target="_blank" rel="noopener">Kimetsu no Yaiba: site oficial</a></li><li><a href="https://www.crunchyroll.com/news/" target="_blank" rel="noopener">Crunchyroll News</a></li><li><a href="https://en.dragon-ball-official.com/" target="_blank" rel="noopener">Dragon Ball Official Site</a></li><li><a href="https://www.toei-animation.com/" target="_blank" rel="noopener">Toei Animation</a></li></ul>`
   },
   "sumimasen-palavra-chave-japones-cotidiano": {
     title:"すみません: a palavra-chave para abrir conversas no Japão",
@@ -10386,22 +10890,63 @@ function normalizeAssetPath(path) {
   return path || '';
 }
 
+const JR_ANIME_SAFE_FALLBACK = "assets/covers/anime-editorial/anime-neutral.svg";
+const JR_UNSAFE_ANIME_COVER_RE = /(anime-default|dragon|dragon-ball|moro|goku|dbs)/i;
+const JR_ANIME_COVER_BY_ID = {
+  "madoka-magia-walpurgisnacht-2026": "assets/covers/anime-editorial/madoka.svg",
+  "bleach-tybw-2026-retorno-julho": "assets/covers/anime-editorial/bleach-tybw.svg",
+  "temporada-verao-2026-crunchyroll-curadoria": "assets/covers/anime-editorial/temporada-anime.svg",
+  "akira-biografia-anime-classico": "assets/covers/anime-editorial/akira.svg",
+  "cowboy-bebop-biografia-anime-classico": "assets/covers/anime-editorial/cowboy-bebop.svg",
+  "evangelion-biografia-anime-classico": "assets/covers/anime-editorial/evangelion.svg",
+  "ghost-in-the-shell-biografia-anime-classico": "assets/covers/anime-editorial/ghost-in-the-shell.svg",
+  "serial-experiments-lain-biografia-anime-classico": "assets/covers/anime-editorial/serial-experiments-lain.svg",
+  "proximas-temporadas-kimetsu-dragon-ball-super-classicos": "assets/covers/anime-editorial/shonen-classicos-proximas-sagas.svg",
+  "steins-gate-anime-jogo-visual-novel": "assets/covers/anime-editorial/steins-gate.svg",
+  "fate-stay-night-anime-jogo-visual-novel": "assets/covers/anime-editorial/fate-stay-night.svg",
+  "persona-4-animation-anime-jogo-rpg": "assets/covers/anime-editorial/persona-4.svg",
+  "pokemon-anime-nascido-dos-jogos": "assets/covers/anime-editorial/pokemon.svg",
+  "devil-may-cry-anime-jogo-acao": "assets/covers/anime-editorial/devil-may-cry.svg",
+  "another-terror-escolar-anime": "assets/covers/anime-editorial/another.svg",
+  "higurashi-terror-vila-cicadas": "assets/covers/anime-editorial/higurashi.svg",
+  "shiki-terror-vampirico-vila-japonesa": "assets/covers/anime-editorial/shiki.svg",
+  "yamishibai-terror-curto-folclore-urbano": "assets/covers/anime-editorial/yamishibai.svg",
+  "paranoia-agent-terror-psicologico-satoshi-kon": "assets/covers/anime-editorial/paranoia-agent.svg",
+  "death-note-raciocinio-jogo-moral": "assets/covers/anime-editorial/death-note.svg",
+  "monster-raciocinio-investigacao-moral": "assets/covers/anime-editorial/monster.svg",
+  "psycho-pass-raciocinio-sistema-crime": "assets/covers/anime-editorial/psycho-pass.svg",
+  "promised-neverland-raciocinio-fuga": "assets/covers/anime-editorial/promised-neverland.svg",
+  "kaiji-raciocinio-aposta-pressao": "assets/covers/anime-editorial/kaiji.svg"
+};
+
+function isAnimePost(post) {
+  return !!(post && (post.tag === 'Anime' || String(post.category || '').includes('Anime')));
+}
+
+function isUnsafeAnimeCover(path) {
+  return !path || /^https?:/i.test(path) || JR_UNSAFE_ANIME_COVER_RE.test(path);
+}
 
 function normalizeContentAssets(root) {
   if (!root) return;
   root.querySelectorAll("img[src]").forEach(function(img) {
-    img.src = normalizeAssetPath(img.getAttribute("src"));
+    var src = img.getAttribute("src");
+    img.src = JR_UNSAFE_ANIME_COVER_RE.test(src || '') ? JR_ANIME_SAFE_FALLBACK : normalizeAssetPath(src);
   });
 }
 
 function getCardCover(post) {
-  var title = (post.title || "").toLowerCase();
-  var tag = post.tag || "";
   var thumb = post.thumb || "";
+
+  if (isAnimePost(post)) {
+    if (JR_ANIME_COVER_BY_ID[post.id]) return JR_ANIME_COVER_BY_ID[post.id];
+    if (isUnsafeAnimeCover(thumb)) return JR_ANIME_SAFE_FALLBACK;
+    return normalizeAssetPath(thumb);
+  }
 
   if (thumb && !/^https?:/i.test(thumb)) return normalizeAssetPath(thumb);
 
-  return "assets/covers/anime-default.png";
+  return JR_ANIME_SAFE_FALLBACK;
 }
 
 function getCardImg(post) {
@@ -10410,7 +10955,7 @@ function getCardImg(post) {
 
 function handleCardImageError(img) {
   if (!img) return;
-  var fallback = "assets/covers/anime-default.png";
+  var fallback = JR_ANIME_SAFE_FALLBACK;
   if (!img.dataset.fallbackTried && img.getAttribute("src") !== fallback) {
     img.dataset.fallbackTried = "true";
     img.src = fallback;
@@ -10526,9 +11071,15 @@ function updateSectionHeading(cat) {
   const title = document.querySelector('.editorial-section .section-title');
   if (!label || !title) return;
   if (section) section.classList.toggle('is-elevacao', cat === 'Elevação');
+  if (section) section.classList.toggle('is-anime', cat === 'Anime');
   if (cat === 'all') {
     label.textContent = 'Revista / Editorial';
     title.textContent = 'Seleção JR';
+    return;
+  }
+  if (cat === 'Anime') {
+    label.textContent = 'Anime / Jogos · Terror · Raciocínio';
+    title.textContent = 'Anime JR';
     return;
   }
   label.textContent = cat === 'Elevação' ? 'Trilhas · Trekking · Outdoor' : 'Arquivo Editorial';
@@ -10628,6 +11179,7 @@ const CATEGORY_MAP = {
   'Notícia':     ['Notícia'],
   'Dicas':       ['Dicas', 'Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
   'Cultura Pop': ['Anime'],
+  'Anime':       ['Anime'],
   'Elevação':    ['Elevação', 'Montanha', 'Natureza', 'Montanhismo', 'Trekking', 'Hike', 'Trail', 'Camping', 'Bushcraft'],
   'Utilidades':  ['Utilidades', 'Dicas', 'Curiosidade', 'Saúde e Bem-Estar'],
 };
@@ -10680,6 +11232,7 @@ function filterCategory(cat) {
   document.body.classList.remove('reading-mode');
   document.body.classList.remove('reading-elevacao');
   setElevacaoMode(cat === 'Elevação');
+  setAnimeMode(cat === 'Anime');
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -10691,7 +11244,7 @@ function filterCategory(cat) {
     b.classList.toggle('active', b.dataset.filter === cat);
   });
   setActiveNav(cat);
-  if (cat === 'all' || cat === 'Elevação') {
+  if (cat === 'all' || cat === 'Elevação' || cat === 'Anime') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     setTimeout(() => {
@@ -10713,6 +11266,7 @@ function showAbout() {
   document.body.classList.remove('reading-mode');
   document.body.classList.remove('reading-elevacao');
   setElevacaoMode(false);
+  setAnimeMode(false);
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
@@ -10796,7 +11350,7 @@ function updateArticleMeta(post, id) {
   const title = post.metaTitle || post.title + ' — Japão Relativo';
   const description = post.metaDescription || post.description || extractExcerpt(post.content, 155);
   const url = SITE_ORIGIN + '/#' + id;
-  const image = absoluteImage(post.thumb);
+  const image = absoluteImage(getCardCover(post));
   getHeadTag('meta[property="og:title"]', { property: 'og:title' }).setAttribute('content', title);
   getHeadTag('meta[property="og:description"]', { property: 'og:description' }).setAttribute('content', description);
   getHeadTag('meta[property="og:url"]', { property: 'og:url' }).setAttribute('content', url);
@@ -10827,7 +11381,7 @@ function openPost(id) {
   if (!post) return;
   const isElevacao = isElevationPost(post);
   const heroBg = document.getElementById('articleHeroBg');
-  heroBg.style.backgroundImage = "url(\"" + normalizeAssetPath(post.thumb) + "\")";
+  heroBg.style.backgroundImage = "url(\"" + getCardCover(post) + "\")";
   const metaDescription = getMetaDescription();
   if (homeMetaDescription === null) {
     homeMetaDescription = metaDescription.getAttribute('content') || '';
@@ -10915,6 +11469,30 @@ var HERO_EDITORIAL_COPY = {
   "obon-japao-memoria-ancestrais": {
     title: "Obon é retorno",
     subtitle: "Família, lanternas, ancestrais e o país em movimento."
+  },
+  "gozan-okuribi-kyoto-agosto": {
+    title: "Fogo nas montanhas",
+    subtitle: "Kyoto encerra o Obon despedindo os ancestrais."
+  },
+  "jizo-bon-fim-de-agosto-japao": {
+    title: "Jizō Bon no bairro",
+    subtitle: "O fim de agosto como cuidado comunitário."
+  },
+  "bosai-no-hi-prevencao-desastres-setembro": {
+    title: "Bōsai no Hi",
+    subtitle: "Preparação para desastre como cultura cotidiana."
+  },
+  "choyo-no-sekku-kiku-setembro": {
+    title: "Crisântemos de setembro",
+    subtitle: "Chōyō no Sekku e a estética da longevidade."
+  },
+  "shubun-no-hi-e-higan-setembro": {
+    title: "Equinócio e memória",
+    subtitle: "Shūbun no Hi, Higan e visita aos ancestrais."
+  },
+  "tsukimi-chushu-no-meigetsu-2026": {
+    title: "Lua de outono",
+    subtitle: "Tsukimi recoloca o céu no calendário japonês."
   },
   "shirakawa-go-aldeia-gassho-zukuri": {
     title: "Shirakawa-go ainda é aldeia",
@@ -11011,6 +11589,70 @@ var HERO_EDITORIAL_COPY = {
   "serial-experiments-lain-biografia-anime-classico": {
     title: "Lain conectada",
     subtitle: "A solidão digital antes de virar rotina."
+  },
+  "proximas-temporadas-kimetsu-dragon-ball-super-classicos": {
+    title: "Próximas sagas",
+    subtitle: "Kimetsu, Dragon Ball Super e clássicos sem rumor disfarçado de data."
+  },
+  "steins-gate-anime-jogo-visual-novel": {
+    title: "Steins;Gate",
+    subtitle: "Viagem no tempo, culpa e paranoia em Akihabara."
+  },
+  "fate-stay-night-anime-jogo-visual-novel": {
+    title: "Fate vira mito",
+    subtitle: "A visual novel que fez heróis históricos lutarem por desejo."
+  },
+  "persona-4-animation-anime-jogo-rpg": {
+    title: "Persona 4 investiga",
+    subtitle: "RPG, escola e identidade em cidade pequena."
+  },
+  "pokemon-anime-nascido-dos-jogos": {
+    title: "Pokémon saiu do jogo",
+    subtitle: "A aventura portátil que virou rotina global."
+  },
+  "devil-may-cry-anime-jogo-acao": {
+    title: "Devil May Cry",
+    subtitle: "Quando estilo de game precisa virar ritmo de anime."
+  },
+  "another-terror-escolar-anime": {
+    title: "Another na sala vazia",
+    subtitle: "Terror escolar feito de silêncio e regra invisível."
+  },
+  "higurashi-terror-vila-cicadas": {
+    title: "Higurashi no verão",
+    subtitle: "Cigarras, vila pequena e ciclos de paranoia."
+  },
+  "shiki-terror-vampirico-vila-japonesa": {
+    title: "Shiki na aldeia",
+    subtitle: "Vampiros e comunidade perguntam quem é o monstro."
+  },
+  "yamishibai-terror-curto-folclore-urbano": {
+    title: "Yamishibai no escuro",
+    subtitle: "Terror curto como história contada em papel."
+  },
+  "paranoia-agent-terror-psicologico-satoshi-kon": {
+    title: "Paranoia Agent",
+    subtitle: "A cidade ansiosa transforma boato em ameaça."
+  },
+  "death-note-raciocinio-jogo-moral": {
+    title: "Death Note pensa",
+    subtitle: "Poder, blefe e moralidade em duelo intelectual."
+  },
+  "monster-raciocinio-investigacao-moral": {
+    title: "Monster investiga",
+    subtitle: "Um thriller onde cada pista pesa na consciência."
+  },
+  "psycho-pass-raciocinio-sistema-crime": {
+    title: "Psycho-Pass mede",
+    subtitle: "Crime, previsão e vigilância em forma de sistema."
+  },
+  "promised-neverland-raciocinio-fuga": {
+    title: "Fugir exige pensar",
+    subtitle: "The Promised Neverland transforma fuga em tabuleiro."
+  },
+  "kaiji-raciocinio-aposta-pressao": {
+    title: "Kaiji aposta",
+    subtitle: "Raciocínio sob dívida, medo e pressão."
   },
   "sumimasen-palavra-chave-japones-cotidiano": {
     title: "すみません abre portas",
@@ -11124,8 +11766,13 @@ function buildLatestStrip() {
   if (!grid) return;
   grid.innerHTML = '';
   var isElevacao = document.body.classList.contains('elevacao-mode');
-  var sourcePosts = isElevacao ? recentPosts.filter(isElevationPost) : getPortalPosts();
-  var heroItems = isElevacao ? getElevacaoHeroItems() : getCurrentHeroItems();
+  var isAnime = document.body.classList.contains('anime-mode');
+  var sourcePosts = isElevacao
+    ? recentPosts.filter(isElevationPost)
+    : isAnime
+      ? recentPosts.filter(function(post) { return post.tag === 'Anime'; })
+      : getPortalPosts();
+  var heroItems = isElevacao ? getElevacaoHeroItems() : isAnime ? getAnimeHeroItems() : getCurrentHeroItems();
   var usedIds = {};
   heroItems.forEach(function(item) {
     usedIds[item.post.id] = true;
@@ -11138,7 +11785,7 @@ function buildLatestStrip() {
     a.setAttribute('aria-label', post.title);
     a.onclick = function(e) { e.preventDefault(); navigateTo(post.id); };
     a.innerHTML =
-      '<div class="jr-latest-card-bg" style="background-image:url(\'' + post.thumb + '\')"></div>' +
+      '<div class="jr-latest-card-bg" style="background-image:url(\'' + getCardCover(post) + '\')"></div>' +
       '<div class="jr-latest-card-ov"></div>' +
       '<div class="jr-latest-card-body">' +
         '<div class="editorial-stamp">' + getEditorialStamp(post) + '</div>' +
@@ -11152,7 +11799,7 @@ function buildLatestStrip() {
 function getCurrentHeroItems() {
   return getPortalPosts()
     .filter(function(post) {
-      return post && post.id && post.title && post.thumb;
+      return post && post.id && post.title && getCardCover(post);
     })
     .slice(0, 7)
     .map(function(post) {
@@ -11166,13 +11813,34 @@ function getCurrentHeroItems() {
 function getElevacaoHeroItems() {
   return recentPosts
     .filter(function(post) {
-      return isElevationPost(post) && post.id && post.title && post.thumb;
+      return isElevationPost(post) && post.id && post.title && getCardCover(post);
     })
     .slice(0, 6)
     .map(function(post) {
       return {
         post: post,
         label: 'TRILHAS · TREKKING · OUTDOOR'
+      };
+    });
+}
+
+function getAnimeHeroItems() {
+  var curated = [
+    'steins-gate-anime-jogo-visual-novel',
+    'death-note-raciocinio-jogo-moral',
+    'another-terror-escolar-anime',
+    'proximas-temporadas-kimetsu-dragon-ball-super-classicos',
+    'akira-biografia-anime-classico',
+    'psycho-pass-raciocinio-sistema-crime',
+    'higurashi-terror-vila-cicadas'
+  ];
+  return curated
+    .map(function(id) { return DB[id]; })
+    .filter(function(post) { return post && post.id && post.title && getCardCover(post); })
+    .map(function(post) {
+      return {
+        post: post,
+        label: 'ANIME · JOGOS · TERROR · RACIOCÍNIO'
       };
     });
 }
@@ -11184,6 +11852,9 @@ var heroCurrentIndex = 0;
 function getHeroStamp(post) {
   if (document.body.classList.contains('elevacao-mode')) {
     return 'ELEVAÇÃO <i></i> OUTDOOR';
+  }
+  if (document.body.classList.contains('anime-mode')) {
+    return 'JR. <i></i> ANIME';
   }
   return getEditorialStamp(post);
 }
@@ -11209,7 +11880,7 @@ function renderHeroItems(items) {
   items.forEach(function(item, index) {
     var slide = document.createElement('div');
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
-    slide.style.backgroundImage = 'url("' + item.post.thumb + '")';
+    slide.style.backgroundImage = 'url("' + getCardCover(item.post) + '")';
     slide.style.cursor = 'pointer';
     slide.style.pointerEvents = index === 0 ? 'auto' : 'none';
     slide.setAttribute('role', 'link');
@@ -11283,7 +11954,13 @@ function renderHeroItems(items) {
 }
 
 function buildFadeHero() {
-  renderHeroItems(document.body.classList.contains('elevacao-mode') ? getElevacaoHeroItems() : getCurrentHeroItems());
+  renderHeroItems(
+    document.body.classList.contains('elevacao-mode')
+      ? getElevacaoHeroItems()
+      : document.body.classList.contains('anime-mode')
+        ? getAnimeHeroItems()
+        : getCurrentHeroItems()
+  );
 }
 
 function setElevacaoMode(active) {
@@ -11299,6 +11976,18 @@ function setElevacaoMode(active) {
     logoLink.setAttribute('aria-label', active ? 'Elevação — início da editoria' : 'Japão Relativo — início');
   }
   renderHeroItems(active ? getElevacaoHeroItems() : getCurrentHeroItems());
+  buildLatestStrip();
+}
+
+function setAnimeMode(active) {
+  document.body.classList.toggle('anime-mode', !!active);
+  renderHeroItems(
+    active
+      ? getAnimeHeroItems()
+      : document.body.classList.contains('elevacao-mode')
+        ? getElevacaoHeroItems()
+        : getCurrentHeroItems()
+  );
   buildLatestStrip();
 }
 
