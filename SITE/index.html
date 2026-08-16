@@ -2444,6 +2444,472 @@ body.elevacao-mode .section.editorial-section.is-elevacao .section-title{
 // DATABASE — Add new posts here easily!
 // ======================================================
 const DB = {
+  "previsao-cidade-nao-serve-para-cume": {
+    title:"Previsão da cidade não serve para o cume",
+    subtitle:"Na montanha, altitude, vento e relevo mudam o clima mais rápido do que a previsão urbana sugere.",
+    description:"Entenda por que a previsão da cidade não basta para trilhas e cumes no Japão, e como checar vento, altitude, nuvens e horário antes de sair.",
+    metaTitle:"Previsão da cidade não serve para o cume | Elevação",
+    metaDescription:"Por que a previsão urbana não basta para trilhas: altitude, vento, nuvens, sensação térmica e checagens antes de subir.",
+    keywords:["previsão do tempo montanha","clima na trilha","trilha Japão","Elevação","JMA"],
+    category:"Elevação / Clima",
+    coverCall:"O tempo do vale raramente conta toda a história da montanha.",
+    tag:"Elevação",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+      "Vale alpino japonês cercado por montanhas, com nuvens baixas e mudança de tempo.",
+      "Foto real de montanha usada como referência editorial para clima de altitude.",
+      "A previsão da cidade ajuda, mas não decide sozinha uma trilha. Em montanha, cada metro de altitude pode alterar temperatura, vento, nuvem, chuva e sensação térmica. O erro comum é olhar o tempo de Matsumoto, Nagano ou Gifu e imaginar que o cume obedecerá ao mesmo roteiro.",
+      [
+        {title:"Vale, encosta e cume são mundos diferentes",paragraphs:["A cidade costuma estar protegida por prédios, vale e infraestrutura. A encosta recebe vento canalizado, sombra, umidade e mudança rápida de visibilidade. O cume fica exposto. Mesmo quando a previsão urbana mostra sol, a crista pode ter nuvem, rajada forte e queda brusca de temperatura."]},
+        {title:"Olhe altitude e horário",paragraphs:["Antes de sair, confira previsão por área de montanha quando houver, boletins da JMA, avisos de vento, chuva, trovoada e temperatura. Compare manhã e tarde. No verão japonês, tempestades convectivas podem aparecer depois do almoço; no outono, a tarde curta muda a margem de retorno."]},
+        {title:"Sensação térmica importa",paragraphs:["Vento e roupa molhada podem tornar uma trilha de verão fria durante uma parada. Levar camada seca, corta-vento leve e capa de chuva não é exagero. É reconhecer que clima de montanha pune quem planeja pelo termômetro da estação mais próxima."]},
+        {title:"Gatilho de recuo",paragraphs:["Se a nuvem baixa, o vento aumenta, trovões aparecem ou a visibilidade cai, trate isso como informação operacional. Recuar cedo é uma decisão técnica, não fracasso. A montanha continuará lá; sua janela de segurança, talvez não."]}
+      ],
+      [
+        {label:"Japan Meteorological Agency",url:"https://www.jma.go.jp/jma/indexe.html"},
+        {label:"JMA: heat illness and weather terminology",url:"https://www.jma.go.jp/jma/kishou/know/yougo_hp/nettyusho.html"},
+        {label:"Japan National Parks: safety and disaster information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}
+      ]
+    )
+  },
+
+  "o-que-fazer-ao-perceber-que-esta-perdido-na-trilha": {
+    title:"O que fazer ao perceber que está perdido na trilha",
+    subtitle:"O primeiro erro é continuar andando para qualquer lado. O segundo é gastar bateria, água e luz sem plano.",
+    description:"Guia Elevação sobre o que fazer ao perceber que está perdido em uma trilha no Japão: parar, observar, sinalizar, conservar recursos e pedir ajuda.",
+    metaTitle:"Perdido na trilha: o que fazer | Elevação",
+    metaDescription:"O que fazer ao se perder numa trilha: parar, observar, planejar, conservar recursos, sinalizar e evitar piorar a situação.",
+    keywords:["perdido na trilha","segurança montanha Japão","o que fazer trilha","Elevação"],
+    category:"Elevação / Segurança",
+    coverCall:"Perder a rota não precisa virar perder o controle.",
+    tag:"Elevação",
+    date:"2026-08-14",
+    readingTime:"7 min",
+    thumb:"assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+      "Cordilheira japonesa vista de longe, com trilhas e vales de montanha.",
+      "Paisagem alpina usada como referência editorial para navegação e segurança.",
+      "Perceber que está perdido é assustador, mas a resposta mais perigosa costuma ser a pressa. Em trilha, continuar descendo sem referência pode afastar você da rota, gastar energia e levar para terreno pior.",
+      [
+        {title:"Pare antes de piorar",paragraphs:["Interrompa a caminhada, respire e tire o grupo da área de risco imediato. Não deixe cada pessoa procurar um caminho diferente. Marque mentalmente ou no GPS o último ponto de certeza: placa, ponte, bifurcação, abrigo, córrego ou trecho reconhecível."]},
+        {title:"Pense, observe e planeje",paragraphs:["Confira mapa offline, bússola, horário, bateria, água, comida, roupas e clima. Procure referências grandes: vale, crista, rio, estrada, linha de energia ou abrigo. Se a rota segura não estiver clara, não invente atalho. Atalho em montanha japonesa pode significar barranco, vegetação fechada ou rio."]},
+        {title:"Comunique cedo",paragraphs:["Se houver sinal, envie localização, nome da trilha, número de pessoas, condição física e último ponto conhecido. Economize bateria: brilho baixo, modo avião quando não estiver comunicando e power bank separado. Um apito pode ser mais eficiente do que gritar até cansar."]},
+        {title:"Conserve calor e luz",paragraphs:["Se a noite estiver chegando, priorize abrigo contra vento e chuva, roupa seca e visibilidade para resgate. Lanternas, manta térmica e camada extra são itens pequenos que mudam o tamanho do problema."]}
+      ],
+      [
+        {label:"Japan National Parks: rules, safety and disaster information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"},
+        {label:"Yakushima World Heritage Conservation Center: mountain equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"}
+      ]
+    )
+  },
+
+  "bussola-orientacao-basica-sem-gps": {
+    title:"Bússola: orientação básica sem GPS",
+    subtitle:"O celular é útil, mas a autonomia começa quando você entende direção, mapa e terreno.",
+    description:"Tutorial básico de bússola para trilhas: norte magnético, orientação do mapa, azimute, referências de terreno e limites da técnica sem treino.",
+    metaTitle:"Bússola na trilha: orientação básica sem GPS",
+    metaDescription:"Como usar bússola em trilhas: norte magnético, mapa, azimute, terreno e por que o GPS não substitui preparo.",
+    keywords:["como usar bússola trilha","bússola trekking","mapa topográfico","Elevação"],
+    category:"Elevação / Navegação",
+    coverCall:"GPS ajuda. Bússola ensina a pensar o terreno.",
+    tag:"Elevação",
+    date:"2026-08-13",
+    readingTime:"7 min",
+    thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+      "Montanhas dos Alpes Centrais do Japão vistas de uma crista.",
+      "Imagem real de alta montanha usada para matéria de orientação.",
+      "Usar bússola não é nostalgia. É redundância. Celular quebra, molha, descarrega, perde sinal ou mostra sua posição sem explicar o terreno ao redor. Uma bússola simples, com mapa e treino, cria uma camada mínima de autonomia.",
+      [
+        {title:"Norte magnético não é decoração",paragraphs:["A agulha aponta para o norte magnético. Em mapas, é preciso entender orientação e declinação quando aplicável. Para iniciantes, o primeiro objetivo é alinhar mapa e terreno, não sair calculando rotas complexas em área desconhecida."]},
+        {title:"Azimute básico",paragraphs:["Azimute é direção. Você define para onde precisa seguir, gira a cápsula da bússola, alinha a agulha e escolhe referências visíveis no terreno. Em mata fechada ou neblina, essa técnica exige treino real; sem prática, a bússola vira amuleto caro."]},
+        {title:"Leia o terreno",paragraphs:["Direção sozinha não basta. Vale, crista, rio, estrada, lago e cume precisam confirmar a leitura. Se o mapa diz que você deveria cruzar um córrego e ele não aparece, pare e reavalie."]},
+        {title:"Treine perto de casa",paragraphs:["Aprenda em parque, bairro, trilha curta e área segura antes de depender disso em montanha. A técnica fica simples quando o corpo já praticou sem frio, chuva e cansaço."]}
+      ],
+      [
+        {label:"Yakushima World Heritage Conservation Center: equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"},
+        {label:"Japan National Parks",url:"https://www.japan.travel/national-parks/"}
+      ]
+    )
+  },
+
+  "curvas-de-nivel-sem-misterio": {
+    title:"Curvas de nível sem mistério",
+    subtitle:"A dificuldade de uma trilha começa a aparecer antes da montanha: no espaçamento das linhas do mapa.",
+    description:"Entenda curvas de nível em mapas de trilha: inclinação, vale, crista, colo, cume, desnível e esforço real antes de caminhar.",
+    metaTitle:"Curvas de nível: como ler relevo na trilha",
+    metaDescription:"Guia simples para ler curvas de nível: inclinação, vales, cristas, cumes e esforço antes de entrar na trilha.",
+    keywords:["como ler curvas de nível","mapa topográfico trilha","desnível acumulado","Elevação"],
+    category:"Elevação / Navegação",
+    coverCall:"O mapa já avisa onde a perna vai reclamar.",
+    tag:"Elevação",
+    date:"2026-08-12",
+    readingTime:"6 min",
+    thumb:"assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+      "Montanhas Hida vistas em camadas, com relevo marcado por cristas e vales.",
+      "Relevo alpino japonês usado como referência visual para curvas de nível.",
+      "Curvas de nível são linhas que conectam pontos de mesma altitude. Parece detalhe técnico, mas é uma das formas mais diretas de prever esforço, inclinação e risco antes da caminhada.",
+      [
+        {title:"Linhas próximas, subida forte",paragraphs:["Quando as curvas estão muito próximas, o terreno sobe ou desce rápido. Quando estão afastadas, a inclinação é mais suave. Essa leitura evita cair na armadilha de escolher trilha apenas pela distância em quilômetros."]},
+        {title:"Vale, crista, colo e cume",paragraphs:["Linhas formando V em direção à parte alta costumam indicar vales ou drenagem; formas alongadas podem revelar cristas; círculos fechados indicam morros ou cumes. Um colo é passagem baixa entre elevações, muitas vezes importante para rota e vento."]},
+        {title:"Distância não é dificuldade",paragraphs:["Cinco quilômetros planos não são iguais a cinco quilômetros com 900 metros de ganho de elevação. No Japão, muitas trilhas sobem direto desde estação, templo ou estacionamento até cristas íngremes. O mapa mostra isso antes do joelho descobrir."]},
+        {title:"Use como filtro de decisão",paragraphs:["Antes de sair, compare distância, desnível, tempo estimado, fontes de água, pontos de fuga e previsão. Curva de nível não substitui experiência, mas reduz improviso."]}
+      ],
+      [
+        {label:"Japan National Parks",url:"https://www.japan.travel/national-parks/"},
+        {label:"Japan National Parks: hiking guide",url:"https://www.japan.travel/en/guide/hiking/"}
+      ]
+    )
+  },
+
+  "mapa-offline-sinal-celular-nao-e-navegacao": {
+    title:"Mapa offline: por que sinal de celular não é navegação",
+    subtitle:"Ter internet na estação não garante orientação no vale, na crista ou dentro da mata.",
+    description:"Guia sobre mapa offline em trilhas: baixar rota, economizar bateria, preparar redundância e não depender de sinal de celular.",
+    metaTitle:"Mapa offline na trilha: sinal de celular não basta",
+    metaDescription:"Por que baixar mapa offline antes da trilha: rota, bateria, modo avião, mapa físico e redundância de navegação.",
+    keywords:["mapa offline trilha","GPS trilha Japão","navegação trekking","Elevação"],
+    category:"Elevação / Navegação",
+    coverCall:"Barra de sinal não é plano de navegação.",
+    tag:"Elevação",
+    date:"2026-08-11",
+    readingTime:"6 min",
+    thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+      "Vista de lago alpino e montanhas no Japão, com trilhas em região remota.",
+      "Imagem real de montanha usada para matéria sobre navegação offline.",
+      "O celular é uma ferramenta excelente, mas só quando foi preparado antes. Em trilhas japonesas, sinal pode sumir em vales, florestas, túneis, encostas e áreas remotas. Navegação começa antes de sair de casa.",
+      [
+        {title:"Baixe o mapa antes",paragraphs:["Abra o aplicativo escolhido, baixe mapa e rota offline, confira se o arquivo realmente abre sem internet e salve pontos importantes: início, bifurcações, abrigo, água, estação, estacionamento e rota de fuga."]},
+        {title:"Bateria é equipamento de segurança",paragraphs:["Use modo avião quando não precisar comunicar, reduza brilho, leve power bank e cabo curto. Frio e calor podem reduzir desempenho. Não gaste bateria filmando tudo se ela será necessária para voltar."]},
+        {title:"Tenha redundância",paragraphs:["Mapa físico, bússola, relógio GPS ou outro celular do grupo ajudam quando um aparelho falha. Redundância não é excesso; é o que impede uma pane pequena de virar resgate."]},
+        {title:"Saber voltar é diferente de ver o ponto azul",paragraphs:["O ponto azul mostra posição, mas não decide se a próxima encosta é segura, se o rio está cruzável ou se o horário permite continuar. Use tecnologia com julgamento."]}
+      ],
+      [
+        {label:"Yakushima World Heritage Conservation Center: equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"},
+        {label:"Japan National Parks: safety and disaster information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}
+      ]
+    )
+  },
+
+  "salario-minimo-japao-2026-conselho-central": {
+    title:"Salário mínimo no Japão: a recomendação nacional de 2026 ainda precisa virar valor local",
+    subtitle:"O conselho central publicou a etapa nacional, mas cada província define o piso final e a data de vigência.",
+    description:"Notícia explicativa sobre a recomendação nacional de salário mínimo no Japão em 2026 e o que trabalhadores brasileiros devem checar por província.",
+    metaTitle:"Salário mínimo no Japão 2026: recomendação e províncias",
+    metaDescription:"Entenda a recomendação nacional de salário mínimo em 2026 e por que o valor final depende de cada província.",
+    keywords:["salário mínimo Japão 2026","MHLW","trabalho no Japão","brasileiros no Japão"],
+    category:"Notícias / Trabalho",
+    coverCall:"A manchete é nacional; o holerite é provincial.",
+    tag:"Notícia",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/salario-minimo-japao-2026-recomendacao-prefeituras-cover.jpg",
+    content:`<p><strong>O Japão já entrou na fase nacional da revisão do salário mínimo regional de 2026.</strong> O Conselho Central de Salário Mínimo, ligado ao MHLW, registrou em 28 de julho de 2026 a discussão e a resposta sobre a orientação nacional para o ano fiscal.</p>
+<figure class="article-figure"><img src="assets/covers/salario-minimo-japao-2026-recomendacao-prefeituras-cover.jpg" alt="Ilustração editorial de fábrica japonesa, holerite e relógio de ponto." loading="lazy" decoding="async"><figcaption>Salário mínimo no Japão: orientação nacional não substitui o valor provincial.</figcaption></figure>
+<p>Para trabalhadores brasileiros, o ponto essencial é não confundir recomendação nacional com valor automaticamente aplicado. O salário mínimo japonês é regional. Depois da orientação central, cada província passa por seu próprio conselho local e publica o valor final com data de vigência.</p>
+<h2>O que checar</h2>
+<p>Confira a província onde o trabalho é executado, o valor por hora aplicável e a data em que ele começa a valer. Quem trabalha por empreiteira deve olhar o local real de prestação do serviço, não apenas o endereço administrativo da empresa.</p>
+<p>Se houver dúvida, compare holerite, contrato, horas efetivas e adicionais. O piso por hora não explica sozinho adicional noturno, hora extra, transporte ou descontos, mas é a base mínima que precisa estar correta.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.mhlw.go.jp/stf/shingi/shingi-tingin_127939.html" target="_blank" rel="noopener">MHLW: Conselho Central de Salário Mínimo</a></li><li><a href="https://saiteichingin.mhlw.go.jp/check/analyze.php" target="_blank" rel="noopener">MHLW: ferramenta para comparar salário mínimo</a></li></ul>`
+  },
+
+  "turismo-japao-dados-jnto-como-ler-2026": {
+    title:"Turismo no Japão: como ler os dados mais recentes da JNTO sem cair em exagero",
+    subtitle:"Número nacional ajuda, mas não mostra sozinho a pressão sobre Kyoto, Tóquio, aeroportos, hotéis e moradores.",
+    description:"Notícia explicativa sobre estatísticas de turismo da JNTO em 2026 e como interpretar visitantes, sazonalidade e impacto regional.",
+    metaTitle:"Turismo no Japão em 2026: como ler dados JNTO",
+    metaDescription:"Como interpretar dados oficiais da JNTO sobre turismo no Japão: visitantes, sazonalidade, regiões e impacto real.",
+    keywords:["turismo Japão 2026","JNTO","visitantes internacionais Japão","dados turismo"],
+    category:"Notícias / Turismo",
+    coverCall:"Recorde nacional não conta a cidade inteira.",
+    tag:"Notícia",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/turismo-japao-2026-dados-jnto-visitantes-cover.jpg",
+    content:`<p><strong>A Japan National Tourism Organization mantém a principal base pública para acompanhar visitantes internacionais no Japão.</strong> Em 2026, a leitura desses dados continua importante para entender lotação, preços, serviços, aeroportos e oportunidades de trabalho ligadas ao turismo.</p>
+<figure class="article-figure"><img src="assets/covers/turismo-japao-2026-dados-jnto-visitantes-cover.jpg" alt="Ilustração editorial de aeroporto japonês com viajantes, malas e moeda." loading="lazy" decoding="async"><figcaption>Dados de turismo precisam ser lidos por mês, mercado e região.</figcaption></figure>
+<p>O cuidado editorial é separar número nacional de impacto local. Um mês forte no país não significa que todas as províncias estejam lotadas. Kyoto, Osaka, Tóquio, Hokkaido e Okinawa podem viver pressões muito diferentes, e cada mercado emissor tem calendário próprio de férias.</p>
+<h2>Como usar a informação</h2>
+<p>Para quem viaja, os dados ajudam a prever períodos caros e cheios. Para quem trabalha no Japão, mostram demanda por atendimento multilíngue, hotelaria, transporte e varejo. Para moradores, ajudam a entender por que algumas áreas mudam de ritmo em certas épocas.</p>
+<p>A própria JNTO informa que suas estatísticas mensais podem ser acompanhadas em relatórios, tabelas e painéis. Antes de publicar números específicos, consulte a versão mais recente no site oficial.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.jnto.go.jp/statistics/data/visitors-statistics/?tab=block2" target="_blank" rel="noopener">JNTO: estatísticas de visitantes</a></li><li><a href="https://statistics.jnto.go.jp/en/" target="_blank" rel="noopener">Japan Tourism Statistics</a></li></ul>`
+  },
+
+  "alerta-calor-wbgt-verao-japao-2026": {
+    title:"Alerta de calor no Japão: por que o WBGT importa mais do que a temperatura isolada",
+    subtitle:"O índice combina calor, umidade, radiação e vento, e muda decisões em trabalho, escola, esporte e trilhas.",
+    description:"Notícia explicativa sobre alertas de calor no Japão, WBGT, risco de insolação e cuidados no verão japonês.",
+    metaTitle:"Alerta de calor no Japão: entenda WBGT e verão",
+    metaDescription:"O que é WBGT, como funcionam alertas de calor no Japão e por que temperatura isolada não basta.",
+    keywords:["alerta calor Japão","WBGT Japão","JMA calor","verão japonês"],
+    category:"Notícias / Clima",
+    coverCall:"No verão japonês, 32 graus podem pesar de jeitos muito diferentes.",
+    tag:"Notícia",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg",
+    content:`<p><strong>O Japão usa o WBGT, ou暑さ指数, como referência para risco de doenças relacionadas ao calor.</strong> A diferença é importante: ele considera não só temperatura, mas também umidade, radiação solar e vento.</p>
+<figure class="article-figure"><img src="assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg" alt="Ilustração editorial do verão japonês com termômetro, rua quente e alerta de calor." loading="lazy" decoding="async"><figcaption>WBGT ajuda a medir o corpo no ambiente, não apenas o número do termômetro.</figcaption></figure>
+<p>A Agência Meteorológica do Japão explica que o risco aumenta em ambientes de alta temperatura, alta umidade e pouco vento, especialmente durante trabalho ou atividade física. Por isso, escola, obra, fábrica, festival, trilha e esporte ao ar livre precisam tratar calor como risco operacional.</p>
+<h2>O que muda na prática</h2>
+<p>Quando o índice sobe, a resposta deve vir antes do mal-estar: água, eletrólitos quando necessário, pausa, sombra, redução de intensidade e atenção a crianças, idosos e pessoas trabalhando em ambiente quente. Em trilha, calor também reduz julgamento, acelera fadiga e aumenta chance de erro.</p>
+<p>A recomendação é acompanhar fontes oficiais e não decidir apenas pela sensação de “aguento mais um pouco”. No Japão, o verão é bonito, mas pode ser brutalmente úmido.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.wbgt.env.go.jp/en/sp/" target="_blank" rel="noopener">Ministry of the Environment: Heat Illness Prevention Information</a></li><li><a href="https://www.jma.go.jp/jma/kishou/know/yougo_hp/nettyusho.html" target="_blank" rel="noopener">JMA: termos sobre calor e WBGT</a></li></ul>`
+  },
+
+  "bicicletas-blue-ticket-japao-2026": {
+    title:"Bicicletas no Japão: blue ticket entra no centro das regras de trânsito",
+    subtitle:"A partir de abril de 2026, infrações de bicicleta passam a receber tratamento mais parecido com o de veículos motorizados em certos casos.",
+    description:"Notícia explicativa sobre a introdução do blue ticket para bicicletas no Japão e o que moradores devem observar.",
+    metaTitle:"Bicicletas no Japão: blue ticket em 2026",
+    metaDescription:"Entenda a introdução do blue ticket para bicicletas no Japão e como isso afeta pedalar em cidades japonesas.",
+    keywords:["bicicleta Japão 2026","blue ticket bicicleta","trânsito Japão","aobiru bicicleta"],
+    category:"Notícias / Trânsito",
+    coverCall:"A bicicleta continua prática, mas menos invisível para a regra.",
+    tag:"Notícia",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/regras-transito-ciclistas-japao-cover.jpg",
+    content:`<p><strong>O Japão prepara um tratamento mais rígido para infrações de bicicleta.</strong> Materiais do MLIT sobre política cicloviária registram a introdução do sistema de blue ticket para infrações de bicicleta a partir de abril de 2026.</p>
+<figure class="article-figure"><img src="assets/covers/regras-transito-ciclistas-japao-cover.jpg" alt="Ilustração editorial de ciclista em rua japonesa com sinalização de trânsito." loading="lazy" decoding="async"><figcaption>Pedalar no Japão exige atenção a regra local, calçada, pista e cruzamentos.</figcaption></figure>
+<p>Para brasileiros no Japão, a mensagem prática é simples: bicicleta não é brinquedo administrativo. Celular, fone, sinal vermelho, calçada, pedestre, luz noturna e circulação em cruzamentos podem gerar risco real e punição.</p>
+<h2>O que observar</h2>
+<p>Regras específicas podem ser explicadas por polícia, município e materiais de segurança. O que não muda é a necessidade de pedalar como participante do trânsito. Em áreas escolares, estações e ruas estreitas, a margem para distração é pequena.</p>
+<p>A mudança também conversa com turismo: cidades japonesas querem incentivar bicicleta, mas com convivência segura entre pedestre, ciclista e carro.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.mlit.go.jp/road/bicycleuse/good-cycle-japan/plan/action2/" target="_blank" rel="noopener">MLIT: Good Cycle Japan e segurança</a></li><li><a href="https://www.mlit.go.jp/report/interview/daijin260529.html" target="_blank" rel="noopener">MLIT: entrevista ministerial sobre plano cicloviário</a></li></ul>`
+  },
+
+  "rideshare-japao-calor-chuva-eventos-2026": {
+    title:"Rideshare japonês ganha ajustes para chuva, calor e eventos",
+    subtitle:"A versão japonesa do rideshare continua limitada, mas documentos regionais mostram ajustes operacionais para demanda variável.",
+    description:"Notícia explicativa sobre o rideshare japonês em 2026, com foco em complementação de táxis, eventos, chuva e calor.",
+    metaTitle:"Rideshare no Japão em 2026: ajustes e limites",
+    metaDescription:"Como o rideshare japonês funciona como complemento a táxis e por que chuva, calor e eventos entram nos ajustes operacionais.",
+    keywords:["rideshare Japão 2026","MLIT rideshare","táxi Japão","transporte Japão"],
+    category:"Notícias / Transporte",
+    coverCall:"Não é Uber livre: é remendo regulado para lacunas reais.",
+    tag:"Notícia",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/turismo-prioridade-nacional-japao-2026.jpg",
+    content:`<p><strong>O rideshare japonês, chamado de自家用車活用事業, avança como complemento controlado ao serviço de táxis.</strong> Documentos do MLIT/Kanto atualizados em junho de 2026 incluem regras e materiais sobre operação, tarifas, veículos e medidas para chuva, calor, eventos e emergências.</p>
+<figure class="article-figure"><img src="assets/covers/turismo-prioridade-nacional-japao-2026.jpg" alt="Ilustração editorial de transporte urbano japonês com táxi, aplicativo e turistas." loading="lazy" decoding="async"><figcaption>O modelo japonês é regulado e ligado à falta de oferta em horários ou locais específicos.</figcaption></figure>
+<p>A diferença para o imaginário de aplicativo livre é grande. No Japão, o foco é suprir falta de carros em regiões, horários e situações específicas, com participação de operadores autorizados e regras administrativas.</p>
+<h2>Por que isso importa</h2>
+<p>Turismo em alta, envelhecimento, eventos, chuva forte, calor extremo e áreas com poucos táxis criam buracos de mobilidade. O rideshare japonês tenta aliviar esses pontos sem desmontar completamente a estrutura regulatória de táxis.</p>
+<p>Para moradores estrangeiros, vale acompanhar como a regra chega na própria região antes de tratar o serviço como disponível em qualquer cidade.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://wwwtb.mlit.go.jp/kanto/jidou_koutu/tabi2/jikayo/katsuyou.html" target="_blank" rel="noopener">Kanto District Transport Bureau: Japanese rideshare</a></li><li><a href="https://www.mlit.go.jp/" target="_blank" rel="noopener">Ministry of Land, Infrastructure, Transport and Tourism</a></li></ul>`
+  },
+
+  "madoka-magia-walpurgisnacht-2026": {
+    title:"Madoka Magica volta ao cinema em agosto de 2026: por que isso importa",
+    subtitle:"Walpurgisnacht: Rising não é só nostalgia; é o retorno de uma obra que mudou a linguagem da garota mágica moderna.",
+    description:"Artigo de anime sobre o novo filme de Madoka Magica, previsto para 28 de agosto de 2026, e sua importância cultural.",
+    metaTitle:"Madoka Magica Walpurgisnacht: Rising em 2026",
+    metaDescription:"Por que o novo filme de Madoka Magica em agosto de 2026 importa para fãs de anime e para o gênero magical girl.",
+    keywords:["Madoka Magica 2026","Walpurgisnacht Rising","anime 2026","Aniplex"],
+    category:"Anime / Cinema",
+    coverCall:"A garota mágica que ensinou o público a desconfiar do milagre.",
+    tag:"Anime",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-default.png",
+    content:`<p><strong><em>Puella Magi Madoka Magica</em> retorna aos cinemas japoneses em 28 de agosto de 2026 com <em>Walpurgisnacht: Rising</em>, segundo a Aniplex.</strong> A notícia pesa porque Madoka não foi apenas um sucesso: ela reorganizou expectativas sobre o gênero magical girl.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Ilustração editorial original inspirada em estética japonesa para matéria de anime, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<p>A força da franquia está no contraste entre delicadeza visual, contrato, sacrifício e horror existencial. O retorno não vende só reencontro com personagens; vende a pergunta que sempre sustentou a obra: qual é o preço de desejar algo absoluto?</p>
+<h2>Por que acompanhar</h2><p>Para novos fãs, o filme pode reabrir debates sobre autoria, Shaft, direção visual e influência de Madoka em obras posteriores. Para antigos, é a continuação de uma conversa que ficou suspensa desde <em>Rebellion</em>.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.aniplex.co.jp/lineup/madoka-walpurgisnacht/" target="_blank" rel="noopener">Aniplex: Walpurgisnacht: Rising</a></li><li><a href="https://www.aniplex.co.jp/news/detail/?id=69872" target="_blank" rel="noopener">Aniplex: data de estreia</a></li></ul>`
+  },
+
+  "bleach-tybw-2026-retorno-julho": {
+    title:"Bleach: Thousand-Year Blood War retorna em 2026 com peso de encerramento",
+    subtitle:"A nova fase mostra como franquias longas podem voltar sem depender apenas de saudade.",
+    description:"Artigo de anime sobre o retorno de Bleach: Thousand-Year Blood War em 2026 e seu lugar entre continuações modernas.",
+    metaTitle:"Bleach TYBW em 2026: retorno e encerramento",
+    metaDescription:"O retorno de Bleach: Thousand-Year Blood War em 2026 e por que continuações longas ainda movem o mercado de anime.",
+    keywords:["Bleach 2026","Thousand-Year Blood War","anime 2026","Aniplex"],
+    category:"Anime / TV",
+    coverCall:"Nostalgia abre a porta; execução segura o público.",
+    tag:"Anime",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-default.png",
+    content:`<p><strong>A página oficial da Aniplex lista a volta de <em>BLEACH Thousand-Year Blood War</em> em julho de 2026, com novas janelas de transmissão a partir do fim do mês.</strong> Para fãs de longa data, o retorno carrega sensação de conclusão; para novos espectadores, mostra uma indústria cada vez mais preparada para reativar franquias com acabamento contemporâneo.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Arte editorial original para matéria de anime, sem uso de personagens oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original usada para evitar reprodução de arte protegida.</figcaption></figure>
+<p>Bleach sempre misturou design marcante, duelo espiritual e senso de estilo. A fase TYBW mostrou que continuações tardias podem funcionar quando respeitam o imaginário visual e atualizam ritmo, som e impacto de cena.</p>
+<h2>O que observar</h2><p>Mais do que confirmar quem vence, a temporada vale por como organiza legado. Obras longas precisam equilibrar fãs antigos, espectadores que chegam por streaming e a pressão de transformar memória em produto atual.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.aniplex.co.jp/lineup/bleach-anime/" target="_blank" rel="noopener">Aniplex: BLEACH Thousand-Year Blood War</a></li><li><a href="https://www.aniplex.co.jp/anime/" target="_blank" rel="noopener">Aniplex: lineup 2026</a></li></ul>`
+  },
+
+  "jojo-steel-ball-run-netflix-2026": {
+    title:"Steel Ball Run em 2026: JoJo volta com uma das partes mais aguardadas",
+    subtitle:"A chegada de Steel Ball Run ao streaming recoloca JoJo no centro da conversa global de anime.",
+    description:"Artigo sobre JoJo's Bizarre Adventure: Steel Ball Run, previsto para streaming em 2026, e por que a parte é tão esperada.",
+    metaTitle:"JoJo Steel Ball Run em 2026: por que é aguardado",
+    metaDescription:"Steel Ball Run chega em 2026 como uma das adaptações mais esperadas de JoJo, com aposta global em streaming.",
+    keywords:["Steel Ball Run 2026","JoJo anime","Netflix anime 2026","Warner anime"],
+    category:"Anime / Streaming",
+    coverCall:"JoJo troca o palco, mas não perde a pose.",
+    tag:"Anime",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/jojo-steel-ball-run-retorno-lenda-2026.jpg",
+    content:`<p><strong>A Warner Bros. Japan lista <em>Steel Ball Run</em>, de <em>JoJo's Bizarre Adventure</em>, com estreia mundial antecipada pela Netflix em setembro de 2026.</strong> A adaptação é especialmente aguardada porque essa parte costuma aparecer entre as favoritas dos leitores.</p>
+<figure class="article-figure"><img src="assets/covers/jojo-steel-ball-run-retorno-lenda-2026.jpg" alt="Ilustração editorial estilizada para matéria sobre anime de aventura e corrida, sem reprodução de arte oficial." loading="lazy" decoding="async"><figcaption>Capa editorial original inspirada em aventura e western japonês pop.</figcaption></figure>
+<p>O interesse vem da combinação rara: corrida, jornada, violência estilizada, filosofia de destino e a extravagância formal que tornou JoJo reconhecível em qualquer feed. É uma obra onde exagero visual vira linguagem.</p>
+<h2>Por que o streaming importa</h2><p>A estreia por plataforma global muda a conversa. JoJo deixa de depender só do calendário japonês e entra em lógica simultânea de fãs, memes, análise e descoberta por novos públicos.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.warnerbros.co.jp/anime/?title_id=4572" target="_blank" rel="noopener">Warner Bros. Japan: lineup de anime</a></li></ul>`
+  },
+
+  "sekiro-no-defeat-anime-2026": {
+    title:"Sekiro: No Defeat mostra como games japoneses viraram matéria-prima de anime premium",
+    subtitle:"A adaptação prevista para 2026 reforça a ponte entre prestígio de jogo, autoria visual e streaming global.",
+    description:"Artigo sobre Sekiro: No Defeat, adaptação em anime listada para 2026, e a relação entre games japoneses e anime.",
+    metaTitle:"Sekiro: No Defeat em 2026 e anime de games",
+    metaDescription:"Sekiro: No Defeat aparece no calendário de 2026 e reforça a força das adaptações de games japoneses em anime.",
+    keywords:["Sekiro No Defeat","anime 2026","anime de games","KADOKAWA"],
+    category:"Anime / Games",
+    coverCall:"Quando o controle vira enquadramento.",
+    tag:"Anime",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/vr-ar-anime-temporada-verao-2026.jpg",
+    content:`<p><strong>A lista de verão de 2026 da KADOKAWA inclui <em>SEKIRO: NO DEFEAT</em>, reforçando uma tendência clara: games japoneses de prestígio viraram fonte natural para anime de alto apelo internacional.</strong></p>
+<figure class="article-figure"><img src="assets/covers/vr-ar-anime-temporada-verao-2026.jpg" alt="Arte editorial de tecnologia e animação japonesa sem personagens oficiais." loading="lazy" decoding="async"><figcaption>Capa editorial original para análise de anime e games.</figcaption></figure>
+<p>O desafio é grande. Sekiro é lembrado por precisão, morte, ritmo e tensão corporal. Adaptar isso para anime não significa apenas contar a história: significa traduzir tempo de reação, peso da lâmina e punição do erro.</p>
+<h2>O que a adaptação precisa resolver</h2><p>Obras vindas de games funcionam quando entendem que gameplay não é detalhe. A linguagem do jogador precisa virar mise-en-scène: cortes, som, pausa e coreografia devem comunicar aquilo que antes era sentido no controle.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://license.kadokawa.co.jp/anime/2026summer/" target="_blank" rel="noopener">KADOKAWA: obras de verão 2026</a></li></ul>`
+  },
+
+  "temporada-verao-2026-crunchyroll-curadoria": {
+    title:"Temporada de verão 2026: por que curadoria importa mais que lista gigante",
+    subtitle:"Com dezenas de estreias em streaming, o problema do fã não é falta de anime; é decidir o que merece tempo.",
+    description:"Artigo sobre a temporada de anime de verão 2026, com base na lineup da Crunchyroll e no desafio de curadoria.",
+    metaTitle:"Animes de verão 2026: curadoria além da lista",
+    metaDescription:"A temporada de verão 2026 tem muitas estreias; entenda por que curadoria importa mais que acompanhar tudo.",
+    keywords:["anime verão 2026","Crunchyroll 2026","temporada anime","curadoria anime"],
+    category:"Anime / Temporada",
+    coverCall:"A lista cresceu; o tempo do espectador não.",
+    tag:"Anime",
+    date:"2026-08-15",
+    readingTime:"5 min",
+    thumb:"assets/covers/anime-default.png",
+    content:`<p><strong>A lineup de verão 2026 da Crunchyroll mostra o tamanho atual do mercado: estreias, continuações, dublagens, simulcasts e obras de nicho competindo pelo mesmo fim de noite do espectador.</strong></p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original para curadoria de temporada.</figcaption></figure>
+<p>O excesso muda o papel da crítica. Já não basta listar tudo. A função editorial é separar porta de entrada, obra de acompanhamento semanal, experimento visual e título que pode esperar.</p>
+<h2>Como escolher</h2><p>Observe estúdio, diretor, material original, janela de exibição e conversa real dos episódios iniciais. Hype ajuda a descobrir, mas não precisa mandar na agenda. A boa temporada é aquela que você consegue acompanhar com prazer, não com culpa.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.crunchyroll.com/news/seasonal-lineup/2026/6/17/summer-anime-2026-crunchyroll" target="_blank" rel="noopener">Crunchyroll: Summer 2026 Anime Season Lineup</a></li></ul>`
+  },
+
+  "por-que-o-japao-gosta-de-filas": {
+    title:"Por que o Japão parece gostar tanto de filas?",
+    subtitle:"Fila no Japão não é amor pela espera; é tecnologia social para evitar disputa explícita.",
+    description:"Artigo cultural sobre filas no Japão, ordem pública, convivência, transporte, eventos e pressão social.",
+    metaTitle:"Por que o Japão faz tantas filas?",
+    metaDescription:"Entenda filas no Japão como tecnologia social de ordem, previsibilidade e redução de conflito no espaço público.",
+    keywords:["filas no Japão","cultura japonesa","convivência Japão","sociedade japonesa"],
+    category:"Cultura / Sociedade",
+    coverCall:"A fila transforma conflito potencial em ordem visível.",
+    tag:"Artigos",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/silencio-nos-trens-japoneses-cover.webp",
+    content:`<p><strong>O Japão não gosta de fila porque esperar seja divertido. Gosta porque a fila organiza o encontro entre desejo, espaço limitado e medo de conflito.</strong></p>
+<figure class="article-figure"><img src="assets/covers/silencio-nos-trens-japoneses-cover.webp" alt="Plataforma de trem japonesa organizada, com pessoas alinhadas." loading="lazy" decoding="async"><figcaption>Fila como infraestrutura social invisível.</figcaption></figure>
+<p>Na estação, no restaurante, no evento e no caixa, a fila torna visível quem chegou antes. Ela reduz negociação verbal e evita que cada pessoa precise defender seu lugar. Em uma sociedade que valoriza leitura do ambiente, isso é mais eficiente do que discutir regra a cada minuto.</p>
+<h2>O custo da ordem</h2><p>A fila também pressiona. Quem não entende a marca no chão, a lateral correta ou a entrada da fila pode parecer mal-educado sem intenção. Para estrangeiros, observar antes de entrar costuma resolver metade do problema.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.japan.travel/en/plan/important-notice/" target="_blank" rel="noopener">JNTO: orientações para visitantes</a></li><li><a href="https://www.mlit.go.jp/" target="_blank" rel="noopener">MLIT: transporte e uso do espaço público</a></li></ul>`
+  },
+
+  "omotenashi-limites-hospitalidade-japonesa": {
+    title:"Omotenashi tem limite: hospitalidade japonesa não é servidão",
+    subtitle:"O atendimento impecável encanta, mas também pode esconder cansaço, hierarquia e trabalho emocional.",
+    description:"Artigo sobre omotenashi, atendimento no Japão, trabalho emocional, expectativa do cliente e limites de hospitalidade.",
+    metaTitle:"Omotenashi tem limite: hospitalidade japonesa",
+    metaDescription:"Uma leitura crítica do omotenashi: atendimento, trabalho emocional, cliente e limites da hospitalidade japonesa.",
+    keywords:["omotenashi","hospitalidade japonesa","atendimento Japão","cultura japonesa"],
+    category:"Cultura / Trabalho",
+    coverCall:"Gentileza não deveria significar desaparecer.",
+    tag:"Artigos",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/o-japao-automatizou-a-presenca-humana-cover.webp",
+    content:`<p><strong><em>Omotenashi</em> costuma ser traduzido como hospitalidade japonesa, mas a palavra virou vitrine turística tão brilhante que às vezes apaga quem trabalha por trás dela.</strong></p>
+<figure class="article-figure"><img src="assets/covers/o-japao-automatizou-a-presenca-humana-cover.webp" alt="Ambiente japonês de serviço automatizado e presença humana discreta." loading="lazy" decoding="async"><figcaption>Hospitalidade também é trabalho emocional.</figcaption></figure>
+<p>O encanto existe: atenção ao detalhe, antecipação de necessidade e cuidado com o visitante. Mas atendimento perfeito não nasce do ar. Ele depende de treinamento, repetição, hierarquia, roteiro de fala e expectativa alta do cliente.</p>
+<h2>Uma leitura adulta</h2><p>Valorizar omotenashi não exige romantizar abuso. Quando o cliente se sente autorizado a humilhar atendente, a hospitalidade vira máscara. O Japão mais interessante é aquele em que cuidado e dignidade caminham juntos.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.japan.travel/en/" target="_blank" rel="noopener">JNTO: guia oficial de viagem</a></li><li><a href="https://www.mhlw.go.jp/english/" target="_blank" rel="noopener">MHLW: trabalho e saúde ocupacional</a></li></ul>`
+  },
+
+  "furusato-cidade-natal-japao-memoria": {
+    title:"Furusato: por que a cidade natal pesa tanto no imaginário japonês",
+    subtitle:"Mais do que lugar de nascimento, furusato é memória organizada: família, comida, festival, sotaque e retorno.",
+    description:"Artigo cultural sobre furusato, cidade natal, pertencimento, interior japonês, Obon, festivais e nostalgia.",
+    metaTitle:"Furusato: cidade natal e nostalgia no Japão",
+    metaDescription:"Entenda furusato no Japão: memória, cidade natal, família, festivais, interior e pertencimento cultural.",
+    keywords:["furusato","cidade natal Japão","cultura japonesa","Obon Japão","interior japonês"],
+    category:"Cultura / Cotidiano",
+    coverCall:"Às vezes, voltar para casa é voltar para uma versão de si mesmo.",
+    tag:"Artigos",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/rotina-comunidade-japao-cuidado-silencioso-2026-cover.jpg",
+    content:`<p><strong><em>Furusato</em> costuma ser traduzido como cidade natal, mas a palavra carrega mais do que endereço.</strong> Ela reúne paisagem, comida, sotaque, família, escola, festival, túmulo ancestral e uma sensação de origem que pode continuar existindo mesmo depois de anos em Tóquio, Osaka ou fora do Japão.</p>
+<figure class="article-figure"><img src="assets/covers/rotina-comunidade-japao-cuidado-silencioso-2026-cover.jpg" alt="Vizinhança japonesa tranquila com memória comunitária." loading="lazy" decoding="async"><figcaption>Furusato é lugar, memória e vínculo.</figcaption></figure>
+<p>No Obon, no Ano Novo e em feriados prolongados, o retorno ao furusato aparece de forma concreta em trens cheios, estradas lotadas e casas familiares reabertas. Mas também existe furusato imaginado: o interior como promessa de pertencimento em contraste com a cidade funcional.</p>
+<h2>Para quem migrou</h2><p>Brasileiros no Japão entendem essa palavra por outro caminho. Muitas vezes vivem entre dois furusatos: o Brasil que ficou na memória e a cidade japonesa onde a vida real acontece. Pertencer pode ser plural.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.japan.travel/en/guide/august/" target="_blank" rel="noopener">JNTO: agosto e retorno familiar</a></li><li><a href="https://www.bunka.go.jp/english/" target="_blank" rel="noopener">Agency for Cultural Affairs</a></li></ul>`
+  },
+
+  "washoku-fermentacao-misso-shoyu-natto": {
+    title:"Washoku e fermentação: missô, shoyu e natto como inteligência cotidiana",
+    subtitle:"A cozinha japonesa não é leveza abstrata; é técnica de tempo, micro-organismo e conservação.",
+    description:"Artigo sobre fermentação no washoku, com foco em missô, shoyu, natto, umami e rotina alimentar japonesa.",
+    metaTitle:"Washoku e fermentação: missô, shoyu e natto",
+    metaDescription:"Como fermentação, missô, shoyu e natto revelam a inteligência cotidiana do washoku japonês.",
+    keywords:["washoku","fermentação japonesa","missô","shoyu","natto","comida japonesa"],
+    category:"Cultura / Gastronomia",
+    coverCall:"O sabor japonês também é uma forma de paciência.",
+    tag:"Artigos",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/os-beneficios-do-misso-japones.jpg",
+    content:`<p><strong>Falar de comida japonesa apenas como estética limpa é reduzir o washoku.</strong> Parte da profundidade está na fermentação: missô, shoyu, natto, vinagres, picles e caldos que dependem de tempo, técnica e micro-organismos.</p>
+<figure class="article-figure"><img src="assets/covers/os-beneficios-do-misso-japones.jpg" alt="Tigela de missô e ingredientes japoneses em composição editorial." loading="lazy" decoding="async"><figcaption>Fermentação transforma conservação em sabor.</figcaption></figure>
+<p>O umami não aparece como truque moderno. Ele nasce de práticas antigas de conservação e combinação. O arroz encontra missô, peixe encontra shoyu, legumes encontram tsukemono, e o cotidiano ganha camadas discretas.</p>
+<h2>Por que isso importa</h2><p>Para quem mora no Japão, entender fermentação ajuda a ler supermercado, konbini e cozinha doméstica. Nem todo sabor forte é estranho; muitas vezes é história química trabalhando no prato.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.maff.go.jp/e/policies/market/k_ryouri/" target="_blank" rel="noopener">MAFF: Japanese food culture</a></li><li><a href="https://www.unesco.org/en/intangible-cultural-heritage" target="_blank" rel="noopener">UNESCO: intangible cultural heritage</a></li></ul>`
+  },
+
+  "ma-pausa-espaco-vida-japonesa": {
+    title:"Ma: a pausa que organiza espaço, fala e convivência no Japão",
+    subtitle:"O vazio japonês não é ausência; é intervalo com função social, estética e emocional.",
+    description:"Artigo sobre ma na cultura japonesa: pausa, espaço, silêncio, arquitetura, conversa e convivência cotidiana.",
+    metaTitle:"Ma: pausa e espaço na cultura japonesa",
+    metaDescription:"Entenda o conceito japonês ma como pausa, intervalo e espaço que organiza estética, fala e convivência.",
+    keywords:["ma japonês","間","cultura japonesa","silêncio Japão","estética japonesa"],
+    category:"Cultura / Estética",
+    coverCall:"Nem tudo que importa precisa estar preenchido.",
+    tag:"Artigos",
+    date:"2026-08-15",
+    readingTime:"6 min",
+    thumb:"assets/covers/ma-o-valor-do-vazio-japao-2026.jpg",
+    content:`<p><strong><em>Ma</em> (間) costuma ser explicado como intervalo, espaço ou pausa, mas a tradução literal não dá conta do efeito.</strong> Ma é o espaço que permite que uma coisa respire em relação à outra.</p>
+<figure class="article-figure"><img src="assets/covers/ma-o-valor-do-vazio-japao-2026.jpg" alt="Composição editorial japonesa com espaço vazio, arquitetura e sombra." loading="lazy" decoding="async"><figcaption>Ma é pausa com presença.</figcaption></figure>
+<p>Na arquitetura, aparece no vazio entre volumes. Na conversa, no silêncio que evita atropelar o outro. Na música, na pausa que dá sentido ao som. Na convivência, no espaço que impede intimidade forçada.</p>
+<h2>O risco da romantização</h2><p>Ma não significa que todo silêncio japonês seja profundo. Às vezes é só constrangimento, cansaço ou hierarquia. O conceito fica mais útil quando ajuda a perceber ritmo e contexto, não quando vira decoração mística.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.bunka.go.jp/english/" target="_blank" rel="noopener">Agency for Cultural Affairs</a></li><li><a href="https://www.japan.travel/en/" target="_blank" rel="noopener">JNTO: cultura e viagem no Japão</a></li></ul>`
+  },
+
   "hakuba-alem-da-neve-alpes-do-norte": {
     title:"Hakuba além da neve: o vale moldado pelos Alpes do Norte do Japão",
     subtitle:"Hakuba não é apenas uma estação de esqui: é um território inteiro construído ao pé de montanhas de quase 3.000 metros.",
@@ -9482,6 +9948,403 @@ Object.assign(DB, {
       ],
       [{label:"National Parks of Japan: Rules, Safety and Disaster Information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
     )
+  },
+  "guia-yamap-portugues-trilhas-japao": {
+    title:"Guia YAMAP em português: como usar o app antes da trilha no Japão",
+    subtitle:"Mapa offline, rota, plano de montanha, bateria e registro de atividade preparados antes de sair de casa.",
+    description:"Guia em português para usar o YAMAP em trilhas no Japão: baixar mapa, conferir rota, criar plano, registrar atividade e evitar depender de sinal de celular.",
+    metaTitle:"Guia YAMAP em português para trilhas no Japão",
+    metaDescription:"Aprenda a preparar o YAMAP antes da trilha no Japão: mapa offline, rota, plano, bateria, atividade e cuidados de navegação.",
+    keywords:["YAMAP em português","YAMAP Japão","app trilha Japão","mapa offline hiking","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Apps",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+    coverCall:"O YAMAP ajuda mais quando foi preparado antes da montanha.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
+      "Cordilheiras de Nagano usadas como imagem editorial para guia do YAMAP.",
+      "Elevação: guia em português para usar apps de trilha no Japão com método.",
+      "YAMAP é um dos apps mais usados por trilheiros no Japão. Ele ajuda com mapa, rota e registro, mas não deve virar desculpa para entrar na montanha sem planejamento.",
+      [
+        {title:"O que preparar antes de sair",items:["Pesquise a montanha pelo nome em japonês e confirme se é a rota correta.", "Baixe o mapa da área antes de sair de casa ou do hotel.", "Confira distância, desnível, tempo estimado, pontos de fuga e último transporte.", "Salve ou desenhe a rota que pretende seguir.", "Carregue o celular, leve power bank e teste o app em modo avião."]},
+        {title:"Plano de montanha",paragraphs:["Quando a rota justificar, registre um plano de montanha antes da saída. O plano deve conter destino, rota, horário previsto, integrantes, contato e alternativa de retorno. Ele não impede acidente, mas melhora a informação disponível se algo der errado.","Não envie plano genérico apenas para cumprir etapa. O valor do plano está na precisão: nome da trilha, ponto de início, ponto de saída e horário de retorno."]},
+        {title:"Durante a trilha",paragraphs:["Use o GPS como confirmação, não como piloto automático. Confira placas, terreno, curvas de nível, tempo e condição do grupo. Se a linha do app manda atravessar área fechada, neve instável ou trecho desbarrancado, a realidade vence o mapa.","Em rotas longas, reduza brilho da tela, use modo avião quando possível e confira a posição em intervalos. Navegação constante consome bateria rápido."]},
+        {title:"Depois da trilha",paragraphs:["Encerrar e salvar a atividade ajuda a revisar tempo real, pontos lentos e erros de planejamento. Também cria histórico para comparar esforço em futuras rotas. Use os registros de outras pessoas como referência, não como promessa de que a trilha estará igual no dia da sua saída."]}
+      ],
+      [{label:"YAMAP Help Center",url:"https://help.yamap.com/hc/ja"},{label:"YAMAP: plano de montanha",url:"https://help.yamap.com/hc/ja/sections/900000177746-%E7%99%BB%E5%B1%B1%E8%A8%88%E7%94%BB"},{label:"National Parks of Japan: Rules, Safety and Disaster Information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "yamareco-guia-portugues-montanhismo-japao": {
+    title:"Yamareco em português: mapa, rota e registros para montanhismo no Japão",
+    subtitle:"Como usar relatos, mapas e planos sem transformar o app em piloto automático.",
+    description:"Guia em português para usar o Yamareco no montanhismo no Japão, com foco em pesquisa de rota, mapas, registros, plano de montanha e redundância.",
+    metaTitle:"Yamareco em português para montanhismo no Japão",
+    metaDescription:"Entenda como usar Yamareco para pesquisar rotas, baixar mapas, conferir registros e planejar trilhas no Japão com segurança.",
+    keywords:["Yamareco em português","Yamareco Japão","app montanhismo Japão","trilhas Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Apps",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+    coverCall:"Registro de outra pessoa é referência, não garantia.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+      "Paisagem alpina de Hakuba usada como imagem editorial para guia do Yamareco.",
+      "Elevação: use relatos e mapas como ferramenta de planejamento, não como autorização automática.",
+      "Yamareco é forte para pesquisar rotas, registros de montanha e experiências recentes. Para brasileiros no Japão, o valor está em transformar relato em decisão prática.",
+      [
+        {title:"Antes da rota",items:["Pesquise pelo nome japonês da montanha, do trailhead e do abrigo.", "Compare registros recentes, não apenas os mais bonitos.", "Observe tempo real gasto por pessoas com nível parecido.", "Procure comentários sobre neve, lama, ponte danificada, urso, fechamento ou transporte.", "Confira se o mapa e a rota estão disponíveis offline no app antes de perder sinal."]},
+        {title:"Como ler registros",paragraphs:["Um registro rápido não significa rota fácil. Pode ter sido feito por alguém experiente, com equipamento melhor, clima perfeito ou ritmo forte. Leia data, estação, horário de início, condições e fotos do terreno.","Dê mais peso a registros recentes e a informações repetidas por várias pessoas. Uma foto isolada não conta a história inteira."]},
+        {title:"Plano e tozan todoke",paragraphs:["Quando o app oferecer fluxo de plano ou integração com sistemas de notificação de montanha, use com atenção. O importante é que alguém consiga entender onde você deveria estar, por onde entraria e quando deveria voltar.","Mesmo com plano enviado, avise alguém de confiança e compartilhe a rota. Plano de montanha não é rastreamento garantido."]},
+        {title:"Redundância",paragraphs:["Se Yamareco for seu app principal, tenha ao menos mapa offline, bateria extra, screenshots de pontos críticos e nome da rota em japonês. Em montanha, redundância simples vale mais que confiança total em um aplicativo."]}
+      ],
+      [{label:"Yamareco: download de mapa e rota",url:"https://www.yamareco.com/guide/faq/plan_byappli/"},{label:"Yamareco",url:"https://www.yamareco.com/"},{label:"Japan National Tourism Organization: Hiking in Japan",url:"https://www.japan.travel/en/guide/hiking/"}]
+    )
+  },
+  "compass-tozan-todoke-plano-montanha-japao": {
+    title:"Compass e tozan todoke: como registrar plano de montanha no Japão",
+    subtitle:"O aviso de montanha não é burocracia: é informação para reduzir incerteza se algo sair errado.",
+    description:"Guia em português sobre Compass e tozan todoke no Japão: o que é plano de montanha, quais dados incluir, quando enviar e quais limites entender.",
+    metaTitle:"Compass e tozan todoke no Japão: guia em português",
+    metaDescription:"Entenda como registrar plano de montanha no Japão com Compass/tozan todoke e quais informações incluir antes da trilha.",
+    keywords:["Compass tozan todoke","登山届 português","plano de montanha Japão","montanhismo Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Segurança",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+    coverCall:"O melhor plano é aquele que ajuda alguém a entender sua rota.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+      "Kiso-Komagatake usado como imagem editorial para plano de montanha no Japão.",
+      "Elevação: tozan todoke é o plano de montanha usado para informar rota, grupo e previsão de retorno.",
+      "No Japão, 登山届, lido como tozan todoke, é o aviso ou plano de montanha. Ele pode ser feito em papel, em sites locais ou por serviços digitais como Compass, conforme a região e a rota.",
+      [
+        {title:"O que colocar no plano",items:["Nome da montanha e rota em japonês.", "Ponto de entrada e ponto de saída.", "Horário de início, chegada prevista e horário de retorno.", "Nome, telefone e contato de emergência dos participantes.", "Equipamento importante, como abrigo, lanterna, roupa de chuva e comunicação.", "Plano alternativo se clima, transporte ou cansaço mudarem a rota."]},
+        {title:"Quando enviar",paragraphs:["Envie antes de rotas de montanha, áreas alpinas, trilhas longas, inverno, neve, pernoite, baixa circulação ou qualquer saída em que atraso possa virar busca. Em algumas áreas, caixas físicas de tozan todoke também aparecem no início da trilha.","O envio não substitui checar regras locais. Algumas províncias e áreas exigem procedimentos próprios, especialmente em temporada de neve ou zonas de maior risco."]},
+        {title:"Limites importantes",paragraphs:["Um plano enviado não significa que alguém está acompanhando cada passo em tempo real. Se você mudar de rota sem atualizar ninguém, o plano perde valor. Se atrasar por decisão voluntária, avise antes que isso vire preocupação.","O plano é uma camada de segurança, não uma licença. A decisão principal continua sendo escolher rota compatível, clima favorável e margem de retorno."]},
+        {title:"Como usar Compass com cabeça",paragraphs:["Preencha com calma, revise nomes japoneses, confira datas e compartilhe a informação com alguém fora da trilha. Se estiver usando outro app para mapa, mantenha Compass como parte do fluxo de segurança, não como concorrente do mapa."]}
+      ],
+      [{label:"Compass: sistema de tozan todoke",url:"https://www.mt-compass.com/"},{label:"National Parks of Japan: Rules, Safety and Disaster Information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "apps-clima-montanha-japao-jma-wbgt": {
+    title:"Apps e sites de clima para montanha no Japão: JMA, chuva, vento e calor",
+    subtitle:"Previsão da cidade não basta: montanha pede leitura de chuva, vento, trovão, calor e mudança rápida.",
+    description:"Guia em português sobre apps e sites de clima para trilhas no Japão, incluindo JMA, alertas, radar de chuva, calor/WBGT e limites da previsão urbana.",
+    metaTitle:"Apps de clima para montanha no Japão: guia em português",
+    metaDescription:"Veja como usar JMA, radar de chuva, alertas e indicadores de calor antes de trilhas e montanhismo no Japão.",
+    keywords:["clima montanha Japão","JMA trilha","WBGT Japão","previsão hiking Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Clima",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg",
+    coverCall:"A previsão da cidade não conta o que o vento faz no cume.",
+    content:elevacaoArticleContent(
+      "assets/covers/alerta-calor-tufoes-japao-verao-2026-cover.jpg",
+      "Imagem editorial de verão no Japão usada para guia de clima em montanha.",
+      "Elevação: clima de montanha deve ser lido por camadas, não por um único ícone de sol ou chuva.",
+      "Antes de subir, use apps e sites para montar uma decisão: chuva, vento, trovoada, temperatura, calor, frente fria, tufão e alertas locais.",
+      [
+        {title:"Camadas que importam",items:["Previsão horária, não apenas diária.", "Radar de chuva e tendência nas próximas horas.", "Vento em altitude e sensação térmica.", "Risco de trovão, especialmente no verão.", "Alertas oficiais de chuva forte, calor, tufão ou tempestade.", "WBGT e risco de insolação em dias úmidos e quentes."]},
+        {title:"JMA como base",paragraphs:["A Agência Meteorológica do Japão é a referência oficial para previsão, alertas e informações meteorológicas. Use como base antes de comparar com apps comerciais.","Se houver alerta relevante para a área, reduza objetivo ou cancele. A montanha não fica mais segura porque a reserva do transporte já foi paga."]},
+        {title:"Cidade não é cume",paragraphs:["A previsão de uma cidade próxima pode ser útil para acesso, mas não descreve vento, nuvem, frio ou visibilidade no alto. Em áreas alpinas, a mudança de tempo pode ser mais rápida e mais severa.","Combine previsão oficial, registros recentes, câmera ao vivo quando houver e informação local do parque, teleférico ou abrigo."]},
+        {title:"Decisão prática",paragraphs:["Se duas fontes divergem, planeje pelo cenário pior. Se o grupo é iniciante, diminua ainda mais a tolerância. Clima duvidoso não combina com rota longa, crista exposta ou descida dependente de último transporte."]}
+      ],
+      [{label:"Japan Meteorological Agency",url:"https://www.jma.go.jp/jma/indexe.html"},{label:"Heat Illness Prevention Information",url:"https://www.wbgt.env.go.jp/en/"},{label:"National Parks of Japan: Safety Information",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "kit-digital-montanhismo-japao-apps": {
+    title:"Kit digital de montanhismo no Japão: apps, mapas e redundância",
+    subtitle:"YAMAP, Yamareco, Compass, clima e transporte funcionam melhor quando cada um tem uma função clara.",
+    description:"Guia em português para montar um kit digital de montanhismo no Japão com apps de mapa, clima, plano, transporte, tradução e emergência.",
+    metaTitle:"Kit digital de montanhismo no Japão: apps essenciais",
+    metaDescription:"Monte um kit digital para trilhas no Japão com apps de mapa, clima, plano de montanha, transporte e redundância de segurança.",
+    keywords:["apps montanhismo Japão","kit digital trilha","YAMAP Yamareco Compass","hiking Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Apps",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+    coverCall:"O erro é depender de um app só para tudo.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
+      "Vale de Kamikochi usado como imagem editorial para kit digital de montanhismo.",
+      "Elevação: um kit digital bom separa mapa, clima, plano, transporte e emergência.",
+      "Apps ajudam muito no montanhismo no Japão, mas o conjunto precisa ser montado com redundância. O objetivo é reduzir pontos únicos de falha.",
+      [
+        {title:"Função de cada app",items:["Mapa e rota: YAMAP ou Yamareco, com dados offline preparados.", "Plano de montanha: Compass, app local ou formulário exigido pela região.", "Clima: JMA, radar de chuva e alertas oficiais.", "Calor: WBGT e alertas de insolação no verão.", "Transporte: app de trem/ônibus e horário do último retorno.", "Tradução: nomes de rota, placas, abrigo, emergência e sintomas em japonês."]},
+        {title:"Checklist digital antes de sair",items:["Mapa baixado e testado em modo avião.", "Rota salva e pontos críticos marcados.", "Prints de mapa, transporte, endereço e telefone local.", "Power bank, cabo e modo de economia testados.", "Contato externo recebeu rota e horário de retorno.", "Nomes em japonês salvos: montanha, trailhead, destino e estação."]},
+        {title:"Quando o digital falha",paragraphs:["Tela quebra, chuva molha, bateria acaba, GPS erra, sinal some e app muda interface. Por isso, o kit digital precisa de plano simples fora da tela: saber voltar, reconhecer placas, guardar energia e ter informação mínima anotada.","Em rotas mais sérias, mapa impresso ou anotação de rota ainda faz sentido. Não por nostalgia, mas por redundância."]},
+        {title:"O melhor app",paragraphs:["O melhor app é aquele que você já testou antes da trilha. Não estreie ferramenta em rota difícil. Faça uma saída curta, baixe mapa, grave atividade, erre sem risco e aprenda onde ficam os botões importantes."]}
+      ],
+      [{label:"YAMAP Help Center",url:"https://help.yamap.com/hc/ja"},{label:"Yamareco: download de mapa e rota",url:"https://www.yamareco.com/guide/faq/plan_byappli/"},{label:"Compass",url:"https://www.mt-compass.com/"},{label:"Japan Meteorological Agency",url:"https://www.jma.go.jp/jma/indexe.html"}]
+    )
+  },
+  "bastoes-de-trekking-quando-usar": {
+    title:"Bastões de trekking: quando usar e quando atrapalham",
+    subtitle:"Eles ajudam em subida, descida e ritmo, mas precisam de ajuste, técnica e bom senso.",
+    description:"Guia em português sobre bastões de trekking em trilhas no Japão: quando usar, como ajustar, vantagens, erros comuns e cuidados em terreno técnico.",
+    metaTitle:"Bastões de trekking: quando usar na trilha",
+    metaDescription:"Entenda quando bastões de trekking ajudam em trilhas no Japão, como ajustar altura e quais erros evitar.",
+    keywords:["bastões de trekking","bastão trilha","equipamentos hiking Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+    coverCall:"Bastão bom não carrega você; ele organiza esforço.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
+      "Montanhas de Gifu usadas como imagem editorial para bastões de trekking.",
+      "Elevação: equipamento só ajuda quando combina com terreno e técnica.",
+      "Bastões de trekking podem poupar joelho, melhorar equilíbrio e criar ritmo. Mas também podem atrapalhar em trecho estreito, rocha, corrente, escada ou área onde as mãos precisam ficar livres.",
+      [
+        {title:"Quando ajudam",items:["Subidas longas, para distribuir parte do esforço entre braços e pernas.", "Descidas, para reduzir impacto e controlar ritmo.", "Travessias com lama, pedra solta ou pequenas passagens de água.", "Caminhadas longas com mochila mais pesada.", "Rotas em que equilíbrio e constância valem mais que velocidade."]},
+        {title:"Ajuste básico",paragraphs:["Em terreno plano, o cotovelo deve ficar perto de 90 graus. Em subida forte, encurte um pouco. Em descida longa, aumente um pouco. O ajuste precisa ser simples o bastante para você mudar durante a trilha.","A dragonne, a fita de punho, deve ajudar na transferência de peso, mas não deve prender sua mão em lugar onde queda ou galho possam puxar o braço."]},
+        {title:"Quando guardar",paragraphs:["Guarde bastões em escadas metálicas, trechos de corrente, rocha que exige apoio de mão, trilha estreita cheia de gente ou vegetação densa. Em algumas rotas japonesas, o bastão pode incomodar outros caminhantes se usado sem atenção.","Também evite fincar ponta em passarelas, raízes sensíveis e áreas protegidas. O equipamento não deve virar dano ao caminho."]},
+        {title:"Erro comum",paragraphs:["Comprar bastão caro e usar como bengala frouxa. Bastões funcionam melhor com ritmo alternado, postura estável e ponta colocada onde ela realmente dá apoio. Treine em trilha fácil antes de levar para terreno mais sério."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"},{label:"National Parks of Japan: Rules and Safety",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "roupa-em-camadas-trilha-japao": {
+    title:"Roupa em camadas para trilha no Japão: base, proteção e chuva",
+    subtitle:"O segredo não é sair quente: é conseguir regular suor, vento, frio e água durante a rota.",
+    description:"Guia sobre roupa em camadas para trilhas no Japão: camada base, fleece, corta-vento, impermeável, algodão, verão, outono e montanha.",
+    metaTitle:"Roupa em camadas para trilha no Japão",
+    metaDescription:"Aprenda a montar roupa em camadas para trilhas no Japão, com base, aquecimento, corta-vento e proteção de chuva.",
+    keywords:["roupa em camadas trilha","jaqueta impermeável hiking","capa de chuva trilha Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+    coverCall:"Roupa de trilha boa permite ajustar o corpo antes do clima mandar.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
+      "Paisagem alpina de Hakuba usada como imagem editorial para roupa em camadas.",
+      "Elevação: vestir-se por camadas é controlar suor, vento e chuva.",
+      "Em trilha, roupa não é só conforto. É termorregulação. No Japão, calor úmido, chuva repentina, vento em crista e frio de altitude podem aparecer no mesmo dia.",
+      [
+        {title:"As três camadas",items:["Base: camiseta que afasta suor da pele e seca rápido.", "Aquecimento: fleece, lã ou peça leve para parar sem esfriar.", "Proteção: corta-vento ou impermeável para chuva, rajada e mudança rápida de tempo."]},
+        {title:"O problema do algodão",paragraphs:["Algodão confortável na cidade pode virar problema na trilha porque segura suor e demora a secar. Com vento ou parada longa, roupa molhada rouba calor do corpo. No verão, aumenta desconforto; em altitude ou frio, pode virar risco.","Não precisa começar comprando tudo caro. O primeiro passo é evitar roupa que encharca e não seca."]},
+        {title:"Chuva no Japão",paragraphs:["Uma jaqueta impermeável leve ou capa adequada muda o tamanho do problema. Guarda-chuva pode funcionar em acesso urbano ou caminho largo, mas não resolve vento, trilha estreita e terreno irregular.","Em montanha, proteção de chuva também é proteção contra vento. Leve antes de precisar."]},
+        {title:"Ajuste durante a caminhada",paragraphs:["Tire camada antes de suar demais na subida. Vista camada antes de esfriar na pausa. A lógica é antecipar. Quem espera tremer ou ficar encharcado já perdeu margem."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"},{label:"National Parks of Japan: Rules and Safety",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "lanterna-de-cabeca-trilha-item-obrigatorio": {
+    title:"Lanterna de cabeça: o item pequeno que evita uma trilha virar emergência",
+    subtitle:"Celular ilumina pouco, gasta bateria e ocupa a mão. Headlamp é margem de segurança.",
+    description:"Guia sobre lanterna de cabeça em trilhas no Japão: por que levar mesmo em bate-volta, autonomia, pilhas, luz reserva e descida tardia.",
+    metaTitle:"Lanterna de cabeça na trilha: por que levar",
+    metaDescription:"Entenda por que lanterna de cabeça é item essencial em trilhas, mesmo em bate-volta, e como escolher autonomia e reserva.",
+    keywords:["lanterna de cabeça trilha","headlamp hiking","equipamento trilha Japão","Elevação"],
+    tag:"Elevação",
+    category:"Elevação / Equipamentos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+    coverCall:"A trilha não precisa ser noturna para terminar no escuro.",
+    content:elevacaoArticleContent(
+      "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
+      "Montanha dos Alpes Centrais usada como imagem editorial para lanterna de cabeça.",
+      "Elevação: luz própria é segurança básica, não acessório de aventura extrema.",
+      "Lanterna de cabeça é um dos itens mais negligenciados por iniciantes. A rota era para terminar cedo, mas atraso, dor, chuva, erro de caminho ou ajuda a outra pessoa podem empurrar a descida para o escuro.",
+      [
+        {title:"Por que não usar só o celular",paragraphs:["O celular ilumina pouco, escorrega, molha, ocupa uma mão e consome a bateria que pode ser necessária para mapa ou emergência. Headlamp deixa as mãos livres e aponta luz para onde você olha.","Mesmo uma lanterna simples e confiável é melhor que depender da tela."]},
+        {title:"O que observar",items:["Autonomia real, não apenas brilho máximo.", "Modo econômico para caminhada lenta.", "Resistência a chuva ou umidade.", "Pilhas ou bateria reserva conforme o modelo.", "Faixa confortável e fácil de ajustar com frio ou luva."]},
+        {title:"Quando levar",paragraphs:["Sempre que houver trilha, mesmo bate-volta. O peso é pequeno e a utilidade é enorme. Em montanha com último ônibus ou teleférico, lanterna não autoriza atrasar, mas reduz risco se algo sair do plano.","Guarde em lugar acessível, não no fundo da mochila. Emergência não combina com procurar equipamento no escuro."]},
+        {title:"Uso responsável",paragraphs:["Em grupo, cuidado para não apontar luz no rosto das pessoas. Em abrigo ou área de descanso, use modo baixo. Na trilha, caminhe devagar: luz não muda buraco, raiz ou pedra solta."]}
+      ],
+      [{label:"Yakushima World Heritage Conservation Center: Required Equipment",url:"https://www.env.go.jp/en/park/yakushima/ywhcc/tozan/equipment.html"},{label:"National Parks of Japan: Rules and Safety",url:"https://www.japan.travel/national-parks/plan-your-visit/good-to-know/parks-rules-safety-disaster-information/"}]
+    )
+  },
+  "akira-biografia-anime-classico": {
+    title:"Akira: biografia do anime que explodiu a imagem do Japão moderno",
+    subtitle:"O filme de 1988 transformou cyberpunk, juventude e ruína urbana em uma das imagens mais fortes da animação japonesa.",
+    description:"Biografia editorial de Akira, clássico de 1988 dirigido por Katsuhiro Otomo, e seu impacto no anime, no cyberpunk e na imagem internacional do Japão.",
+    metaTitle:"Akira: biografia do anime clássico de 1988",
+    metaDescription:"Conheça a biografia de Akira, clássico de Katsuhiro Otomo que mudou a percepção mundial sobre anime e cyberpunk japonês.",
+    keywords:["Akira anime","Katsuhiro Otomo","anime clássico","cyberpunk japonês","biografia anime"],
+    tag:"Anime",
+    category:"Anime / Clássicos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/anime-default.png",
+    coverCall:"Neo-Tokyo virou linguagem visual para imaginar o futuro em ruínas.",
+    content:`<p><strong><em>Akira</em>, lançado em 1988 e dirigido por Katsuhiro Otomo, é um dos filmes que mudaram a forma como o mundo enxergava anime.</strong> Antes dele, muita gente fora do Japão ainda associava animação japonesa a televisão infantil ou produto de nicho. Depois dele, ficou difícil ignorar que anime também podia ser cinema adulto, urbano, político e tecnicamente ambicioso.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Nascimento de Neo-Tokyo</h2><p>A história nasce do mangá de Otomo e se passa em uma Neo-Tokyo reconstruída depois de uma catástrofe. A cidade é personagem: congestionada, violenta, luminosa, cheia de concreto, protestos, gangues, laboratórios e trauma político.</p><p>Kaneda e Tetsuo entram nesse mundo como jovens atravessados por abandono, raiva e desejo de poder. A escala cresce até o colapso, mas o centro emocional continua sendo a relação entre amizade, inveja e perda de controle.</p>
+<h2>Por que virou clássico</h2><p>O impacto de <em>Akira</em> está na soma rara entre animação detalhada, ritmo cinematográfico, desenho de cidade e sensação de fim de era. O filme parece sempre prestes a explodir. Cada moto, luz, corredor e massa de concreto comunica um Japão que avançou tecnologicamente sem resolver suas feridas.</p><p>O anime ajudou a consolidar no Ocidente a imagem de que a animação japonesa podia lidar com corpo, política, mutação, juventude e destruição de forma mais radical do que a animação comercial dominante.</p>
+<h2>Legado</h2><p>Seu legado aparece em videoclipes, filmes, games, moda, ficção científica e no próprio vocabulário visual do cyberpunk. Mais do que um clássico para rever, <em>Akira</em> virou uma espécie de origem compartilhada para imaginar metrópoles saturadas e juventudes sem futuro garantido.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://v-storage.jp/sp-site/akira/" target="_blank" rel="noopener">V-Storage: Akira</a></li><li><a href="https://www.bandaivisual.co.jp/" target="_blank" rel="noopener">Bandai Visual</a></li></ul>`
+  },
+  "cowboy-bebop-biografia-anime-classico": {
+    title:"Cowboy Bebop: biografia do anime que transformou solidão em jazz espacial",
+    subtitle:"A série de 1998 misturou ficção científica, noir, western e música para criar um clássico sobre gente que foge do passado.",
+    description:"Biografia editorial de Cowboy Bebop, anime clássico dirigido por Shinichiro Watanabe, com foco em criação, estética, personagens e legado.",
+    metaTitle:"Cowboy Bebop: biografia do anime clássico",
+    metaDescription:"Conheça a biografia de Cowboy Bebop, clássico de 1998 que uniu jazz, ficção científica, noir e melancolia.",
+    keywords:["Cowboy Bebop","Shinichiro Watanabe","anime clássico","jazz anime","biografia anime"],
+    tag:"Anime",
+    category:"Anime / Clássicos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/anime-default.png",
+    coverCall:"No espaço de Cowboy Bebop, todo mundo carrega um passado que ainda cobra juros.",
+    content:`<p><strong><em>Cowboy Bebop</em>, exibido em 1998, é um clássico porque parece ao mesmo tempo muito japonês e profundamente cosmopolita.</strong> A série dirigida por Shinichiro Watanabe mistura ficção científica, western, cinema noir, artes marciais, humor seco e jazz como se tudo sempre tivesse pertencido ao mesmo mundo.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para perfil de anime clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>A nave como casa provisória</h2><p>A Bebop não é uma nave heroica. É um lugar de contas atrasadas, comida pouca, silêncio, pequenos golpes e convivência improvisada. Spike, Jet, Faye, Ed e Ein formam uma família torta, reunida menos por destino grandioso e mais por falta de outro lugar para ficar.</p><p>Essa estrutura dá à série sua força: cada episódio parece aventura independente, mas a melancolia vai se acumulando. O passado de cada personagem se aproxima devagar, até ficar impossível continuar fugindo.</p>
+<h2>Som, gênero e estilo</h2><p>A trilha de Yoko Kanno não acompanha a série; ela define seu pulso. Jazz, blues, funk, rock e baladas melancólicas transformam a narrativa em experiência musical. O anime não explica demais. Ele deixa que montagem, silêncio, cor e som façam parte do texto.</p>
+<h2>Legado</h2><p><em>Cowboy Bebop</em> virou porta de entrada para muita gente que dizia não gostar de anime. Seu legado está na elegância adulta: ação sem excesso, tristeza sem discurso pesado e personagens que parecem legais justamente porque estão quebrados.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.cowboy-bebop.net/" target="_blank" rel="noopener">Cowboy Bebop: site oficial</a></li><li><a href="https://www.bn-pictures.co.jp/" target="_blank" rel="noopener">Bandai Namco Pictures</a></li></ul>`
+  },
+  "evangelion-biografia-anime-classico": {
+    title:"Neon Genesis Evangelion: biografia do anime que colocou trauma dentro do robô gigante",
+    subtitle:"A série de 1995 mudou o mecha ao trocar vitória heroica por ansiedade, religião visual e colapso emocional.",
+    description:"Biografia editorial de Neon Genesis Evangelion, anime clássico de Hideaki Anno e Gainax, e sua importância para o mecha moderno.",
+    metaTitle:"Neon Genesis Evangelion: biografia do anime clássico",
+    metaDescription:"Conheça a biografia de Evangelion, clássico de 1995 que transformou mecha, trauma e linguagem visual no anime.",
+    keywords:["Neon Genesis Evangelion","Evangelion anime","Hideaki Anno","anime clássico","mecha psicológico"],
+    tag:"Anime",
+    category:"Anime / Clássicos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/anime-default.png",
+    coverCall:"Evangelion entrou no robô para falar do que quebra por dentro.",
+    content:`<p><strong><em>Neon Genesis Evangelion</em>, exibido em 1995, começou como anime de robô gigante e terminou como uma das obras mais discutidas da cultura pop japonesa.</strong> Criado por Hideaki Anno e produzido pela Gainax, o anime pegou a tradição mecha e deslocou o centro da pergunta: não era apenas como vencer o inimigo, mas o que a guerra faz com adolescentes obrigados a pilotar.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria sobre anime clássico psicológico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Robôs, anjos e gente quebrada</h2><p>A premissa apresenta adolescentes pilotando unidades Eva contra entidades chamadas Anjos. Mas o anime logo revela que o espetáculo mecânico é apenas uma superfície. Shinji, Rei, Asuka, Misato e Gendo são definidos por abandono, culpa, desejo de reconhecimento e dificuldade de contato humano.</p><p>O vocabulário religioso, as telas técnicas, os silêncios e os cortes secos criam uma obra que parece sempre entre ficção científica, ritual e terapia interrompida.</p>
+<h2>Por que abalou o gênero</h2><p>Evangelion não matou o mecha heroico, mas abriu um rombo nele. O piloto não é só escolhido: é pressionado, usado, observado e quebrado. A máquina não é extensão gloriosa do corpo; é também prisão, ferida e dependência.</p>
+<h2>Legado</h2><p>O legado de Evangelion aparece em animes psicológicos, debates de fandom, cinema, música, design e na própria ideia de que uma obra popular pode ser ao mesmo tempo produto comercial e crise autoral. Poucos animes foram tão interpretados, parodiados e revisitados.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.evangelion.co.jp/" target="_blank" rel="noopener">Evangelion: site oficial</a></li><li><a href="https://www.khara.co.jp/" target="_blank" rel="noopener">Studio Khara</a></li></ul>`
+  },
+  "ghost-in-the-shell-biografia-anime-classico": {
+    title:"Ghost in the Shell: biografia do anime que perguntou onde termina o corpo",
+    subtitle:"O filme de 1995 transformou cyberpunk em reflexão sobre memória, identidade e vida artificial.",
+    description:"Biografia editorial de Ghost in the Shell, filme clássico de 1995 dirigido por Mamoru Oshii, e seu impacto na ficção científica.",
+    metaTitle:"Ghost in the Shell: biografia do anime clássico",
+    metaDescription:"Conheça a biografia de Ghost in the Shell, clássico cyberpunk de 1995 sobre corpo, rede, memória e identidade.",
+    keywords:["Ghost in the Shell","Mamoru Oshii","anime clássico","cyberpunk anime","biografia anime"],
+    tag:"Anime",
+    category:"Anime / Clássicos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/anime-default.png",
+    coverCall:"Quando corpo, memória e rede se misturam, o humano deixa de ser óbvio.",
+    content:`<p><strong><em>Ghost in the Shell</em>, lançado em 1995 e dirigido por Mamoru Oshii, é um dos filmes centrais do cyberpunk japonês.</strong> Adaptado do mangá de Masamune Shirow, o anime pergunta o que ainda chamamos de humano quando corpo, cérebro, memória e rede podem ser manipulados.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime cyberpunk clássico, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>A Major e o fantasma</h2><p>A protagonista, Motoko Kusanagi, vive em um corpo cibernético e trabalha em operações de segurança pública. O caso investigado pelo filme envolve invasão de mentes, identidade fabricada e uma inteligência que desafia categorias simples de vida.</p><p>O título sugere a tensão principal: existe um fantasma dentro da máquina? Ou o fantasma também é efeito de memória, linguagem e rede?</p>
+<h2>Estética da cidade conectada</h2><p>O filme combina ação policial, filosofia, silêncio contemplativo e uma cidade úmida, vertical, atravessada por informação. Diferente de obras que usam tecnologia só como decoração, <em>Ghost in the Shell</em> trata tecnologia como transformação íntima.</p>
+<h2>Legado</h2><p>Seu impacto alcançou cinema, games, design, ficção científica e debates sobre inteligência artificial. Antes de redes sociais, avatares e algoritmos cotidianos, o filme já tratava identidade como algo instável, editável e politicamente disputado.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://theghostintheshell.jp/" target="_blank" rel="noopener">Ghost in the Shell: site oficial</a></li><li><a href="https://www.production-ig.co.jp/works/ghost-in-the-shell/" target="_blank" rel="noopener">Production I.G: Ghost in the Shell</a></li></ul>`
+  },
+  "serial-experiments-lain-biografia-anime-classico": {
+    title:"Serial Experiments Lain: biografia do anime que antecipou a solidão conectada",
+    subtitle:"A série de 1998 falou de internet, identidade e dissolução do eu antes disso virar rotina social.",
+    description:"Biografia editorial de Serial Experiments Lain, anime clássico de 1998 sobre internet, identidade, presença digital e solidão conectada.",
+    metaTitle:"Serial Experiments Lain: biografia do anime clássico",
+    metaDescription:"Conheça a biografia de Serial Experiments Lain, anime de 1998 que antecipou internet, identidade digital e solidão conectada.",
+    keywords:["Serial Experiments Lain","Lain anime","anime clássico","internet anime","identidade digital"],
+    tag:"Anime",
+    category:"Anime / Clássicos",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/anime-default.png",
+    coverCall:"Lain entendeu cedo que estar conectado não significa estar junto.",
+    content:`<p><strong><em>Serial Experiments Lain</em>, exibido em 1998, parece mais atual quanto mais o tempo passa.</strong> A série acompanha Lain Iwakura, uma garota quieta que começa a entrar em contato com a Wired, rede que funciona como espelho estranho da internet e da presença digital.</p>
+<figure class="article-figure"><img src="assets/covers/anime-default.png" alt="Capa editorial original para matéria de anime clássico sobre internet e identidade, sem personagens protegidos." loading="lazy" decoding="async"><figcaption>Capa editorial original: não reproduz arte oficial ou personagens protegidos.</figcaption></figure>
+<h2>Uma obra sobre desaparecer online</h2><p>Lain não trata tecnologia como ferramenta neutra. A rede muda memória, reputação, corpo, amizade e sensação de realidade. A protagonista parece existir em camadas: a menina da escola, a presença online, a imagem projetada pelos outros e algo maior que escapa da identidade comum.</p><p>O anime usa silêncio, ruído elétrico, repetição e desconforto para criar uma experiência menos narrativa tradicional e mais estado mental.</p>
+<h2>Por que envelheceu tão bem</h2><p>Em 1998, a vida conectada ainda parecia promessa distante para muita gente. Hoje, a pergunta de Lain é cotidiana: quanto de nós vive na rede? Quem controla a versão digital de uma pessoa? O que acontece quando presença vira dado?</p>
+<h2>Legado</h2><p><em>Serial Experiments Lain</em> virou obra de culto porque não tenta ser confortável. Sua influência aparece em discussões sobre identidade digital, isolamento, comunidades online e ansiedade tecnológica. É um clássico não por explicar a internet, mas por sentir cedo o seu peso psíquico.</p>
+<h2>Fontes consultadas</h2><ul><li><a href="https://www.nbcuni.co.jp/rondorobe/anime/lain/" target="_blank" rel="noopener">Serial Experiments Lain: site oficial</a></li><li><a href="https://www.genco.co.jp/" target="_blank" rel="noopener">GENCO</a></li></ul>`
+  },
+  "sumimasen-palavra-chave-japones-cotidiano": {
+    title:"すみません: a palavra-chave para abrir conversas no Japão",
+    subtitle:"Desculpa, licença, obrigado e pedido de atenção: uma palavra resolve mais do que parece.",
+    description:"Dica de Nihongo sobre すみません: como usar para pedir licença, chamar atendente, agradecer e suavizar situações no Japão.",
+    metaTitle:"すみません em japonês: como usar no cotidiano",
+    metaDescription:"Aprenda a usar すみません para pedir licença, chamar atendente, agradecer e abrir conversas no Japão.",
+    keywords:["sumimasen","すみません","japonês cotidiano","nihongo para brasileiros","frases em japonês"],
+    tag:"Idioma",
+    category:"Nihongo / Dicas",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/frases-prefeitura-japones-sobrevivencia-2026-cover.jpg",
+    coverCall:"Antes de explicar tudo, abra a porta da conversa.",
+    content:`<p><strong>すみません é uma das palavras mais úteis para quem vive no Japão.</strong> Ela pode significar desculpa, com licença, obrigado pelo trabalho e também servir para chamar alguém com educação.</p>
+<figure class="article-figure"><img src="assets/covers/frases-prefeitura-japones-sobrevivencia-2026-cover.jpg" alt="Atendimento no Japão usado como imagem editorial para dicas de Nihongo." loading="lazy" decoding="async"><figcaption>Nihongo em prática: frases curtas reduzem atrito no cotidiano.</figcaption></figure>
+<h2>Usos principais</h2><ul><li>すみません。<br><em>Sumimasen.</em><br>Com licença / desculpe.</li><li>すみません、ちょっと聞きたいです。<br><em>Sumimasen, chotto kikitai desu.</em><br>Com licença, quero perguntar uma coisa.</li><li>すみません、お願いします。<br><em>Sumimasen, onegai shimasu.</em><br>Desculpe o incômodo, por favor.</li></ul>
+<h2>Por que funciona</h2><p>No Japão, iniciar direto com a pergunta pode soar brusco. すみません cria uma pequena almofada social antes do pedido. Não é submissão; é sinalizar que você reconhece o espaço do outro.</p>
+<h2>Erro comum</h2><p>Não use só ごめんなさい para tudo. ごめんなさい é mais pessoal e ligado a desculpa. Para balcão, loja, rua e atendimento, すみません costuma funcionar melhor.</p>
+<h2>Leia também</h2><p><a href="/frases-prefeitura-japones-sobrevivencia-2026/">Japonês de prefeitura</a> e <a href="/te-kudasai-solicitando-instrucoes-japones-2026/">〜てください</a>.</p>`
+  },
+  "onegaishimasu-kudasai-diferenca-japones": {
+    title:"お願いします vs ください: quando usar cada um no japonês cotidiano",
+    subtitle:"Os dois pedem algo, mas não fazem o mesmo trabalho dentro da frase.",
+    description:"Dica de Nihongo explicando a diferença entre お願いします e ください com exemplos práticos para atendimento, loja e trabalho no Japão.",
+    metaTitle:"お願いします vs ください: diferença em japonês",
+    metaDescription:"Entenda quando usar お願いします e ください no japonês cotidiano, com exemplos práticos para brasileiros no Japão.",
+    keywords:["onegaishimasu kudasai","お願いします","ください","japonês cotidiano","nihongo"],
+    tag:"Idioma",
+    category:"Nihongo / Dicas",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/te-kudasai-solicitando-instrucoes-japones-2026-editorial.jpg",
+    coverCall:"Pedir em japonês fica mais simples quando você separa objeto e ação.",
+    content:`<p><strong>お願いします e ください aparecem o tempo todo, mas não são iguais.</strong> De forma simples: お願いします combina muito bem com pedidos de serviço ou substantivos; ください acompanha coisas ou ações mais diretas.</p>
+<figure class="article-figure"><img src="assets/covers/te-kudasai-solicitando-instrucoes-japones-2026-editorial.jpg" alt="Atendente explicando instruções em japonês." loading="lazy" decoding="async"><figcaption>Nihongo em prática: pedido bom é pedido claro.</figcaption></figure>
+<h2>Use お願いします para serviço</h2><ul><li>これをお願いします。<br><em>Kore o onegai shimasu.</em><br>Este aqui, por favor.</li><li>予約をお願いします。<br><em>Yoyaku o onegai shimasu.</em><br>Gostaria de fazer uma reserva.</li><li>確認をお願いします。<br><em>Kakunin o onegai shimasu.</em><br>Por favor, confira.</li></ul>
+<h2>Use ください para ação</h2><ul><li>少し待ってください。<br><em>Sukoshi matte kudasai.</em><br>Por favor, espere um pouco.</li><li>ここに書いてください。<br><em>Koko ni kaite kudasai.</em><br>Por favor, escreva aqui.</li><li>これをください。<br><em>Kore o kudasai.</em><br>Me dê este, por favor.</li></ul>
+<h2>Regra prática</h2><p>Se você está pedindo que alguém execute um serviço, お願いします soa natural. Se está pedindo uma ação específica com verbo na forma て, use 〜てください.</p>
+<h2>Leia também</h2><p><a href="/te-kudasai-solicitando-instrucoes-japones-2026/">〜てください</a> e <a href="/frases-banco-japones-conta-cartao-2026/">Japonês de banco</a>.</p>`
+  },
+  "kore-sore-are-dore-japones": {
+    title:"これ・それ・あれ・どれ: como apontar coisas em japonês sem travar",
+    subtitle:"Este, esse, aquele e qual: quatro palavras que resolvem loja, balcão e conversa rápida.",
+    description:"Guia prático de Nihongo sobre これ, それ, あれ e どれ para apontar objetos e fazer perguntas em japonês cotidiano.",
+    metaTitle:"これ・それ・あれ・どれ em japonês",
+    metaDescription:"Aprenda a usar これ, それ, あれ e どれ para dizer este, esse, aquele e qual em japonês.",
+    keywords:["kore sore are dore","これ それ あれ どれ","japonês N5","nihongo dicas"],
+    tag:"Idioma",
+    category:"Nihongo / Gramática",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/wa-ga-particulas-japonesas-novo.jpg",
+    coverCall:"Quando falta vocabulário, saber apontar salva a conversa.",
+    content:`<p><strong>これ, それ, あれ e どれ são palavras básicas, mas muito poderosas.</strong> Elas permitem apontar, perguntar e comprar mesmo quando você ainda não sabe o nome exato do objeto.</p>
+<figure class="article-figure"><img src="assets/covers/wa-ga-particulas-japonesas-novo.jpg" alt="Cartões editoriais de gramática japonesa." loading="lazy" decoding="async"><figcaption>Nihongo em prática: demonstrativos ajudam antes do vocabulário perfeito.</figcaption></figure>
+<h2>A diferença</h2><ul><li>これ<br><em>Kore.</em><br>Isto aqui, perto de mim.</li><li>それ<br><em>Sore.</em><br>Isso aí, perto de você.</li><li>あれ<br><em>Are.</em><br>Aquilo lá, longe de nós dois.</li><li>どれ<br><em>Dore.</em><br>Qual?</li></ul>
+<h2>Frases úteis</h2><ul><li>これはいくらですか。<br><em>Kore wa ikura desu ka.</em><br>Quanto custa isto?</li><li>それをお願いします。<br><em>Sore o onegai shimasu.</em><br>Esse aí, por favor.</li><li>どれがいいですか。<br><em>Dore ga ii desu ka.</em><br>Qual é melhor?</li></ul>
+<h2>Erro comum</h2><p>Não tente traduzir sempre por este/esse daquele jeito rígido do português. Pense em distância: perto de mim, perto de você, longe dos dois.</p>`
+  },
+  "contadores-basicos-japones-loja-restaurante": {
+    title:"Contadores básicos em japonês para loja e restaurante",
+    subtitle:"一つ, 二つ, 一人, 一本: o japonês conta diferente dependendo da coisa.",
+    description:"Dica de Nihongo sobre contadores básicos em japonês para pedir comida, contar pessoas, objetos e itens em lojas no Japão.",
+    metaTitle:"Contadores básicos em japonês para o cotidiano",
+    metaDescription:"Aprenda contadores japoneses úteis para loja e restaurante: ひとつ, ふたり, いっぽん e outros exemplos simples.",
+    keywords:["contadores japonês","hitotsu futatsu","japonês restaurante","nihongo cotidiano"],
+    tag:"Idioma",
+    category:"Nihongo / Dicas",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/frases-essenciais-problemas-reais-japao-cover.svg",
+    coverCall:"No japonês, quantidade também tem formato.",
+    content:`<p><strong>Em japonês, contar não é só dizer o número.</strong> Pessoas, objetos, copos, garrafas, máquinas e papéis podem usar contadores diferentes. Para sobreviver no começo, alguns resolvem muita coisa.</p>
+<figure class="article-figure"><img src="assets/covers/frases-essenciais-problemas-reais-japao-cover.svg" alt="Cartões de frases úteis em japonês." loading="lazy" decoding="async"><figcaption>Nihongo em prática: comece pelos contadores que aparecem no balcão.</figcaption></figure>
+<h2>O mais versátil: つ</h2><ul><li>一つ<br><em>Hitotsu.</em><br>Um item.</li><li>二つ<br><em>Futatsu.</em><br>Dois itens.</li><li>三つ<br><em>Mittsu.</em><br>Três itens.</li></ul>
+<h2>Pessoas</h2><ul><li>一人<br><em>Hitori.</em><br>Uma pessoa.</li><li>二人<br><em>Futari.</em><br>Duas pessoas.</li><li>三人<br><em>San-nin.</em><br>Três pessoas.</li></ul>
+<h2>No restaurante</h2><ul><li>これを一つください。<br><em>Kore o hitotsu kudasai.</em><br>Um deste, por favor.</li><li>二人です。<br><em>Futari desu.</em><br>Somos duas pessoas.</li></ul>
+<h2>Regra prática</h2><p>Quando travar, use número + つ para objetos simples. Não é perfeito para tudo, mas no começo ajuda muito em loja, konbini e restaurante.</p>`
+  },
+  "confirmar-entendimento-japones-atendimento": {
+    title:"Como confirmar se você entendeu em japonês",
+    subtitle:"No Japão, confirmar com educação é melhor do que dizer sim sem entender.",
+    description:"Dicas de Nihongo para confirmar entendimento em japonês: frases úteis para repetir, pedir confirmação e evitar erro em atendimento.",
+    metaTitle:"Como confirmar entendimento em japonês",
+    metaDescription:"Aprenda frases para confirmar se você entendeu em japonês, pedir repetição e evitar dizer sim sem compreender.",
+    keywords:["confirmar entendimento japonês","wakaranai japonês","japonês atendimento","nihongo dicas"],
+    tag:"Idioma",
+    category:"Nihongo / Dicas",
+    date:"16 de Agosto de 2026",
+    thumb:"assets/covers/frases-prefeitura-japones-sobrevivencia-2026-cover.jpg",
+    coverCall:"Entender pela metade não precisa virar erro inteiro.",
+    content:`<p><strong>Uma das habilidades mais importantes em japonês é confirmar entendimento.</strong> Dizer はい sem ter entendido pode criar problema em banco, hospital, trabalho, escola ou prefeitura.</p>
+<figure class="article-figure"><img src="assets/covers/frases-prefeitura-japones-sobrevivencia-2026-cover.jpg" alt="Atendimento no Japão com cartões de frases." loading="lazy" decoding="async"><figcaption>Nihongo em prática: confirmar é sinal de responsabilidade.</figcaption></figure>
+<h2>Frases úteis</h2><ul><li>もう一度お願いします。<br><em>Mou ichido onegai shimasu.</em><br>Mais uma vez, por favor.</li><li>ゆっくりお願いします。<br><em>Yukkuri onegai shimasu.</em><br>Devagar, por favor.</li><li>これはどういう意味ですか。<br><em>Kore wa dou iu imi desu ka.</em><br>O que isto significa?</li><li>これで合っていますか。<br><em>Kore de atte imasu ka.</em><br>Está correto assim?</li></ul>
+<h2>Uma frase coringa</h2><p>すみません、まだよく分かりません。<br><em>Sumimasen, mada yoku wakarimasen.</em><br>Desculpe, ainda não entendi bem.</p>
+<h2>Por que isso ajuda</h2><p>Confirmar mostra que você está tentando fazer certo. Em ambientes formais no Japão, isso costuma ser melhor recebido do que fingir compreensão e corrigir depois.</p>
+<h2>Leia também</h2><p><a href="/frases-prefeitura-japones-sobrevivencia-2026/">Frases de prefeitura</a> e <a href="/frases-hospital-japones-sintomas-2026/">Japonês de hospital</a>.</p>`
   }
 });
 
@@ -10088,6 +10951,86 @@ var HERO_EDITORIAL_COPY = {
   "o-que-fazer-ao-perceber-que-esta-perdido": {
     title: "Perdido na trilha",
     subtitle: "A primeira decisão é parar de piorar o erro."
+  },
+  "guia-yamap-portugues-trilhas-japao": {
+    title: "YAMAP antes da trilha",
+    subtitle: "Mapa, rota e bateria preparados antes da montanha."
+  },
+  "yamareco-guia-portugues-montanhismo-japao": {
+    title: "Yamareco com método",
+    subtitle: "Registros recentes ajudam quando viram planejamento."
+  },
+  "compass-tozan-todoke-plano-montanha-japao": {
+    title: "Tozan todoke sem mistério",
+    subtitle: "O plano de montanha como aviso, não como burocracia."
+  },
+  "apps-clima-montanha-japao-jma-wbgt": {
+    title: "Clima de montanha",
+    subtitle: "JMA, chuva, vento e calor antes do primeiro passo."
+  },
+  "kit-digital-montanhismo-japao-apps": {
+    title: "Kit digital de montanha",
+    subtitle: "Apps ajudam mais quando não viram ponto único de falha."
+  },
+  "como-montar-mochila-sem-destruir-costas": {
+    title: "Mochila sem sofrimento",
+    subtitle: "Peso, acesso e equilíbrio antes da primeira subida."
+  },
+  "bota-ou-tenis-de-trilha-qual-escolher": {
+    title: "Bota ou tênis?",
+    subtitle: "Terreno, carga e chuva decidem melhor que aparência."
+  },
+  "bastoes-de-trekking-quando-usar": {
+    title: "Bastões com técnica",
+    subtitle: "Apoio, ritmo e equilíbrio sem atrapalhar a trilha."
+  },
+  "roupa-em-camadas-trilha-japao": {
+    title: "Camadas de trilha",
+    subtitle: "Suor, vento, chuva e frio sob controle."
+  },
+  "lanterna-de-cabeca-trilha-item-obrigatorio": {
+    title: "Luz antes do escuro",
+    subtitle: "Headlamp é margem quando o bate-volta atrasa."
+  },
+  "akira-biografia-anime-classico": {
+    title: "Akira e Neo-Tokyo",
+    subtitle: "O cyberpunk japonês como trauma urbano em movimento."
+  },
+  "cowboy-bebop-biografia-anime-classico": {
+    title: "Cowboy Bebop em jazz",
+    subtitle: "Caçadores de recompensa fugindo do próprio passado."
+  },
+  "evangelion-biografia-anime-classico": {
+    title: "Evangelion por dentro",
+    subtitle: "O robô gigante como linguagem de trauma."
+  },
+  "ghost-in-the-shell-biografia-anime-classico": {
+    title: "Ghost in the Shell",
+    subtitle: "Corpo, rede e memória no cyberpunk japonês."
+  },
+  "serial-experiments-lain-biografia-anime-classico": {
+    title: "Lain conectada",
+    subtitle: "A solidão digital antes de virar rotina."
+  },
+  "sumimasen-palavra-chave-japones-cotidiano": {
+    title: "すみません abre portas",
+    subtitle: "Licença, desculpa e pedido de atenção em uma palavra."
+  },
+  "onegaishimasu-kudasai-diferenca-japones": {
+    title: "Pedir do jeito certo",
+    subtitle: "お願いします e ください sem misturar tudo."
+  },
+  "kore-sore-are-dore-japones": {
+    title: "Isto, isso, aquilo",
+    subtitle: "これ, それ, あれ e どれ para destravar no balcão."
+  },
+  "contadores-basicos-japones-loja-restaurante": {
+    title: "Contar em japonês",
+    subtitle: "Os contadores que salvam loja e restaurante."
+  },
+  "confirmar-entendimento-japones-atendimento": {
+    title: "Entendi mesmo?",
+    subtitle: "Frases para confirmar antes de dizer sim."
   },
   "hakuba-alem-da-neve-alpes-do-norte": {
     title: "Hakuba além da neve",
