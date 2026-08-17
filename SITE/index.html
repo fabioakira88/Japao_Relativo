@@ -10930,6 +10930,10 @@ function isUnsafeAnimeCover(path) {
   return JR_UNSAFE_ANIME_COVER_RE.test(path);
 }
 
+function isAllowedRemoteImage(path) {
+  return JR_ALLOWED_REMOTE_ANIME_COVER_RE.test(String(path || ''));
+}
+
 function normalizeContentAssets(root) {
   if (!root) return;
   root.querySelectorAll("img[src]").forEach(function(img) {
@@ -11345,7 +11349,7 @@ function getArticleJsonLd() {
 
 function absoluteImage(path) {
   if (!path) return SITE_ORIGIN + '/assets/logo.png';
-  if (/^https?:/i.test(path)) return path;
+  if (/^https:\/\//i.test(path)) return isAllowedRemoteImage(path) ? path : SITE_ORIGIN + '/assets/logo.png';
   return SITE_ORIGIN + '/' + String(path).replace(/^\/+/, '');
 }
 
