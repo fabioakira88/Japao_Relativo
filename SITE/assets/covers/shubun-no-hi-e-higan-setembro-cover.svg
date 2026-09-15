@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Shubun no Hi e Higan no Japao</title>
+  <desc id="desc">Capa editorial com higanbana vermelhas, luz de equinocio, caminho de pedra e montanhas de inicio de outono no Japao.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#172121"/>
+      <stop offset=".52" stop-color="#3b3027"/>
+      <stop offset="1" stop-color="#100d0c"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="38%" r="32%">
+      <stop offset="0" stop-color="#f1d8a6" stop-opacity=".95"/>
+      <stop offset=".42" stop-color="#d28a54" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#d28a54" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#263326"/>
+      <stop offset=".58" stop-color="#181b17"/>
+      <stop offset="1" stop-color="#090a0a"/>
+    </linearGradient>
+    <pattern id="grain" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M18 22h1M74 13h1M108 42h1M39 85h1M94 94h1M14 103h1" stroke="#f0eadf" stroke-opacity=".16"/>
+      <path d="M55 40h1M82 72h1M30 60h1M115 109h1" stroke="#090a0a" stroke-opacity=".28"/>
+    </pattern>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#sun)"/>
+  <path d="M0 455c206-82 348-64 520 3 179 70 342 72 515-2 206-88 376-82 565 11v433H0z" fill="#111917"/>
+  <path d="M0 514c250-68 474-58 676 20 162 62 298 57 451-7 176-74 319-64 473 19v354H0z" fill="url(#field)"/>
+  <path d="M0 464c150-112 252-143 385-126 92 12 181 63 280 109-239 41-420 41-665 17z" fill="#101a22" opacity=".8"/>
+  <path d="M780 431c163-132 297-164 451-120 143 41 238 134 369 164-285 59-537 44-820-44z" fill="#101a22" opacity=".78"/>
+  <path d="M721 900c40-184 76-308 111-386 15-34 42-54 72-55 31-1 62 17 78 50 54 111 111 248 173 391z" fill="#1e201c"/>
+  <path d="M812 900c29-145 56-247 82-306 7-15 27-15 34 0 44 94 86 197 127 306z" fill="#2a241f"/>
+  <path d="M704 524c118 32 242 32 371-6" fill="none" stroke="#a48250" stroke-opacity=".42" stroke-width="4"/>
+  <g opacity=".86">
+    <path d="M0 710c132-54 265-82 397-80 130 2 266 35 409 98 128 57 263 80 405 66 130-13 260-53 389-121v227H0z" fill="#0a0b0a"/>
+    <path d="M0 712c142-45 280-58 415-40 136 19 268 69 397 101 250 62 503 19 788-96" fill="none" stroke="#725c3b" stroke-opacity=".35" stroke-width="3"/>
+  </g>
+  <g transform="translate(111 606)" stroke="#b62c21" stroke-width="11" stroke-linecap="round" fill="none">
+    <path d="M42 188V72"/>
+    <path d="M42 74C-10 40 0-8 56 34"/>
+    <path d="M44 74c-17-69 39-90 42-17"/>
+    <path d="M44 77c56-44 95-1 28 33"/>
+    <path d="M41 77c-67-7-70 54 1 40"/>
+    <path d="M42 76c4 67 65 69 42-1"/>
+  </g>
+  <g transform="translate(230 648) scale(.74)" stroke="#b62c21" stroke-width="11" stroke-linecap="round" fill="none" opacity=".9">
+    <path d="M42 188V72"/>
+    <path d="M42 74C-10 40 0-8 56 34"/>
+    <path d="M44 74c-17-69 39-90 42-17"/>
+    <path d="M44 77c56-44 95-1 28 33"/>
+    <path d="M41 77c-67-7-70 54 1 40"/>
+    <path d="M42 76c4 67 65 69 42-1"/>
+  </g>
+  <g transform="translate(1330 635) scale(.82)" stroke="#b62c21" stroke-width="11" stroke-linecap="round" fill="none" opacity=".82">
+    <path d="M42 188V72"/>
+    <path d="M42 74C-10 40 0-8 56 34"/>
+    <path d="M44 74c-17-69 39-90 42-17"/>
+    <path d="M44 77c56-44 95-1 28 33"/>
+    <path d="M41 77c-67-7-70 54 1 40"/>
+    <path d="M42 76c4 67 65 69 42-1"/>
+  </g>
+  <g opacity=".38" stroke="#f0eadf" stroke-width="2" fill="none">
+    <path d="M1268 548h148M1291 524h102M1318 502h52"/>
+    <path d="M1278 548v42M1405 548v42M1299 524v24M1376 524v24"/>
+  </g>
+  <circle cx="800" cy="340" r="142" fill="#f0eadf" opacity=".16" filter="url(#soft)"/>
+  <circle cx="800" cy="340" r="98" fill="#f0eadf" opacity=".2"/>
+  <rect width="1600" height="900" fill="url(#grain)" opacity=".62"/>
+  <rect x="38" y="38" width="1524" height="824" fill="none" stroke="#a48250" stroke-opacity=".35" stroke-width="2"/>
+</svg>
