@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Comprar carro usado no Japão</title>
+  <desc id="desc">Ilustração editorial com carro compacto, documentos, garagem e sol vermelho em estilo Japão Relativo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090a0a"/>
+      <stop offset="0.58" stop-color="#11181b"/>
+      <stop offset="1" stop-color="#101a22"/>
+    </linearGradient>
+    <pattern id="lines" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M0 28 28 0" stroke="#a48250" stroke-width="1" opacity=".22"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .16"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#lines)" opacity=".34"/>
+  <circle cx="1285" cy="210" r="145" fill="#b62c21" opacity=".82"/>
+  <circle cx="1285" cy="210" r="145" fill="none" stroke="#a48250" stroke-width="2" opacity=".45"/>
+  <path d="M0 710 C260 640 400 735 660 675 C900 620 1110 635 1600 565 L1600 900 L0 900 Z" fill="#151515"/>
+  <g transform="translate(240 390)">
+    <path d="M110 170 L210 52 C238 18 280 0 326 0 H676 C740 0 790 28 830 80 L900 170 Z" fill="#f0eadf"/>
+    <path d="M245 60 H445 V155 H155 Z" fill="#101a22"/>
+    <path d="M485 60 H670 C716 60 750 82 780 122 L805 155 H485 Z" fill="#101a22"/>
+    <rect x="72" y="150" width="880" height="170" rx="24" fill="#f0eadf"/>
+    <path d="M72 228 H952 V320 H72 Z" fill="#a48250" opacity=".22"/>
+    <circle cx="250" cy="326" r="78" fill="#090a0a"/>
+    <circle cx="250" cy="326" r="42" fill="#a48250"/>
+    <circle cx="760" cy="326" r="78" fill="#090a0a"/>
+    <circle cx="760" cy="326" r="42" fill="#a48250"/>
+    <rect x="820" y="185" width="72" height="22" rx="11" fill="#b62c21"/>
+    <rect x="120" y="190" width="96" height="24" rx="12" fill="#b62c21"/>
+  </g>
+  <g transform="translate(1050 470)">
+    <rect x="0" y="0" width="250" height="310" rx="10" fill="#f0eadf"/>
+    <rect x="30" y="48" width="190" height="14" fill="#101a22" opacity=".7"/>
+    <rect x="30" y="88" width="150" height="14" fill="#101a22" opacity=".45"/>
+    <rect x="30" y="128" width="176" height="14" fill="#101a22" opacity=".45"/>
+    <rect x="30" y="168" width="120" height="14" fill="#101a22" opacity=".45"/>
+    <circle cx="188" cy="230" r="38" fill="none" stroke="#b62c21" stroke-width="10"/>
+    <path d="M170 230 h36" stroke="#b62c21" stroke-width="8"/>
+  </g>
+  <g transform="translate(170 120)">
+    <text x="0" y="0" fill="#f0eadf" font-family="Georgia, 'Times New Roman', serif" font-size="82">Carro usado</text>
+    <text x="2" y="64" fill="#a48250" font-family="Arial, sans-serif" font-size="24" letter-spacing="8">TRANSFERENCIA · GARAGEM · SEGURO</text>
+    <path d="M0 96 H520" stroke="#b62c21" stroke-width="4"/>
+  </g>
+  <rect width="1600" height="900" filter="url(#grain)" opacity=".32"/>
+</svg>
