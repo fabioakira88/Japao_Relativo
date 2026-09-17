@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Reinhold Messner e a ética do alpinismo</title>
+  <desc id="desc">Composição editorial Elevação com silhueta alpina, montanhas e atmosfera de alpinismo minimalista.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111719"/>
+      <stop offset=".55" stop-color="#090a0a"/>
+      <stop offset="1" stop-color="#1e1212"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f0eadf"/>
+      <stop offset="1" stop-color="#8f9b98"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .16"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1240" cy="180" r="300" fill="#b62c21" opacity=".16"/>
+  <path d="M0 715L155 548l101 61 174-264 157 258 110-79 128 140 188-322 148 232 92-56 347 271v111H0z" fill="#172126"/>
+  <path d="M0 765l218-178 120 82 168-138 132 116 164-212 125 160 112-72 181 188 121-74 259 177v86H0z" fill="#0d1215"/>
+  <path d="M430 345l93 154-54-33-41 62-53-48-56 48zM1013 342l91 144-48-28-46 70-52-44-55 44z" fill="url(#snow)" opacity=".92"/>
+  <g transform="translate(738 385)" fill="#f0eadf" opacity=".92">
+    <circle cx="35" cy="0" r="18"/>
+    <path d="M22 22h28l26 120H47l-9-48-26 48h-30z"/>
+    <path d="M67 90l176-160" stroke="#f0eadf" stroke-width="9" stroke-linecap="round"/>
+    <path d="M67 92l86 80" stroke="#f0eadf" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(110 104)">
+    <text x="0" y="0" fill="#b62c21" font-family="Arial, sans-serif" font-size="28" letter-spacing="10">ELEVAÇÃO · ALPINISMO</text>
+    <text x="0" y="106" fill="#f0eadf" font-family="Georgia, serif" font-size="86">Reinhold Messner</text>
+    <text x="0" y="164" fill="#a48250" font-family="Arial, sans-serif" font-size="30">risco · autonomia · responsabilidade</text>
+  </g>
+  <g transform="translate(112 760)" fill="#f0eadf" font-family="Arial, sans-serif">
+    <text font-size="25" opacity=".82">17 de setembro de 1944</text>
+    <text y="42" font-size="25" opacity=".82">Everest sem oxigênio · Everest solo · 14 oito-mil</text>
+  </g>
+  <rect width="1600" height="900" filter="url(#grain)" opacity=".5"/>
+</svg>

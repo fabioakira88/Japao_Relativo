@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Tokyo Monorail em composição editorial</title>
+  <desc id="desc">Composição editorial inspirada na ligação elevada entre Haneda e Hamamatsucho em 1964, com trilho suspenso, baía e cidade.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101a22"/>
+      <stop offset=".58" stop-color="#17252c"/>
+      <stop offset="1" stop-color="#090a0a"/>
+    </linearGradient>
+    <linearGradient id="rail" x1="0" x2="1">
+      <stop offset="0" stop-color="#f0eadf"/>
+      <stop offset=".55" stop-color="#a48250"/>
+      <stop offset="1" stop-color="#725c3b"/>
+    </linearGradient>
+    <pattern id="washi" width="90" height="90" patternUnits="userSpaceOnUse">
+      <path d="M0 22h90M0 66h90M22 0v90M66 0v90" fill="none" stroke="#f0eadf" stroke-opacity=".035" stroke-width="1"/>
+      <circle cx="16" cy="18" r="1.4" fill="#f0eadf" opacity=".08"/>
+      <circle cx="72" cy="54" r="1.1" fill="#a48250" opacity=".09"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .13"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#washi)"/>
+  <circle cx="1260" cy="180" r="250" fill="#b62c21" opacity=".18"/>
+  <path d="M0 690c210-62 374-66 557-26s328 114 520 84 318-121 523-83v235H0z" fill="#0b1114"/>
+  <path d="M0 728c242-38 409-26 592 21 178 45 315 76 497 40 184-36 314-92 511-50v161H0z" fill="#101a22" opacity=".85"/>
+  <g opacity=".95">
+    <path d="M120 566C465 470 858 391 1488 337" fill="none" stroke="url(#rail)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M123 610C466 514 861 437 1491 383" fill="none" stroke="#f0eadf" stroke-opacity=".32" stroke-width="5" stroke-linecap="round"/>
+    <g stroke="#725c3b" stroke-width="8" stroke-linecap="round" opacity=".72">
+      <path d="M272 530l-32 162"/>
+      <path d="M522 474l-20 182"/>
+      <path d="M800 425l-7 189"/>
+      <path d="M1110 384l15 184"/>
+      <path d="M1390 352l34 165"/>
+    </g>
+    <g transform="translate(650 372) rotate(-8)">
+      <rect x="0" y="0" width="450" height="110" rx="22" fill="#f0eadf"/>
+      <path d="M28 18h395c18 0 31 13 31 31v10H0V46c0-16 12-28 28-28z" fill="#b62c21"/>
+      <g fill="#101a22">
+        <rect x="54" y="64" width="52" height="28" rx="6"/>
+        <rect x="130" y="64" width="52" height="28" rx="6"/>
+        <rect x="206" y="64" width="52" height="28" rx="6"/>
+        <rect x="282" y="64" width="52" height="28" rx="6"/>
+        <rect x="358" y="64" width="52" height="28" rx="6"/>
+      </g>
+    </g>
+  </g>
+  <g fill="#f0eadf" opacity=".18">
+    <rect x="190" y="302" width="34" height="210"/>
+    <rect x="250" y="265" width="44" height="250"/>
+    <rect x="318" y="330" width="28" height="180"/>
+    <rect x="1370" y="220" width="38" height="255"/>
+    <rect x="1430" y="250" width="54" height="220"/>
+  </g>
+  <g transform="translate(110 92)">
+    <text x="0" y="0" fill="#a48250" font-family="Arial, sans-serif" font-size="28" letter-spacing="10">HISTORIA · MOBILIDADE</text>
+    <text x="0" y="98" fill="#f0eadf" font-family="Georgia, serif" font-size="84">Tokyo Monorail</text>
+    <text x="0" y="152" fill="#f0eadf" font-family="Arial, sans-serif" font-size="28" opacity=".82">Haneda · Hamamatsucho · 1964</text>
+  </g>
+  <rect width="1600" height="900" filter="url(#grain)" opacity=".42"/>
+</svg>
