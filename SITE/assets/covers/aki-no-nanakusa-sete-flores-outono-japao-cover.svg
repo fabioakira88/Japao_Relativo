@@ -1,13 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-<title id="title">Por que o Japão fala em sete flores de outono?</title><desc id="desc">Capa editorial do Japão Relativo.</desc>
-<defs><linearGradient id="paper" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f6efe1"/><stop offset="1" stop-color="#e8dcc8"/></linearGradient><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h1v1H0zM4 3h1v1H4z" fill="#1a1713" opacity=".06"/></pattern></defs>
-<rect width="1600" height="900" fill="url(#paper)"/><rect width="1600" height="900" fill="url(#grain)" opacity=".38"/>
-<circle cx="1370" cy="160" r="210" fill="#a51f2b" opacity=".15"/><circle cx="145" cy="775" r="185" fill="#a51f2b" opacity=".22"/>
-<path d="M1020 0h430L940 900H510z" fill="#111" opacity=".08"/><path d="M0 685h1600" stroke="#101010" stroke-opacity=".16" stroke-width="2"/>
-<text x="96" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#111">JR.</text><circle cx="178" cy="96" r="10" fill="#a51f2b"/>
-<text x="96" y="185" font-family="Arial, sans-serif" font-size="24" letter-spacing="8" fill="#725c3b">JAPAO RELATIVO</text>
-<text x="96" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#111"><tspan x="96" dy="0">Por que o Japão fala em sete flores de outon</tspan><tspan x="96" dy="88"></tspan></text>
-<text x="98" y="535" font-family="Arial, sans-serif" font-size="31" fill="#5b4b3a">Não são as ervas do mingau de janeiro.</text>
-<text x="1080" y="650" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="190" fill="#111" opacity=".12">秋草</text>
-<line x1="96" y1="620" x2="690" y2="620" stroke="#a51f2b" stroke-width="5"/>
+<title id="title">Aki no Nanakusa</title><desc id="desc">Sete flores de outono japonesas em composição editorial botânica.</desc>
+<defs><linearGradient id="bg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f0eadf"/><stop offset="1" stop-color="#d8c7aa"/></linearGradient><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h1v1H0zM4 4h1v1H4z" fill="#090a0a" opacity=".07"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grain)" opacity=".45"/><circle cx="1320" cy="160" r="210" fill="#b62c21" opacity=".16"/>
+<path d="M0 710c200-60 410-70 630-22 205 45 430 28 620-40 140-50 242-58 350-30v282H0z" fill="#151515" opacity=".12"/>
+<g transform="translate(255 208)" fill="none" stroke-linecap="round"><path d="M120 505C120 350 155 215 245 80" stroke="#39513d" stroke-width="8"/><path d="M265 520C270 345 315 200 430 58" stroke="#39513d" stroke-width="8"/><path d="M430 520c-20-170 20-310 130-420" stroke="#39513d" stroke-width="8"/><path d="M595 520c-4-160 52-310 180-455" stroke="#39513d" stroke-width="8"/><path d="M760 520c-28-155 6-294 116-418" stroke="#39513d" stroke-width="8"/><path d="M915 520c-38-160-4-302 92-415" stroke="#39513d" stroke-width="8"/><path d="M1065 520c-15-165 15-310 88-430" stroke="#39513d" stroke-width="8"/>
+<g stroke-width="5"><path d="M245 80c-70 14-94 70-42 105 72-8 110-47 42-105z" fill="#8d4f87" stroke="#5b3458"/><circle cx="430" cy="58" r="56" fill="#d6b458" stroke="#725c3b"/><path d="M560 100c42-72 132-70 165 5-58 40-120 38-165-5z" fill="#b62c21" stroke="#76231e"/><path d="M775 65c-35 64-10 124 62 130 35-64 10-124-62-130z" fill="#f0eadf" stroke="#725c3b"/><path d="M876 102c78 8 112 70 70 126-73-5-110-55-70-126z" fill="#6f86a0" stroke="#3c5064"/><path d="M1007 105c-75 28-90 95-32 136 70-20 104-76 32-136z" fill="#c16a4b" stroke="#7a3d2c"/><path d="M1153 90c58 40 62 106 8 145-62-32-82-92-8-145z" fill="#916fb2" stroke="#4f3d68"/></g></g>
+<text x="96" y="116" font-family="Georgia,serif" font-size="50" font-weight="700" fill="#090a0a">JR.<tspan fill="#b62c21">●</tspan></text><text x="96" y="168" font-family="Arial,sans-serif" font-size="24" letter-spacing="8" fill="#725c3b">CULTURA</text>
 </svg>

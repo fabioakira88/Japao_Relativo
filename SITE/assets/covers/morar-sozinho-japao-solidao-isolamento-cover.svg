@@ -1,13 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-<title id="title">A solidão de quem mora sozinho no Japão</title><desc id="desc">Capa editorial do Japão Relativo.</desc>
-<defs><linearGradient id="paper" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f6efe1"/><stop offset="1" stop-color="#e8dcc8"/></linearGradient><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h1v1H0zM4 3h1v1H4z" fill="#1a1713" opacity=".06"/></pattern></defs>
-<rect width="1600" height="900" fill="url(#paper)"/><rect width="1600" height="900" fill="url(#grain)" opacity=".38"/>
-<circle cx="1370" cy="160" r="210" fill="#a51f2b" opacity=".15"/><circle cx="145" cy="775" r="185" fill="#a51f2b" opacity=".22"/>
-<path d="M1020 0h430L940 900H510z" fill="#111" opacity=".08"/><path d="M0 685h1600" stroke="#101010" stroke-opacity=".16" stroke-width="2"/>
-<text x="96" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#111">JR.</text><circle cx="178" cy="96" r="10" fill="#a51f2b"/>
-<text x="96" y="185" font-family="Arial, sans-serif" font-size="24" letter-spacing="8" fill="#725c3b">JAPAO RELATIVO</text>
-<text x="96" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#111"><tspan x="96" dy="0">A solidão de quem mora sozinho no Japão</tspan><tspan x="96" dy="88"></tspan></text>
-<text x="98" y="535" font-family="Arial, sans-serif" font-size="31" fill="#5b4b3a">Morar só não é o mesmo que sentir solidão.</text>
-<text x="1080" y="650" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="190" fill="#111" opacity=".12">独居</text>
-<line x1="96" y1="620" x2="690" y2="620" stroke="#a51f2b" stroke-width="5"/>
+<title id="title">Morar sozinho no Japão</title><desc id="desc">Apartamento japonês à noite, com uma pessoa sozinha à mesa e luzes de prédios ao fundo.</desc>
+<defs><linearGradient id="night" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#090a0a"/><stop offset=".55" stop-color="#101a22"/><stop offset="1" stop-color="#2b221b"/></linearGradient><filter id="soft"><feGaussianBlur stdDeviation="2"/></filter><pattern id="grain" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 0h1v1H0zM6 4h1v1H6z" fill="#f0eadf" opacity=".05"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#night)"/><rect width="1600" height="900" fill="url(#grain)" opacity=".8"/>
+<g opacity=".36" fill="#f0eadf"><rect x="1030" y="90" width="88" height="510"/><rect x="1150" y="150" width="76" height="450"/><rect x="1260" y="70" width="116" height="530"/><rect x="1410" y="190" width="70" height="410"/></g>
+<g fill="#a48250" opacity=".75"><rect x="1052" y="128" width="18" height="24"/><rect x="1092" y="210" width="18" height="24"/><rect x="1172" y="205" width="18" height="24"/><rect x="1288" y="130" width="18" height="24"/><rect x="1334" y="268" width="18" height="24"/><rect x="1432" y="242" width="18" height="24"/></g>
+<rect x="156" y="130" width="790" height="585" rx="18" fill="#151515" stroke="#725c3b" stroke-width="5"/><rect x="205" y="175" width="690" height="340" rx="6" fill="#0b1013"/><path d="M205 515h690v150H205z" fill="#201b17"/><circle cx="548" cy="598" r="82" fill="#0c0c0c"/><path d="M494 560c28-48 80-48 108 0v86H494z" fill="#111"/><rect x="395" y="652" width="310" height="20" rx="10" fill="#a48250"/><rect x="466" y="620" width="166" height="44" rx="6" fill="#f0eadf"/><circle cx="548" cy="515" r="34" fill="#c9a782"/><path d="M840 205c-114 68-226 87-346 64-98-19-182 12-248 72" fill="none" stroke="#b62c21" stroke-width="7" opacity=".62"/>
+<text x="96" y="116" font-family="Georgia,serif" font-size="50" font-weight="700" fill="#f0eadf">JR.<tspan fill="#b62c21">●</tspan></text><text x="96" y="168" font-family="Arial,sans-serif" font-size="24" letter-spacing="8" fill="#a48250">SOCIEDADE</text>
 </svg>
