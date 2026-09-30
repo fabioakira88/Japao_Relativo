@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Por que o Japão fala em sete flores de outono?</title><desc id="desc">Capa editorial do Japão Relativo.</desc>
+<defs><linearGradient id="paper" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f6efe1"/><stop offset="1" stop-color="#e8dcc8"/></linearGradient><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0h1v1H0zM4 3h1v1H4z" fill="#1a1713" opacity=".06"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#paper)"/><rect width="1600" height="900" fill="url(#grain)" opacity=".38"/>
+<circle cx="1370" cy="160" r="210" fill="#a51f2b" opacity=".15"/><circle cx="145" cy="775" r="185" fill="#a51f2b" opacity=".22"/>
+<path d="M1020 0h430L940 900H510z" fill="#111" opacity=".08"/><path d="M0 685h1600" stroke="#101010" stroke-opacity=".16" stroke-width="2"/>
+<text x="96" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#111">JR.</text><circle cx="178" cy="96" r="10" fill="#a51f2b"/>
+<text x="96" y="185" font-family="Arial, sans-serif" font-size="24" letter-spacing="8" fill="#725c3b">JAPAO RELATIVO</text>
+<text x="96" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#111"><tspan x="96" dy="0">Por que o Japão fala em sete flores de outon</tspan><tspan x="96" dy="88"></tspan></text>
+<text x="98" y="535" font-family="Arial, sans-serif" font-size="31" fill="#5b4b3a">Não são as ervas do mingau de janeiro.</text>
+<text x="1080" y="650" font-family="'Hiragino Mincho ProN','Yu Mincho',serif" font-size="190" fill="#111" opacity=".12">秋草</text>
+<line x1="96" y1="620" x2="690" y2="620" stroke="#a51f2b" stroke-width="5"/>
+</svg>
