@@ -2280,6 +2280,219 @@ body.anime-mode .section.editorial-section.is-anime .editorial-card-read::after{
   }
 }
 
+/* ================================================================
+   JR BRAND KIT — VISIBLE EDITORIAL LAYER
+   Aplica a assinatura visual aprovada: numero + linha + editoria,
+   contraste carvao/off-white, vermelho JR e bronze como pontuacao.
+   ================================================================ */
+body{
+  background:
+    linear-gradient(90deg,rgba(180,138,82,.06) 0 1px,transparent 1px 32px),
+    var(--jr-washi) !important;
+}
+#heroSection{
+  min-height:86svh !important;
+  background:var(--jr-charcoal) !important;
+}
+#heroSection::after{
+  left:clamp(22px,5vw,72px) !important;
+  right:clamp(22px,5vw,72px) !important;
+  bottom:clamp(26px,5vw,58px) !important;
+  height:2px !important;
+  background:linear-gradient(90deg,var(--jr-bengara) 0 72px,var(--jr-gold) 72px 42%,rgba(180,138,82,0)) !important;
+  opacity:.95;
+}
+#heroSection .nav{
+  padding:24px clamp(22px,5vw,72px) !important;
+  background:linear-gradient(180deg,rgba(21,21,21,.92),rgba(21,21,21,.18),transparent) !important;
+}
+#heroSection .nav .nav-logo{
+  gap:16px;
+}
+.nav-logo-mark{
+  width:72px !important;
+  height:72px !important;
+  border-radius:50% !important;
+  border:1px solid rgba(247,243,235,.22);
+  background:var(--jr-charcoal);
+  box-shadow:0 16px 44px rgba(0,0,0,.4);
+}
+#heroSection .nav .nav-logo-text{
+  position:static !important;
+  width:auto !important;
+  height:auto !important;
+  clip:auto !important;
+  overflow:visible !important;
+  white-space:normal !important;
+  color:var(--jr-washi) !important;
+  font-family:var(--jr-font-display) !important;
+  font-size:28px !important;
+}
+#heroSection .nav .nav-logo-text span{
+  color:rgba(247,243,235,.58) !important;
+  font-family:var(--jr-font-ui) !important;
+  letter-spacing:.24em !important;
+}
+#heroSection .hero-bg-slide{
+  filter:saturate(.74) contrast(1.12) brightness(.7) !important;
+}
+#heroSection .hero-bg-slide::before{
+  content:"";
+  position:absolute;
+  right:-12vw;
+  bottom:-22vw;
+  width:min(46vw,620px);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:var(--jr-bengara);
+  opacity:.34;
+  z-index:2;
+  pointer-events:none;
+}
+#heroSection .hero-bg-slide::after{
+  background:
+    linear-gradient(90deg,rgba(21,21,21,.94) 0%,rgba(21,21,21,.7) 42%,rgba(21,21,21,.18) 74%,rgba(21,21,21,.04) 100%),
+    linear-gradient(0deg,rgba(21,21,21,.86) 0%,rgba(21,21,21,.28) 48%,transparent 72%) !important;
+}
+#heroSection .hero-text-panel{
+  padding:0 clamp(22px,5vw,72px) clamp(58px,7vw,92px) !important;
+}
+#heroSection .jr-editorial-stamp{
+  padding-left:0;
+  color:rgba(247,243,235,.86) !important;
+}
+#heroSection .jr-editorial-stamp::after{
+  content:"";
+  display:inline-block;
+  width:92px;
+  height:1px;
+  margin-left:4px;
+  background:var(--jr-gold);
+}
+#heroSection .jr-editorial-stamp i{
+  background:var(--jr-bengara) !important;
+  box-shadow:0 0 0 1px rgba(164,17,24,.32),0 0 22px rgba(164,17,24,.38) !important;
+}
+#heroSection .hero-slide-cat{
+  color:var(--jr-gold) !important;
+  font-weight:600 !important;
+}
+#heroSection .hero-slide-cat::before{
+  width:44px !important;
+  height:2px !important;
+  background:var(--jr-bengara) !important;
+}
+#heroSection .hero-slide-title{
+  max-width:min(760px,62vw) !important;
+  color:var(--jr-washi) !important;
+  font-size:clamp(3.15rem,5.45vw,6.6rem) !important;
+  line-height:.88 !important;
+  text-shadow:0 22px 70px rgba(0,0,0,.72) !important;
+}
+#heroSection .hero-slide-sub{
+  max-width:56ch !important;
+  color:rgba(247,243,235,.78) !important;
+}
+.jr-latest{
+  background:var(--jr-charcoal) !important;
+  border-top:4px solid var(--jr-bengara) !important;
+}
+.jr-latest-label{
+  color:var(--jr-washi) !important;
+}
+.section.editorial-section{
+  background:
+    radial-gradient(circle at 94% 2%,rgba(164,17,24,.28),transparent 18rem),
+    linear-gradient(90deg,rgba(180,138,82,.08) 0 1px,transparent 1px 34px),
+    var(--jr-washi) !important;
+  color:var(--jr-charcoal) !important;
+}
+.section.editorial-section .section-header{
+  border-bottom:2px solid rgba(21,21,21,.12) !important;
+}
+.section.editorial-section .section-label{
+  color:var(--jr-bengara) !important;
+  font-weight:700 !important;
+}
+.section.editorial-section .section-label::before{
+  width:52px !important;
+  height:2px !important;
+  background:var(--jr-bengara) !important;
+}
+.section.editorial-section .section-title{
+  color:var(--jr-charcoal) !important;
+}
+.editorial-card{
+  color:var(--jr-charcoal) !important;
+  border-bottom:1px solid rgba(21,21,21,.16) !important;
+}
+.editorial-card::after{
+  opacity:.12 !important;
+  z-index:0 !important;
+}
+.editorial-card-body{
+  z-index:3;
+}
+.editorial-stamp{
+  color:rgba(21,21,21,.62) !important;
+}
+.editorial-stamp i{
+  background:var(--jr-bengara) !important;
+}
+.editorial-card-index{
+  display:block !important;
+  color:var(--jr-bengara) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.2em !important;
+}
+.editorial-card-tag{
+  color:var(--jr-gold) !important;
+  font-weight:700 !important;
+}
+.editorial-card-title{
+  color:var(--jr-charcoal) !important;
+}
+.editorial-card-excerpt{
+  color:rgba(21,21,21,.68) !important;
+}
+.editorial-card-date{
+  color:rgba(80,87,97,.82) !important;
+}
+.editorial-card-read{
+  color:var(--jr-charcoal) !important;
+  font-weight:700 !important;
+}
+.editorial-card-read::after{
+  height:2px !important;
+  background:var(--jr-bengara) !important;
+}
+.editorial-card-img-wrap{
+  border:1px solid rgba(21,21,21,.16) !important;
+  box-shadow:0 28px 70px rgba(21,21,21,.18) !important;
+}
+.mini-card{
+  border:1px solid rgba(247,243,235,.14);
+}
+@media(max-width:760px){
+  .nav-logo-mark{
+    width:58px !important;
+    height:58px !important;
+  }
+  #heroSection .nav .nav-logo-text{
+    font-size:22px !important;
+  }
+  #heroSection .hero-slide-title{
+    max-width:88vw !important;
+    font-size:clamp(2.8rem,13vw,4.55rem) !important;
+  }
+  #heroSection .hero-bg-slide::before{
+    width:78vw;
+    right:-34vw;
+    bottom:-28vw;
+  }
+}
+
 </style>
   <link rel="canonical" href="https://japaorelativo.com/">
 </head>
