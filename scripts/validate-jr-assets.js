@@ -6,6 +6,8 @@ const ALLOWED_REMOTE_IMAGE_HOSTS = new Set(["s4.anilist.co"]);
 const MALFORMED_REMOTE_RE = /japaorelativo\.com\/https?:\/\//i;
 const HTTP_ANILIST_RE = /http:\/\/s4\.anilist\.co\//i;
 const IMAGE_EXT_RE = /\.(png|jpe?g|webp|avif|gif|svg)(?:[?#][^\s"'<>)]*)?$/i;
+const GENERIC_COVER_TEXT_RE = /Capa editorial do Japão Relativo\.|Imagem editorial neutra|Capa editorial neutra/i;
+const MAX_SHARED_THUMB_USAGE = 6;
 
 function walk(dir, files = []) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -63,6 +65,8 @@ function collectLocalAssetRefs(file, text) {
 
 const errors = [];
 const checkedFiles = walk(SITE_DIR).filter((file) => /\.(html|css|js)$/i.test(file));
+const checkedSvgCovers = walk(path.join(SITE_DIR, "assets", "covers"))
+  .filter((file) => /\.svg$/i.test(file));
 
 for (const file of checkedFiles) {
   const text = fs.readFileSync(file, "utf8");
@@ -86,6 +90,34 @@ for (const file of checkedFiles) {
   for (const ref of collectLocalAssetRefs(file, text)) {
     if (!fs.existsSync(ref.target)) {
       errors.push(`${rel}: missing local asset ${ref.raw}`);
+    }
+  }
+}
+
+for (const file of checkedSvgCovers) {
+  const text = fs.readFileSync(file, "utf8");
+  const rel = path.relative(path.join(__dirname, ".."), file);
+  if (GENERIC_COVER_TEXT_RE.test(text)) {
+    errors.push(`${rel}: SVG cover must describe the article theme, not use generic JR cover text`);
+  }
+}
+
+const indexHtmlPath = path.join(SITE_DIR, "index.html");
+if (fs.existsSync(indexHtmlPath)) {
+  const indexHtml = fs.readFileSync(indexHtmlPath, "utf8");
+  const thumbUsage = new Map();
+  const thumbRe = /\bthumb\s*:\s*"([^"]+)"/g;
+  let match;
+
+  while ((match = thumbRe.exec(indexHtml))) {
+    const thumb = match[1];
+    if (/^https?:\/\//i.test(thumb)) continue;
+    thumbUsage.set(thumb, (thumbUsage.get(thumb) || 0) + 1);
+  }
+
+  for (const [thumb, count] of thumbUsage) {
+    if (count > MAX_SHARED_THUMB_USAGE) {
+      errors.push(`SITE/index.html: shared thumb used ${count} times, exceeds ${MAX_SHARED_THUMB_USAGE}: ${thumb}`);
     }
   }
 }
