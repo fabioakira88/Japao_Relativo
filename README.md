@@ -1,77 +1,27 @@
 # Japão Relativo
 
-Portal editorial sobre cultura, sociedade, notícias e vida cotidiana no Japão, com foco em análise acessível para brasileiros e descendentes que acompanham o país por dentro e por fora.
+Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão. Branding CURRENT: Brand System 3.0 FINAL com a direção aprovada no Notion em 12/10/2026. O acervo e os produtos existentes permanecem acessíveis.
 
-URL: `japaorelativo.com`
+Site: https://japaorelativo.com/
 
-## Estrutura
+## Fontes de verdade
 
-| Pasta/arquivo | Função |
-|---|---|
-| `SITE/index.html` | Site principal em HTML, CSS e JavaScript vanilla. Contém layout, banco de artigos e lógica de navegação. |
-| `BRANDING/` | Logos, paleta e materiais visuais da marca Japão Relativo. |
-| `SOCIAL_MEDIA/` | Conteúdos e peças para redes sociais. |
-| `VIDEO/` | Materiais de vídeo. |
-| `DOCS/` | Documentação de arquitetura e referências. |
-| `EXPORTS/` | Arquivos exportados e versões prontas para uso/publicação. |
-| `ARCHIVE/` | Backups, versões antigas e material legado. |
-| `CNAME` | Domínio usado pelo deploy estático. |
+- [Governança e sistema editorial web](BRANDING/SISTEMA_WEB_CURRENT.md): paleta, tipografia, política, assets, workflow e critérios de release.
+- [Manual visual no Notion](https://app.notion.com/p/3e326a1643dd81ccb363e4f949fc61f0): identidade e direção social atual.
+- `SITE/index.html`: home, objeto DB e navegação dinâmica editorial.
+- `SITE/<slug>/index.html`: páginas estáticas de matérias e produtos. Uma mudança no DB não sincroniza automaticamente a página estática; revisar ambas as superfícies.
+- `SITE/assets/`: imagens, estilos, scripts e dados de produtos.
+- `scripts/validate-jr-assets.js`: valida referências, hosts e uso de capas.
+- `.github/workflows/deploy.yml`: valida e publica o conteúdo de SITE, com CNAME, no GitHub Pages.
+- `DOCS/`, `AUDIT/`: documentação, diagnóstico e evidências locais. Relatórios antigos registram a fase em que foram escritos.
 
-`SITE/index.html` é a fonte única do Japão Relativo. O antigo `JAPAO_RELATIVO/index.html` foi removido para evitar publicar ou editar a cópia errada.
+## Edição e publicação
 
-## Stack
+1. Consultar o CURRENT e registrar pauta, recorte, fontes e matéria de origem no Notion.
+2. Editar DB e/ou página estática conforme o tipo de conteúdo. Preservar slugs já publicados.
+3. Usar logo original, tokens do sistema e uma imagem que corresponda ao assunto.
+4. Executar `node scripts/validate-jr-assets.js` e verificar desktop, tablet, celular e funções afetadas.
+5. Revisar diff e arquivos de deploy. Fazer commit e push somente dentro da autorização vigente.
+6. Aguardar o workflow e conferir a versão pública. Registrar o SHA e a evidência, sem confundir planejamento social com agendamento na rede.
 
-- HTML estático
-- CSS embutido no `SITE/index.html`
-- JavaScript vanilla
-- GitHub Pages/hosting estático, com domínio via `CNAME`
-- Deploy via `.github/workflows/deploy.yml`, que monta `_site` a partir de `SITE/index.html`, `EXPORTS/` e `BRANDING/`
-
-## Conteúdo
-
-O banco de matérias fica dentro de `SITE/index.html`, no objeto `DB`.
-
-Cada entrada segue o formato:
-
-```js
-"slug-do-artigo": {
-  title: "Título da matéria",
-  tag: "Cultura",
-  date: "30 de Maio de 2026",
-  thumb: "caminho-ou-url-da-imagem",
-  content: `
-    <p>Conteúdo em HTML...</p>
-  `
-}
-```
-
-## Como editar uma matéria
-
-1. Abra `SITE/index.html`.
-2. Localize `const DB = { ... }`.
-3. Edite a entrada pelo slug.
-4. Teste abrindo `SITE/index.html` no navegador.
-5. Faça commit das alterações.
-
-## Como adicionar nova matéria
-
-1. Crie um slug curto e estável.
-2. Adicione a nova entrada no topo do `DB`.
-3. Use uma `tag` consistente com as editorias já usadas.
-4. Aponte `thumb` para uma imagem existente ou URL pública.
-5. Abra o site localmente e confira card, filtro, leitura e responsividade.
-
-## Cuidados
-
-- Não salve credenciais reais neste repositório.
-- Não edite arquivos em `ARCHIVE/` como fonte principal.
-- Evite mexer em backups `*.bak*` salvo quando estiver recuperando alguma versão antiga.
-- Antes de publicar, rode:
-
-```bash
-git status
-```
-
-## Documentação relacionada
-
-- `DOCS/ARQUITETURA.md`
+As áreas Kira Nihongo e Elevação mantêm identidade própria. Não incluir credenciais, snapshots internos do Notion, exportações brutas ou arquivos temporários na publicação.

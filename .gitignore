@@ -78,3 +78,19 @@ AION_CONTENT_ENGINE/
 
 # Pastas de staging vazias
 SITE/Imagens JR/
+
+# Current, reviewable brand specification only; preserve raw archive exclusions.
+!BRANDING/
+BRANDING/*
+!BRANDING/SISTEMA_WEB_CURRENT.md
+AUDIT/**/referencias/
+AUDIT/**/notion/
+AUDIT/**/qa-*/
+
+AUDIT/**/evidence/
+
+AUDIT/**/inline-scripts.json
+AUDIT/**/social-*.json
+
+# Private audit evidence and operational reports stay local / in Notion.
+AUDIT/

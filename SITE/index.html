@@ -12,15 +12,15 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Japão Relativo reúne análises sobre sociedade, cultura, notícias e vida real no Japão.">
+<meta name="description" content="Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão.">
   <meta property="og:title" content="Japão Relativo — O Japão por Vários Ângulos">
-  <meta property="og:description" content="Japão Relativo reúne análises sobre sociedade, cultura, notícias e vida real no Japão.">
+  <meta property="og:description" content="Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://japaorelativo.com/">
   <meta property="og:image" content="https://japaorelativo.com/assets/logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Japão Relativo — O Japão por Vários Ângulos">
-  <meta name="twitter:description" content="Japão Relativo reúne análises sobre sociedade, cultura, notícias e vida real no Japão.">
+  <meta name="twitter:description" content="Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão.">
   <meta name="twitter:image" content="https://japaorelativo.com/assets/logo.png">
 <title>Japão Relativo — O Japão por Vários Ângulos</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -2495,6 +2495,7 @@ body{
 
 </style>
   <link rel="canonical" href="https://japaorelativo.com/">
+  <link rel="stylesheet" href="/assets/brand/brand-current.css">
 </head>
 <body>
 
@@ -2504,7 +2505,7 @@ body{
 <section class="hero" id="heroSection">
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
-      <img class="nav-logo-mark" src="assets/brand/jr-editorial-logo.png" alt="" aria-hidden="true">
+      <img class="nav-logo-mark" src="assets/brand/jr-logo-master-3.png" alt="" aria-hidden="true">
       <span class="nav-logo-text">JR.<span>relativo</span></span>
     </a>
     <ul class="nav-links">
@@ -12094,7 +12095,7 @@ function openPost(id) {
   }
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   updateArticleMeta(post, id);
-  const brandLogo = isElevacao ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-editorial-logo.png';
+  const brandLogo = isElevacao ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-logo-master-3.png';
   const brandAlt = isElevacao ? 'Elevação' : '';
   document.getElementById('renderTarget').innerHTML = `
     <div class="article-brand-lockup${isElevacao ? ' is-elevacao' : ''}">
@@ -12674,7 +12675,7 @@ function setElevacaoMode(active) {
   var logoLink = document.querySelector('#heroSection .nav-logo');
   document.body.classList.toggle('elevacao-mode', !!active);
   if (logo) {
-    logo.src = active ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-editorial-logo.png';
+    logo.src = active ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-logo-master-3.png';
     logo.alt = active ? 'Elevação' : '';
     logo.setAttribute('aria-hidden', active ? 'false' : 'true');
   }
