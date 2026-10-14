@@ -24,6 +24,10 @@ O uso é proporcional, sem filtros e com texto alternativo. Logo antiga circular
 
 ## Aplicação por canal
 
+Direção expressa de 14/10/2026: a estrutura do site JR usa marfim `#F7F3EB`, texto carvão `#151515` e vermelho JR `#A41118` para ênfase. Menu, abertura, blocos de editoria, cards de navegação, rodapé e leitor por hash seguem essa base clara, inclusive nos filtros Anime e Elevação. Fotos e ilustrações preservam suas cores; manchetes ficam sobre papel com contraste conferido. A implementação está em `SITE/assets/css/portal-ivory.css`, limitada ao portal `body.jr-portal` e carregada após as camadas históricas.
+
+Para o mesmo assunto, a capa aprovada deve ser o mesmo arquivo no site e no Instagram. O acervo do site alimenta pautas futuras do novo perfil; publicação no portal não equivale a publicação no Instagram. A base própria do Notion mantém matéria, revisão de atualidade, capa e estado social separados. A substituição das capas depende de acessar as exportações reais de referência; não apresentar uma imagem aproximada como idêntica.
+
 Web usa assinatura no cabeçalho, título editorial, imagem com função, matéria legível e fontes. Folio e CTA de carrossel não são repetidos artificialmente em cada seção de uma matéria. Grid responsivo; composição variável e respiro moderado, sem regra 70/20/10. Enquadramentos preservam pessoas, mãos e objetos essenciais.
 
 Social mantém a arquitetura CURRENT: capa e CTA com logo; internas apenas número, linha fina e editoria, sem brandmark. Uma pauta por ciclo; slides completos e individuais em ordem; correções localizadas. Legenda complementar, exatamente cinco hashtags, sem emojis, travessões, rótulos ou aviso automático de IA. Créditos e fontes factuais são registrados conforme a pauta.

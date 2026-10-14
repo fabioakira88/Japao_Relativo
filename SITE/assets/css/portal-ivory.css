@@ -1,0 +1,170 @@
+/* CURRENT · 14/10/2026: marfim na estrutura do portal JR.
+   Scoped to the portal so product styles remain independent.
+   Important declarations supersede the historical dark theme layers. */
+body.jr-portal {
+  color-scheme: light;
+  background: var(--jr-paper) !important;
+  color: var(--jr-ink) !important;
+}
+body.jr-portal .site-main,
+body.jr-portal .site-main :is(.section.editorial-section, .jr-latest, .guide-hub-section, .elevacao-home-cta, .consult-home-promo, .jr-sobre, .footer),
+body.jr-portal .article-view {
+  background: var(--jr-paper) !important;
+  color: var(--jr-ink) !important;
+}
+body.jr-portal::before, body.jr-portal::after,
+body.jr-portal .site-main::before, body.jr-portal .site-main::after,
+body.jr-portal #heroSection::before, body.jr-portal #heroSection::after,
+body.jr-portal #heroSection .hero-text-panel::before,
+body.jr-portal #heroSection .hero-bg-slide::before,
+body.jr-portal #heroSection .hero-bg-slide::after,
+body.jr-portal .site-main :is(.footer, .editorial-card, .mini-card, .guide-hub-card, .elevacao-home-inner)::before,
+body.jr-portal .site-main :is(.footer, .editorial-card, .mini-card, .editorial-card-img-wrap)::after,
+body.jr-portal .site-main .section.editorial-section::before {
+  display: none !important;
+}
+body.jr-portal #heroSection {
+  min-height: clamp(680px, 86svh, 960px) !important;
+  height: auto;
+  aspect-ratio: auto;
+  padding: 132px 0 48px;
+  background: var(--jr-paper) !important;
+  border-bottom: 1px solid var(--jr-fog);
+  justify-content: center;
+}
+body.jr-portal #heroSection .nav {
+  inset: 0 0 auto;
+  padding: 22px clamp(22px, 5vw, 72px) !important;
+  background: var(--jr-paper) !important;
+  border-bottom: 1px solid var(--jr-fog);
+}
+body.jr-portal #heroSection .nav .nav-logo-text,
+body.jr-portal #heroSection .nav :is(.nav-links a, .nav-toggle) {
+  color: var(--jr-ink) !important;
+  text-shadow: none;
+}
+body.jr-portal #heroSection .nav .nav-logo-text span {
+  color: var(--jr-slate) !important;
+}
+body.jr-portal #heroSection .nav :is(.nav-links a:hover, .nav-links a.active) {
+  color: var(--jr-red) !important;
+}
+body.jr-portal #heroSection .nav-toggle,
+body.jr-portal #heroSection .nav.is-open .nav-links {
+  background: var(--jr-paper) !important;
+  border: 1px solid var(--jr-fog);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+body.jr-portal #heroSection .nav-logo-mark {
+  border: 0;
+  border-radius: 0 !important;
+  background: transparent;
+  filter: none;
+  box-shadow: none;
+}
+body.jr-portal #heroSection .hero-bg-slides {
+  inset: 136px clamp(22px, 4vw, 56px) 48px 52%;
+  z-index: 0;
+  background: var(--jr-paper);
+}
+body.jr-portal #heroSection .hero-bg-slide {
+  filter: none !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: none;
+}
+body.jr-portal #heroSection .hero-text-panel {
+  position: relative;
+  inset: auto;
+  width: 52%;
+  padding: 32px clamp(22px, 5vw, 72px) !important;
+  z-index: 1;
+  pointer-events: auto;
+}
+body.jr-portal #heroSection .hero-slide-title {
+  max-width: 100% !important;
+  font-size: clamp(2.5rem, 4.2vw, 5rem) !important;
+  line-height: 1.08 !important;
+  color: var(--jr-ink) !important;
+  text-shadow: none !important;
+}
+body.jr-portal #heroSection .hero-slide-sub {
+  color: var(--jr-slate) !important;
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  opacity: 1;
+  text-shadow: none;
+}
+body.jr-portal #heroSection :is(.jr-editorial-stamp, .hero-slide-cat) {
+  color: var(--jr-red) !important;
+}
+body.jr-portal .site-main :is(.jr-latest-label, .section-title, .editorial-card-title, .mini-card-title, .jr-latest-card-title, .guide-hub-title, .guide-hub-card strong, .consult-home-title, .elevacao-home-title, .jr-sobre-titulo, .footer-logo-text),
+body.jr-portal .article-view :is(h1, h2, h3, strong) {
+  color: var(--jr-ink) !important;
+}
+body.jr-portal .site-main :is(.editorial-card-excerpt, .editorial-card-date, .guide-hub-copy, .guide-hub-card span, .consult-home-desc, .elevacao-home-desc, .jr-sobre-bio, .jr-sobre-cargo, .footer-desc, .fn-desc, .footer-copy, .footer-col a, .editorial-stamp, .editorial-mini-market),
+body.jr-portal .article-view :is(.a-subtitle, .a-meta) {
+  color: var(--jr-slate) !important;
+}
+body.jr-portal .site-main :is(.section-label, .editorial-card-tag, .mini-card-tag, .jr-latest-card-cat, .guide-hub-label, .guide-hub-action, .consult-home-eyebrow, .elevacao-home-eyebrow, .fn-eyebrow, .footer-col h4),
+body.jr-portal .article-view .a-tag {
+  color: var(--jr-red) !important;
+}
+body.jr-portal .site-main :is(.editorial-card, .editorial-card-img-wrap, .editorial-mini-head, .guide-hub-inner, .section-header, .footer-bottom, .social-link),
+body.jr-portal .article-view .a-meta {
+  border-color: var(--jr-fog) !important;
+}
+body.jr-portal .site-main :is(.guide-hub-card, .consult-home-inner, .elevacao-home-inner, .mini-card, .jr-latest-card, .card-h) {
+  background: var(--jr-paper) !important;
+  border: 1px solid var(--jr-fog) !important;
+  color: var(--jr-ink) !important;
+  box-shadow: none !important;
+}
+body.jr-portal .site-main .guide-hub-card::before { display: none; }
+body.jr-portal .site-main :is(.editorial-mini-title, .editorial-mini-market span span) { color: var(--jr-slate) !important; }
+body.jr-portal :is(.jr-editorial-stamp, .editorial-stamp) i { box-shadow: none !important; }
+body.jr-portal .site-main :is(.editorial-card-img, .mini-card-img) { filter: none; }
+body.jr-portal .site-main .editorial-card-img-wrap {
+  background: var(--jr-fog) !important;
+  box-shadow: none !important;
+}
+body.jr-portal .site-main :is(.editorial-card-read, .elevacao-home-action, .elevacao-home-tags span, .social-link) {
+  color: var(--jr-red) !important;
+  background: transparent;
+  border-color: var(--jr-fog);
+}
+body.jr-portal .site-main .consult-home-cta,
+body.jr-portal .site-main .elevacao-home-action:hover {
+  background: var(--jr-red);
+  color: var(--jr-paper) !important;
+}
+body.jr-portal .site-main .jr-latest-card { height: auto; min-height: 0; }
+body.jr-portal .site-main .jr-latest-card-bg { position: relative; height: 160px; }
+body.jr-portal .site-main .jr-latest-card-ov { display: none; }
+body.jr-portal .site-main .jr-latest-card-body { position: relative; padding: 18px; }
+body.jr-portal .site-main .jr-latest-head::after { background: var(--jr-fog); }
+body.jr-portal .site-main .mini-card { display: flex; flex-direction: column; min-height: 0; }
+body.jr-portal .site-main .mini-card-img { position: relative; height: 220px; width: 100%; transform: none; }
+body.jr-portal .site-main .mini-card-body { background: var(--jr-paper); }
+body.jr-portal .article-inner { color: var(--jr-ink) !important; }
+body.jr-portal .a-body { color: var(--jr-ink) !important; font-size: 18px; line-height: 1.75; }
+body.jr-portal .a-body a { color: var(--jr-red); text-decoration: underline; text-underline-offset: .18em; }
+body.jr-portal .a-body em { color: var(--jr-slate); background: transparent; border-left-color: var(--jr-red); }
+body.jr-portal .article-header-hero .ah-img { filter: none !important; }
+body.jr-portal .article-header-hero .ah-overlay { background: linear-gradient(transparent 45%, var(--jr-paper)) !important; }
+body.jr-portal .btn-back { background: var(--jr-paper) !important; color: var(--jr-red) !important; border-color: var(--jr-fog) !important; }
+body.jr-portal .btn-back:hover { background: var(--jr-red) !important; color: var(--jr-paper) !important; }
+body.jr-portal :is(a, button, [tabindex]):focus-visible { outline: 2px solid var(--jr-red); outline-offset: 4px; }
+body.jr-portal::-webkit-scrollbar-track { background: var(--jr-paper); }
+@media (max-width: 920px) {
+  body.jr-portal #heroSection { padding: 0; min-height: 0 !important; overflow: visible; }
+  body.jr-portal #heroSection .nav { position: relative; order: 0; min-height: 96px; }
+  body.jr-portal #heroSection .nav.is-open .nav-links { inset: 100% 0 auto; width: auto; align-items: flex-start; }
+  body.jr-portal #heroSection .hero-bg-slides { position: relative; inset: auto; order: 1; height: clamp(240px, 62vw, 480px); }
+  body.jr-portal #heroSection .hero-text-panel { order: 2; width: 100%; padding: 30px 24px 40px !important; }
+  body.jr-portal #heroSection .hero-slide-title { font-size: clamp(2.4rem, 8vw, 4rem) !important; }
+  body.jr-portal .site-main .editorial-mini-panel.is-news-list .mini-card { display: grid; grid-template-columns: 88px minmax(0, 1fr); border-inline: 0 !important; border-top: 0 !important; }
+  body.jr-portal .site-main .editorial-mini-panel.is-news-list .mini-card-img { width: 88px; height: 88px; }
+}
