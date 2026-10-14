@@ -95,3 +95,7 @@ Este repositório ainda não possui uma página dedicada de política de privaci
 ## Estado Antes Da URL Real
 
 Enquanto `jr-consultoria-endpoint` estiver vazio, o site não finge envio. Ele valida o formulário, preserva os dados preenchidos e oferece `Copiar resumo` como contingência.
+
+## Auditoria de arquitetura de 14/10/2026
+
+O endpoint da versão estática inspecionada permanece vazio. O formulário prepara resumo sem envio e informa essa condição antes do preenchimento. Sucesso, protocolo e bloqueio de duplicidade foram verificados no navegador com resposta simulada, sem gravar em planilha ou enviar notificações reais. O health check do script retorna `not_configured` quando faltam as propriedades privadas obrigatórias; nunca imprime seus valores. Publicar o site não publica nem reconfigura o Apps Script.

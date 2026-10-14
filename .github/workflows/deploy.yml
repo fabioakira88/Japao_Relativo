@@ -7,6 +7,13 @@ on:
       - "SITE/**"
       - "CNAME"
       - ".github/workflows/deploy.yml"
+      - "scripts/**"
+  pull_request:
+    paths:
+      - "SITE/**"
+      - "scripts/**"
+      - "CNAME"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -19,7 +26,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build and validate
+        run: |
+          node scripts/build-editorial.js
+          node scripts/validate-jr-assets.js
+          node scripts/validate-architecture.js
+          git diff --exit-code -- SITE/assets/data/editorial-posts.js SITE/sitemap.xml
   deploy:
+    needs: validate
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -27,9 +49,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Validate JR assets
-        run: node scripts/validate-jr-assets.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

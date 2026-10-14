@@ -215,13 +215,18 @@ function initLeadForm() {
       status.textContent = "Preencha nome e e-mail válido para salvar.";
       return;
     }
-    localStorage.setItem("jrJlptLead", JSON.stringify({
-      name, email,
-      level: state.level,
-      score: state.score,
-      total: state.questions.length,
-      createdAt: new Date().toISOString()
-    }));
+    try {
+      localStorage.setItem("jrJlptLead", JSON.stringify({
+        name, email,
+        level: state.level,
+        score: state.score,
+        total: state.questions.length,
+        createdAt: new Date().toISOString()
+      }));
+    } catch (err) {
+      status.textContent = "Este navegador não permitiu salvar o interesse. Seus dados continuam preenchidos; nenhum cadastro foi enviado.";
+      return;
+    }
     status.textContent = "Interesse salvo neste navegador.";
     form.reset();
   });

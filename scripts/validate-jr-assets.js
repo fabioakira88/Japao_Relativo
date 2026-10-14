@@ -103,6 +103,19 @@ for (const file of checkedSvgCovers) {
 }
 
 const indexHtmlPath = path.join(SITE_DIR, "index.html");
+const editorialSource = path.join(SITE_DIR, "data", "editorial-posts.json");
+if (fs.existsSync(editorialSource)) {
+  const records = JSON.parse(fs.readFileSync(editorialSource, "utf8"));
+  for (const [id, record] of Object.entries(records)) {
+    for (const ref of collectLocalAssetRefs(indexHtmlPath, record.content || "")) {
+      if (!fs.existsSync(ref.target)) errors.push(`Editorial ${id}: missing local asset ${ref.raw}`);
+    }
+    for (const key of ["thumb", "heroImage"]) {
+      const value = record[key];
+      if (value && value.startsWith("assets/") && !fs.existsSync(path.join(SITE_DIR,value))) errors.push(`Editorial ${id}: missing ${key} ${value}`);
+    }
+  }
+}
 if (fs.existsSync(indexHtmlPath)) {
   const indexHtml = fs.readFileSync(indexHtmlPath, "utf8");
   const thumbUsage = new Map();

@@ -1,3 +1,5 @@
+> HISTÓRICO: sistema de agosto, substituído onde conflita com Brand System 3.0 FINAL e direção de 12/10. Consulte [Sistema Web CURRENT](BRANDING/SISTEMA_WEB_CURRENT.md). A regra 70/20/10 e o selo obrigatório não são regras atuais.
+
 # Sistema visual editorial — Japão Relativo
 
 Data: 14 de agosto de 2026

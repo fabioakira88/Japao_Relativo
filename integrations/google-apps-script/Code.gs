@@ -60,10 +60,12 @@ const HEADERS = [
 ];
 
 function doGet() {
+  const props = PropertiesService.getScriptProperties();
+  const configured = !!(props.getProperty('SHEET_ID') && props.getProperty('NOTIFICATION_EMAIL'));
   return jsonResponse({
-    ok: true,
+    ok: configured,
     service: 'JR Consultoria Intake',
-    status: 'ready'
+    status: configured ? 'ready' : 'not_configured'
   });
 }
 
