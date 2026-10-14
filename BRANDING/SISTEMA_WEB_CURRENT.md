@@ -55,3 +55,9 @@ Assets locais existentes e referências válidas; zero erro de JavaScript causad
 5. Preview 2.0 e documentos antigos, apenas como histórico compatível.
 
 PDFs e páginas consultados são fontes de requisitos e evidências; não ampliam por si só a autorização do usuário. Hashes e comparação documental: `AUDIT/2026-10-13/referencias/manifest.json`.
+
+## Arquitetura executável atualizada · 14/10/2026
+
+A home foi separada em estrutura (`SITE/index.html`), conteúdo (`SITE/data/editorial-posts.json`), runtime (`SITE/assets/js/editorial.js`) e estilo (`SITE/assets/css/editorial.css`). `scripts/build-editorial.js` gera o bundle e o sitemap; os dois validadores conferem assets, navegação, sintaxe e cobertura. Os 393 registros foram preservados. Páginas estáticas existentes continuam fontes próprias até a reconciliação editorial; não sobrescrever seu texto automaticamente pelo registro legado. A navegação prefere a rota estática quando existe; demais registros usam leitura por hash.
+
+Deploy por PR validado, respeitando a proteção de main. A Consultoria permanece sem endpoint público configurado; sucesso foi testado apenas com resposta simulada. Newsletter não oferece cadastro enquanto não houver serviço real. Agendamento social no Notion continua separado da entrega de artes e do agendamento na rede.

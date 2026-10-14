@@ -113,3 +113,7 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 @media (max-width: 900px) { .yumi-shell { width: min(100% - 24px, 720px); } .yumi-header, .yumi-hero { display: block; } .yumi-nav { justify-content: flex-start; margin-top: 14px; } .yumi-mascot-card { margin-top: 22px; } .yumi-grid { grid-template-columns: 1fr; } .yumi-campus { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .yumi-shell { width: min(100% - 18px, 420px); padding-top: 12px; } .yumi-hero { padding: 22px; border-radius: 18px; } .yumi-proof, .yumi-actions, .yumi-ratings, .yumi-deck-grid, .yumi-campus { grid-template-columns: 1fr; } .yumi-flashcard, .yumi-card-inner, .yumi-face { min-height: 520px; } .yumi-kanji { font-size: min(42vw, 9rem); } .yumi-phrase { font-size: clamp(2rem, 12vw, 3.2rem); } }
 @media (prefers-reduced-motion: reduce) { .yumi-card-inner, .yumi-progress-bar, .yumi-btn { transition: none; } }
+
+/* Readable white action labels while retaining the Yumi color families. */
+.yumi-btn.is-learned{background:#237B56}
+.yumi-btn.is-difficult{background:#AD4E0C}

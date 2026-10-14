@@ -12,6 +12,7 @@
   --jr-serif: 'Noto Serif Display', 'Noto Serif JP', Georgia, serif;
   --jr-sans: 'Inter', Arial, sans-serif;
 }
+.brand-master { width: 48px; height: 48px; display: block; object-fit: contain; flex-shrink: 0; }
 body.jr-editorial { background: var(--jr-paper); color: var(--jr-ink); }
 .jr-editorial .brand { align-items: center; }
 .jr-editorial .brand-master { width: 56px; height: 56px; object-fit: contain; }
@@ -26,6 +27,12 @@ body.jr-editorial { background: var(--jr-paper); color: var(--jr-ink); }
 .jr-editorial .hero h1 { line-height: 1.08; }
 .jr-editorial .header-link { min-height: 44px; display: inline-flex; align-items: center; }
 .jr-editorial .source-list a { overflow-wrap: anywhere; }
+.jr-editorial .section-heading > span { color: var(--jr-red); }
+.jr-footer__copy, .jr-footer__links a { color: var(--jr-slate); }
+.knowledge-hub-section .guide-hub-label, .tools-hub-section .guide-hub-label { color: #F7F3EB; }
+.footer-desc, .fn-desc, .footer-copy { color: #BEB8AD; }
+.footer-newsletter .social-link { color: #DED8CF; }
+.footer-logo img, .nav-logo-mark, .nav-logo-img, .article-brand-lockup img { filter: none; object-fit: contain; border-radius: 0; }
 .jr-editorial a:focus-visible, .jr-editorial button:focus-visible, .jr-editorial input:focus-visible,
 #heroSection a:focus-visible, #heroSection button:focus-visible {
   outline: 2px solid var(--jr-red); outline-offset: 4px;

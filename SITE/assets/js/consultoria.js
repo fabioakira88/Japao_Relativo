@@ -266,6 +266,10 @@
     var newBtn = document.getElementById("cf-new-btn");
     var status = document.getElementById("cf-status");
     var box = document.getElementById("cf-summary-box");
+    if (!getConsultoriaEndpoint() && submitBtn) {
+      submitBtn.textContent = "Preparar solicitação";
+      showStatus(status, "O envio online está em preparação. Você pode preencher e copiar um resumo; os dados não serão enviados.", "info");
+    }
     var isSubmitting = false;
     var hasConfirmedSuccess = false;
     setupContactInput(form);
@@ -304,7 +308,7 @@
         showCopyFallback(copyBtn);
         showStatus(
           status,
-          "O envio online ainda precisa da URL do Google Apps Script. Seus dados foram preservados abaixo; use \"Copiar resumo\" como contingência.",
+          "O envio online ainda não está disponível. Seus dados foram preservados abaixo; use \"Copiar resumo\".",
           "error"
         );
         track("consultoria_submit_error", {
