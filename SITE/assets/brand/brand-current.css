@@ -23,6 +23,17 @@ body.jr-editorial { background: var(--jr-paper); color: var(--jr-ink); }
 .jr-editorial .article-body h2, .jr-editorial .article-body h3 { line-height: 1.2; }
 .jr-editorial .article-figure { background: var(--jr-paper); border-color: var(--jr-fog); }
 .jr-editorial .article-figure figcaption { color: var(--jr-slate); }
+/* Shared portrait artwork is shown complete, including in long-form articles. */
+img[data-jr-cover="illustration"] {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 680px !important;
+  aspect-ratio: 4 / 5 !important;
+  object-fit: contain !important;
+  background: #F7F3EB;
+  margin-inline: auto;
+}
 .jr-editorial .hero { padding-block: clamp(36px, 6vw, 80px) 36px; }
 .jr-editorial .hero h1 { line-height: 1.08; }
 .jr-editorial .header-link { min-height: 44px; display: inline-flex; align-items: center; }

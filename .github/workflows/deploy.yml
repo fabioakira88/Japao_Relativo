@@ -38,7 +38,8 @@ jobs:
           node scripts/build-editorial.js
           node scripts/validate-jr-assets.js
           node scripts/validate-architecture.js
-          git diff --exit-code -- SITE/assets/data/editorial-posts.js SITE/sitemap.xml
+          node scripts/validate-covers.js
+          git diff --exit-code -- SITE
   deploy:
     needs: validate
     if: github.event_name != 'pull_request'
