@@ -48,7 +48,6 @@
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
       <img class="nav-logo-mark" src="assets/brand/jr-logo-master-3.png" alt="" aria-hidden="true">
-      <span class="nav-logo-text">JR.<span>relativo</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Início</a></li>
@@ -73,16 +72,8 @@
   </div>
 </section>
 
-<!-- ======================== ÚLTIMAS PUBLICAÇÕES ======================== -->
-<section class="jr-latest" id="latestSection">
-  <div class="jr-latest-head">
-    <span class="jr-latest-label">Últimas publicações</span>
-  </div>
-  <div class="jr-latest-grid" id="latestGrid"></div>
-</section>
-
 <!-- ======================== MICRO DATA ======================== -->
-<section class="micro-market" aria-label="Dados discretos">
+<section class="micro-market" aria-label="Dados discretos" hidden>
   <div class="micro-market-item"><span class="micro-market-label">USD/JPY</span><span class="micro-market-value" id="w-usd">--</span></div>
   <div class="micro-market-item"><span class="micro-market-label">JPY/BRL</span><span class="micro-market-value" id="w-brl">--</span></div>
   <div class="micro-market-item"><span class="micro-market-label">USD/BRL</span><span class="micro-market-value" id="w-usd-brl">--</span></div>
@@ -101,7 +92,22 @@
   <div class="editorial-flow" id="newsGrid"></div>
 </section>
 
+<!-- ======================== ÚLTIMAS PUBLICAÇÕES ======================== -->
+<section class="jr-latest" id="latestSection">
+  <div class="jr-latest-head">
+    <span class="jr-latest-label">Mais leituras</span>
+  </div>
+  <div class="jr-latest-grid" id="latestGrid"></div>
+</section>
+
 <!-- ======================== ELEVAÇÃO CTA ======================== -->
+<section class="jr-news-section" aria-label="Acervo de notícias">
+  <details class="jr-news-archive" id="newsArchive">
+    <summary>Notícias do acervo <span id="newsArchiveCount"></span></summary>
+    <p>Matérias preservadas com suas datas de publicação.</p>
+    <ul id="newsArchiveList"></ul>
+  </details>
+</section>
 <section class="elevacao-home-cta" aria-label="Elevação no Japão Relativo">
   <div class="elevacao-home-inner">
     <div class="elevacao-home-copy">
@@ -145,10 +151,10 @@
         <div class="guide-hub-action">Abrir guia →</div>
       </a>
       <a class="guide-hub-card is-survival" href="survival/">
-        <div class="guide-hub-tag">Survival</div>
-        <strong>Japan Survival</strong>
-        <span>Frases e caminhos de emergência para prefeitura, hospital, trabalho, telefone e situações urgentes.</span>
-        <div class="guide-hub-action">Abrir survival →</div>
+        <div class="guide-hub-tag">Kira Nihongo</div>
+        <strong>Kira Nihongo · Situações reais</strong>
+        <span>Treino gratuito de restaurante e acesso às trilhas de japonês para situações cotidianas.</span>
+        <div class="guide-hub-action">Treinar situações reais →</div>
       </a>
     </div>
   </div>
@@ -167,9 +173,9 @@
     <div class="guide-hub-grid">
       <a class="guide-hub-card is-yumi" href="nihongo/yumi/">
         <div class="guide-hub-tag">Kanji</div>
-        <strong>Yumi Flashcards</strong>
-        <span>Aplicação exclusiva para memorizar kanji: leitura, significado, flip, progresso e revisão local.</span>
-        <div class="guide-hub-action">Abrir Yumi →</div>
+        <strong>Kira Nihongo · Kanji</strong>
+        <span>Aplicação exclusiva para memorizar kanji: leitura, significado, progresso e revisão local.</span>
+        <div class="guide-hub-action">Abrir Kira Nihongo →</div>
       </a>
       <a class="guide-hub-card is-flashcards" href="nihongo/flashcards/">
         <div class="guide-hub-tag">Flashcards</div>
@@ -250,7 +256,6 @@
     <div class="footer-brand">
       <div class="footer-logo">
         <img src="/assets/brand/jr-logo-master-3.png" alt="Japão Relativo">
-        <div class="footer-logo-text">Japão Relativo</div>
       </div>
       <p class="footer-desc">Revista cultural independente sobre o Japão: história, tradições, idioma e vida cotidiana.</p>
     </div>

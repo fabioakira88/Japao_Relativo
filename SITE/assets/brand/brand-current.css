@@ -24,7 +24,7 @@ body.jr-editorial { background: var(--jr-paper); color: var(--jr-ink); }
 .jr-editorial .article-figure { background: var(--jr-paper); border-color: var(--jr-fog); }
 .jr-editorial .article-figure figcaption { color: var(--jr-slate); }
 /* Shared portrait artwork is shown complete, including in long-form articles. */
-img[data-jr-cover="illustration"] {
+img[data-jr-cover="illustration"], img[data-jr-cover="social-cover"] {
   display: block !important;
   width: 100% !important;
   height: auto !important;
@@ -35,7 +35,9 @@ img[data-jr-cover="illustration"] {
   margin-inline: auto;
 }
 .jr-editorial .hero { padding-block: clamp(36px, 6vw, 80px) 36px; }
-.jr-editorial .hero h1 { line-height: 1.08; }
+.jr-editorial .content-card, .jr-editorial .article-figure, .jr-editorial .jr-header { box-shadow: none; }
+.jr-editorial .hero h1, .jr-editorial .article-body :is(h2,h3) { text-shadow: none; }
+.jr-editorial .hero h1 { line-height: 1.08; hyphens: none; word-break: normal; }
 .jr-editorial .header-link { min-height: 44px; display: inline-flex; align-items: center; }
 .jr-editorial .source-list a { overflow-wrap: anywhere; }
 .jr-editorial .section-heading > span { color: var(--jr-red); }
