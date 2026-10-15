@@ -35,85 +35,46 @@ function normalizeAssetPath(path) {
   return path || '';
 }
 
-const JR_ANIME_SAFE_FALLBACK = "assets/covers/anime-editorial/anime-neutral.svg";
-const JR_UNSAFE_ANIME_COVER_RE = /(anime-default|dragon|dragon-ball|moro|goku|dbs)/i;
-const JR_ALLOWED_REMOTE_ANIME_COVER_RE = /^https:\/\/s4\.anilist\.co\/file\/anilistcdn\/media\/anime\/cover\//i;
-const JR_ANIME_COVER_BY_ID = {
-  "madoka-magia-walpurgisnacht-2026": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9756-QnUGwlwwnsuN.jpg",
-  "bleach-tybw-2026-retorno-julho": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116674-p3zK4PUX2Aag.jpg",
-  "temporada-verao-2026-crunchyroll-curadoria": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21-ELSYx3yMPcKM.jpg",
-  "akira-biografia-anime-classico": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-4CR68arv452h.jpg",
-  "cowboy-bebop-biografia-anime-classico": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1-GCsPm7waJ4kS.png",
-  "evangelion-biografia-anime-classico": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx30-AI1zr74Dh4ye.jpg",
-  "ghost-in-the-shell-biografia-anime-classico": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx43-Y6EjeEMM14dj.png",
-  "serial-experiments-lain-biografia-anime-classico": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx339-xF2wp1NQuQ4r.png",
-  "proximas-temporadas-kimetsu-dragon-ball-super-classicos": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21175-EH06qlfF8TnB.jpg",
-  "steins-gate-anime-jogo-visual-novel": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
-  "fate-stay-night-anime-jogo-visual-novel": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx356-mTpMvtillumS.png",
-  "persona-4-animation-anime-jogo-rpg": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10588-44oPKE7GRXA2.png",
-  "pokemon-anime-nascido-dos-jogos": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b527-t6dBVJ5OVcXK.png",
-  "devil-may-cry-anime-jogo-acao": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1726-IrpH32PVADiO.jpg",
-  "another-terror-escolar-anime": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11111-gvvE5bBYsyFo.png",
-  "higurashi-terror-vila-cicadas": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx934-wjMlVEl4CWwg.jpg",
-  "shiki-terror-vampirico-vila-japonesa": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx7724-NwNnRsI34eDa.jpg",
-  "yamishibai-terror-curto-folclore-urbano": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b19383-vmpqTraCFNRg.jpg",
-  "paranoia-agent-terror-psicologico-satoshi-kon": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx323-ZGkUcJOn4ngy.png",
-  "death-note-raciocinio-jogo-moral": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-kUgkcrfOrkUM.jpg",
-  "monster-raciocinio-investigacao-moral": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19-gtMC64182sm4.jpg",
-  "psycho-pass-raciocinio-sistema-crime": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13601-i42VFuHpqEOJ.jpg",
-  "promised-neverland-raciocinio-fuga": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101759-8UR7r9MNVpz2.jpg",
-  "kaiji-raciocinio-aposta-pressao": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3002-BExanPfxp888.jpg"
-};
+// Component covers come exclusively from the reviewed editorial registry.
+const JR_ALLOWED_REMOTE_IMAGE_RE = /^https:\/\/s4\.anilist\.co\/file\/anilistcdn\/media\/anime\/cover\//i;
 
 function isAnimePost(post) {
   return !!(post && (post.tag === 'Anime' || String(post.category || '').includes('Anime')));
 }
 
-function isUnsafeAnimeCover(path) {
-  if (!path) return true;
-  if (/^https?:/i.test(path)) return !JR_ALLOWED_REMOTE_ANIME_COVER_RE.test(path);
-  return JR_UNSAFE_ANIME_COVER_RE.test(path);
-}
-
 function isAllowedRemoteImage(path) {
-  return JR_ALLOWED_REMOTE_ANIME_COVER_RE.test(String(path || ''));
+  return JR_ALLOWED_REMOTE_IMAGE_RE.test(String(path || ''));
 }
 
 function normalizeContentAssets(root) {
   if (!root) return;
-  root.querySelectorAll("img[src]").forEach(function(img) {
-    var src = img.getAttribute("src");
-    img.src = JR_UNSAFE_ANIME_COVER_RE.test(src || '') ? JR_ANIME_SAFE_FALLBACK : normalizeAssetPath(src);
+  root.querySelectorAll('img[src]').forEach(function(img) {
+    img.src = normalizeAssetPath(img.getAttribute('src'));
   });
 }
 
-function getCardCover(post) {
-  var thumb = post.thumb || "";
-
-  if (isAnimePost(post)) {
-    if (JR_ANIME_COVER_BY_ID[post.id]) return JR_ANIME_COVER_BY_ID[post.id];
-    if (isUnsafeAnimeCover(thumb)) return JR_ANIME_SAFE_FALLBACK;
-    return normalizeAssetPath(thumb);
-  }
-
-  if (thumb && !/^https?:/i.test(thumb)) return normalizeAssetPath(thumb);
-
-  return JR_ANIME_SAFE_FALLBACK;
+function getCardCover(post, variant) {
+  if (post && post.cover) return variant === 'preview' && post.cover.preview ? post.cover.preview : post.cover.src;
+  return post && post.thumb || '';
 }
 
-function getCardImg(post) {
-  return "background-image:url(\"" + getCardCover(post) + "\");background-size:cover;background-position:center";
+function isPortraitCover(post) {
+  return !!(post && post.cover && /^(illustration|artwork)$/.test(post.cover.kind));
+}
+
+function getCardImg(post, fullSize) {
+  var url = encodeURI(getCardCover(post, fullSize ? 'full' : 'preview')).replace(/[()']/g, function(c) { return '%' + c.charCodeAt(0).toString(16); });
+  return 'background-image:url(' + url + ');background-size:' + (isPortraitCover(post) ? 'contain' : 'cover') + ';background-position:center;background-repeat:no-repeat';
 }
 
 function handleCardImageError(img) {
-  if (!img) return;
-  var fallback = JR_ANIME_SAFE_FALLBACK;
-  if (!img.dataset.fallbackTried && img.getAttribute("src") !== fallback) {
-    img.dataset.fallbackTried = "true";
-    img.src = fallback;
-    return;
-  }
-  img.classList.add("is-fallback");
+  if (!img || img.dataset.jrImageState) return;
+  img.dataset.jrImageState = 'unavailable';
+  img.style.display = 'none';
+  var message = document.createElement('span');
+  message.className = 'jr-image-unavailable';
+  message.textContent = 'Imagem indisponível.';
+  img.insertAdjacentElement('afterend',message);
 }
 
 function extractExcerpt(html, maxLen) {
@@ -169,7 +130,7 @@ function buildMainGrid(items) {
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="editorial-card-img-wrap">
-        <img class="editorial-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="eager" decoding="async" onerror="handleCardImageError(this)">
+        <img class="editorial-card-img${isPortraitCover(post) ? ' is-portrait' : ''}" src="${getCardCover(post, 'preview')}" alt="" loading="eager" decoding="async" onerror="handleCardImageError(this)">
       </div>
       <div class="editorial-card-body">
         <div class="editorial-stamp">${getEditorialStamp(post)}</div>
@@ -206,7 +167,7 @@ function buildMainGrid(items) {
       a.className = 'mini-card';
       a.href = '#' + post.id;
       a.innerHTML = `
-        <img class="mini-card-img" src="${getCardCover(post)}" alt="${post.title}" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
+        <img class="mini-card-img${isPortraitCover(post) ? ' is-portrait' : ''}" src="${getCardCover(post, 'preview')}" alt="" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
         <div class="mini-card-body">
           <div class="editorial-stamp">${getEditorialStamp(post)}</div>
           <div class="mini-card-tag">${post.tag}</div>
@@ -544,7 +505,7 @@ function openPost(id) {
   if (!post) return;
   const isElevacao = isElevationPost(post);
   const heroBg = document.getElementById('articleHeroBg');
-  heroBg.style.backgroundImage = "url(\"" + getCardCover(post) + "\")";
+  heroBg.style.cssText = getCardImg(post, true) + ";height:100%";
   const metaDescription = getMetaDescription();
   if (homeMetaDescription === null) {
     homeMetaDescription = metaDescription.getAttribute('content') || '';
@@ -948,7 +909,7 @@ function buildLatestStrip() {
     a.setAttribute('aria-label', post.title);
     a.onclick = function(e) { e.preventDefault(); navigateTo(post.id); };
     a.innerHTML =
-      '<div class="jr-latest-card-bg" style="background-image:url(\'' + getCardCover(post) + '\')"></div>' +
+      "<div class='jr-latest-card-bg' style='" + getCardImg(post) + "'></div>" +
       '<div class="jr-latest-card-ov"></div>' +
       '<div class="jr-latest-card-body">' +
         '<div class="editorial-stamp">' + getEditorialStamp(post) + '</div>' +
@@ -1043,7 +1004,7 @@ function renderHeroItems(items) {
   items.forEach(function(item, index) {
     var slide = document.createElement('div');
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
-    slide.style.backgroundImage = 'url("' + getCardCover(item.post) + '")';
+    slide.style.cssText = getCardImg(item.post);
     slide.style.cursor = 'pointer';
     slide.style.pointerEvents = index === 0 ? 'auto' : 'none';
     slide.setAttribute('role', 'link');
