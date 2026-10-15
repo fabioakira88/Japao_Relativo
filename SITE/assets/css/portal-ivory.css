@@ -150,6 +150,7 @@ body.jr-portal .site-main :is(.guide-hub-card, .consult-home-inner, .elevacao-ho
 }
 body.jr-portal .site-main .guide-hub-card::before { display: none; }
 body.jr-portal .site-main .section.editorial-section { padding-top: clamp(40px, 5vw, 64px); }
+body.jr-portal .site-main :is(.editorial-card .editorial-stamp,.editorial-card-index,.mini-card .editorial-stamp) { display: none; }
 body.jr-portal .site-main :is(.editorial-mini-title, .editorial-mini-market span span) { color: var(--jr-slate) !important; }
 body.jr-portal :is(.jr-editorial-stamp, .editorial-stamp) i { box-shadow: none !important; }
 body.jr-portal .site-main :is(.editorial-card-img, .mini-card-img) { filter: none; }
@@ -228,6 +229,7 @@ body.jr-portal::-webkit-scrollbar-track { background: var(--jr-paper); }
   body.jr-portal #newsArchiveList { grid-template-columns: minmax(0,1fr); }
 }
 @media (max-width: 560px) {
+  body.jr-portal .site-main .editorial-card-title { font-size: clamp(1.8rem, 8vw, 2.25rem); line-height: 1.12; }
   body.jr-portal .site-main .jr-latest-grid { grid-template-columns: minmax(0,1fr); }
   body.jr-portal .site-main .jr-latest-card-bg { max-height: none; }
 }
