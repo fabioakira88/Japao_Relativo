@@ -130,20 +130,20 @@
       const difficult = difficultSet().has(card.sourceId);
       const label = learned ? "Aprendido" : difficult ? "Difícil" : "Novo";
       els.body.innerHTML = `
-        <button class="yumi-flashcard${state.flipped ? " is-flipped" : ""}" type="button" data-yumi-flip aria-label="Virar card do kanji ${escapeHtml(card.kanji)}">
+        <button class="yumi-flashcard${state.flipped ? " is-flipped" : ""}" type="button" data-yumi-flip aria-pressed="${state.flipped}" aria-label="Virar card do kanji ${escapeHtml(card.kanji)}">
           <span class="yumi-card-inner">
-            <span class="yumi-face">
+            <span class="yumi-face" aria-hidden="${state.flipped}">
               <span class="yumi-meta"><span class="yumi-pill">${escapeHtml(card.seriesLabel)}</span><span class="yumi-pill">${escapeHtml(label)}</span></span>
               <span class="yumi-kanji" lang="ja">${escapeHtml(card.kanji)}</span>
               <span class="yumi-hint">Toque para revelar leitura, romaji e significados.</span>
             </span>
-            <span class="yumi-face yumi-face-back">
+            <span class="yumi-face yumi-face-back" aria-hidden="${!state.flipped}">
               <span class="yumi-meta"><span class="yumi-pill">${escapeHtml(card.seriesLabel)}</span><span class="yumi-pill">${escapeHtml(label)}</span></span>
               <div class="yumi-back-title"><strong lang="ja">${escapeHtml(card.kanji)}</strong><div><span lang="ja">${escapeHtml(card.reading)}</span><span>${escapeHtml(card.romaji)}</span></div></div>
               <p class="yumi-meaning">${escapeHtml(card.meaningPt)}</p>
               <ul class="yumi-detail-list">
                 <li><span>Inglês</span><strong>${escapeHtml(card.meaningEn)}</strong></li>
-                <li><span>Série</span><strong>${escapeHtml(card.seriesLabel)} · coleção publicada do Yumi</strong></li>
+                <li><span>Série</span><strong>${escapeHtml(card.seriesLabel)} · coleção Kira Nihongo</strong></li>
                 <li><span>ID original</span><strong>${escapeHtml(card.sourceId)}</strong></li>
               </ul>
               <span class="yumi-hint">Marque como aprendido ou difícil para atualizar seu progresso.</span>
@@ -171,7 +171,7 @@
       state.progress.learnedKanji = Array.from(learned); state.progress.difficultKanji = Array.from(difficult); persist(); move(1);
     }
     root.addEventListener("click", (event) => {
-      if (event.target.closest("[data-yumi-flip]")) { state.flipped = !state.flipped; root.querySelector(".yumi-flashcard")?.classList.toggle("is-flipped", state.flipped); }
+      if (event.target.closest("[data-yumi-flip]")) { state.flipped = !state.flipped; const card = root.querySelector(".yumi-flashcard"); card?.classList.toggle("is-flipped", state.flipped); card?.setAttribute("aria-pressed", String(state.flipped)); card?.querySelector(".yumi-face:not(.yumi-face-back)")?.setAttribute("aria-hidden", String(state.flipped)); card?.querySelector(".yumi-face-back")?.setAttribute("aria-hidden", String(!state.flipped)); }
       if (event.target.closest("[data-yumi-next]")) move(1);
       if (event.target.closest("[data-yumi-shuffle]")) { state.order = "shuffle"; els.order.value = "shuffle"; apply(); }
       if (event.target.closest("[data-yumi-speak]")) { const card = state.visible[state.index]; if (card) speak(card.kanji + "。" + card.reading, setStatus); }
@@ -219,15 +219,15 @@
       if (!card) { els.body.innerHTML = '<p class="yumi-status">Nenhum card encontrado.</p>'; return; }
       const cardStatus = state.progress[card.id] === "learned" ? "Aprendido" : state.progress[card.id] === "difficult" ? "Difícil" : "Novo";
       els.body.innerHTML = `
-        <button class="yumi-flashcard${state.flipped ? " is-flipped" : ""}" type="button" data-yumi-flip aria-label="Virar flashcard de frase">
+        <button class="yumi-flashcard${state.flipped ? " is-flipped" : ""}" type="button" data-yumi-flip aria-pressed="${state.flipped}" aria-label="Virar flashcard de frase">
           <span class="yumi-card-inner">
-            <span class="yumi-face">
+            <span class="yumi-face" aria-hidden="${state.flipped}">
               <span class="yumi-meta"><span class="yumi-pill">${escapeHtml(card.category)}</span><span class="yumi-pill">${escapeHtml(cardStatus)}</span></span>
               <p class="yumi-situation">${escapeHtml(card.situation)}</p>
               <span class="yumi-phrase" lang="ja">${escapeHtml(card.japanese)}</span>
               <span class="yumi-hint">Toque para ver leitura, tradução e contexto.</span>
             </span>
-            <span class="yumi-face yumi-face-back">
+            <span class="yumi-face yumi-face-back" aria-hidden="${!state.flipped}">
               <span class="yumi-meta"><span class="yumi-pill">${escapeHtml(card.category)}</span><span class="yumi-pill">${escapeHtml(cardStatus)}</span></span>
               <p class="yumi-situation">${escapeHtml(card.situation)}</p>
               <span class="yumi-phrase" lang="ja">${escapeHtml(card.japanese)}</span>
@@ -257,7 +257,7 @@
     function mark(status) { const card = state.cards[state.index]; if (!card) return; state.progress[card.id] = status; saveProgress(); move(1); }
     root.addEventListener("click", (event) => {
       const deck = event.target.closest("[data-yumi-deck]"); if (deck) selectDeck(deck.dataset.yumiDeck);
-      if (event.target.closest("[data-yumi-flip]")) { state.flipped = !state.flipped; root.querySelector(".yumi-flashcard")?.classList.toggle("is-flipped", state.flipped); }
+      if (event.target.closest("[data-yumi-flip]")) { state.flipped = !state.flipped; const card = root.querySelector(".yumi-flashcard"); card?.classList.toggle("is-flipped", state.flipped); card?.setAttribute("aria-pressed", String(state.flipped)); card?.querySelector(".yumi-face:not(.yumi-face-back)")?.setAttribute("aria-hidden", String(state.flipped)); card?.querySelector(".yumi-face-back")?.setAttribute("aria-hidden", String(!state.flipped)); }
       if (event.target.closest("[data-yumi-next]")) move(1);
       if (event.target.closest("[data-yumi-speak]")) { const card = state.cards[state.index]; if (card) speak(card.japanese, setStatus); }
       if (event.target.closest("[data-yumi-learned]")) mark("learned");

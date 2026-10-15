@@ -1,0 +1,59 @@
+/* Kira Nihongo 3.0: ivory / sumi / restrained gold. Product name replaces legacy labels.
+   Existing selectors and storage keys are compatibility identifiers, not public brands. */
+html:has(body.kira-nihongo) { background: #F8F3EA; color-scheme: light; }
+body.kira-nihongo {
+  --ink: #1A1817; --ink-soft: #1A1817; --paper: #F8F3EA; --cream: #F8F3EA;
+  --paper-deep: #E8E1D4; --gold: #D4A13A; --muted: #55504A; --line: #D8D0C3;
+  --yumi-ink: #1A1817; --yumi-muted: #55504A; --yumi-pink: #D4A13A;
+  --yumi-pink-dark: #705012; --yumi-purple: #705012; --yumi-lilac: #E8E1D4;
+  --yumi-cream: #F8F3EA; --yumi-card: #F8F3EA; --yumi-line: #D8D0C3;
+  --yumi-shadow: none; --yumi-success: #256044; --yumi-warn: #87501F;
+  --jr-paper: #F8F3EA; --jr-paper-2: #F8F3EA; --jr-panel: #F8F3EA;
+  --jr-line: #D8D0C3; --jr-line-strong: #D8D0C3;
+  --kira-ink: #1A1817; --kira-muted: #55504A; --kira-pink: #D4A13A;
+  --kira-pink-dark: #705012; --kira-purple: #705012; --kira-lilac: #E8E1D4;
+  --kira-cream: #F8F3EA; --kira-blue: #F8F3EA;
+  background: #F8F3EA; color: #1A1817; font-family: Inter, Arial, sans-serif;
+}
+body.kira-nihongo::before { display: none; }
+body.kira-nihongo *, body.kira-nihongo *::before, body.kira-nihongo *::after {
+  box-shadow: none !important; text-shadow: none !important; backdrop-filter: none !important;
+}
+body.kira-nihongo :is(.survival-app,.screen-dark,.app-header,.breadcrumb,.yumi-hero,.yumi-panel,.yumi-face,.yumi-face-back,.yumi-campus-card) {
+  background: #F8F3EA; color: #1A1817;
+}
+body.kira-nihongo .survival-app { width: min(100%, 600px); }
+body.kira-nihongo :is(.hero,.nh-dark-strip,.nh-hero-pill,.nh-cta,.module-card,.premium-card-mark) {
+  background: #F8F3EA; color: #1A1817; border-color: #D8D0C3; border-radius: 4px;
+}
+body.kira-nihongo :is(.hero,.nh-dark-strip)::before { display: none; }
+body.kira-nihongo .hero::after { background: #D8D0C3; }
+body.kira-nihongo :is(.nh-section,.yumi-proof div,.yumi-stat,.yumi-detail-list li,.yumi-dashboard-grid div,.yumi-pill) { background: #F8F3EA; border-color: #D8D0C3; }
+body.kira-nihongo .nh-proof-item { border-color: #D8D0C3; }
+body.kira-nihongo .nh-section-head::before { background: #D8D0C3; }
+body.kira-nihongo :is(.proof,.thanks-steps li,.locked-list li,.app-header) { border-color: #D8D0C3; }
+body.kira-nihongo :is(.proof span,.module-card > span:nth-of-type(3),.module-japanese,.manual-access-note,.thanks-steps li,.manual-access-footnote,.unlock-score,.locked-list small,.jr-footer__copy,.jr-footer__links a) { color: #55504A; }
+body.kira-nihongo :is(.proof strong,.unlock-score strong,.locked-list span,.premium-card-mark strong) { color: #1A1817; }
+body.kira-nihongo :is(.module-number,.module-card em,.thanks-mark,.thanks-steps span,.manual-access-note strong,.premium-access-badge,.premium-card-mark span,.roadmap li > span,.jp-romaji,.lesson-note span,.option-romaji,.unlock-mark) { color: #705012; }
+body.kira-nihongo .module-card.is-locked { opacity: 1; }
+body.kira-nihongo .screen-dark .primary-button { color: #F8F3EA; background: #1A1817; border-color: #1A1817; }
+body.kira-nihongo .screen-dark .ghost-button { color: #1A1817; border-color: #D8D0C3; }
+body.kira-nihongo footer { background: #F8F3EA !important; border-color: #D8D0C3 !important; }
+body.kira-nihongo footer :is(span,a) { color: #55504A !important; }
+body.kira-nihongo :is(.header-label,.breadcrumb a,.breadcrumb span,.screen-dark .lead,.screen-dark .eyebrow) { color: #55504A; }
+body.kira-nihongo .brand-master { width: 56px; height: 56px; display: block; object-fit: contain; }
+body.kira-nihongo .yumi-hero { grid-template-columns: minmax(0,1fr); }
+body.kira-nihongo :is(.yumi-brand strong,.yumi-hero h1,.yumi-app-title) { color: #1A1817; line-height: 1.12; }
+body.kira-nihongo :is(.yumi-hero,.yumi-panel,.yumi-face,.yumi-campus-card,.offer-card,.module-card) { border-radius: 4px; }
+body.kira-nihongo :is(.yumi-progress-bar,.yumi-actions .yumi-btn:first-child) { background: #1A1817; }
+body.kira-nihongo .yumi-face::before { display: none; }
+body.kira-nihongo .yumi-flashcard { perspective: none; }
+body.kira-nihongo .yumi-card-inner,
+body.kira-nihongo .yumi-flashcard.is-flipped .yumi-card-inner { transform: none; transform-style: flat; transition: none; }
+body.kira-nihongo .yumi-face-back { transform: none; }
+body.kira-nihongo .yumi-flashcard:not(.is-flipped) .yumi-face-back,
+body.kira-nihongo .yumi-flashcard.is-flipped .yumi-face:not(.yumi-face-back) { display: none; }
+body.kira-nihongo .yumi-flashcard .yumi-face { position: relative; inset: auto; overflow: visible; backface-visibility: visible; }
+body.kira-nihongo :is(#lessonMeta,#quizMeta) { color: #705012; }
+body.kira-nihongo .yumi-btn:hover { transform: none; }
+body.kira-nihongo :is(a,button,select,input):focus-visible { outline: 2px solid #705012; outline-offset: 3px; }

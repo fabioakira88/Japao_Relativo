@@ -24,6 +24,19 @@ function byRecentDate(a, b) {
 }
 
 const recentPosts = [...posts].sort(byRecentDate);
+// Cultural direction of the magazine; news remains available in its dated archive.
+const HOME_EDITORIAL_IDS = [
+  'omotenashi-limites-hospitalidade-japonesa',
+  'washoku-fermentacao-misso-shoyu-natto',
+  'furusato-cidade-natal-japao-memoria',
+  'ma-pausa-espaco-vida-japonesa',
+  'por-que-o-japao-gosta-de-filas',
+  'wabi-sabi-estetica-japonesa-imperfeicao',
+  'tanbo-depois-da-colheita-paisagem-japao',
+  'povo-ainu-japao-historia-cultura',
+  'radio-taiso-cultura-aquecimento-japao',
+  'silencio-nos-trens-japoneses'
+];
 let visibleCount = 8;
 let currentFilter = 'all';
 let filteredPosts = [...recentPosts];
@@ -59,7 +72,7 @@ function getCardCover(post, variant) {
 }
 
 function isPortraitCover(post) {
-  return !!(post && post.cover && /^(illustration|artwork)$/.test(post.cover.kind));
+  return !!(post && post.cover && /^(illustration|artwork|social-cover)$/.test(post.cover.kind));
 }
 
 function getCardImg(post, fullSize) {
@@ -109,7 +122,8 @@ function buildMainGrid(items) {
   if (!grid) return;
   grid.innerHTML = '';
   const isHome = currentFilter === 'all';
-  const portalPosts = getPortalPosts();
+  const heroIds = getCurrentHeroItems().map(item => item.post.id);
+  const portalPosts = getHomeEditorialPosts().filter(post => !heroIds.includes(post.id));
   updateSectionHeading(currentFilter);
 
   const articleItems = isHome
@@ -118,15 +132,15 @@ function buildMainGrid(items) {
   const featuredIds = articleItems.map(function(post) { return post.id; });
   const miniPosts = isHome
     ? portalPosts.filter(function(post) {
-        return post.tag === 'Notícia' && featuredIds.indexOf(post.id) === -1;
-      }).slice(0, 6)
+        return featuredIds.indexOf(post.id) === -1;
+      }).slice(0, 3)
     : items.slice(3, 9);
 
   articleItems.forEach(function(post, index) {
     const excerpt = extractExcerpt(post.content, 145);
     const a = document.createElement('a');
     a.className = 'editorial-card ' + (index === 1 ? 'is-image-left' : 'is-text-left');
-    a.href = '#' + post.id;
+    a.href = post.canonicalPath;
     a.dataset.id = post.id;
     a.innerHTML = `
       <div class="editorial-card-img-wrap">
@@ -150,11 +164,11 @@ function buildMainGrid(items) {
 
   if (miniPosts.length) {
     const panel = document.createElement('section');
-    panel.className = 'editorial-mini-panel' + (isHome ? ' is-news-list' : '');
+    panel.className = 'editorial-mini-panel';
     panel.innerHTML = `
       <div class="editorial-mini-head">
-        <div class="editorial-mini-title">${isHome ? 'Notícias / Cotação' : 'Mais em ' + currentFilter}</div>
-        <div class="editorial-mini-market"${isHome ? '' : ' hidden'}>
+        <div class="editorial-mini-title">${isHome ? 'Cultura e cotidiano' : 'Mais em ' + currentFilter}</div>
+        <div class="editorial-mini-market" hidden>
           <span><span>USD/JPY</span><b id="mini-usd">--</b></span>
           <span><span>JPY/BRL</span><b id="mini-brl">--</b></span>
           <span><span>USD/BRL</span><b id="mini-usd-brl">--</b></span>
@@ -165,7 +179,7 @@ function buildMainGrid(items) {
     miniPosts.forEach(function(post) {
       const a = document.createElement('a');
       a.className = 'mini-card';
-      a.href = '#' + post.id;
+      a.href = post.canonicalPath;
       a.innerHTML = `
         <img class="mini-card-img${isPortraitCover(post) ? ' is-portrait' : ''}" src="${getCardCover(post, 'preview')}" alt="" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
         <div class="mini-card-body">
@@ -180,7 +194,6 @@ function buildMainGrid(items) {
       miniGrid.appendChild(a);
     });
     grid.appendChild(panel);
-    if (isHome) syncMiniMarket();
   }
 }
 
@@ -316,9 +329,34 @@ function isElevationPost(post) {
 
 function getPortalPosts() {
   var portalPosts = recentPosts.filter(function(post) {
-    return !isElevationPost(post);
+    return !isElevationPost(post) && post.tag !== 'Notícia';
   });
   return portalPosts.length ? portalPosts : recentPosts;
+}
+
+function getHomeEditorialPosts() {
+  const selected = HOME_EDITORIAL_IDS.map(id => DB[id]).filter(Boolean);
+  const used = new Set(selected.map(post => post.id));
+  return selected.concat(getPortalPosts().filter(post => !used.has(post.id)));
+}
+
+function buildNewsArchive() {
+  const list = document.getElementById('newsArchiveList');
+  if (!list) return;
+  const news = recentPosts.filter(post => post.tag === 'Notícia');
+  document.getElementById('newsArchiveCount').textContent = '(' + news.length + ')';
+  list.replaceChildren();
+  news.forEach(post => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = post.canonicalPath;
+    link.textContent = post.title;
+    link.addEventListener('click', event => { event.preventDefault(); navigateTo(post.id); });
+    const date = document.createElement('span');
+    date.textContent = post.date;
+    item.append(link, date);
+    list.append(item);
+  });
 }
 
 function setActiveNav(cat) {
@@ -895,17 +933,18 @@ function buildLatestStrip() {
     ? recentPosts.filter(isElevationPost)
     : isAnime
       ? recentPosts.filter(function(post) { return post.tag === 'Anime'; })
-      : getPortalPosts();
+      : getHomeEditorialPosts();
   var heroItems = isElevacao ? getElevacaoHeroItems() : isAnime ? getAnimeHeroItems() : getCurrentHeroItems();
   var usedIds = {};
   heroItems.forEach(function(item) {
     usedIds[item.post.id] = true;
   });
-  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, 8);
+  if (!isElevacao && !isAnime) getHomeEditorialPosts().slice(1, 7).forEach(post => { usedIds[post.id] = true; });
+  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, isElevacao || isAnime ? 6 : 3);
   latest.forEach(function(post) {
     var a = document.createElement('a');
     a.className = 'jr-latest-card';
-    a.href = '#';
+    a.href = post.canonicalPath;
     a.setAttribute('aria-label', post.title);
     a.onclick = function(e) { e.preventDefault(); navigateTo(post.id); };
     a.innerHTML =
@@ -921,11 +960,11 @@ function buildLatestStrip() {
 }
 
 function getCurrentHeroItems() {
-  return getPortalPosts()
+  return getHomeEditorialPosts()
     .filter(function(post) {
       return post && post.id && post.title && getCardCover(post);
     })
-    .slice(0, 7)
+    .slice(0, 1)
     .map(function(post) {
       return {
         post: post,
@@ -939,7 +978,7 @@ function getElevacaoHeroItems() {
     .filter(function(post) {
       return isElevationPost(post) && post.id && post.title && getCardCover(post);
     })
-    .slice(0, 6)
+    .slice(0, 1)
     .map(function(post) {
       return {
         post: post,
@@ -961,6 +1000,7 @@ function getAnimeHeroItems() {
   return curated
     .map(function(id) { return DB[id]; })
     .filter(function(post) { return post && post.id && post.title && getCardCover(post); })
+    .slice(0, 1)
     .map(function(post) {
       return {
         post: post,
@@ -1002,14 +1042,14 @@ function renderHeroItems(items) {
   // Isso elimina o FOUC por design: não há múltiplos elementos
   // de texto que precisam de opacity management.
   items.forEach(function(item, index) {
-    var slide = document.createElement('div');
+    var slide = document.createElement('a');
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
+    slide.href = item.post.canonicalPath;
     slide.style.cssText = getCardImg(item.post);
     slide.style.cursor = 'pointer';
     slide.style.pointerEvents = index === 0 ? 'auto' : 'none';
-    slide.setAttribute('role', 'link');
     slide.setAttribute('aria-label', item.post.title);
-    slide.addEventListener('click', function() { navigateTo(item.post.id); });
+    slide.addEventListener('click', function(event) { event.preventDefault(); navigateTo(item.post.id); });
     container.appendChild(slide);
   });
 
@@ -1210,6 +1250,7 @@ function init() {
   buildMoreGrid();
   buildFadeHero();
   buildLatestStrip();
+  buildNewsArchive();
   initMarketBar();
   checkHash();
 }
