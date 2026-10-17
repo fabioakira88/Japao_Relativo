@@ -1,6 +1,6 @@
 # Japão Relativo
 
-Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão. Branding CURRENT: Brand System 3.0 FINAL com a direção aprovada no Notion em 12/10/2026. O acervo cultural e as ferramentas de estudo permanecem acessíveis.
+Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão. Branding CURRENT: Brand System 3.0 FINAL e direção editorial vigente, com aplicação web da assinatura transparente e dos elementos da prancha fornecida pelo proprietário em outubro de 2026. O acervo cultural e as ferramentas de estudo permanecem acessíveis.
 
 Site: https://japaorelativo.com/
 

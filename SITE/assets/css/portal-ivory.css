@@ -33,6 +33,8 @@ body.jr-portal .site-main .section.editorial-section::before {
   display: none !important;
 }
 body.jr-portal #heroSection {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
@@ -74,8 +76,8 @@ body.jr-portal #heroSection .nav.is-open .nav-links {
   backdrop-filter: none;
 }
 body.jr-portal #heroSection .nav-logo-mark {
-  width: 84px;
-  height: 84px;
+  width: 244px !important;
+  height: 68px !important;
   object-fit: contain;
   border: 0;
   border-radius: 0 !important;
@@ -83,6 +85,18 @@ body.jr-portal #heroSection .nav-logo-mark {
   filter: none;
   box-shadow: none;
 }
+/* Brand ornaments stay in the margins; text and cover art remain unobstructed. */
+body.jr-portal .jr-hero-ornament { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+body.jr-portal .jr-hero-ornament span { position: absolute; display: block; }
+body.jr-portal .jr-ornament-circle { width: 250px; height: 250px; right: -90px; top: 126px; border: 1px solid #C62828; border-radius: 50%; background: #C62828; opacity: .07; }
+body.jr-portal .jr-ornament-geometric { width: 270px; height: 170px; left: -46px; bottom: -48px; background: url('/assets/brand/jr-pattern-geometric.svg') 0 0/144px 125px; opacity: .18; }
+body.jr-portal .jr-ornament-waves { width: 270px; height: 110px; right: 5%; bottom: -36px; background: url('/assets/brand/jr-pattern-waves.svg') 0 0/120px 60px; opacity: .22; }
+body.jr-portal .site-main .footer { position: relative; background-image: url('/assets/brand/jr-pattern-waves.svg') !important; background-size: 160px 80px !important; background-repeat: repeat-x !important; background-position: left bottom !important; }
+body.jr-portal .site-main .footer::before { display: block !important; content: ''; position: absolute; inset: 0 0 28px; background: var(--jr-paper); pointer-events: none; z-index: 0; }
+body.jr-portal .site-main :is(.footer-top,.footer-bottom) { position: relative; z-index: 1; }
+body.jr-portal .site-main .footer-logo img { width: 272px !important; height: 88px !important; object-fit: contain; }
+body.jr-portal .site-main .footer-newsletter .social-link { display: inline-flex; width: auto; max-width: 100%; height: auto; min-height: 44px; margin-top: 16px; padding: 8px 12px; border-radius: 2px; font-size: 12px; line-height: 1.4; white-space: normal; transform: none; text-align: left; }
+body.jr-portal .article-brand-lockup img { width: 76px; height: 52px; }
 body.jr-portal #heroSection .hero-bg-slides {
   position: relative;
   inset: auto;
@@ -221,7 +235,10 @@ body.jr-portal::-webkit-scrollbar-track { background: var(--jr-paper); }
 @media (max-width: 920px) {
   body.jr-portal #heroSection { grid-template-columns: minmax(0,1fr); gap: 20px; padding: 0 24px 32px; min-height: 0 !important; overflow: visible; }
   body.jr-portal #heroSection .nav { position: relative; min-height: 96px; }
-  body.jr-portal #heroSection .nav-logo-mark { width: 64px; height: 64px; }
+  body.jr-portal #heroSection .nav-logo-mark { width: 208px !important; height: 60px !important; }
+  body.jr-portal .jr-ornament-circle { width: 160px; height: 160px; right: -112px; top: 128px; opacity: .06; }
+  body.jr-portal .jr-ornament-geometric { width: 160px; height: 100px; left: -40px; bottom: -46px; opacity: .16; }
+  body.jr-portal .jr-ornament-waves { width: 170px; height: 90px; right: 24px; bottom: -48px; opacity: .18; }
   body.jr-portal #heroSection .nav.is-open .nav-links { inset: 100% 0 auto; width: auto; align-items: flex-start; }
   body.jr-portal #heroSection .hero-bg-slides { grid-column: 1; grid-row: 3; width: min(100%,460px); justify-self: center; height: auto; }
   body.jr-portal #heroSection .hero-text-panel { grid-column: 1; grid-row: 2; width: 100%; padding: 16px 0 !important; }

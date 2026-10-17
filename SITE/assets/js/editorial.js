@@ -491,8 +491,8 @@ function getArticleJsonLd() {
 }
 
 function absoluteImage(path) {
-  if (!path) return SITE_ORIGIN + '/assets/brand/jr-logo-master-3.png';
-  if (/^https:\/\//i.test(path)) return isAllowedRemoteImage(path) ? path : SITE_ORIGIN + '/assets/brand/jr-logo-master-3.png';
+  if (!path) return SITE_ORIGIN + '/assets/brand/jr-share-card.png';
+  if (/^https:\/\//i.test(path)) return isAllowedRemoteImage(path) ? path : SITE_ORIGIN + '/assets/brand/jr-share-card.png';
   return SITE_ORIGIN + '/' + String(path).replace(/^\/+/, '');
 }
 
@@ -541,8 +541,7 @@ function openPost(id) {
   updateArticleMeta(post, id);
   document.getElementById('renderTarget').innerHTML = `
     <div class="article-brand-lockup">
-      <img src="/assets/brand/jr-logo-master-3.png" alt="" aria-hidden="true">
-      <span class="editorial-stamp">${getEditorialStamp(post)}</span>
+      <img src="/assets/brand/jr-brandmark.svg" alt="Japão Relativo">
     </div>
     <div class="a-tag">${post.tag}</div>
     <h1>${post.title}</h1>

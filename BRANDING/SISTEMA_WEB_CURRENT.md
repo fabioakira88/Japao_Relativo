@@ -18,9 +18,13 @@ Ilustração original inspirada em ukiyo-e e shin-hanga é linguagem principal a
 
 ## Assets proprietários
 
-`SITE/assets/brand/jr-logo-master-3.png` contém a imagem original embutida no PDF 3.0 FINAL fornecido por Fábio, extraída sem redesenho, recoloração ou recorte. Página 1, objeto de imagem 3, 953 × 941 px; SHA-256 `0527d780cd62358487ebab1bb604891a5907e078ba32fc053b0d162fa09d9f1b`. É o lockup completo presente no manual, não uma nova versão compacta ou transparente.
+Aplicação web atualizada em 18/10/2026 conforme a prancha fornecida por Fábio: `SITE/assets/brand/jr-signature-horizontal.svg` é a assinatura horizontal transparente para cabeçalhos e rodapé; `SITE/assets/brand/jr-brandmark.svg` é o monograma com ponto vermelho para usos reduzidos. Favicon, ícones de dispositivo e preview social usam os mesmos elementos. A peça quadrada de apresentação deixou de ser aplicada como logo de navegação.
 
-O uso é proporcional, sem filtros e com texto alternativo. Logo antiga circular e logo com brilho são legadas. Não desenhar JR. com texto como substituto do asset. Nihonzaru continua opcional; seu master precisa de verificação própria e sua pendência não invalida os assets comprovados. Aprovação de peça, verificação de arquivo e autorização de publicação são estados diferentes.
+Os derivados transparentes foram preparados com a ferramenta image_gen a partir da referência enviada. As matrizes PNG ficam em `SITE/assets/brand/jr-signature-horizontal-v1.png` e `SITE/assets/brand/jr-brandmark-v1.png`; os SVGs de uso web incorporam versões raster otimizadas, com enquadramento ajustado à transparência. Isso não equivale à recuperação dos vetores originais. Método e vínculos constam de `SITE/assets/brand/identity-current.json`.
+
+`SITE/assets/brand/jr-logo-master-3.png` permanece como a peça original extraída do manual 3.0, sem alteração dos seus pixels: 953 × 941 px; SHA-256 `0527d780cd62358487ebab1bb604891a5907e078ba32fc053b0d162fa09d9f1b`. É fonte documental; não é a assinatura atual dos cabeçalhos. Não reconstruir a marca com texto digitado no navegador. Aprovação de peça, verificação do arquivo original e autorização de publicação continuam estados diferentes.
+
+Os padrões geométrico e de ondas em `jr-pattern-geometric.svg` e `jr-pattern-waves.svg` são elementos decorativos em SVG. Entram nas margens da abertura, nos detalhes das matérias e no rodapé, com intensidade baixa e sem disputar espaço com texto ou capas. O ponto/círculo vermelho usa `#C62828`, e as linhas usam cinza quente `#8D8781`, conforme a referência. A superfície marfim vigente, a tipografia editorial e os contrastes funcionais permanecem. Ornamentos não recebem foco, não capturam cliques e ficam ocultos para tecnologia assistiva.
 
 ## Aplicação por canal
 

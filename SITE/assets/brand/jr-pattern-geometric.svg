@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="124.708" viewBox="0 0 144 124.708">
+  <defs>
+    <pattern id="lattice" width="144" height="124.708" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#8D8781" stroke-width=".8">
+        <path d="M0 0H144L72 124.708ZM0 0 72 124.708H-72ZM144 0 216 124.708H72Z"/>
+        <path d="M0 0 72 41.569 144 0M72 124.708V41.569M0 0 36 62.354 72 41.569 108 62.354 144 0M36 62.354 72 124.708 108 62.354M0 0 0 83.138 72 124.708 144 83.138V0M0 83.138 36 62.354M108 62.354 144 83.138"/>
+      </g>
+    </pattern>
+  </defs>
+  <path fill="url(#lattice)" d="M0 0H144V124.708H0Z"/>
+</svg>

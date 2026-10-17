@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-10-18",
+  "reference": "Prancha de marca fornecida pelo proprietário nesta conversa.",
+  "method": "Derivados de produção preparados com a ferramenta image_gen, com enquadramento transparente e exportações otimizadas para web. Os SVGs contêm imagem raster incorporada; não são vetores originais extraídos da prancha.",
+  "signature": {
+    "src": "assets/brand/jr-signature-horizontal.svg",
+    "source": "assets/brand/jr-signature-horizontal-v1.png",
+    "x": 304,
+    "y": 156,
+    "width": 1610,
+    "height": 437
+  },
+  "brandmark": {
+    "src": "assets/brand/jr-brandmark.svg",
+    "source": "assets/brand/jr-brandmark-v1.png",
+    "x": 178,
+    "y": 148,
+    "width": 1205,
+    "height": 759
+  },
+  "share": "assets/brand/jr-share-card.png",
+  "ornaments": [
+    "assets/brand/jr-pattern-geometric.svg",
+    "assets/brand/jr-pattern-waves.svg"
+  ]
+}
