@@ -41,7 +41,7 @@ body.kira-nihongo .screen-dark .ghost-button { color: #1A1817; border-color: #D8
 body.kira-nihongo footer { background: #F8F3EA !important; border-color: #D8D0C3 !important; }
 body.kira-nihongo footer :is(span,a) { color: #55504A !important; }
 body.kira-nihongo :is(.header-label,.breadcrumb a,.breadcrumb span,.screen-dark .lead,.screen-dark .eyebrow) { color: #55504A; }
-body.kira-nihongo .brand-master { width: 56px; height: 56px; display: block; object-fit: contain; }
+body.kira-nihongo .brand-master { width: 184px; height: 54px; display: block; object-fit: contain; }
 body.kira-nihongo .yumi-hero { grid-template-columns: minmax(0,1fr); }
 body.kira-nihongo :is(.yumi-brand strong,.yumi-hero h1,.yumi-app-title) { color: #1A1817; line-height: 1.12; }
 body.kira-nihongo :is(.yumi-hero,.yumi-panel,.yumi-face,.yumi-campus-card,.offer-card,.module-card) { border-radius: 4px; }

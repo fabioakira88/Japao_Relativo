@@ -12,6 +12,7 @@ for(const file of walk(site)) {
   count++;
   const source=fs.readFileSync(file,'utf8');
   const html=source.replace(/<script\b[\s\S]*?<\/script>/gi,'').replace(/<style\b[\s\S]*?<\/style>/gi,'');
+  if(/<img\b[^>]*src=["'][^"']*assets\/brand\/(?:jr-logo-master-3|jr-editorial-logo)\.png/i.test(html))failures.push(path.relative(site,file)+': presentation artwork used as the website signature');
   for(const header of html.matchAll(/<header\b[^>]*>[\s\S]*?<\/header>/gi)) {
     if(/class=["']brand-name["']/.test(header[0])&&/class=["']brand-master["']/.test(header[0]))failures.push(path.relative(site,file)+': publisher signature duplicated beside original logo');
     if(/class=["']brand-mark["']>JR\./.test(header[0]))failures.push(path.relative(site,file)+': typed JR signature instead of original asset');

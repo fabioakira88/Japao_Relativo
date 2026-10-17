@@ -12,10 +12,10 @@
   --jr-serif: 'Noto Serif Display', 'Noto Serif JP', Georgia, serif;
   --jr-sans: 'Inter', Arial, sans-serif;
 }
-.brand-master { width: 48px; height: 48px; display: block; object-fit: contain; flex-shrink: 0; }
+.brand-master { width: 208px; height: 60px; display: block; object-fit: contain; flex-shrink: 0; }
 body.jr-editorial { background: var(--jr-paper); color: var(--jr-ink); }
 .jr-editorial .brand { align-items: center; }
-.jr-editorial .brand-master { width: 56px; height: 56px; object-fit: contain; }
+.jr-editorial .brand-master { width: 208px; height: 60px; object-fit: contain; }
 .jr-editorial .brand-name { font-family: var(--jr-serif); }
 .jr-editorial .breadcrumb span, .jr-editorial .article-kicker { color: var(--jr-red); }
 .jr-editorial .article-body { color: var(--jr-ink); font-size: 18px; line-height: 1.75; max-width: 68ch; margin-inline: auto; }
@@ -35,6 +35,10 @@ img[data-jr-cover="illustration"], img[data-jr-cover="social-cover"] {
   margin-inline: auto;
 }
 .jr-editorial .hero { padding-block: clamp(36px, 6vw, 80px) 36px; }
+.jr-editorial .jr-header { position: relative; }
+.jr-editorial .jr-header::after { content: ''; position: absolute; width: 7px; height: 7px; right: 0; bottom: -4px; background: #C62828; border-radius: 50%; pointer-events: none; }
+.jr-editorial .hero { position: relative; isolation: isolate; overflow: hidden; }
+.jr-editorial .hero::after { content: ''; position: absolute; right: -62px; top: 28px; width: 180px; height: 150px; background: url('/assets/brand/jr-pattern-geometric.svg') 0 0/144px 125px; opacity: .1; z-index: -1; pointer-events: none; }
 .jr-editorial .content-card, .jr-editorial .article-figure, .jr-editorial .jr-header { box-shadow: none; }
 .jr-editorial .hero h1, .jr-editorial .article-body :is(h2,h3) { text-shadow: none; }
 .jr-editorial .hero h1 { line-height: 1.08; hyphens: none; word-break: normal; }
@@ -53,4 +57,8 @@ img[data-jr-cover="illustration"], img[data-jr-cover="social-cover"] {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media (max-width: 480px) {
+  .jr-editorial .brand-master { width: 176px; height: 52px; }
+  .jr-editorial .hero::after { width: 104px; height: 100px; right: -64px; top: 8px; opacity: .08; }
 }

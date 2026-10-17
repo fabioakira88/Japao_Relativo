@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+  <defs>
+    <g id="fan" fill="none" stroke="#8D8781" stroke-width=".8">
+      <path d="M-80 0A80 80 0 0 1 80 0M-64 0A64 64 0 0 1 64 0M-48 0A48 48 0 0 1 48 0M-32 0A32 32 0 0 1 32 0M-16 0A16 16 0 0 1 16 0"/>
+    </g>
+  </defs>
+  <use href="#fan" x="0" y="40"/><use href="#fan" x="160" y="40"/>
+  <use href="#fan" x="80" y="80"/>
+  <use href="#fan" x="0" y="120"/><use href="#fan" x="160" y="120"/>
+</svg>
