@@ -56,11 +56,9 @@ Exemplos:
 - Trabalho: fábrica, obra, uniforme, rotina laboral.
 - Survival: preparação, rota, emergência, item prático.
 - Nihongo: situação comunicativa ou estudo real.
-- Elevação: trilha, montanha, rio, acampamento ou geografia correta.
 
 ## Implementação atual
 
 - Home e grid editorial usam a paleta sumi/washi/ouro/bengara.
 - Hero, cards, mini cards e artigos usam selo `JR. ● EDITORIA`.
 - Artigos abertos exibem lockup com logo `JR.` antes do título.
-- Matérias da Elevação mantêm marca própria adicional.

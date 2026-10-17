@@ -34,7 +34,3 @@ class ContentResponse(BaseModel):
     payload_json: dict[str, Any]
     created_at: datetime
     updated_at: datetime
-
-
-class ProductionRequest(BaseModel):
-    quantity: int = Field(default=1, ge=1, le=5)

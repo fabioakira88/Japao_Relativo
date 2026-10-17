@@ -6,7 +6,7 @@ API modular para automação de conteúdo.
 
 Esta é a Fase 2 do projeto.
 
-A Fase 1 validou a arquitetura básica com FastAPI, rotas iniciais e um mock de montanha.
+A arquitetura básica usa FastAPI, rotas de saúde e gestão genérica de conteúdo.
 
 A Fase 2 adiciona persistência local com SQLite, tabela `contents`, schemas Pydantic e fluxo básico de produção mock salvando dados no banco.
 
@@ -34,7 +34,6 @@ AION_CONTENT_ENGINE/
       db.py
       models.py
     modules/
-      mountains.py
     services/
       content_service.py
   tests/
@@ -117,30 +116,6 @@ curl http://127.0.0.1:8000/contents
 curl http://127.0.0.1:8000/contents/1
 ```
 
-### Produzir uma montanha mock
-
-```bash
-curl -X POST http://127.0.0.1:8000/produce/mountain
-```
-
-Esse endpoint gera uma montanha mock, salva no banco como:
-
-```text
-project = elevacao
-content_type = mountain
-status = draft
-```
-
-### Produzir batch de montanhas mock
-
-```bash
-curl -X POST http://127.0.0.1:8000/produce/mountains/batch \
-  -H "Content-Type: application/json" \
-  -d '{"quantity": 5}'
-```
-
-O batch aceita `quantity` entre 1 e 5 e não repete montanhas no mesmo lote.
-
 ## Como rodar testes
 
 ```bash
@@ -183,7 +158,6 @@ Fase 1:
 
 - API modular inicial.
 - `/health`.
-- Produção mock de montanha sem persistência.
 - Estrutura preparada para crescer.
 
 Fase 2:
@@ -195,7 +169,6 @@ Fase 2:
 - Listagem de conteúdos.
 - Busca por ID.
 - Produção mock salvando no banco.
-- Batch de montanhas mock.
 - Status de produção tipados.
 - Camada de serviço para separar HTTP e persistência.
 - Testes cobrindo fluxo básico.

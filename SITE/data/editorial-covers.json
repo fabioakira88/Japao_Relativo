@@ -36,23 +36,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "reinhold-messner-redefiniu-alpinismo": {
-      "src": "assets/covers/reinhold-messner-alpinismo-cover.svg",
-      "alt": "Imagem de acervo associada a Reinhold Messner: o homem que redefiniu o alpinismo",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kaburayama-kabusugi-cedros-que-renascem": {
-      "src": "assets/covers/current/cedros-kabusugi.jpg",
-      "alt": "Ilustração editorial: Interpretação ilustrada de cedros com múltiplos troncos; não é fotografia de Kaburayama.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/cedros-kabusugi-preview.jpg"
-    },
     "rimuru-veldora-amizade-que-mudou-tempest": {
       "src": "assets/covers/current/rimuru-veldora.jpg",
       "alt": "Ilustração editorial: Slime azul e dragão em interpretação editorial da amizade entre Rimuru e Veldora.",
@@ -78,51 +61,6 @@
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "previsao-cidade-nao-serve-para-cume": {
-      "src": "assets/covers/current/clima-cume.jpg",
-      "alt": "Ilustração editorial: Contraste ilustrado entre o tempo no vale e em uma crista de montanha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/clima-cume-preview.jpg"
-    },
-    "o-que-fazer-ao-perceber-que-esta-perdido-na-trilha": {
-      "src": "assets/covers/current/perdido-trilha.jpg",
-      "alt": "Ilustração editorial: Caminhante para e examina um mapa.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/perdido-trilha-preview.jpg"
-    },
-    "bussola-orientacao-basica-sem-gps": {
-      "src": "assets/covers/current/bussola-trilha.jpg",
-      "alt": "Ilustração editorial: Bússola e mapa em uma composição sobre orientação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/bussola-trilha-preview.jpg"
-    },
-    "curvas-de-nivel-sem-misterio": {
-      "src": "assets/covers/current/curvas-nivel-trilha.jpg",
-      "alt": "Ilustração editorial: Mapa e maquete de relevo com curvas de nível esquemáticas.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/curvas-nivel-trilha-preview.jpg"
-    },
-    "mapa-offline-sinal-celular-nao-e-navegacao": {
-      "src": "assets/covers/current/mapa-offline-trilha.jpg",
-      "alt": "Ilustração editorial: Telefone e mapa físico como recursos complementares de navegação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mapa-offline-trilha-preview.jpg"
     },
     "salario-minimo-japao-2026-conselho-central": {
       "src": "assets/covers/salario-minimo-japao-2026-recomendacao-prefeituras-cover.jpg",
@@ -254,65 +192,9 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "hakuba-alem-da-neve-alpes-do-norte": {
-      "src": "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
-      "alt": "Imagem de acervo associada a Hakuba além da neve: o vale moldado pelos Alpes do Norte do Japão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kiso-komagatake-alpes-centrais-japao": {
-      "src": "assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg",
-      "alt": "Imagem de acervo associada a Kiso-Komagatake: o ponto mais alto dos Alpes Centrais do Japão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "komagane-cidade-entre-alpes-japoneses": {
-      "src": "assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg",
-      "alt": "Imagem de acervo associada a Komagane: a cidade entre os Alpes Centrais e os Alpes do Sul",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kamikochi-vale-protegido-alpes-japoneses": {
-      "src": "assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg",
-      "alt": "Imagem de acervo associada a Kamikochi: o vale protegido no coração dos Alpes Japoneses",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "alpes-de-nagano-guia-cordilheiras-japao": {
-      "src": "assets/covers/alpes-reais/alpes-de-nagano-guia-cordilheiras-japao-cover.jpg",
-      "alt": "Imagem de acervo associada a Os Alpes de Nagano: como entender as três grandes cordilheiras do Japão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "alpes-de-gifu-face-oeste-montanhas-hida": {
-      "src": "assets/covers/alpes-reais/alpes-de-gifu-face-oeste-montanhas-hida-cover.jpg",
-      "alt": "Imagem de acervo associada a Os Alpes de Gifu: a face oeste das montanhas Hida",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "obon-yasumi-espiritos-aguas-afogamentos": {
       "src": "assets/covers/obon-yasumi-espiritos-aguas-afogamentos-cover.png",
       "alt": "Imagem de acervo associada a Obon Yasumi: por que dizem que os espíritos passam pelas águas?",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "mutuca-japao-abu-verao": {
-      "src": "assets/covers/mutuca-japao-abu-verao-cover.png",
-      "alt": "Imagem de acervo associada a Mutuca no Japão: o inseto que estraga trilha, rio e acampamento no verão",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -385,14 +267,6 @@
     "tsuyu-estacao-das-chuvas-japao-rotina": {
       "src": "assets/covers/tsuyu-estacao-das-chuvas-japao-rotina-cover.jpg",
       "alt": "Imagem de acervo associada a Tsuyu: como a estação das chuvas muda a rotina no Japão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "ursos-japao-como-evitar-encontros": {
-      "src": "assets/covers/ursos-japao-como-evitar-encontros-cover.jpg",
-      "alt": "Imagem de acervo associada a Ursos no Japão: como evitar encontros e reagir com segurança",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -1059,14 +933,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "yama-no-hi-dia-das-montanhas-japao": {
-      "src": "assets/covers/yama-no-hi-dia-das-montanhas-japao-cover.jpg",
-      "alt": "Imagem de acervo associada a Yama No Hi: O Dia Das Montanhas",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "keiro-no-hi-respeito-aos-idosos-japao": {
       "src": "assets/covers/keiro-no-hi-respeito-aos-idosos-japao-cover.jpg",
       "alt": "Imagem de acervo associada a Keirō no Hi: o Dia do Respeito aos Idosos no Japão",
@@ -1675,14 +1541,6 @@
     "tanabata-lenda-festival-japao": {
       "src": "assets/covers/tanabata-lenda-festival-japao.jpg",
       "alt": "Imagem de acervo associada a Tanabata: o amor impossível que atravessou mais de mil anos",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "temporada-escalada-monte-fuji-2026": {
-      "src": "assets/covers/temporada-escalada-monte-fuji-2026.jpg",
-      "alt": "Imagem de acervo associada a Temporada de escalada do Monte Fuji 2026: regras, taxas e segurança",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -2674,14 +2532,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "montanhas-do-japao-terminam-em-san-e-dake": {
-      "src": "assets/covers/montanhas-do-japao-terminam-em-san-e-dake.jpg",
-      "alt": "Imagem de acervo associada a Por que algumas montanhas do Japão terminam em DAKE e outras em SAN?",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "estrutura-noni": {
       "src": "assets/covers/current/estudo-japones.jpg",
       "alt": "Ilustração editorial: Caderno e cartões de estudo sem palavras, em uma mesa de aprendizagem.",
@@ -2796,176 +2646,6 @@
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "hiking-trekking-montanhismo-diferenca": {
-      "src": "assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg",
-      "alt": "Imagem de acervo associada a Hiking, trekking e montanhismo: qual é a diferença?",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "dez-itens-essenciais-trilha": {
-      "src": "assets/covers/current/mochila-trilha.jpg",
-      "alt": "Ilustração editorial: Mochila e equipamentos para preparação de trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mochila-trilha-preview.jpg"
-    },
-    "como-escolher-trilha-compativel-nivel": {
-      "src": "assets/covers/current/curvas-nivel-trilha.jpg",
-      "alt": "Ilustração editorial: Mapa e maquete de relevo com curvas de nível esquemáticas.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/curvas-nivel-trilha-preview.jpg"
-    },
-    "desnivel-acumulado-dificuldade-trilha": {
-      "src": "assets/covers/current/curvas-nivel-trilha.jpg",
-      "alt": "Ilustração editorial: Mapa e maquete de relevo com curvas de nível esquemáticas.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/curvas-nivel-trilha-preview.jpg"
-    },
-    "planejar-horario-retorno-antes-subida": {
-      "src": "assets/covers/current/horario-retorno-trilha.jpg",
-      "alt": "Ilustração editorial: Relógio, mapa e lanterna na preparação de uma trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/horario-retorno-trilha-preview.jpg"
-    },
-    "agua-na-trilha-quanto-levar-calor": {
-      "src": "assets/covers/current/agua-trilha.jpg",
-      "alt": "Ilustração editorial: Reservatórios de água e equipamento de trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/agua-trilha-preview.jpg"
-    },
-    "golpe-calor-montanha-sinais-resposta": {
-      "src": "assets/covers/current/calor-wbgt.jpg",
-      "alt": "Ilustração editorial: Medidor de calor com globo negro, água e toalha; tela sem valores.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/calor-wbgt-preview.jpg"
-    },
-    "como-montar-mochila-sem-destruir-costas": {
-      "src": "assets/covers/current/mochila-trilha.jpg",
-      "alt": "Ilustração editorial: Mochila e equipamentos para preparação de trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mochila-trilha-preview.jpg"
-    },
-    "bota-ou-tenis-de-trilha-qual-escolher": {
-      "src": "assets/covers/current/calcar-trilha.jpg",
-      "alt": "Ilustração editorial: Bota e tênis de trilha lado a lado para comparação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/calcar-trilha-preview.jpg"
-    },
-    "bolhas-nos-pes-prevencao-trilha": {
-      "src": "assets/covers/current/bolhas-pes-trilha.jpg",
-      "alt": "Ilustração editorial: Calçado e material de cuidado dos pés em trilhas.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/bolhas-pes-trilha-preview.jpg"
-    },
-    "o-que-fazer-ao-perceber-que-esta-perdido": {
-      "src": "assets/covers/current/perdido-trilha.jpg",
-      "alt": "Ilustração editorial: Caminhante para e examina um mapa.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/perdido-trilha-preview.jpg"
-    },
-    "guia-yamap-portugues-trilhas-japao": {
-      "src": "assets/covers/current/mapa-offline-trilha.jpg",
-      "alt": "Ilustração editorial: Telefone e mapa físico como recursos complementares de navegação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mapa-offline-trilha-preview.jpg"
-    },
-    "yamareco-guia-portugues-montanhismo-japao": {
-      "src": "assets/covers/current/mapa-offline-trilha.jpg",
-      "alt": "Ilustração editorial: Telefone e mapa físico como recursos complementares de navegação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mapa-offline-trilha-preview.jpg"
-    },
-    "compass-tozan-todoke-plano-montanha-japao": {
-      "src": "assets/covers/current/horario-retorno-trilha.jpg",
-      "alt": "Ilustração editorial: Relógio, mapa e lanterna na preparação de uma trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/horario-retorno-trilha-preview.jpg"
-    },
-    "apps-clima-montanha-japao-jma-wbgt": {
-      "src": "assets/covers/current/clima-cume.jpg",
-      "alt": "Ilustração editorial: Contraste ilustrado entre o tempo no vale e em uma crista de montanha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/clima-cume-preview.jpg"
-    },
-    "kit-digital-montanhismo-japao-apps": {
-      "src": "assets/covers/current/mapa-offline-trilha.jpg",
-      "alt": "Ilustração editorial: Telefone e mapa físico como recursos complementares de navegação.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/mapa-offline-trilha-preview.jpg"
-    },
-    "bastoes-de-trekking-quando-usar": {
-      "src": "assets/covers/current/bastoes-trilha.jpg",
-      "alt": "Ilustração editorial: Par de bastões de trekking em ilustração editorial.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/bastoes-trilha-preview.jpg"
-    },
-    "roupa-em-camadas-trilha-japao": {
-      "src": "assets/covers/current/roupa-camadas-trilha.jpg",
-      "alt": "Ilustração editorial: Peças de roupa para vestir em camadas durante uma trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/roupa-camadas-trilha-preview.jpg"
-    },
-    "lanterna-de-cabeca-trilha-item-obrigatorio": {
-      "src": "assets/covers/current/lanterna-trilha.jpg",
-      "alt": "Ilustração editorial: Lanterna de cabeça como equipamento de trilha.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/lanterna-trilha-preview.jpg"
     },
     "akira-biografia-anime-classico": {
       "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-4CR68arv452h.jpg",

@@ -1,6 +1,6 @@
 # Japão Relativo
 
-Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão. Branding CURRENT: Brand System 3.0 FINAL com a direção aprovada no Notion em 12/10/2026. O acervo e os produtos existentes permanecem acessíveis.
+Revista cultural sobre história, tradições, lugares e vida cotidiana no Japão. Branding CURRENT: Brand System 3.0 FINAL com a direção aprovada no Notion em 12/10/2026. O acervo cultural e as ferramentas de estudo permanecem acessíveis.
 
 Site: https://japaorelativo.com/
 
@@ -11,7 +11,7 @@ Site: https://japaorelativo.com/
 - `SITE/index.html`: estrutura da home. Conteúdo em `SITE/data/editorial-posts.json`; runtime em `SITE/assets/js/editorial.js`; estilos em `SITE/assets/css/editorial.css`.
 - `SITE/<slug>/index.html`: páginas estáticas de matérias e produtos, preservadas. O gerador registra rotas canônicas existentes para navegação. Matérias legadas sem página própria continuam na leitura por hash; conteúdo estático e registro ainda devem ser comparados quando uma matéria muda.
 - `SITE/assets/`: imagens, estilos, scripts e dados de produtos.
-- `scripts/build-editorial.js`: gera o bundle de 393 registros e o sitemap a partir das rotas indexáveis. `scripts/validate-jr-assets.js` e `scripts/validate-architecture.js`: verificam assets, rotas, sintaxe e cobertura do sitemap.
+- `scripts/build-editorial.js`: gera o bundle de 356 registros e o sitemap a partir das rotas indexáveis. `scripts/validate-jr-assets.js` e `scripts/validate-architecture.js`: verificam assets, rotas, sintaxe e cobertura do sitemap.
 - `.github/workflows/deploy.yml`: valida e publica o conteúdo de SITE, com CNAME, no GitHub Pages.
 - `DOCS/`, `AUDIT/`: documentação, diagnóstico e evidências locais. Relatórios antigos registram a fase em que foram escritos.
 
@@ -24,4 +24,4 @@ Site: https://japaorelativo.com/
 5. Revisar diff e arquivos de deploy. Fazer commit e push somente dentro da autorização vigente. A branch main exige PR; aguardar a validação antes do merge.
 6. Aguardar o workflow e conferir a versão pública. Registrar o SHA e a evidência, sem confundir planejamento social com agendamento na rede.
 
-As áreas Kira Nihongo e Elevação mantêm identidade própria. Não incluir credenciais, snapshots internos do Notion, exportações brutas ou arquivos temporários na publicação.
+Kira Nihongo mantém identidade própria. Não incluir credenciais, snapshots internos do Notion, exportações brutas ou arquivos temporários na publicação.

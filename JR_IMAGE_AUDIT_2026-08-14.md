@@ -39,19 +39,10 @@ As correções foram aplicadas no índice principal (`SITE/index.html`) e nas p�
 | Salário mínimo recorde | `assets/covers/salario-minimo-recorde-japao-2026-cover.jpg` | AMARELO | Prédio do Hello Work é relacionado, mas seria melhor contracheque, trabalhador ou quadro salarial. |
 | Preço do arroz | `assets/covers/preco-arroz-inflacao-alimentos-japao-2026-cover.jpg` | VERDE | Mantém: prateleira de supermercado e etiquetas de preço comunicam inflação do arroz. |
 
-## Elevação
-
-| Matéria | Imagem atual | Avaliação | Recomendação |
-| --- | --- | --- | --- |
-| Hakuba além da neve | `assets/covers/alpes-reais/hakuba-alem-da-neve-alpes-do-norte-cover.jpg` | VERDE | Mantém: paisagem alpina real e geograficamente ligada ao assunto. |
-| Kiso-Komagatake | `assets/covers/alpes-reais/kiso-komagatake-alpes-centrais-japao-cover.jpg` | VERDE | Mantém: montanha real, sem uso de Fuji ou Alpes estrangeiros. |
-| Komagane | `assets/covers/alpes-reais/komagane-cidade-entre-alpes-japoneses-cover.jpg` | VERDE | Mantém: vale/cidade-base com Alpes ao fundo. |
-| Kamikochi | `assets/covers/alpes-reais/kamikochi-vale-protegido-alpes-japoneses-cover.jpg` | VERDE | Mantém: ponte, rio e vale correspondem ao tema. |
-| Mutuca no Japão | `assets/covers/mutuca-japao-abu-verao-cover.png` | VERDE | Mantém: ilustração comunica inseto, trilha, rio e acampamento; não afirma local específico. |
 
 ## Próximo lote recomendado
 
 1. Revisar as capas AMARELAS com novas imagens mais específicas.
 2. Auditar todas as capas SVG que não renderizaram no visualizador interno.
-3. Separar uma biblioteca por editoria: Imigração, Finanças, Trabalho, Survival, Nihongo e Elevação.
+3. Separar uma biblioteca por editoria: Imigração, Finanças, Trabalho, Survival, Nihongo.
 4. Evitar reutilizar capas de sociedade/cultura em matérias de gramática, salvo quando a imagem mostrar a situação comunicativa ensinada.
