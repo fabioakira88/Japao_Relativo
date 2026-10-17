@@ -202,7 +202,6 @@ function updateSectionHeading(cat) {
   const label = document.querySelector('.editorial-section .section-label');
   const title = document.querySelector('.editorial-section .section-title');
   if (!label || !title) return;
-  if (section) section.classList.toggle('is-elevacao', cat === 'Elevação');
   if (section) section.classList.toggle('is-anime', cat === 'Anime');
   if (cat === 'all') {
     label.textContent = 'Revista / Editorial';
@@ -214,7 +213,7 @@ function updateSectionHeading(cat) {
     title.textContent = 'Anime JR';
     return;
   }
-  label.textContent = cat === 'Elevação' ? 'Trilhas · Trekking · Outdoor' : 'Arquivo Editorial';
+  label.textContent = 'Arquivo Editorial';
   title.textContent = cat === 'Notícia' ? 'Notícias' : cat === 'Artigos' ? 'Artigos' : cat;
 }
 
@@ -312,7 +311,6 @@ const CATEGORY_MAP = {
   'Dicas':       ['Dicas', 'Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
   'Cultura Pop': ['Anime'],
   'Anime':       ['Anime'],
-  'Elevação':    ['Elevação', 'Montanha', 'Natureza', 'Montanhismo', 'Trekking', 'Hike', 'Trail', 'Camping', 'Bushcraft'],
   'Utilidades':  ['Utilidades', 'Dicas', 'Curiosidade', 'Saúde e Bem-Estar'],
 };
 
@@ -322,14 +320,9 @@ function getPostsByCategory(cat) {
   return recentPosts.filter(p => tags.some(t => p.tag === t || p.tag.includes(t)));
 }
 
-function isElevationPost(post) {
-  const tags = CATEGORY_MAP['Elevação'];
-  return !!(post && post.tag && tags.some(t => post.tag === t || post.tag.includes(t)));
-}
-
 function getPortalPosts() {
   var portalPosts = recentPosts.filter(function(post) {
-    return !isElevationPost(post) && post.tag !== 'Notícia';
+    return post.tag !== 'Notícia';
   });
   return portalPosts.length ? portalPosts : recentPosts;
 }
@@ -385,10 +378,9 @@ if (filterGroup) {
 
 
 function filterCategory(cat) {
+  if (cat !== 'all' && !CATEGORY_MAP[cat] && !recentPosts.some(post => post.tag === cat)) cat = 'all';
   document.body.classList.remove('about-visible');
   document.body.classList.remove('reading-mode');
-  document.body.classList.remove('reading-elevacao');
-  setElevacaoMode(cat === 'Elevação');
   setAnimeMode(cat === 'Anime');
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -401,7 +393,7 @@ function filterCategory(cat) {
     b.classList.toggle('active', b.dataset.filter === cat);
   });
   setActiveNav(cat);
-  if (cat === 'all' || cat === 'Elevação' || cat === 'Anime') {
+  if (cat === 'all' || cat === 'Anime') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     setTimeout(() => {
@@ -421,8 +413,6 @@ function showJapanEditorial() {
 
 function showAbout() {
   document.body.classList.remove('reading-mode');
-  document.body.classList.remove('reading-elevacao');
-  setElevacaoMode(false);
   setAnimeMode(false);
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -541,7 +531,6 @@ function restoreHomeMetaDescription() {
 function openPost(id) {
   const post = DB[id];
   if (!post) return;
-  const isElevacao = isElevationPost(post);
   const heroBg = document.getElementById('articleHeroBg');
   heroBg.style.cssText = getCardImg(post, true) + ";height:100%";
   const metaDescription = getMetaDescription();
@@ -550,11 +539,9 @@ function openPost(id) {
   }
   metaDescription.setAttribute('content', post.metaDescription || post.description || extractExcerpt(post.content, 155));
   updateArticleMeta(post, id);
-  const brandLogo = isElevacao ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-logo-master-3.png';
-  const brandAlt = isElevacao ? 'Elevação' : '';
   document.getElementById('renderTarget').innerHTML = `
-    <div class="article-brand-lockup${isElevacao ? ' is-elevacao' : ''}">
-      <img src="${brandLogo}" alt="${brandAlt}" ${isElevacao ? '' : 'aria-hidden="true"'}>
+    <div class="article-brand-lockup">
+      <img src="/assets/brand/jr-logo-master-3.png" alt="" aria-hidden="true">
       <span class="editorial-stamp">${getEditorialStamp(post)}</span>
     </div>
     <div class="a-tag">${post.tag}</div>
@@ -569,17 +556,14 @@ function openPost(id) {
   `;
   normalizeContentAssets(document.getElementById("renderTarget"));
   initCarousel();
-  setElevacaoMode(isElevacao);
   document.body.classList.add('reading-mode');
-  document.body.classList.toggle('reading-elevacao', isElevacao);
   document.title = post.metaTitle || post.title + ' — Japão Relativo';
   window.scrollTo(0, 0);
 }
 
 function closePost() {
   document.body.classList.remove('reading-mode');
-  document.body.classList.remove('reading-elevacao');
-  setElevacaoMode(currentFilter === 'Elevação');
+  setAnimeMode(currentFilter === 'Anime');
   document.title = HOME_TITLE;
   restoreHomeMetaDescription();
   history.pushState(null, '', location.pathname);
@@ -594,10 +578,10 @@ window.addEventListener('popstate', function() {
     openPost(id);
   } else {
     document.body.classList.remove('reading-mode');
-    document.body.classList.remove('reading-elevacao');
-    setElevacaoMode(currentFilter === 'Elevação');
+    setAnimeMode(currentFilter === 'Anime');
     document.title = HOME_TITLE;
     restoreHomeMetaDescription();
+    checkHash();
     window.scrollTo(0, 0);
   }
 });
@@ -611,6 +595,7 @@ window.addEventListener('popstate', function() {
 function checkHash() {
   const id = location.hash.replace('#', '');
   if (id && DB[id]) openPost(id);
+  else if (id && !document.getElementById(id)) history.replaceState(null, '', location.pathname + location.search);
 }
 
 var heroPostsData = [];
@@ -667,70 +652,6 @@ var HERO_EDITORIAL_COPY = {
   "gundam-witch-from-mercury-bruxa-de-mercurio": {
     title: "A Bruxa de Mercúrio",
     subtitle: "Gundam, juventude e tecnologia sob controle corporativo."
-  },
-  "previsao-cidade-nao-serve-para-cume": {
-    title: "O cume tem outro clima",
-    subtitle: "Altitude, vento e nuvens mudam a leitura da montanha."
-  },
-  "o-que-fazer-ao-perceber-que-esta-perdido-na-trilha": {
-    title: "Perdido na trilha",
-    subtitle: "Pare, observe, conserve recursos e evite transformar erro em resgate."
-  },
-  "bussola-orientacao-basica-sem-gps": {
-    title: "Bússola sem GPS",
-    subtitle: "Direção, mapa e terreno antes da bateria acabar."
-  },
-  "curvas-de-nivel-sem-misterio": {
-    title: "Curvas de nível",
-    subtitle: "O mapa já mostra onde a subida começa."
-  },
-  "mapa-offline-sinal-celular-nao-e-navegacao": {
-    title: "Mapa offline primeiro",
-    subtitle: "Sinal de celular não é plano de navegação."
-  },
-  "o-que-fazer-ao-perceber-que-esta-perdido": {
-    title: "Perdido na trilha",
-    subtitle: "A primeira decisão é parar de piorar o erro."
-  },
-  "guia-yamap-portugues-trilhas-japao": {
-    title: "YAMAP antes da trilha",
-    subtitle: "Mapa, rota e bateria preparados antes da montanha."
-  },
-  "yamareco-guia-portugues-montanhismo-japao": {
-    title: "Yamareco com método",
-    subtitle: "Registros recentes ajudam quando viram planejamento."
-  },
-  "compass-tozan-todoke-plano-montanha-japao": {
-    title: "Tozan todoke sem mistério",
-    subtitle: "O plano de montanha como aviso, não como burocracia."
-  },
-  "apps-clima-montanha-japao-jma-wbgt": {
-    title: "Clima de montanha",
-    subtitle: "JMA, chuva, vento e calor antes do primeiro passo."
-  },
-  "kit-digital-montanhismo-japao-apps": {
-    title: "Kit digital de montanha",
-    subtitle: "Apps ajudam mais quando não viram ponto único de falha."
-  },
-  "como-montar-mochila-sem-destruir-costas": {
-    title: "Mochila sem sofrimento",
-    subtitle: "Peso, acesso e equilíbrio antes da primeira subida."
-  },
-  "bota-ou-tenis-de-trilha-qual-escolher": {
-    title: "Bota ou tênis?",
-    subtitle: "Terreno, carga e chuva decidem melhor que aparência."
-  },
-  "bastoes-de-trekking-quando-usar": {
-    title: "Bastões com técnica",
-    subtitle: "Apoio, ritmo e equilíbrio sem atrapalhar a trilha."
-  },
-  "roupa-em-camadas-trilha-japao": {
-    title: "Camadas de trilha",
-    subtitle: "Suor, vento, chuva e frio sob controle."
-  },
-  "lanterna-de-cabeca-trilha-item-obrigatorio": {
-    title: "Luz antes do escuro",
-    subtitle: "Headlamp é margem quando o bate-volta atrasa."
   },
   "akira-biografia-anime-classico": {
     title: "Akira e Neo-Tokyo",
@@ -836,22 +757,6 @@ var HERO_EDITORIAL_COPY = {
     title: "Entendi mesmo?",
     subtitle: "Frases para confirmar antes de dizer sim."
   },
-  "hakuba-alem-da-neve-alpes-do-norte": {
-    title: "Hakuba além da neve",
-    subtitle: "Um vale moldado pelos Alpes do Norte do Japão."
-  },
-  "kiso-komagatake-alpes-centrais-japao": {
-    title: "Kiso-Komagatake",
-    subtitle: "O ponto alto dos Alpes Centrais exige respeito de montanha."
-  },
-  "komagane-cidade-entre-alpes-japoneses": {
-    title: "Komagane entre Alpes",
-    subtitle: "A cidade-base entre os Alpes Centrais e os Alpes do Sul."
-  },
-  "kamikochi-vale-protegido-alpes-japoneses": {
-    title: "Kamikochi protegido",
-    subtitle: "O vale alpino onde a paisagem pede cuidado."
-  },
   "salario-minimo-japao-2026-conselho-central": {
     title: "Salário mínimo em revisão",
     subtitle: "A orientação é nacional, mas o valor final é provincial."
@@ -927,20 +832,17 @@ function buildLatestStrip() {
   var grid = document.getElementById('latestGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  var isElevacao = document.body.classList.contains('elevacao-mode');
   var isAnime = document.body.classList.contains('anime-mode');
-  var sourcePosts = isElevacao
-    ? recentPosts.filter(isElevationPost)
-    : isAnime
+  var sourcePosts = isAnime
       ? recentPosts.filter(function(post) { return post.tag === 'Anime'; })
       : getHomeEditorialPosts();
-  var heroItems = isElevacao ? getElevacaoHeroItems() : isAnime ? getAnimeHeroItems() : getCurrentHeroItems();
+  var heroItems = isAnime ? getAnimeHeroItems() : getCurrentHeroItems();
   var usedIds = {};
   heroItems.forEach(function(item) {
     usedIds[item.post.id] = true;
   });
-  if (!isElevacao && !isAnime) getHomeEditorialPosts().slice(1, 7).forEach(post => { usedIds[post.id] = true; });
-  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, isElevacao || isAnime ? 6 : 3);
+  if (!isAnime) getHomeEditorialPosts().slice(1, 7).forEach(post => { usedIds[post.id] = true; });
+  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, isAnime ? 6 : 3);
   latest.forEach(function(post) {
     var a = document.createElement('a');
     a.className = 'jr-latest-card';
@@ -973,19 +875,6 @@ function getCurrentHeroItems() {
     });
 }
 
-function getElevacaoHeroItems() {
-  return recentPosts
-    .filter(function(post) {
-      return isElevationPost(post) && post.id && post.title && getCardCover(post);
-    })
-    .slice(0, 1)
-    .map(function(post) {
-      return {
-        post: post,
-        label: 'TRILHAS · TREKKING · OUTDOOR'
-      };
-    });
-}
 
 function getAnimeHeroItems() {
   var curated = [
@@ -1014,9 +903,6 @@ var heroCurrentItems = [];
 var heroCurrentIndex = 0;
 
 function getHeroStamp(post) {
-  if (document.body.classList.contains('elevacao-mode')) {
-    return 'ELEVAÇÃO <i></i> OUTDOOR';
-  }
   if (document.body.classList.contains('anime-mode')) {
     return 'JR. <i></i> ANIME';
   }
@@ -1119,38 +1005,19 @@ function renderHeroItems(items) {
 
 function buildFadeHero() {
   renderHeroItems(
-    document.body.classList.contains('elevacao-mode')
-      ? getElevacaoHeroItems()
-      : document.body.classList.contains('anime-mode')
+    document.body.classList.contains('anime-mode')
         ? getAnimeHeroItems()
         : getCurrentHeroItems()
   );
 }
 
-function setElevacaoMode(active) {
-  var logo = document.querySelector('#heroSection .nav-logo-mark');
-  var logoLink = document.querySelector('#heroSection .nav-logo');
-  document.body.classList.toggle('elevacao-mode', !!active);
-  if (logo) {
-    logo.src = active ? 'assets/elevacao/elevacao-logo.png' : 'assets/brand/jr-logo-master-3.png';
-    logo.alt = active ? 'Elevação' : '';
-    logo.setAttribute('aria-hidden', active ? 'false' : 'true');
-  }
-  if (logoLink) {
-    logoLink.setAttribute('aria-label', active ? 'Elevação — início da editoria' : 'Japão Relativo — início');
-  }
-  renderHeroItems(active ? getElevacaoHeroItems() : getCurrentHeroItems());
-  buildLatestStrip();
-}
 
 function setAnimeMode(active) {
   document.body.classList.toggle('anime-mode', !!active);
   renderHeroItems(
     active
       ? getAnimeHeroItems()
-      : document.body.classList.contains('elevacao-mode')
-        ? getElevacaoHeroItems()
-        : getCurrentHeroItems()
+      : getCurrentHeroItems()
   );
   buildLatestStrip();
 }
@@ -1232,7 +1099,7 @@ function redirectLegacyQuizLink() {
   }
   var cat = params.get('cat');
   if (cat) {
-    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades','Elevação'];
+    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades'];
     if (validCats.includes(cat)) {
       filterCategory(cat);
       setTimeout(function() {

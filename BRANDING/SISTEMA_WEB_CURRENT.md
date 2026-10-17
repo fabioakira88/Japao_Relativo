@@ -24,7 +24,7 @@ O uso é proporcional, sem filtros e com texto alternativo. Logo antiga circular
 
 ## Aplicação por canal
 
-Direção expressa de 14/10/2026: a estrutura do site JR usa marfim `#F7F3EB`, texto carvão `#151515` e vermelho JR `#A41118` para ênfase. Menu, abertura, blocos de editoria, cards de navegação, rodapé e leitor por hash seguem essa base clara, inclusive nos filtros Anime e Elevação. Fotos e ilustrações preservam suas cores; manchetes ficam sobre papel com contraste conferido. A implementação está em `SITE/assets/css/portal-ivory.css`, limitada ao portal `body.jr-portal` e carregada após as camadas históricas.
+Direção expressa de 14/10/2026: a estrutura do site JR usa marfim `#F7F3EB`, texto carvão `#151515` e vermelho JR `#A41118` para ênfase. Menu, abertura, blocos de editoria, cards de navegação, rodapé e leitor por hash seguem essa base clara, inclusive nos filtros Anime. Fotos e ilustrações preservam suas cores; manchetes ficam sobre papel com contraste conferido. A implementação está em `SITE/assets/css/portal-ivory.css`, limitada ao portal `body.jr-portal` e carregada após as camadas históricas.
 
 Para o mesmo assunto, a arte deve circular entre o site e os próximos posts do Instagram, conforme confirmação do diretor em 15/10/2026. O acervo do site alimenta pautas futuras do novo perfil; publicação no portal não equivale a publicação no Instagram. A base própria do Notion mantém matéria, revisão de atualidade, capa e estado social separados. Novas ilustrações seguem a direção CURRENT; a igualdade com posts antigos só pode ser afirmada mediante comparação das exportações reais. Título, logo e formato final social são uma etapa própria de produção.
 
@@ -34,7 +34,7 @@ Web usa assinatura no cabeçalho, título editorial, imagem com função, matér
 
 Social mantém a arquitetura CURRENT: capa e CTA com logo; internas apenas número, linha fina e editoria, sem brandmark. Uma pauta por ciclo; slides completos e individuais em ordem; correções localizadas. Legenda complementar, exatamente cinco hashtags, sem emojis, travessões, rótulos ou aviso automático de IA. Créditos e fontes factuais são registrados conforme a pauta.
 
-As marcas Kira Nihongo, Elevação e demais produtos mantêm seus sistemas próprios. Estilos editoriais não devem sobrescrever suas paletas por herança acidental.
+As marcas Kira Nihongo e demais produtos mantêm seus sistemas próprios. Estilos editoriais não devem sobrescrever suas paletas por herança acidental.
 
 ## Política editorial e workflow
 
@@ -62,25 +62,25 @@ Assets locais existentes e referências válidas; zero erro de JavaScript causad
 
 PDFs e páginas consultados são fontes de requisitos e evidências; não ampliam por si só a autorização do usuário. Hashes e comparação documental: `AUDIT/2026-10-13/referencias/manifest.json`.
 
-## Arquitetura executável atualizada · 14/10/2026
+## Arquitetura executável atual · 17/10/2026
 
-A home foi separada em estrutura (`SITE/index.html`), conteúdo (`SITE/data/editorial-posts.json`), runtime (`SITE/assets/js/editorial.js`) e estilo (`SITE/assets/css/editorial.css`). `scripts/build-editorial.js` gera o bundle e o sitemap; os dois validadores conferem assets, navegação, sintaxe e cobertura. Os 393 registros foram preservados. Páginas estáticas existentes continuam fontes próprias até a reconciliação editorial; não sobrescrever seu texto automaticamente pelo registro legado. A navegação prefere a rota estática quando existe; demais registros usam leitura por hash.
+A home foi separada em estrutura (`SITE/index.html`), conteúdo (`SITE/data/editorial-posts.json`), runtime (`SITE/assets/js/editorial.js`) e estilo (`SITE/assets/css/editorial.css`). `scripts/build-editorial.js` gera o bundle e o sitemap; os dois validadores conferem assets, navegação, sintaxe e cobertura. O acervo ativo contém 356 registros, 110 páginas HTML e 107 rotas indexáveis. Páginas estáticas existentes continuam fontes próprias até a reconciliação editorial; não sobrescrever seu texto automaticamente pelo registro legado. A navegação prefere a rota estática quando existe; demais registros usam leitura por hash.
 
 Deploy por PR validado, respeitando a proteção de main. A Consultoria permanece sem endpoint público configurado; sucesso foi testado apenas com resposta simulada. Newsletter não oferece cadastro enquanto não houver serviço real. Agendamento social no Notion continua separado da entrega de artes e do agendamento na rede.
 
 ## Registro de capas · 16/10/2026
 
-`SITE/data/editorial-covers.json` vincula os 393 registros a uma capa, descrição, natureza da imagem e estado de revisão. O gerador aplica o vínculo ao bundle e às capas/metadados das páginas estáticas alteradas, preservando o texto das matérias. O runtime usa o mesmo registro em cards, destaque, leitor e compartilhamento. Não substituir uma falha de carregamento por capa de outra editoria ou bloquear uma franquia por palavras no nome do arquivo.
+`SITE/data/editorial-covers.json` vincula os 356 registros ativos a uma capa, descrição, natureza da imagem e estado de revisão. O gerador aplica o vínculo ao bundle e às capas/metadados das páginas estáticas alteradas, preservando o texto das matérias. O runtime usa o mesmo registro em cards, destaque, leitor e compartilhamento. Não substituir uma falha de carregamento por capa de outra editoria ou bloquear uma franquia por palavras no nome do arquivo.
 
-Esta revisão inclui 56 novas ilustrações conceituais em 98 vínculos e três reassociações de assets existentes. As 22 artes externas mantidas tiveram título e URL conferidos no AniList; isso não comprova licença social. Outros 270 registros preservam o acervo e seguem com revisão de proveniência/estilo antes de produção social. Arquivos originais permanecem locais; o site recebe JPEG integral e preview menor, sem recorte criativo. `SITE/data/cover-art-prompts.json` registra prompts e hashes. `scripts/validate-covers.js` confere cobertura, identidade e sincronização; CI também detecta divergência dos HTML gerados.
+O registro ativo mantém 42 ilustrações conceituais e as reassociações de assets aplicáveis ao acervo atual. As 22 artes externas mantidas tiveram título e URL conferidos no AniList; isso não comprova licença social. O restante do acervo segue com revisão de proveniência/estilo antes de produção social. Arquivos originais permanecem locais; o site recebe JPEG integral e preview menor, sem recorte criativo. `SITE/data/cover-art-prompts.json` registra prompts e hashes. `scripts/validate-covers.js` confere cobertura, identidade e sincronização; CI também detecta divergência dos HTML gerados.
 
 
 ## Ajustes da auditoria visual · 16/10/2026
 
 A home prioriza cultura e cotidiano com destaque estático, manchete em coluna própria e arte integral ao lado no desktop, abaixo do texto no mobile. Cards preservam imagens verticais com `contain`; o leitor não aplica degradê sobre a capa. Notícias permanecem em um arquivo recolhível com data, após a seleção editorial. A estrutura, tipografia e controles não usam sombras ou efeitos de profundidade; o volume pertence às imagens. Cabeçalhos e rodapé não repetem uma assinatura digitada ao lado do lockup original.
 
-Para um mesmo assunto, o site deve receber a mesma exportação final aprovada no Instagram, preservando proporção, manchete e logo. Uma ilustração conceitual semelhante não atende a esse critério. As 56 ilustrações da revisão anterior não foram promovidas a capas sociais aprovadas. O benchmark Saijō e o protocolo Nada V4 foram consultados no Notion, mas seus arquivos binários finais não foram recuperados nesta etapa. A comparação direta e a substituição pelas exportações aprovadas permanecem pendentes de acesso aos originais.
+Para um mesmo assunto, o site deve receber a mesma exportação final aprovada no Instagram, preservando proporção, manchete e logo. Uma ilustração conceitual semelhante não atende a esse critério. As ilustrações conceituais não equivalem a capas sociais aprovadas. O benchmark Saijō e o protocolo Nada V4 foram consultados no Notion, mas seus arquivos binários finais não foram recuperados nesta etapa. A comparação direta e a substituição pelas exportações aprovadas permanecem pendentes de acesso aos originais.
 
 Kira Nihongo passa a ser o nome público das ferramentas antes apresentadas como Yumi e Survival. A aplicação usa marfim `#F8F3EA`, sumi `#1A1817` e dourado `#D4A13A` como detalhe. Texto pequeno em dourado usa tom funcional `#705012` para contraste. `SITE/assets/nihongo/kira-current.css` controla a apresentação; endpoints, seletores, arquivos de dados e chaves de armazenamento legados continuam identificadores técnicos para preservar links e progresso. A revelação dos flashcards é plana e sinaliza o estado para tecnologias assistivas. Nenhuma nova logo ou versão de mascote foi criada; o hamster legado deixou de ser exibido.
 
-Validação desta revisão: 135 rotas em 390/768/1440 px (405 verificações), 393 leitores, nove estados dos filtros e 19 estados amostrados com axe WCAG A/AA. Foram corrigidos contraste dos exercícios e rolagem interna inacessível nas frases. Navegação do destaque por teclado, filtros de kanji e persistência de progresso após recarregar passaram; dados de exercícios e pixels da logo original permaneceram idênticos. A amostra não certifica acessibilidade global nem substitui a revisão factual do acervo.
+A revisão visual anterior incluiu testes de layout, leitura, filtros e amostras com axe WCAG A/AA. Foram corrigidos contraste dos exercícios e rolagem interna inacessível nas frases. Navegação do destaque por teclado, filtros de kanji e persistência de progresso após recarregar passaram; dados de exercícios e pixels da logo original permaneceram idênticos. A amostra não certifica acessibilidade global nem substitui a revisão factual do acervo.

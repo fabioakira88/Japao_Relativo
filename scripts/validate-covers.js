@@ -37,7 +37,6 @@ for(const [id,subject]of Object.entries({
   'tsukimi-chushu-no-meigetsu-2026':'tsukimi-lua-outono',
   'kitsune-raposa-espiritual-japao':'kitsune-folclore',
   'oni-demonios-ogros-cultura-japonesa':'oni-folclore',
-  'bussola-orientacao-basica-sem-gps':'bussola-trilha',
   'choyo-no-sekku-kiku-setembro':'choyo-crisantemos',
   'temo-kamawanai':'permissao-conversa',
   'temporada-verao-2026-crunchyroll-curadoria':'anime-curadoria'

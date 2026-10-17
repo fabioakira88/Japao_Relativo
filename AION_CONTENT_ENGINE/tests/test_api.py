@@ -98,30 +98,3 @@ def test_get_content_by_id(client: TestClient) -> None:
 
     assert response.status_code == 200
     assert response.json()["title"] == "Conteúdo pesquisável"
-
-
-def test_produce_mountain(client: TestClient) -> None:
-    response = client.post("/produce/mountain")
-    content = response.json()
-
-    assert response.status_code == 201
-    assert content["project"] == "elevacao"
-    assert content["content_type"] == "mountain"
-    assert content["status"] == "draft"
-    assert content["payload_json"] == {
-        "name": "Mount Fuji",
-        "country": "Japan",
-        "altitude": 3776,
-    }
-
-
-def test_produce_mountain_batch(client: TestClient) -> None:
-    response = client.post("/produce/mountains/batch", json={"quantity": 5})
-    contents = response.json()
-    names = [content["payload_json"]["name"] for content in contents]
-
-    assert response.status_code == 201
-    assert len(contents) == 5
-    assert len(set(names)) == 5
-    assert all(content["project"] == "elevacao" for content in contents)
-    assert all(content["content_type"] == "mountain" for content in contents)
