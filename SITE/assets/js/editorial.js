@@ -297,12 +297,13 @@ function buildNewsArchive() {
   });
 }
 
-function setActiveNav(cat) {
-  document.querySelectorAll('.nav-links a[data-cat]').forEach(a => {
-    a.classList.toggle('active', a.dataset.cat === cat);
-  });
-  document.querySelectorAll('.nav-links a[data-section]').forEach(a => {
-    a.classList.toggle('active', a.dataset.section === cat);
+function setActiveNav(section) {
+  const key = section === 'all' || section === 'japao' ? 'revista' : section === 'Anime' ? 'editorias' : section === 'about' ? 'sobre' : section;
+  document.querySelectorAll('#nav [data-nav]').forEach(control => {
+    const active = control.dataset.nav === key;
+    control.classList.toggle('active', active);
+    if (active) control.setAttribute('aria-current', 'location');
+    else control.removeAttribute('aria-current');
   });
 }
 
@@ -322,14 +323,21 @@ if (filterGroup) {
 }
 
 
-function filterCategory(cat) {
+function filterCategory(cat, options) {
+  if (document.body.classList.contains('reading-mode')) {
+    document.title = HOME_TITLE;
+    restoreHomeMetaDescription();
+  }
+  closeNavigation();
   if (cat !== 'all' && !CATEGORY_MAP[cat] && !recentPosts.some(post => post.tag === cat)) cat = 'all';
   document.body.classList.remove('about-visible');
   document.body.classList.remove('reading-mode');
   setAnimeMode(cat === 'Anime');
-  if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-  }
+  const portalUrl = new URL(window.location.href);
+  portalUrl.hash = '';
+  if (cat === 'all') portalUrl.searchParams.delete('cat');
+  else portalUrl.searchParams.set('cat', cat);
+  history.replaceState(null, '', portalUrl.pathname + portalUrl.search);
   currentFilter = cat;
   filteredPosts = getPostsByCategory(cat);
   visibleCount = 8;
@@ -338,6 +346,7 @@ function filterCategory(cat) {
     b.classList.toggle('active', b.dataset.filter === cat);
   });
   setActiveNav(cat);
+  if (options && options.scroll === false) return;
   if (cat === 'all' || cat === 'Anime') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
@@ -347,29 +356,21 @@ function filterCategory(cat) {
   }
 }
 
-function showJapanEditorial() {
-  filterCategory('all');
-  setActiveNav('japao');
-  setTimeout(() => {
-    var el = document.getElementById('grid-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }, 50);
+function goToPortalSection(id) {
+  filterCategory('all', {scroll: false});
+  const target = document.getElementById(id);
+  if (!target) return;
+  if (id === 'sobre') document.body.classList.add('about-visible');
+  if (id === 'newsArchive') target.open = true;
+  setActiveNav(id === 'sobre' ? 'sobre' : id === 'editorias' ? 'editorias' : 'revista');
+  history.replaceState(null, '', location.pathname + location.search + '#' + id);
+  target.setAttribute('tabindex', '-1');
+  target.focus({preventScroll: true});
+  target.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'});
 }
 
-function showAbout() {
-  document.body.classList.remove('reading-mode');
-  setAnimeMode(false);
-  if (window.location.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
-  }
-  document.body.classList.add('about-visible');
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const aboutLink = document.querySelector('.nav-links a[data-section="about"]');
-  if (aboutLink) aboutLink.classList.add('active');
-  setTimeout(() => {
-    document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' });
-  }, 50);
-}
+function showJapanEditorial() { goToPortalSection('grid-section'); }
+function showAbout() { goToPortalSection('sobre'); }
 
 // ======================================================
 // FILM CAROUSEL
@@ -526,7 +527,9 @@ window.addEventListener('popstate', function() {
     document.title = HOME_TITLE;
     restoreHomeMetaDescription();
     checkHash();
-    window.scrollTo(0, 0);
+    const target = id && document.getElementById(id);
+    if (target) target.scrollIntoView({behavior: 'instant', block: 'start'});
+    else window.scrollTo(0, 0);
   }
 });
 
@@ -540,6 +543,9 @@ function checkHash() {
   const id = location.hash.replace('#', '');
   if (id && DB[id]) openPost(id);
   else if (id && !document.getElementById(id)) history.replaceState(null, '', location.pathname + location.search);
+  else if (id === 'sobre') { document.body.classList.add('about-visible'); setActiveNav('sobre'); }
+  else if (id === 'editorias') setActiveNav('editorias');
+  else if (id === 'newsArchive') document.getElementById(id).open = true;
 }
 
 var heroPostsData = [];
@@ -997,7 +1003,10 @@ function initSearch() {
     document.getElementById('searchTopic').textContent = topic ? 'Tema: ' + topic : '';
   }
   function open(selectedTopic) {
-    opener = document.activeElement; topic = selectedTopic || ''; input.value = ''; limit = 30;
+    opener = document.activeElement;
+    if (opener.closest('#navLinks')) opener = matchMedia('(max-width: 1100px)').matches ? document.getElementById('navToggle') : document.querySelector('#navTopics summary');
+    closeNavigation();
+    topic = selectedTopic || ''; input.value = ''; limit = 30;
     status.textContent = 'Carregando o acervo…';
     dialog.showModal(); render(); input.focus();
   }
@@ -1007,36 +1016,61 @@ function initSearch() {
   dialog.addEventListener('keydown', event => {
     if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); dialog.close(); }
   });
-  dialog.addEventListener('close', () => { if (opener && !document.body.classList.contains('reading-mode')) opener.focus(); });
+  dialog.addEventListener('close', () => { if (opener && opener.getClientRects().length) opener.focus(); });
   document.getElementById('searchForm').addEventListener('submit', event => { event.preventDefault(); limit = 30; render(); });
   input.addEventListener('input', () => { limit = 30; render(); });
   document.getElementById('searchClearTopic').addEventListener('click', () => { topic = ''; limit = 30; render(); input.focus(); });
   more.addEventListener('click', () => { const shown = list.children.length; limit += 30; render(); list.children[shown]?.querySelector('a').focus(); });
 }
 
-function initMobileNav() {
-  var nav = document.getElementById('nav');
+function closeNavigation() {
+  const nav = document.getElementById('nav');
   if (!nav) return;
-  var toggle = nav.querySelector('.nav-toggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', function() {
-    var isOpen = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-  });
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
-      nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menu'); toggle.focus();
+  nav.classList.remove('is-open');
+  const toggle = document.getElementById('navToggle');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', 'Abrir menu');
+  document.getElementById('navTopics').open = false;
+}
+
+function initMobileNav() {
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('navToggle');
+  const topics = document.getElementById('navTopics');
+  const summary = topics.querySelector('summary');
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('is-open')) closeNavigation();
+    else {
+      nav.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Fechar menu');
     }
   });
-  nav.querySelectorAll('.nav-links a').forEach(function(link) {
-    link.addEventListener('click', function() {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menu');
-    });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || document.getElementById('searchDialog').open) return;
+    if (topics.open) { topics.open = false; summary.focus(); }
+    else if (nav.classList.contains('is-open')) { closeNavigation(); toggle.focus(); }
   });
+  document.addEventListener('click', event => {
+    const sectionLink = event.target.closest('[data-jr-scroll]');
+    if (sectionLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault(); goToPortalSection(sectionLink.dataset.jrScroll); return;
+    }
+    const categoryLink = event.target.closest('[data-jr-category]');
+    if (categoryLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault(); filterCategory(categoryLink.dataset.jrCategory); return;
+    }
+    if (!nav.contains(event.target)) closeNavigation();
+    else if (event.target.closest('a')) closeNavigation();
+  });
+  topics.addEventListener('focusout', event => {
+    if (!matchMedia('(max-width: 1100px)').matches && !topics.contains(event.relatedTarget)) topics.open = false;
+  });
+  nav.addEventListener('focusout', event => {
+    if (!nav.contains(event.relatedTarget)) closeNavigation();
+  });
+  matchMedia('(max-width: 1100px)').addEventListener('change', closeNavigation);
+  if (location.hash === '#sobre') document.body.classList.add('about-visible');
 }
 
 function redirectLegacyQuizLink() {
