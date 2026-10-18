@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "date": "2026-10-18",
+  "assets": {
+    "logo-original": {
+      "sourceFile": "EBCC63F5-78C2-47F7-BF5A-93D54D80CD32.PNG",
+      "sha256": "98a99dcc55f2d4219ad391174015cf68a2dae5de03f21717cf18d11307165a44",
+      "method": "Original supplied by director; bytes preserved; no redrawing or background removal."
+    },
+    "brandmark-original": {
+      "sourceFile": "15709936-CAFA-48EB-BBA1-18695FA27C78.PNG",
+      "sha256": "f429f487dc1621766f71dd39bd29ddf49dcea159b409d66369426d38fe6df71e",
+      "method": "Original supplied by director; bytes preserved; no redrawing or background removal."
+    },
+    "logo-web": {
+      "derivedFrom": "logo-original.png",
+      "sha256": "a95e07a5cb3c1788fe524c458bfaa139c7fd7dfc954b339060f0e6655830a0e4",
+      "method": "Deterministic proportional downscale with Sharp, PNG; no redraw, crop, recolor or background removal."
+    },
+    "brandmark-web": {
+      "derivedFrom": "brandmark-original.png",
+      "sha256": "31e5072cf4edc14184b3ee81199c46edd747d5ad70dc154fa39b156e5e48bf0e",
+      "method": "Deterministic proportional downscale with Sharp, PNG; no redraw, crop, recolor or background removal."
+    }
+  },
+  "logoVariant": "Last complete logo supplied in this request",
+  "normativeSources": [
+    "ONI Brand System 2.2",
+    "Technical Design System 2.1",
+    "Notion CURRENT V3.2"
+  ],
+  "webPalette": {
+    "paper": "#F4F1EB",
+    "ink": "#171717",
+    "red": "#B3141B",
+    "muted": "#666666"
+  }
+}

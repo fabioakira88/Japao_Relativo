@@ -135,3 +135,9 @@ body.jr-portal .article-brand-lockup img { border: 0; border-radius: 0; }
 .jr-topic-grid button > span:not(.jr-topic-arrow) { color: inherit; }
 .jr-topic-grid button small { color: var(--jr-slate); font: 400 .8rem/1.5 var(--jr-sans); }
 .jr-topic-grid .jr-topic-arrow { position: absolute; right: 0; top: 24px; }
+/* A dedicated destination, rather than a topic mixed into the cultural feed. */
+body.jr-portal .jr-oni-entry{display:flex;align-items:center;justify-content:space-between;gap:32px;margin:0 auto 48px;width:calc(100% - 112px);max-width:1296px;padding:28px 0;border-top:1px solid var(--jr-fog);border-bottom:1px solid var(--jr-fog)}
+body.jr-portal .jr-oni-entry h2{font:500 clamp(1.5rem,2.4vw,2rem)/1.2 var(--jr-serif);margin:8px 0}
+body.jr-portal .jr-oni-entry p{color:var(--jr-slate)}
+body.jr-portal .jr-oni-entry a{display:inline-flex;gap:24px;align-items:center;min-height:44px;white-space:nowrap;color:var(--jr-red);font-size:.875rem}
+@media(max-width:700px){body.jr-portal .jr-oni-entry{width:calc(100% - 40px);display:block;margin-bottom:32px}body.jr-portal .jr-oni-entry a{margin-top:16px}}
