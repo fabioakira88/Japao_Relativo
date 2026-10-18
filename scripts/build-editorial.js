@@ -84,6 +84,8 @@ const topicButtons = (nav) => topics.topics.map(topic => {
 homeHtml = homeHtml.replace(/(<div class="jr-nav-topic-grid">)[\s\S]*?(<\/div>)/, (_,start,end) => start+'\n'+topicButtons(true)+'\n'+end);
 homeHtml = homeHtml.replace(/(<div class="jr-topic-grid">)[\s\S]*?(<\/div>)/, (_,start,end) => start+'\n'+topicButtons(false)+'\n'+end);
 fs.writeFileSync(homeFile, homeHtml);
+// Build the independently branded ONI area before collecting site routes.
+require('./build-oni.js');
 const urls=[];
 for (const file of walk(site).filter(p=>p.endsWith('.html'))) {
   const html=fs.readFileSync(file,'utf8');
