@@ -38,17 +38,7 @@ function normalizeAssetPath(path) {
   return path || '';
 }
 
-// Component covers come exclusively from the reviewed editorial registry.
-const JR_ALLOWED_REMOTE_IMAGE_RE = /^https:\/\/s4\.anilist\.co\/file\/anilistcdn\/media\/anime\/cover\//i;
-
-function isAnimePost(post) {
-  return !!(post && (post.tag === 'Anime' || String(post.category || '').includes('Anime')));
-}
-
-function isAllowedRemoteImage(path) {
-  return JR_ALLOWED_REMOTE_IMAGE_RE.test(String(path || ''));
-}
-
+// Component covers come from the reviewed local editorial registry.
 function normalizeContentAssets(root) {
   if (!root) return;
   root.querySelectorAll('img[src]').forEach(function(img) {
@@ -159,93 +149,14 @@ function updateSectionHeading(cat) {
   const label = document.querySelector('.editorial-section .section-label');
   const title = document.querySelector('.editorial-section .section-title');
   if (!label || !title) return;
-  if (section) section.classList.toggle('is-anime', cat === 'Anime');
   if (cat === 'all') {
     label.textContent = 'Revista / Editorial';
     title.textContent = 'Seleção JR';
     return;
   }
-  if (cat === 'Anime') {
-    label.textContent = 'Anime / Jogos · Terror · Raciocínio';
-    title.textContent = 'Anime JR';
-    return;
-  }
   label.textContent = 'Arquivo Editorial';
   title.textContent = cat === 'Notícia' ? 'Notícias' : cat === 'Artigos' ? 'Artigos' : cat;
 }
-
-function buildQuickNews() {
-  const grid = document.getElementById('quickNewsGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  recentPosts.filter(function(p){ return p.tag === 'Notícia'; }).slice(0, 9).forEach(function(post) {
-    const a = document.createElement('a');
-    a.className = 'quick-card';
-    a.href = '#' + post.id;
-    a.innerHTML = `
-      <div class="quick-card-tag">${post.tag}</div>
-      <div class="quick-card-title">${post.title}</div>`;
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(post.id);
-    });
-    grid.appendChild(a);
-  });
-}
-
-function buildMoreGrid() {
-  const grid = document.getElementById('moreGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  recentPosts.slice(9, 21).forEach(function(post) {
-    const excerpt = extractExcerpt(post.content, 90);
-    const a = document.createElement('a');
-    a.className = 'card-h';
-    a.href = '#' + post.id;
-    a.dataset.id = post.id;
-    a.innerHTML = `
-      <div class="card-h-img" style="${getCardImg(post)}"></div>
-      <div class="card-h-body">
-        <div class="card-h-tag">${post.tag}</div>
-        <div class="card-h-title">${post.title}</div>
-        <div class="card-h-excerpt">${excerpt}</div>
-        <div class="card-h-date">${post.date}</div>
-      </div>`;
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(post.id);
-    });
-    grid.appendChild(a);
-  });
-}
-
-function buildStrip() {
-  const strip = document.getElementById('strip');
-  strip.innerHTML = '';
-  recentPosts.slice(0, 3).forEach(function(post) {
-    const a = document.createElement('a');
-    a.className = 'strip-item';
-    a.href = '#' + post.id;
-    a.style.display = 'flex';
-    a.style.flexDirection = 'column';
-    a.style.gap = '10px';
-    a.style.textDecoration = 'none';
-    a.style.color = 'inherit';
-    a.innerHTML = `
-      <div class="strip-tag">${post.tag}</div>
-      <div class="strip-title">${post.title}</div>
-      <div class="strip-link">
-        Ler matéria
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>`;
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(post.id);
-    });
-    strip.appendChild(a);
-  });
-}
-
 
 // ======================================================
 // FILTERS
@@ -254,8 +165,6 @@ const CATEGORY_MAP = {
   'Artigos':     ['Artigos', 'Cultura', 'Sociedade'],
   'Notícia':     ['Notícia'],
   'Dicas':       ['Dicas', 'Curiosidade', 'Saúde e Bem-Estar', 'Indústria Automotiva'],
-  'Cultura Pop': ['Anime'],
-  'Anime':       ['Anime'],
   'Utilidades':  ['Utilidades', 'Dicas', 'Curiosidade', 'Saúde e Bem-Estar'],
 };
 
@@ -267,7 +176,7 @@ function getPostsByCategory(cat) {
 
 function getPortalPosts() {
   var portalPosts = recentPosts.filter(function(post) {
-    return post.tag !== 'Notícia';
+    return !NEWS_IDS.has(post.id);
   });
   return portalPosts.length ? portalPosts : recentPosts;
 }
@@ -281,7 +190,7 @@ function getHomeEditorialPosts() {
 function buildNewsArchive() {
   const list = document.getElementById('newsArchiveList');
   if (!list) return;
-  const news = recentPosts.filter(post => post.tag === 'Notícia');
+  const news = recentPosts.filter(post => NEWS_IDS.has(post.id));
   document.getElementById('newsArchiveCount').textContent = '(' + news.length + ')';
   list.replaceChildren();
   news.forEach(post => {
@@ -298,7 +207,7 @@ function buildNewsArchive() {
 }
 
 function setActiveNav(section) {
-  const key = section === 'all' || section === 'japao' ? 'revista' : section === 'Anime' ? 'editorias' : section === 'about' ? 'sobre' : section;
+  const key = section === 'all' || section === 'japao' ? 'revista' : section === 'about' ? 'sobre' : section;
   document.querySelectorAll('#nav [data-nav]').forEach(control => {
     const active = control.dataset.nav === key;
     control.classList.toggle('active', active);
@@ -332,7 +241,7 @@ function filterCategory(cat, options) {
   if (cat !== 'all' && !CATEGORY_MAP[cat] && !recentPosts.some(post => post.tag === cat)) cat = 'all';
   document.body.classList.remove('about-visible');
   document.body.classList.remove('reading-mode');
-  setAnimeMode(cat === 'Anime');
+  refreshEditorialHome();
   const portalUrl = new URL(window.location.href);
   portalUrl.hash = '';
   if (cat === 'all') portalUrl.searchParams.delete('cat');
@@ -347,7 +256,7 @@ function filterCategory(cat, options) {
   });
   setActiveNav(cat);
   if (options && options.scroll === false) return;
-  if (cat === 'all' || cat === 'Anime') {
+  if (cat === 'all') {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     setTimeout(() => {
@@ -438,7 +347,7 @@ function getArticleJsonLd() {
 
 function absoluteImage(path) {
   if (!path) return SITE_ORIGIN + '/assets/brand/jr-share-card.png';
-  if (/^https:\/\//i.test(path)) return isAllowedRemoteImage(path) ? path : SITE_ORIGIN + '/assets/brand/jr-share-card.png';
+  if (/^https:\/\//i.test(path)) return SITE_ORIGIN + '/assets/brand/jr-share-card.png';
   return SITE_ORIGIN + '/' + String(path).replace(/^\/+/, '');
 }
 
@@ -508,7 +417,7 @@ function openPost(id) {
 
 function closePost() {
   document.body.classList.remove('reading-mode');
-  setAnimeMode(currentFilter === 'Anime');
+  refreshEditorialHome();
   document.title = HOME_TITLE;
   restoreHomeMetaDescription();
   history.pushState(null, '', location.pathname);
@@ -523,7 +432,7 @@ window.addEventListener('popstate', function() {
     openPost(id);
   } else {
     document.body.classList.remove('reading-mode');
-    setAnimeMode(currentFilter === 'Anime');
+    refreshEditorialHome();
     document.title = HOME_TITLE;
     restoreHomeMetaDescription();
     checkHash();
@@ -551,230 +460,12 @@ function checkHash() {
 var heroPostsData = [];
 var heroAllData   = [];
 
-function getExcerpt(html, len) {
-  var tmp = document.createElement('div');
-  tmp.innerHTML = html;
-  var t = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim();
-  return t.length > len ? t.slice(0, len) + '\u2026' : t;
-}
-
-var HERO_EDITORIAL_COPY = {
-  "obon-yasumi-espiritos-aguas-afogamentos": {
-    title: "Obon e as águas dos mortos",
-    subtitle: "Lenda, memória ancestral e riscos reais do verão japonês."
-  },
-  "obon-japao-memoria-ancestrais": {
-    title: "Obon é retorno",
-    subtitle: "Família, lanternas, ancestrais e o país em movimento."
-  },
-  "gozan-okuribi-kyoto-agosto": {
-    title: "Fogo nas montanhas",
-    subtitle: "Kyoto encerra o Obon despedindo os ancestrais."
-  },
-  "jizo-bon-fim-de-agosto-japao": {
-    title: "Jizō Bon no bairro",
-    subtitle: "O fim de agosto como cuidado comunitário."
-  },
-  "bosai-no-hi-prevencao-desastres-setembro": {
-    title: "Bōsai no Hi",
-    subtitle: "Preparação para desastre como cultura cotidiana."
-  },
-  "choyo-no-sekku-kiku-setembro": {
-    title: "Crisântemos de setembro",
-    subtitle: "Chōyō no Sekku e a estética da longevidade."
-  },
-  "shubun-no-hi-e-higan-setembro": {
-    title: "Equinócio e memória",
-    subtitle: "Shūbun no Hi, Higan e visita aos ancestrais."
-  },
-  "tsukimi-chushu-no-meigetsu-2026": {
-    title: "Lua de outono",
-    subtitle: "Tsukimi recoloca o céu no calendário japonês."
-  },
-  "shirakawa-go-aldeia-gassho-zukuri": {
-    title: "Shirakawa-go ainda é aldeia",
-    subtitle: "Patrimônio, turismo e vida cotidiana entre as montanhas de Gifu."
-  },
-  "castelo-de-himeji-guia-japao": {
-    title: "A Garça Branca de Himeji",
-    subtitle: "Patrimônio Mundial, arquitetura defensiva e cinco séculos de história."
-  },
-  "gundam-witch-from-mercury-bruxa-de-mercurio": {
-    title: "A Bruxa de Mercúrio",
-    subtitle: "Gundam, juventude e tecnologia sob controle corporativo."
-  },
-  "akira-biografia-anime-classico": {
-    title: "Akira e Neo-Tokyo",
-    subtitle: "O cyberpunk japonês como trauma urbano em movimento."
-  },
-  "cowboy-bebop-biografia-anime-classico": {
-    title: "Cowboy Bebop em jazz",
-    subtitle: "Caçadores de recompensa fugindo do próprio passado."
-  },
-  "evangelion-biografia-anime-classico": {
-    title: "Evangelion por dentro",
-    subtitle: "O robô gigante como linguagem de trauma."
-  },
-  "ghost-in-the-shell-biografia-anime-classico": {
-    title: "Ghost in the Shell",
-    subtitle: "Corpo, rede e memória no cyberpunk japonês."
-  },
-  "serial-experiments-lain-biografia-anime-classico": {
-    title: "Lain conectada",
-    subtitle: "A solidão digital antes de virar rotina."
-  },
-  "proximas-temporadas-kimetsu-dragon-ball-super-classicos": {
-    title: "Próximas sagas",
-    subtitle: "Kimetsu, Dragon Ball Super e clássicos sem rumor disfarçado de data."
-  },
-  "steins-gate-anime-jogo-visual-novel": {
-    title: "Steins;Gate",
-    subtitle: "Viagem no tempo, culpa e paranoia em Akihabara."
-  },
-  "fate-stay-night-anime-jogo-visual-novel": {
-    title: "Fate vira mito",
-    subtitle: "A visual novel que fez heróis históricos lutarem por desejo."
-  },
-  "persona-4-animation-anime-jogo-rpg": {
-    title: "Persona 4 investiga",
-    subtitle: "RPG, escola e identidade em cidade pequena."
-  },
-  "pokemon-anime-nascido-dos-jogos": {
-    title: "Pokémon saiu do jogo",
-    subtitle: "A aventura portátil que virou rotina global."
-  },
-  "devil-may-cry-anime-jogo-acao": {
-    title: "Devil May Cry",
-    subtitle: "Quando estilo de game precisa virar ritmo de anime."
-  },
-  "another-terror-escolar-anime": {
-    title: "Another na sala vazia",
-    subtitle: "Terror escolar feito de silêncio e regra invisível."
-  },
-  "higurashi-terror-vila-cicadas": {
-    title: "Higurashi no verão",
-    subtitle: "Cigarras, vila pequena e ciclos de paranoia."
-  },
-  "shiki-terror-vampirico-vila-japonesa": {
-    title: "Shiki na aldeia",
-    subtitle: "Vampiros e comunidade perguntam quem é o monstro."
-  },
-  "yamishibai-terror-curto-folclore-urbano": {
-    title: "Yamishibai no escuro",
-    subtitle: "Terror curto como história contada em papel."
-  },
-  "paranoia-agent-terror-psicologico-satoshi-kon": {
-    title: "Paranoia Agent",
-    subtitle: "A cidade ansiosa transforma boato em ameaça."
-  },
-  "death-note-raciocinio-jogo-moral": {
-    title: "Death Note pensa",
-    subtitle: "Poder, blefe e moralidade em duelo intelectual."
-  },
-  "monster-raciocinio-investigacao-moral": {
-    title: "Monster investiga",
-    subtitle: "Um thriller onde cada pista pesa na consciência."
-  },
-  "psycho-pass-raciocinio-sistema-crime": {
-    title: "Psycho-Pass mede",
-    subtitle: "Crime, previsão e vigilância em forma de sistema."
-  },
-  "promised-neverland-raciocinio-fuga": {
-    title: "Fugir exige pensar",
-    subtitle: "The Promised Neverland transforma fuga em tabuleiro."
-  },
-  "kaiji-raciocinio-aposta-pressao": {
-    title: "Kaiji aposta",
-    subtitle: "Raciocínio sob dívida, medo e pressão."
-  },
-  "sumimasen-palavra-chave-japones-cotidiano": {
-    title: "すみません abre portas",
-    subtitle: "Licença, desculpa e pedido de atenção em uma palavra."
-  },
-  "onegaishimasu-kudasai-diferenca-japones": {
-    title: "Pedir do jeito certo",
-    subtitle: "お願いします e ください sem misturar tudo."
-  },
-  "kore-sore-are-dore-japones": {
-    title: "Isto, isso, aquilo",
-    subtitle: "これ, それ, あれ e どれ para destravar no balcão."
-  },
-  "contadores-basicos-japones-loja-restaurante": {
-    title: "Contar em japonês",
-    subtitle: "Os contadores que salvam loja e restaurante."
-  },
-  "confirmar-entendimento-japones-atendimento": {
-    title: "Entendi mesmo?",
-    subtitle: "Frases para confirmar antes de dizer sim."
-  },
-  "salario-minimo-japao-2026-conselho-central": {
-    title: "Salário mínimo em revisão",
-    subtitle: "A orientação é nacional, mas o valor final é provincial."
-  },
-  "turismo-japao-dados-jnto-como-ler-2026": {
-    title: "O turismo em números",
-    subtitle: "Dados da JNTO ajudam, mas não contam a cidade inteira."
-  },
-  "alerta-calor-wbgt-verao-japao-2026": {
-    title: "Calor além do termômetro",
-    subtitle: "WBGT mede o risco real do verão japonês."
-  },
-  "bicicletas-blue-ticket-japao-2026": {
-    title: "Bicicleta com regra",
-    subtitle: "O blue ticket muda a relação entre pedal e trânsito."
-  },
-  "rideshare-japao-calor-chuva-eventos-2026": {
-    title: "Rideshare à japonesa",
-    subtitle: "Um complemento regulado para lacunas reais de mobilidade."
-  },
-  "madoka-magia-walpurgisnacht-2026": {
-    title: "Madoka retorna",
-    subtitle: "A garota mágica que ensinou o público a desconfiar do milagre."
-  },
-  "bleach-tybw-2026-retorno-julho": {
-    title: "Bleach em encerramento",
-    subtitle: "Continuações longas precisam mais que nostalgia."
-  },
-  "jojo-steel-ball-run-netflix-2026": {
-    title: "Steel Ball Run",
-    subtitle: "JoJo muda de palco e volta ao centro da conversa global."
-  },
-  "sekiro-no-defeat-anime-2026": {
-    title: "Sekiro vira anime",
-    subtitle: "Quando o peso do controle precisa virar enquadramento."
-  },
-  "temporada-verao-2026-crunchyroll-curadoria": {
-    title: "A temporada ficou grande",
-    subtitle: "O problema agora é escolher o que merece tempo."
-  },
-  "por-que-o-japao-gosta-de-filas": {
-    title: "A tecnologia da fila",
-    subtitle: "Ordem pública como forma de evitar disputa explícita."
-  },
-  "omotenashi-limites-hospitalidade-japonesa": {
-    title: "Omotenashi tem limite",
-    subtitle: "Hospitalidade japonesa também é trabalho emocional."
-  },
-  "furusato-cidade-natal-japao-memoria": {
-    title: "Furusato",
-    subtitle: "Cidade natal, memória e retorno no imaginário japonês."
-  },
-  "washoku-fermentacao-misso-shoyu-natto": {
-    title: "O sabor do tempo",
-    subtitle: "Missô, shoyu e natto como inteligência cotidiana."
-  },
-  "ma-pausa-espaco-vida-japonesa": {
-    title: "Ma",
-    subtitle: "A pausa que organiza espaço, fala e convivência."
-  }
-};
-
 function getHeroDisplayTitle(post) {
-  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].title) || (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].title) || post.heroTitle || post.title;
+  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].title) || post.heroTitle || post.title;
 }
 
 function getHeroDisplaySubtitle(post) {
-  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].subtitle) || (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].subtitle) || post.heroSubtitle || post.subtitle || '';
+  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].subtitle) || post.heroSubtitle || post.subtitle || '';
 }
 
 
@@ -782,11 +473,10 @@ function buildLatestStrip() {
   const grid = document.getElementById('latestGrid');
   if (!grid) return;
   grid.replaceChildren();
-  const isAnime = document.body.classList.contains('anime-mode');
-  const used = new Set((isAnime ? getAnimeHeroItems() : getCurrentHeroItems()).map(item => item.post.id));
-  if (!isAnime) getSelectionPosts().forEach(post => used.add(post.id));
-  const source = isAnime ? recentPosts.filter(post => post.tag === 'Anime') : getPortalPosts();
-  document.getElementById('latestTitle').textContent = isAnime ? 'Últimas de Anime' : 'Últimas matérias';
+  const used = new Set(getCurrentHeroItems().map(item => item.post.id));
+  getSelectionPosts().forEach(post => used.add(post.id));
+  const source = getPortalPosts();
+  document.getElementById('latestTitle').textContent = 'Últimas matérias';
   source.filter(post => !used.has(post.id)).slice(0, 3).forEach((post, index) => grid.append(createEditorialCard(post, index)));
 }
 
@@ -805,38 +495,11 @@ function getCurrentHeroItems() {
 }
 
 
-function getAnimeHeroItems() {
-  var curated = [
-    'steins-gate-anime-jogo-visual-novel',
-    'death-note-raciocinio-jogo-moral',
-    'another-terror-escolar-anime',
-    'proximas-temporadas-kimetsu-dragon-ball-super-classicos',
-    'akira-biografia-anime-classico',
-    'psycho-pass-raciocinio-sistema-crime',
-    'higurashi-terror-vila-cicadas'
-  ];
-  return curated
-    .map(function(id) { return DB[id]; })
-    .filter(function(post) { return post && post.id && post.title && getCardCover(post); })
-    .slice(0, 1)
-    .map(function(post) {
-      return {
-        post: post,
-        label: 'ANIME · JOGOS · TERROR · RACIOCÍNIO'
-      };
-    });
-}
-
 var heroRotationTimer = null;
 var heroCurrentItems = [];
 var heroCurrentIndex = 0;
 
-function getHeroStamp(post) {
-  if (document.body.classList.contains('anime-mode')) {
-    return 'JR. <i></i> ANIME';
-  }
-  return getEditorialStamp(post);
-}
+function getHeroStamp(post) { return getEditorialStamp(post); }
 
 function renderHeroItems(items) {
   var container = document.getElementById('heroSlides');
@@ -940,33 +603,13 @@ function renderHeroItems(items) {
   }, 5600);
 }
 
-function buildFadeHero() {
-  renderHeroItems(
-    document.body.classList.contains('anime-mode')
-        ? getAnimeHeroItems()
-        : getCurrentHeroItems()
-  );
-}
+function buildFadeHero() { renderHeroItems(getCurrentHeroItems()); }
+function refreshEditorialHome() { buildFadeHero(); buildLatestStrip(); }
 
-
-function setAnimeMode(active) {
-  document.body.classList.toggle('anime-mode', !!active);
-  renderHeroItems(
-    active
-      ? getAnimeHeroItems()
-      : getCurrentHeroItems()
-  );
-  buildLatestStrip();
-}
-
-const JR_TOPIC_TERMS = {
-  'Cultura': /cultura|tradi[cç]|costume|arte|matsuri|literatura|est[eé]tica/i,
-  'História': /hist[oó]ria|hist[oó]ric|per[ií]odo|s[eé]culo|guerra|samurai|imperador/i,
-  'Sociedade': /sociedade|social|cotidiano|trabalho|conviv[eê]ncia|fam[ií]lia/i,
-  'Lugares': /lugar|cidade|bairro|paisagem|parque|templo|santu[aá]rio|tokyo|t[oó]quio|kyoto|okinawa/i,
-  'Gastronomia': /gastronomia|comida|culin[aá]ria|washoku|miss[oô]|shoyu|natto|soba|restaurante|fermenta/i,
-  'Anime': /anime/i
-};
+const EDITORIAL_TOPICS = window.JR_TOPICS || {topics: [], newsIds: [], languageIds: []};
+const NEWS_IDS = new Set(EDITORIAL_TOPICS.newsIds);
+const SEARCH_TOPICS = new Map(EDITORIAL_TOPICS.topics.map(topic => [topic.id, {...topic, postIds: new Set(topic.postIds)}]));
+SEARCH_TOPICS.set('japones', {id: 'japones', label: 'Japonês no cotidiano', postIds: new Set(EDITORIAL_TOPICS.languageIds)});
 
 function initSearch() {
   const dialog = document.getElementById('searchDialog');
@@ -985,7 +628,7 @@ function initSearch() {
     }
     if (!index) index = recentPosts.map(post => ({post, text: normalize(post.title + ' ' + post.tag + ' ' + (post.subtitle || '') + ' ' + extractExcerpt(post.content, 100000))}));
     const terms = normalize(input.value).trim().split(/\s+/).filter(Boolean);
-    const results = index.filter(({post, text}) => terms.every(term => text.includes(term)) && (!topic || (topic === 'Anime' ? isAnimePost(post) : JR_TOPIC_TERMS[topic].test(post.title + ' ' + post.tag + ' ' + (post.subtitle || '')))));
+    const results = index.filter(({post, text}) => terms.every(term => text.includes(term)) && (!topic || SEARCH_TOPICS.get(topic)?.postIds.has(post.id)));
     status.textContent = results.length ? results.length + (results.length === 1 ? ' matéria encontrada' : ' matérias encontradas') + '. Exibindo ' + Math.min(limit, results.length) + '.' : 'Nenhuma matéria encontrada. Tente outra palavra ou remova o tema.';
     results.slice(0, limit).forEach(({post}) => {
       const item = document.createElement('li');
@@ -1000,7 +643,7 @@ function initSearch() {
     });
     more.hidden = results.length <= limit;
     document.getElementById('searchFilter').hidden = !topic;
-    document.getElementById('searchTopic').textContent = topic ? 'Tema: ' + topic : '';
+    document.getElementById('searchTopic').textContent = topic ? 'Tema: ' + SEARCH_TOPICS.get(topic).label : '';
   }
   function open(selectedTopic) {
     opener = document.activeElement;
@@ -1056,10 +699,6 @@ function initMobileNav() {
     if (sectionLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
       event.preventDefault(); goToPortalSection(sectionLink.dataset.jrScroll); return;
     }
-    const categoryLink = event.target.closest('[data-jr-category]');
-    if (categoryLink && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
-      event.preventDefault(); filterCategory(categoryLink.dataset.jrCategory); return;
-    }
     if (!nav.contains(event.target)) closeNavigation();
     else if (event.target.closest('a')) closeNavigation();
   });
@@ -1081,7 +720,8 @@ function redirectLegacyQuizLink() {
   }
   var cat = params.get('cat');
   if (cat) {
-    var validCats = ['Notícia','Artigos','Idioma','Anime','Utilidades'];
+    var validCats = Object.keys(CATEGORY_MAP).concat(['Idioma']);
+    if (!validCats.includes(cat)) { filterCategory('all'); return; }
     if (validCats.includes(cat)) {
       filterCategory(cat);
       setTimeout(function() {
@@ -1097,7 +737,6 @@ function init() {
   initMobileNav();
   setActiveNav(currentFilter);
   buildMainGrid(filteredPosts);
-  buildMoreGrid();
   buildFadeHero();
   buildLatestStrip();
   buildNewsArchive();

@@ -61,3 +61,13 @@ body.jr-portal :is(#latestSection,#grid-section,#editorias,#newsArchive,#sobre) 
   body.jr-portal .jr-site-header .nav { gap: 8px; }
   body.jr-portal .jr-site-header .nav-logo-mark { width: 150px !important; height: 46px !important; }
 }
+/* Topics are generated from reviewed article membership, not keyword guesses. */
+body.jr-portal .jr-nav-topics { left: auto; right: 0; width: 460px; }
+body.jr-portal .jr-site-header .jr-nav-topic-grid button { flex-direction: column; align-items: flex-start; justify-content: center; gap: 4px; min-height: 76px; white-space: normal; }
+body.jr-portal .jr-site-header .jr-nav-topic-grid small { color: var(--jr-slate); font: 400 .75rem/1.5 var(--jr-sans); }
+body.jr-portal .jr-site-header .jr-nav-archive button { display: flex; justify-content: space-between; width: 100%; text-align: left; }
+body.jr-portal .jr-site-header .jr-nav-archive :is(a,button):last-child { color: var(--jr-slate); font-weight: 400; font-size: .8rem; }
+@media (max-width: 1100px) {
+  body.jr-portal .jr-nav-topics { width: 100%; }
+  body.jr-portal .jr-site-header .jr-nav-topic-grid button { min-height: 84px; }
+}

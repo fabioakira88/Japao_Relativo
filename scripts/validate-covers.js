@@ -16,7 +16,7 @@ for(const [id,cover]of Object.entries(registry.posts)){
   check(source[id]&&db[id]&&db[id].id===id,'Stable identity missing: '+id);
   check(db[id]?.thumb===cover.src&&db[id]?.cover?.src===cover.src,'Reader cover drift: '+id);
   for(const asset of [cover.src,cover.preview].filter(Boolean)){
-    check(/^assets\/covers\/[\p{L}\p{N}_.\/-]+$/u.test(asset)||/^https:\/\/s4\.anilist\.co\/file\/anilistcdn\/media\/anime\/cover\//.test(asset),'Invalid cover path: '+id);
+    check(/^assets\/covers\/[\p{L}\p{N}_.\/-]+$/u.test(asset),'Invalid cover path: '+id);
     if(!asset.startsWith('https://'))check(fs.existsSync(path.join(site,asset)),'Missing asset: '+asset);
   }
   check(!!cover.alt&&!!cover.review&&!!cover.provenance,'Missing cover audit fields: '+id);
@@ -38,11 +38,8 @@ for(const [id,subject]of Object.entries({
   'kitsune-raposa-espiritual-japao':'kitsune-folclore',
   'oni-demonios-ogros-cultura-japonesa':'oni-folclore',
   'choyo-no-sekku-kiku-setembro':'choyo-crisantemos',
-  'temo-kamawanai':'permissao-conversa',
-  'temporada-verao-2026-crunchyroll-curadoria':'anime-curadoria'
+  'temo-kamawanai':'permissao-conversa'
 }))check(registry.posts[id]?.src==='assets/covers/current/'+subject+'.jpg','Subject regression: '+id);
-const runtime=fs.readFileSync(path.join(site,'assets/js/editorial.js'),'utf8');
-check(!/JR_ANIME_COVER_BY_ID|JR_UNSAFE_ANIME_COVER_RE|JR_ANIME_SAFE_FALLBACK/.test(runtime),'Blind anime replacement/fallback returned.');
 const arts=JSON.parse(fs.readFileSync(path.join(site,'data/cover-art-prompts.json')));
 for(const art of arts.artworks)check(Object.values(registry.posts).some(c=>c.src===art.src),'Unbound production artwork: '+art.id);
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}

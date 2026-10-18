@@ -130,3 +130,8 @@ body.jr-portal .article-brand-lockup img { border: 0; border-radius: 0; }
   .jr-search-head { flex-direction: column-reverse; }
   .jr-search-head button { align-self: end; }
 }
+/* Topic labels and article counts share the same registry as the header. */
+.jr-topic-grid button { position: relative; flex-direction: column; align-items: flex-start; justify-content: center; gap: 6px; min-height: 104px; padding: 20px 28px 20px 0; }
+.jr-topic-grid button > span:not(.jr-topic-arrow) { color: inherit; }
+.jr-topic-grid button small { color: var(--jr-slate); font: 400 .8rem/1.5 var(--jr-sans); }
+.jr-topic-grid .jr-topic-arrow { position: absolute; right: 0; top: 24px; }

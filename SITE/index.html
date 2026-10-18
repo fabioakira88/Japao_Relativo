@@ -48,19 +48,19 @@
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início"><img class="nav-logo-mark" src="assets/brand/jr-signature-horizontal.svg" alt="" aria-hidden="true" width="220" height="64"></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#latestSection" data-jr-scroll="latestSection" data-nav="revista" aria-current="location">Revista</a></li>
-      <li class="jr-nav-explore"><details id="navTopics"><summary data-nav="editorias">Editorias <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="m4 6 4 4 4-4"/></svg></summary>
+      <li><a href="#latestSection" data-jr-scroll="latestSection" data-nav="revista" aria-current="location">Matérias</a></li>
+      <li class="jr-nav-explore"><details id="navTopics"><summary data-nav="editorias">Temas <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="m4 6 4 4 4-4"/></svg></summary>
         <div class="jr-nav-topics">
           <p>Explore o Japão por tema</p>
           <div class="jr-nav-topic-grid">
-            <button type="button" data-jr-topic="Cultura">Cultura</button>
-            <button type="button" data-jr-topic="História">História</button>
-            <button type="button" data-jr-topic="Sociedade">Sociedade</button>
-            <button type="button" data-jr-topic="Lugares">Lugares</button>
-            <button type="button" data-jr-topic="Gastronomia">Gastronomia</button>
-            <a href="/?cat=Anime" data-jr-category="Anime">Anime</a>
-          </div>
-          <div class="jr-nav-archive"><a href="#grid-section" data-jr-scroll="grid-section">Seleção JR <span aria-hidden="true">→</span></a><a href="#newsArchive" data-jr-scroll="newsArchive">Notícias do acervo <span aria-hidden="true">→</span></a></div>
+<button type="button" data-jr-topic="cultura"><span>Cultura e tradições</span><small>49 matérias</small></button>
+<button type="button" data-jr-topic="historia"><span>História e memória</span><small>7 matérias</small></button>
+<button type="button" data-jr-topic="sociedade"><span>Sociedade e cotidiano</span><small>32 matérias</small></button>
+<button type="button" data-jr-topic="lugares"><span>Lugares e paisagens</span><small>8 matérias</small></button>
+<button type="button" data-jr-topic="gastronomia"><span>Gastronomia</span><small>5 matérias</small></button>
+<button type="button" data-jr-topic="vida-no-japao"><span>Vida no Japão</span><small>57 matérias</small></button>
+</div>
+          <div class="jr-nav-archive"><button type="button" data-jr-topic="japones">Japonês no cotidiano <span aria-hidden="true">→</span></button><a href="#grid-section" data-jr-scroll="grid-section">Seleção JR <span aria-hidden="true">→</span></a><a href="#newsArchive" data-jr-scroll="newsArchive">Notícias do acervo <span aria-hidden="true">→</span></a></div>
         </div>
       </details></li>
       <li><a href="guias/">Guias</a></li>
@@ -108,15 +108,15 @@
 </section>
 
 <section id="editorias" class="jr-topics" aria-labelledby="topicsTitle">
-  <div class="jr-web-section-head"><div><p class="jr-web-kicker">Explore o Japão</p><h2 id="topicsTitle">Leituras por tema</h2></div><p>Caminhos para encontrar outras histórias no acervo.</p></div>
+  <div class="jr-web-section-head"><div><p class="jr-web-kicker">Explore o Japão</p><h2 id="topicsTitle">Leituras por tema</h2></div><p>Cultura, memória, sociedade, paisagens, comida e vida prática, reunidas por assunto.</p></div>
   <div class="jr-topic-grid">
-    <button type="button" data-jr-topic="Cultura">Cultura <span aria-hidden="true">↗</span></button>
-    <button type="button" data-jr-topic="História">História <span aria-hidden="true">↗</span></button>
-    <button type="button" data-jr-topic="Sociedade">Sociedade <span aria-hidden="true">↗</span></button>
-    <button type="button" data-jr-topic="Lugares">Lugares <span aria-hidden="true">↗</span></button>
-    <button type="button" data-jr-topic="Gastronomia">Gastronomia <span aria-hidden="true">↗</span></button>
-    <button type="button" data-jr-topic="Anime">Anime <span aria-hidden="true">↗</span></button>
-  </div>
+<button type="button" data-jr-topic="cultura"><span>Cultura e tradições</span><small>49 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-jr-topic="historia"><span>História e memória</span><small>7 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-jr-topic="sociedade"><span>Sociedade e cotidiano</span><small>32 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-jr-topic="lugares"><span>Lugares e paisagens</span><small>8 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-jr-topic="gastronomia"><span>Gastronomia</span><small>5 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+<button type="button" data-jr-topic="vida-no-japao"><span>Vida no Japão</span><small>57 matérias</small><span class="jr-topic-arrow" aria-hidden="true">↗</span></button>
+</div>
 </section>
 
 <!-- ======================== GUIAS ======================== -->
@@ -127,7 +127,7 @@
         <div class="guide-hub-label">Conhecimento / Guias</div>
         <h2 class="guide-hub-title" id="guideHubTitle">Guias do Japão</h2>
       </div>
-      <p class="guide-hub-copy">Conteúdo evergreen para documentos, dinheiro, vida prática e decisões que pedem mais método do que feed.</p>
+      <p class="guide-hub-copy">Guias sobre documentos, dinheiro e vida prática no Japão, organizados para consultar quando precisar.</p>
     </div>
     <div class="guide-hub-grid">
       <a class="guide-hub-card is-guides" href="guias/">
@@ -218,7 +218,7 @@
     <div class="jr-sobre-texto">
       <p class="jr-sobre-eyebrow">Sobre o projeto</p>
       <h2 class="jr-sobre-titulo">Japão Relativo<br><em>O Japão que a fama não conta</em></h2>
-      <p class="jr-sobre-bio">Sou Fabio Akira, Paulista de Mogi das Cruzes, Sansei e vivo há 10 anos no Japão. Trabalho em fábrica, desenvolvo sites, crio artes, produzo vídeos e cuido das redes sociais, tudo sozinho. Este espaço nasceu para contar o Japão real: não o dos clichês, mas o de quem vive aqui de verdade. Notícias, curiosidades, animes, produtos e muito mais, com o olhar de quem foi transformado por esse país.</p>
+      <p class="jr-sobre-bio">Sou Fabio Akira, Paulista de Mogi das Cruzes, Sansei e vivo há 10 anos no Japão. Trabalho em fábrica, desenvolvo sites, crio artes, produzo vídeos e cuido das redes sociais, tudo sozinho. Este espaço nasceu para contar o Japão real: não o dos clichês, mas o de quem vive aqui de verdade. Cultura, história, cotidiano, lugares e vida prática, com o olhar de quem foi transformado por esse país.</p>
       <p class="jr-sobre-cargo">— Fundador do Japão Relativo</p>
     </div>
 
@@ -233,8 +233,8 @@
     <div class="footer-col">
       <h4>Explore o JR</h4>
       <ul>
-        <li><a href="#latestSection" data-jr-scroll="latestSection">Revista</a></li>
-        <li><a href="#editorias" data-jr-scroll="editorias">Editorias</a></li>
+        <li><a href="#latestSection" data-jr-scroll="latestSection">Matérias</a></li>
+        <li><a href="#editorias" data-jr-scroll="editorias">Temas</a></li>
         <li><a href="guias/">Guias</a></li>
         <li><a href="nihongo/">Kira Nihongo</a></li>
         <li><a href="consultoria/">JR Apoio</a></li>

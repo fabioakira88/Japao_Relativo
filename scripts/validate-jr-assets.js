@@ -2,9 +2,8 @@ const fs = require("fs");
 const path = require("path");
 
 const SITE_DIR = path.join(__dirname, "..", "SITE");
-const ALLOWED_REMOTE_IMAGE_HOSTS = new Set(["s4.anilist.co"]);
+const ALLOWED_REMOTE_IMAGE_HOSTS = new Set();
 const MALFORMED_REMOTE_RE = /japaorelativo\.com\/https?:\/\//i;
-const HTTP_ANILIST_RE = /http:\/\/s4\.anilist\.co\//i;
 const IMAGE_EXT_RE = /\.(png|jpe?g|webp|avif|gif|svg)(?:[?#][^\s"'<>)]*)?$/i;
 const GENERIC_COVER_TEXT_RE = /Capa editorial do Japão Relativo\.|Imagem editorial neutra|Capa editorial neutra/i;
 const MAX_SHARED_THUMB_USAGE = 6;
@@ -20,7 +19,6 @@ function walk(dir, files = []) {
 
 function isRemoteImageUrl(value) {
   if (!/^https?:\/\//i.test(value)) return false;
-  if (/^https?:\/\/s4\.anilist\.co\/file\/anilistcdn\/media\/anime\/cover\//i.test(value)) return true;
   return IMAGE_EXT_RE.test(value.split("?")[0].split("#")[0]);
 }
 
@@ -76,9 +74,6 @@ for (const file of checkedFiles) {
     errors.push(`${rel}: malformed remote URL contains japaorelativo.com/https://`);
   }
 
-  if (HTTP_ANILIST_RE.test(text)) {
-    errors.push(`${rel}: AniList URL must use https`);
-  }
 
   for (const url of collectRemoteImageUrls(text)) {
     const host = new URL(url).hostname;
