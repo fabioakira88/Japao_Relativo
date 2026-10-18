@@ -38,35 +38,48 @@
   <link rel="stylesheet" href="/assets/brand/brand-current.css">
   <link rel="stylesheet" href="/assets/css/portal-ivory.css">
   <link rel="stylesheet" href="/assets/css/web-current.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
   <script src="/assets/js/image-state.js" defer></script>
 </head>
 <body class="jr-portal">
 
 <a class="jr-skip-link" href="#latestSection">Pular para as matérias</a>
+<header class="jr-site-header">
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início"><img class="nav-logo-mark" src="assets/brand/jr-signature-horizontal.svg" alt="" aria-hidden="true" width="220" height="64"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#latestSection" data-jr-scroll="latestSection" data-nav="revista" aria-current="location">Revista</a></li>
+      <li class="jr-nav-explore"><details id="navTopics"><summary data-nav="editorias">Editorias <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="m4 6 4 4 4-4"/></svg></summary>
+        <div class="jr-nav-topics">
+          <p>Explore o Japão por tema</p>
+          <div class="jr-nav-topic-grid">
+            <button type="button" data-jr-topic="Cultura">Cultura</button>
+            <button type="button" data-jr-topic="História">História</button>
+            <button type="button" data-jr-topic="Sociedade">Sociedade</button>
+            <button type="button" data-jr-topic="Lugares">Lugares</button>
+            <button type="button" data-jr-topic="Gastronomia">Gastronomia</button>
+            <a href="/?cat=Anime" data-jr-category="Anime">Anime</a>
+          </div>
+          <div class="jr-nav-archive"><a href="#grid-section" data-jr-scroll="grid-section">Seleção JR <span aria-hidden="true">→</span></a><a href="#newsArchive" data-jr-scroll="newsArchive">Notícias do acervo <span aria-hidden="true">→</span></a></div>
+        </div>
+      </details></li>
+      <li><a href="guias/">Guias</a></li>
+      <li><a href="nihongo/">Kira Nihongo</a></li>
+      <li><a href="consultoria/">JR Apoio</a></li>
+      <li><a href="#sobre" data-jr-scroll="sobre" data-nav="sobre">Sobre</a></li>
+    </ul>
+    <button class="jr-search-toggle" id="searchToggle" type="button" aria-haspopup="dialog" aria-label="Buscar no acervo"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="jr-search-label">Buscar</span></button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button>
+  </nav>
+</header>
+
 <main class="site-main">
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="heroSection">
   <noscript><p>Ative o JavaScript para consultar o acervo editorial. Você também pode acessar os <a href="guias/">guias</a> e o <a href="nihongo/">Kira Nihongo</a>.</p></noscript>
   <div class="jr-hero-ornament" aria-hidden="true"><span class="jr-ornament-circle"></span><span class="jr-ornament-geometric"></span><span class="jr-ornament-waves"></span></div>
-  <nav class="nav" id="nav" aria-label="Navegação principal">
-    <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
-      <img class="nav-logo-mark" src="assets/brand/jr-signature-horizontal.svg" alt="" aria-hidden="true">
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Início</a></li>
-      <li><a href="#grid-section" data-section="japao" onclick="showJapanEditorial();return false;">Japão</a></li>
-      <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
-      <li><a href="nihongo/">Kira Nihongo</a></li>
-      <li><a href="guias/">Guias</a></li>
-      <li><a href="#sobre" data-section="about" onclick="showAbout();return false;">Sobre</a></li>
-    </ul>
-    <button class="jr-search-toggle" id="searchToggle" type="button" aria-haspopup="dialog">Buscar</button>
-    <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+
   <div class="hero-bg-slides" id="heroSlides"><a class="hero-bg-slide active" href="/omotenashi-limites-hospitalidade-japonesa/" aria-label="Omotenashi tem limite: hospitalidade japonesa não é servidão"><img src="assets/covers/current/omotenashi-atendimento-preview.jpg" alt="" width="4" height="5" fetchpriority="high" decoding="async"></a></div>
   <div class="hero-text-panel" id="heroTextPanel" aria-live="polite" aria-atomic="true">
     <span class="jr-editorial-stamp" id="heroStamp">JR. <i></i> JAPÃO RELATIVO</span>
@@ -94,7 +107,7 @@
   <div class="editorial-flow" id="newsGrid"></div>
 </section>
 
-<section class="jr-topics" aria-labelledby="topicsTitle">
+<section id="editorias" class="jr-topics" aria-labelledby="topicsTitle">
   <div class="jr-web-section-head"><div><p class="jr-web-kicker">Explore o Japão</p><h2 id="topicsTitle">Leituras por tema</h2></div><p>Caminhos para encontrar outras histórias no acervo.</p></div>
   <div class="jr-topic-grid">
     <button type="button" data-jr-topic="Cultura">Cultura <span aria-hidden="true">↗</span></button>
@@ -218,14 +231,14 @@
 
     <!-- Esquerda: Editorias + Redes Sociais -->
     <div class="footer-col">
-      <h4>Editorias</h4>
+      <h4>Explore o JR</h4>
       <ul>
-        <li><a href="#" onclick="filterCategory('all');return false;">Início</a></li>
-        <li><a href="#grid-section" onclick="showJapanEditorial();return false;">Japão</a></li>
-        <li><a href="nihongo/">Kira Nihongo</a></li>
+        <li><a href="#latestSection" data-jr-scroll="latestSection">Revista</a></li>
+        <li><a href="#editorias" data-jr-scroll="editorias">Editorias</a></li>
         <li><a href="guias/">Guias</a></li>
-        <li><a href="#sobre" onclick="showAbout();return false;">Sobre</a></li>
+        <li><a href="nihongo/">Kira Nihongo</a></li>
         <li><a href="consultoria/">JR Apoio</a></li>
+        <li><a href="#sobre" data-jr-scroll="sobre">Sobre</a></li>
       </ul>
       <div class="footer-socials">
         <a class="social-link" href="https://www.instagram.com/__akira__jr?igsh=MTgyY3JsMHNubnQ4ZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram">
