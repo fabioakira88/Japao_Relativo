@@ -2922,12 +2922,13 @@
       "preview": "assets/covers/current/aki-nanakusa-kikyo-preview.jpg"
     },
     "tanbo-depois-da-colheita-paisagem-japao": {
-      "src": "assets/covers/tanbo-depois-da-colheita-paisagem-japao-cover.svg",
-      "alt": "Imagem de acervo associada a Tanbo depois da colheita: o que muda na paisagem",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
+      "src": "assets/covers/current/tanbo-pos-colheita-v2.jpg",
+      "preview": "assets/covers/current/tanbo-pos-colheita-v2-preview.jpg",
+      "alt": "Ilustração editorial: Arrozal japonês após a colheita, com talos cortados e palha em primeiro plano e casas rurais ao fundo.",
+      "kind": "illustration",
+      "review": "replaced-subject",
+      "provenance": "Ilustração conceitual criada com a ferramenta integrada image_gen e inspecionada em 18/10/2026. Não é fotografia nem registro de um local específico.",
+      "note": "Substituição solicitada pelo diretor para a matéria de Tanbo. Mostra o arrozal após a colheita, com corte baixo, palha e solo exposto. Não constitui aprovação de capa final para Instagram."
     },
     "konbini-comeco-outono-japao-sazonalidade": {
       "src": "assets/covers/current/konbini-outono.jpg",
@@ -2947,5 +2948,6 @@
       "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
       "preview": "assets/covers/current/setembro-outubro-cotidiano-preview.jpg"
     }
-  }
+  },
+  "updatedAt": "2026-10-18"
 }
