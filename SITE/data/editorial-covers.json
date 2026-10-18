@@ -11,15 +11,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "como-nasceu-tensura-web-novel-light-novel-anime": {
-      "src": "assets/covers/current/tensura-novel.jpg",
-      "alt": "Ilustração editorial: Slime azul junto a um livro, em interpretação editorial de Tensura.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/tensura-novel-preview.jpg"
-    },
     "tokyo-monorail-linha-japao-moderno": {
       "src": "assets/covers/tokyo-monorail-1964-cover.svg",
       "alt": "Imagem de acervo associada a Tokyo Monorail: a linha que anunciou o Japão moderno",
@@ -35,15 +26,6 @@
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "rimuru-veldora-amizade-que-mudou-tempest": {
-      "src": "assets/covers/current/rimuru-veldora.jpg",
-      "alt": "Ilustração editorial: Slime azul e dragão em interpretação editorial da amizade entre Rimuru e Veldora.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/rimuru-veldora-preview.jpg"
     },
     "japao-outono-antes-de-esfriar": {
       "src": "assets/covers/current/setembro-outubro-cotidiano.jpg",
@@ -104,50 +86,6 @@
       "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
       "preview": "assets/covers/current/transporte-rideshare-preview.jpg"
     },
-    "madoka-magia-walpurgisnacht-2026": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9756-QnUGwlwwnsuN.jpg",
-      "alt": "Arte de capa de Puella Magi Madoka Magica, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/9756",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "bleach-tybw-2026-retorno-julho": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116674-p3zK4PUX2Aag.jpg",
-      "alt": "Arte de capa de BLEACH: Thousand-Year Blood War, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/116674",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "jojo-steel-ball-run-netflix-2026": {
-      "src": "assets/covers/jojo-steel-ball-run-retorno-lenda-2026.jpg",
-      "alt": "Imagem de acervo associada a Steel Ball Run em 2026: JoJo volta com uma das partes mais aguardadas",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "sekiro-no-defeat-anime-2026": {
-      "src": "assets/covers/current/sekiro-shinobi.jpg",
-      "alt": "Ilustração editorial: Shinobi com braço mecânico e espada embainhada; interpretação editorial de Sekiro.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/sekiro-shinobi-preview.jpg"
-    },
-    "temporada-verao-2026-crunchyroll-curadoria": {
-      "src": "assets/covers/current/anime-curadoria.jpg",
-      "alt": "Ilustração editorial: Roteiros visuais, lápis e rolo de filme sobre uma mesa de curadoria de anime.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/anime-curadoria-preview.jpg"
-    },
     "por-que-o-japao-gosta-de-filas": {
       "src": "assets/covers/current/filas-cotidiano.jpg",
       "alt": "Ilustração editorial: Três adultos aguardam em fila junto a um ponto de ônibus.",
@@ -195,14 +133,6 @@
     "obon-yasumi-espiritos-aguas-afogamentos": {
       "src": "assets/covers/obon-yasumi-espiritos-aguas-afogamentos-cover.png",
       "alt": "Imagem de acervo associada a Obon Yasumi: por que dizem que os espíritos passam pelas águas?",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "gundam-witch-from-mercury-bruxa-de-mercurio": {
-      "src": "assets/covers/gundam-witch-from-mercury-bruxa-de-mercurio-cover.jpg",
-      "alt": "Imagem de acervo associada a Gundam: The Witch from Mercury — por que A Bruxa de Mercúrio renovou a porta de entrada da franquia",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -312,25 +242,9 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "jaadugar-witch-mongolia-anime-agosto-2026": {
-      "src": "assets/covers/jaadugar-witch-mongolia-anime-agosto-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a Jaadugar: A Bruxa Da Mongólia Que Entra No Radar Dos Animes De Agosto",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "imposto-alimentos-japao-1-por-cento-2027": {
       "src": "assets/covers/imposto-alimentos-japao-1-por-cento-2027-cover.jpg",
       "alt": "Imagem de acervo associada a Japão Mira Corte No Imposto De Alimentos",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kaiju-girl-caramelise-anime-agosto-2026": {
-      "src": "assets/covers/kaiju-girl-caramelise-anime-agosto-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a Kaiju Girl Caramelise: Romance, Vergonha E Monstro Interior",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -344,14 +258,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "draw-this-then-die-anime-agosto-2026": {
-      "src": "assets/covers/draw-this-then-die-anime-agosto-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a Draw This, Then Die!: O Anime Sobre Criar Mangá Sem Romantizar O Esforço",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "iene-intervencao-cambial-reservas-japao-2026": {
       "src": "assets/covers/iene-intervencao-cambial-reservas-japao-2026-cover.jpg",
       "alt": "Imagem de acervo associada a Iene Fraco Reabre Debate Sobre Intervenção Cambial",
@@ -360,25 +266,9 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "red-river-anime-agosto-2026": {
-      "src": "assets/covers/red-river-anime-agosto-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a Red River: Romance Histórico Volta Com Fôlego De Anime Novo",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "rakuten-satelites-orbita-baixa-japao-2026": {
       "src": "assets/covers/rakuten-satelites-orbita-baixa-japao-2026-cover.jpg",
       "alt": "Imagem de acervo associada a Japão Investe Em Satélites Para Reduzir Dependência Externa",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "iron-wok-jan-anime-agosto-2026": {
-      "src": "assets/covers/iron-wok-jan-anime-agosto-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a Iron Wok Jan!: Competição Culinária Vira Campo De Batalha",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -579,46 +469,6 @@
     "radio-taiso-cultura-aquecimento-japao": {
       "src": "assets/covers/radio-taiso-cultura-aquecimento-japao-cover.jpg",
       "alt": "Imagem de acervo associada a Radio Taiso: O Aquecimento Antes Do Expediente No Japão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "chainsaw-man-reze-arc-filme-2026": {
-      "src": "assets/covers/chainsaw-man-reze-arc-filme-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Chainsaw Man – O Filme: Arco Reze Quebra Recorde E Chega Ao Streaming Em 2026",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "jujutsu-kaisen-culling-game-netflix-2026": {
-      "src": "assets/covers/jujutsu-kaisen-culling-game-netflix-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Jujutsu Kaisen: The Culling Game Estreia Mundial Na Netflix Em 2026",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "naruto-20-anos-retorno-2026": {
-      "src": "assets/covers/naruto-20-anos-retorno-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Naruto Completa 20 Anos E Volta Em 2026 Junto Com One Piece E Bleach",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "studio-ghibli-ghibli-park-novidades-2026": {
-      "src": "assets/covers/studio-ghibli-ghibli-park-novidades-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Studio Ghibli Em 2026: Novo Curta No Ghibli Park E Por Que A Magia Continua",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "my-hero-academia-final-more-epilogo-2026": {
-      "src": "assets/covers/my-hero-academia-final-more-epilogo-2026-cover.jpg",
-      "alt": "Imagem de acervo associada a My Hero Academia Chega Ao Fim: O Epílogo More Encerra Uma Era Em 2026",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -888,46 +738,6 @@
     "japao-reino-unido-italia-caca-gcap-2026": {
       "src": "assets/covers/japao-reino-unido-italia-caca-gcap-2026-cover.jpg",
       "alt": "Imagem de acervo associada a Japão Avança No Caça Com Reino Unido E Itália",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kaiba-anime-memoria-identidade": {
-      "src": "assets/covers/kaiba-anime-memoria-identidade-cover.jpg",
-      "alt": "Imagem de acervo associada a Kaiba: O Anime Sobre Memória Antes Da Era Dos Avatares",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "mononoke-anime-terror-oculto-japones": {
-      "src": "assets/covers/mononoke-anime-terror-oculto-japones-cover.jpg",
-      "alt": "Imagem de acervo associada a Mononoke: Terror Japonês Como Pintura Viva",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "dennou-coil-realidade-aumentada-anime": {
-      "src": "assets/covers/dennou-coil-realidade-aumentada-anime-cover.jpg",
-      "alt": "Imagem de acervo associada a Dennou Coil Previu Um Mundo De Realidade Aumentada",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "house-of-five-leaves-samurai-silencioso": {
-      "src": "assets/covers/house-of-five-leaves-samurai-silencioso-cover.jpg",
-      "alt": "Imagem de acervo associada a House Of Five Leaves: Samurai Sem Grito",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kyousougiga-kyoto-espelho-familia": {
-      "src": "assets/covers/kyousougiga-kyoto-espelho-familia-cover.jpg",
-      "alt": "Imagem de acervo associada a Kyousougiga: Kyoto Como Sonho Quebrado",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -1514,14 +1324,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "animes-de-julho-2026": {
-      "src": "assets/covers/artigo-animes-de-julho-2026.webp",
-      "alt": "Imagem de acervo associada a Animes de Julho",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "nagoshi-no-harae-purificacao-japao": {
       "src": "assets/covers/nagoshi-no-harae-purificacao-japao.jpg",
       "alt": "Imagem de acervo associada a Nagoshi no Harae: como o Japão purifica a primeira metade do ano",
@@ -1605,14 +1407,6 @@
     "konbini-ningen-livro-japao-normalidade": {
       "src": "assets/covers/konbini-ningen-livro-japao-normalidade.jpg",
       "alt": "Imagem de acervo associada a Konbini Ningen: o livro que expôs a ideia japonesa de normalidade",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "cinco-animes-fora-do-obvio-2026": {
-      "src": "assets/covers/cinco-animes-fora-do-obvio-2026.jpg",
-      "alt": "Imagem de acervo associada a Cinco animes fora do óbvio para acompanhar em 2026",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -1725,30 +1519,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "one-piece-fim-mais-proximo-2026": {
-      "src": "assets/covers/one-piece-official-anime-cover.jpg",
-      "alt": "Imagem de acervo associada a O fim de One Piece está mais próximo?",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "demon-slayer-infinity-castle-expectativa-2026": {
-      "src": "assets/covers/kimetsu-no-yaiba-infinity-castle-official.jpg",
-      "alt": "Imagem de acervo associada a Demon Slayer: Infinity Castle pode quebrar recordes novamente",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "japao-transformou-fandom-em-industria-2026": {
-      "src": "assets/covers/japao-transformou-fandom-em-industria-2026.jpg",
-      "alt": "Imagem de acervo associada a O Japão transformou fandom em indústria",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "japoneses-ia-brasileiros-indianos-2026": {
       "src": "assets/covers/japoneses-ia-brasileiros-indianos-2026.jpg",
       "alt": "Imagem de acervo associada a Por Que os Japoneses Ainda Não Abraçaram a Inteligência Artificial Como Brasileiros e Indianos?",
@@ -1824,46 +1594,6 @@
     "japao-energia-nuclear-debate-2026": {
       "src": "assets/covers/japao-energia-nuclear-debate-2026.jpg",
       "alt": "Imagem de acervo associada a O retorno da energia nuclear ao centro do debate",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "one-piece-elbaph-revelacoes-2026": {
-      "src": "assets/covers/one-piece-official-anime-cover.jpg",
-      "alt": "Imagem de acervo associada a One Piece: o mundo se aproxima de suas maiores revelações",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "frieren-tempo-memoria-2026": {
-      "src": "assets/covers/frieren-tempo-memoria-2026.jpg",
-      "alt": "Imagem de acervo associada a Frieren: uma jornada sobre o tempo e a memória",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "gachiakuta-anime-ascensao-2026": {
-      "src": "assets/covers/gachiakuta-anime-ascensao-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Gachiakuta: a ascensão de um dos animes mais comentados de 2026",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "dan-da-dan-caos-entretenimento-2026": {
-      "src": "assets/covers/dan-da-dan-caos-entretenimento-2026-official.jpg",
-      "alt": "Imagem de acervo associada a Dan Da Dan: o caos transformado em entretenimento",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "jojo-steel-ball-run-retorno-lenda-2026": {
-      "src": "assets/covers/jojo-steel-ball-run-retorno-lenda-2026.jpg",
-      "alt": "Imagem de acervo associada a JoJo's Bizarre Adventure: Steel Ball Run e o retorno de uma lenda",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -2158,14 +1888,6 @@
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
     },
-    "vr-ar-anime-temporada-verao-2026": {
-      "src": "assets/covers/vr-ar-anime-temporada-verao-2026.jpg",
-      "alt": "Imagem de acervo associada a VR, cafés temáticos e a corrida para a temporada de anime do verão",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
     "golpes-digitais-inflacao-japao-2026": {
       "src": "assets/covers/golpes-digitais-inflacao-japao-2026.jpg",
       "alt": "Imagem de acervo associada a Inflação, petróleo e golpes digitais: a tormenta econômica de maio no Japão",
@@ -2185,14 +1907,6 @@
     "escolas-campo-showa-kimino-chiba-2026": {
       "src": "assets/covers/escolas-campo-showa-kimino-chiba-2026.jpg",
       "alt": "Imagem de acervo associada a O Japão da Era Showa volta a funcionar em uma escola desativada de Chiba",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "one-piece-formato-sazonal-elbaf-2026": {
-      "src": "assets/covers/one-piece-official-anime-cover.jpg",
-      "alt": "Imagem de acervo associada a One Piece virou sazonal, e isso pode ser a melhor coisa que aconteceu com o anime em 25 anos",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -2307,14 +2021,6 @@
     "maes-solteiras-estrangeiras-empreiteiras-japao": {
       "src": "assets/covers/maes-solteiras-estrangeiras-empreiteiras-japao.jpg",
       "alt": "Imagem de acervo associada a Mães solteiras estrangeiras e as empreiteiras do Japão: a barreira que ninguém fala",
-      "kind": "legacy",
-      "review": "contextual-legacy",
-      "provenance": "Revisar origem e direitos antes de reutilização social.",
-      "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "kimetsu-no-yaiba-filme-infinity-castle": {
-      "src": "assets/covers/kimetsu-no-yaiba-infinity-castle-official.jpg",
-      "alt": "Imagem de acervo associada a Kimetsu no Yaiba: Infinity Castle — tudo sobre o filme mais aguardado do anime",
       "kind": "legacy",
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
@@ -2646,195 +2352,6 @@
       "review": "contextual-legacy",
       "provenance": "Revisar origem e direitos antes de reutilização social.",
       "note": "Acervo inventariado; preservado nesta revisão. Adequação de estilo e proveniência não equivalem a aprovação social."
-    },
-    "akira-biografia-anime-classico": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx47-4CR68arv452h.jpg",
-      "alt": "Arte de capa de Akira, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/47",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "cowboy-bebop-biografia-anime-classico": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1-GCsPm7waJ4kS.png",
-      "alt": "Arte de capa de Cowboy Bebop, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/1",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "evangelion-biografia-anime-classico": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx30-AI1zr74Dh4ye.jpg",
-      "alt": "Arte de capa de Neon Genesis Evangelion, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/30",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "ghost-in-the-shell-biografia-anime-classico": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx43-Y6EjeEMM14dj.png",
-      "alt": "Arte de capa de Ghost in the Shell, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/43",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "serial-experiments-lain-biografia-anime-classico": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx339-xF2wp1NQuQ4r.png",
-      "alt": "Arte de capa de Serial Experiments Lain, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/339",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "steins-gate-anime-jogo-visual-novel": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
-      "alt": "Arte de capa de Steins;Gate, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/9253",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "fate-stay-night-anime-jogo-visual-novel": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx356-mTpMvtillumS.png",
-      "alt": "Arte de capa de Fate/stay night, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/356",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "persona-4-animation-anime-jogo-rpg": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10588-44oPKE7GRXA2.png",
-      "alt": "Arte de capa de Persona 4 the Animation, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/10588",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "pokemon-anime-nascido-dos-jogos": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b527-t6dBVJ5OVcXK.png",
-      "alt": "Arte de capa de Pokémon, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/527",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "devil-may-cry-anime-jogo-acao": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1726-IrpH32PVADiO.jpg",
-      "alt": "Arte de capa de Devil May Cry, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/1726",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "another-terror-escolar-anime": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11111-gvvE5bBYsyFo.png",
-      "alt": "Arte de capa de Another, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/11111",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "higurashi-terror-vila-cicadas": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx934-wjMlVEl4CWwg.jpg",
-      "alt": "Arte de capa de When They Cry, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/934",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "shiki-terror-vampirico-vila-japonesa": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx7724-NwNnRsI34eDa.jpg",
-      "alt": "Arte de capa de Shiki, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/7724",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "yamishibai-terror-curto-folclore-urbano": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b19383-vmpqTraCFNRg.jpg",
-      "alt": "Arte de capa de Theatre of Darkness: Yamishibai, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/19383",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "paranoia-agent-terror-psicologico-satoshi-kon": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx323-ZGkUcJOn4ngy.png",
-      "alt": "Arte de capa de Paranoia Agent, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/323",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "death-note-raciocinio-jogo-moral": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1535-kUgkcrfOrkUM.jpg",
-      "alt": "Arte de capa de Death Note, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/1535",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "monster-raciocinio-investigacao-moral": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx19-gtMC64182sm4.jpg",
-      "alt": "Arte de capa de Monster, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/19",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "psycho-pass-raciocinio-sistema-crime": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx13601-i42VFuHpqEOJ.jpg",
-      "alt": "Arte de capa de PSYCHO-PASS, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/13601",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "promised-neverland-raciocinio-fuga": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101759-8UR7r9MNVpz2.jpg",
-      "alt": "Arte de capa de The Promised Neverland, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/101759",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "kaiji-raciocinio-aposta-pressao": {
-      "src": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3002-BExanPfxp888.jpg",
-      "alt": "Arte de capa de Kaiji - Ultimate Survivor, do catálogo AniList.",
-      "kind": "artwork",
-      "review": "catalog-subject-checked",
-      "source": "https://anilist.co/anime/3002",
-      "provenance": "Título e URL conferidos no catálogo AniList; HTTP 200. Direitos de reprodução social não confirmados.",
-      "note": "Arte da série, não necessariamente key visual da temporada ou filme citado. Não identifica confirmação de estreia."
-    },
-    "proximas-temporadas-kimetsu-dragon-ball-super-classicos": {
-      "src": "assets/covers/current/anime-curadoria.jpg",
-      "alt": "Ilustração editorial: Roteiros visuais, lápis e rolo de filme sobre uma mesa de curadoria de anime.",
-      "kind": "illustration",
-      "review": "replaced-subject",
-      "provenance": "Ilustração criada com ferramenta de geração de imagens, revisada visualmente em 16/10/2026. Não é fotografia ou arte oficial de franquia.",
-      "note": "Assunto específico substitui associação genérica ou incompatível. Mesma matriz para site e futura produção social.",
-      "preview": "assets/covers/current/anime-curadoria-preview.jpg"
     },
     "sumimasen-palavra-chave-japones-cotidiano": {
       "src": "assets/covers/current/conversa-cotidiano.jpg",

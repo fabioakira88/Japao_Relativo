@@ -227,7 +227,6 @@ body.jr-portal #newsArchiveList { list-style: none; padding: 0; display: grid; g
 body.jr-portal #newsArchiveList li { display: grid; gap: 6px; border-bottom: 1px solid var(--jr-fog); padding-bottom: 16px; }
 body.jr-portal #newsArchiveList a { color: var(--jr-ink); font: 500 1.05rem/1.5 var(--jr-serif); }
 body.jr-portal #newsArchiveList span { color: var(--jr-slate); font: .8rem/1.5 var(--jr-sans); }
-body.jr-portal:is(.anime-mode) .jr-news-section { display: none; }
 body.jr-portal .btn-back { background: var(--jr-paper) !important; color: var(--jr-red) !important; border-color: var(--jr-fog) !important; }
 body.jr-portal .btn-back:hover { background: var(--jr-red) !important; color: var(--jr-paper) !important; }
 body.jr-portal :is(a, button, [tabindex]):focus-visible { outline: 2px solid var(--jr-red); outline-offset: 4px; }

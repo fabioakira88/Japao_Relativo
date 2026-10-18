@@ -28,7 +28,7 @@ Os padrões geométrico e de ondas em `jr-pattern-geometric.svg` e `jr-pattern-w
 
 ## Aplicação por canal
 
-Direção expressa de 14/10/2026: a estrutura do site JR usa marfim `#F7F3EB`, texto carvão `#151515` e vermelho JR `#A41118` para ênfase. Menu, abertura, blocos de editoria, cards de navegação, rodapé e leitor por hash seguem essa base clara, inclusive nos filtros Anime. Fotos e ilustrações preservam suas cores; manchetes ficam sobre papel com contraste conferido. A implementação está em `SITE/assets/css/portal-ivory.css`, limitada ao portal `body.jr-portal` e carregada após as camadas históricas.
+Direção expressa de 14/10/2026: a estrutura do site JR usa marfim `#F7F3EB`, texto carvão `#151515` e vermelho JR `#A41118` para ênfase. Menu, abertura, blocos de editoria, cards de navegação, rodapé e leitor por hash seguem essa base clara, em todas as áreas do portal. Fotos e ilustrações preservam suas cores; manchetes ficam sobre papel com contraste conferido. A implementação está em `SITE/assets/css/portal-ivory.css`, limitada ao portal `body.jr-portal` e carregada após as camadas históricas.
 
 Para o mesmo assunto, a arte deve circular entre o site e os próximos posts do Instagram, conforme confirmação do diretor em 15/10/2026. O acervo do site alimenta pautas futuras do novo perfil; publicação no portal não equivale a publicação no Instagram. A base própria do Notion mantém matéria, revisão de atualidade, capa e estado social separados. Novas ilustrações seguem a direção CURRENT; a igualdade com posts antigos só pode ser afirmada mediante comparação das exportações reais. Título, logo e formato final social são uma etapa própria de produção.
 
@@ -68,15 +68,15 @@ PDFs e páginas consultados são fontes de requisitos e evidências; não amplia
 
 ## Arquitetura executável atual · 17/10/2026
 
-A home foi separada em estrutura (`SITE/index.html`), conteúdo (`SITE/data/editorial-posts.json`), runtime (`SITE/assets/js/editorial.js`) e estilo (`SITE/assets/css/editorial.css`). `scripts/build-editorial.js` gera o bundle e o sitemap; os dois validadores conferem assets, navegação, sintaxe e cobertura. O acervo ativo contém 356 registros, 110 páginas HTML e 107 rotas indexáveis. Páginas estáticas existentes continuam fontes próprias até a reconciliação editorial; não sobrescrever seu texto automaticamente pelo registro legado. A navegação prefere a rota estática quando existe; demais registros usam leitura por hash.
+A home foi separada em estrutura (`SITE/index.html`), conteúdo (`SITE/data/editorial-posts.json`), runtime (`SITE/assets/js/editorial.js`) e estilo (`SITE/assets/css/editorial.css`). `scripts/build-editorial.js` gera o bundle e o sitemap; os dois validadores conferem assets, navegação, sintaxe e cobertura. O acervo ativo contém 299 registros, 97 páginas HTML e 94 rotas indexáveis. Páginas estáticas existentes continuam fontes próprias até a reconciliação editorial; não sobrescrever seu texto automaticamente pelo registro legado. A navegação prefere a rota estática quando existe; demais registros usam leitura por hash.
 
 Deploy por PR validado, respeitando a proteção de main. A Consultoria permanece sem endpoint público configurado; sucesso foi testado apenas com resposta simulada. Newsletter não oferece cadastro enquanto não houver serviço real. Agendamento social no Notion continua separado da entrega de artes e do agendamento na rede.
 
 ## Registro de capas · 16/10/2026
 
-`SITE/data/editorial-covers.json` vincula os 356 registros ativos a uma capa, descrição, natureza da imagem e estado de revisão. O gerador aplica o vínculo ao bundle e às capas/metadados das páginas estáticas alteradas, preservando o texto das matérias. O runtime usa o mesmo registro em cards, destaque, leitor e compartilhamento. Não substituir uma falha de carregamento por capa de outra editoria ou bloquear uma franquia por palavras no nome do arquivo.
+`SITE/data/editorial-covers.json` vincula os 299 registros ativos a uma capa, descrição, natureza da imagem e estado de revisão. O gerador aplica o vínculo ao bundle e às capas/metadados das páginas estáticas alteradas, preservando o texto das matérias. O runtime usa o mesmo registro em cards, destaque, leitor e compartilhamento. Não substituir uma falha de carregamento por capa de outra editoria ou bloquear uma franquia por palavras no nome do arquivo.
 
-O registro ativo mantém 43 ilustrações conceituais e as reassociações de assets aplicáveis ao acervo atual. As 22 artes externas mantidas tiveram título e URL conferidos no AniList; isso não comprova licença social. O restante do acervo segue com revisão de proveniência/estilo antes de produção social. Arquivos originais permanecem locais; o site recebe JPEG integral e preview menor, sem recorte criativo. `SITE/data/cover-art-prompts.json` registra prompts e hashes. `scripts/validate-covers.js` confere cobertura, identidade e sincronização; CI também detecta divergência dos HTML gerados.
+O registro ativo mantém 39 ilustrações conceituais e as reassociações de assets aplicáveis ao acervo atual. Os assets exclusivos da editoria retirada deixaram de ser publicados. O restante do acervo segue com revisão de proveniência/estilo antes de produção social. Arquivos originais permanecem locais; o site recebe JPEG integral e preview menor, sem recorte criativo. `SITE/data/cover-art-prompts.json` registra prompts e hashes. `scripts/validate-covers.js` confere cobertura, identidade e sincronização; CI também detecta divergência dos HTML gerados.
 
 
 ## Ajustes da auditoria visual · 16/10/2026
@@ -100,7 +100,7 @@ A abertura usa imagem integral com maior presença, chamada serifada de escala c
 
 Ordem da home: destaque, últimas matérias, Seleção JR, leituras por tema, guias, Kira Nihongo, acervo de notícias, serviços e Sobre/rodapé. Últimas matérias segue a ordenação por data do acervo editorial e exclui as três matérias da seleção e o destaque para não repetir cards. Datas são de publicação, não uma declaração de reapuração. A seleção combina uma matéria principal e duas chamadas menores; filtros usam um grid, sem repetir três grandes faixas alternadas.
 
-Cultura, História, Sociedade, Lugares, Gastronomia e Anime abrem a busca com um tema. São caminhos de descoberta por palavras do título, resumo e tag, não uma reclassificação silenciosa do banco. Anime usa a classificação existente. Notícias continuam disponíveis no acervo datado e na busca, depois das áreas culturais e de aprendizado.
+Os assuntos do menu usam vínculos explícitos às matérias ativas em editorial-topics.json, conforme a revisão de escopo de 18/10/2026. Notícias continuam disponíveis no acervo datado e na busca, depois das áreas culturais e de aprendizado.
 
 ### Componentes e estados
 
@@ -118,9 +118,9 @@ Textos, registros de capas, fontes e datas do acervo permanecem preservados. Exp
 
 ## Navegação do portal · 18/10/2026 · CURRENT
 
-Cabeçalho em marfim com assinatura horizontal proporcional, separado do hero e disponível durante a rolagem da home e no leitor por hash. Ordem principal: Revista, Editorias, Guias, Kira Nihongo, JR Apoio e Sobre; busca visível em controle próprio. Editorias agrupa Cultura, História, Sociedade, Lugares, Gastronomia e Anime, com Seleção JR e notícias do acervo em um nível secundário. Temas abrem a busca existente; Anime abre a curadoria já disponível. O rodapé segue os mesmos nomes e a mesma ordem de leitura.
+Cabeçalho em marfim com assinatura horizontal proporcional, separado do hero e disponível durante a rolagem da home e no leitor por hash. Ordem principal: Matérias, Temas, Guias, Kira Nihongo, JR Apoio e Sobre; busca visível em controle próprio. Editorias agrupa Cultura e tradições, História e memória, Sociedade e cotidiano, Lugares e paisagens, Gastronomia e Vida no Japão. Japonês no cotidiano, Seleção JR e notícias do acervo oferecem caminhos complementares. O rodapé segue os mesmos nomes e a mesma ordem de leitura.
 
-`SITE/assets/css/navigation.css` concentra a apresentação; `editorial.js` controla as transições. Abaixo de 1100 px, menu recolhível com altura limitada à tela e rolagem própria; Editorias usa disclosure nativo. Teclado, Escape, clique externo, saída de foco e mudança de largura fecham as camadas correspondentes. Ao fechar uma busca aberta pelo submenu, o foco retorna ao título de Editorias no desktop ou ao botão Menu no mobile. A navegação para uma seção considera a altura do cabeçalho, revela Sobre/arquivo quando necessário e atualiza o estado acessível. Sair do leitor restaura os metadados do portal. Links, textos, capas e dados de progresso existentes permanecem preservados.
+`SITE/assets/css/navigation.css` concentra a apresentação; `editorial.js` controla as transições. Abaixo de 1100 px, menu recolhível com altura limitada à tela e rolagem própria; Temas usa disclosure nativo. Teclado, Escape, clique externo, saída de foco e mudança de largura fecham as camadas correspondentes. Ao fechar uma busca aberta pelo submenu, o foco retorna ao título de Temas no desktop ou ao botão Menu no mobile. A navegação para uma seção considera a altura do cabeçalho, revela Sobre/arquivo quando necessário e atualiza o estado acessível. Sair do leitor restaura os metadados do portal. Links, textos, capas e dados de progresso existentes permanecem preservados.
 
 
 ## Capa Tanbo após a colheita · 18/10/2026
@@ -128,3 +128,14 @@ Cabeçalho em marfim com assinatura horizontal proporcional, separado do hero e 
 Por solicitação do diretor, a capa vetorial anterior foi substituída por uma ilustração editorial contextual criada com image_gen: arrozal depois da colheita, talos cortados, palha e solo exposto, com casas rurais e colinas ao fundo. Marfim, índigo e tons naturais do campo acompanham a página; a arte não contém uma assinatura JR redigitada ou textos decorativos. É ilustração conceitual, sem atribuição a uma propriedade/local real e sem aprovação social presumida.
 
 Arquivo web `assets/covers/current/tanbo-pos-colheita-v2.jpg`, preview de 560 px, enquadramento integral. Registro, bundle, leitor, matéria estática e imagens de compartilhamento usam a mesma origem. O SVG anterior deixou de ser publicado; a matriz gerada, o original anterior e o prompt permanecem no arquivo local privado. Os textos factuais e datas da matéria foram preservados; apenas imagem, descrição acessível, legenda e metadados da capa foram atualizados. O registro passa a manter 43 ilustrações conceituais e 39 matérias estáticas com capas sincronizadas.
+
+
+## Escopo editorial e menu por acervo · 18/10/2026 · CURRENT
+
+Diretriz expressa do diretor: retirar integralmente a seção Anime do site. Removidos 57 registros da editoria, 13 páginas estáticas e 78 assets exclusivos, incluindo capas antigas, variações, metadados de catálogo e imagens internas. Quatro matrizes locais exclusivas também foram retiradas. Filtro, destaque, estilos, permissões de imagens remotas e rotas de navegação exclusivos deixaram de existir. A assinatura compartilhada e o restante do acervo foram preservados. Não reimportar a editoria na publicação web. Histórico Git e registros editoriais fora do site não são apagados automaticamente.
+
+O menu acompanha o conteúdo ativo: Matérias, Temas, Guias, Kira Nihongo, JR Apoio e Sobre. Temas tem seis conjuntos revisados: Cultura e tradições (49), História e memória (7), Sociedade e cotidiano (32), Lugares e paisagens (8), Gastronomia (5) e Vida no Japão (57). Japonês no cotidiano reúne 33 registros em caminho próprio; 108 notícias datadas ficam no arquivo. O total é de 299 registros, sem interseção entre os conjuntos. Esta organização não altera o texto, as datas nem a classificação original dos artigos.
+
+`SITE/data/editorial-topics.json` é a fonte de vínculos por ID. O build valida que cada registro ativo pertence exatamente a um tema ou canal e gera os botões, rótulos e contagens da home e do cabeçalho. O runtime usa os mesmos vínculos para filtrar a busca, sem procurar palavras incidentais no título. A nova matéria precisa ser vinculada antes de publicação; um ID desconhecido, duplicado ou sem grupo interrompe o build. Revisão de atualidade, sobretudo de conteúdo datado, legal, financeiro ou de saúde, continua uma etapa editorial própria.
+
+Os 298 registros restantes mantêm texto e metadados idênticos; uma chamada em matéria de colecionismo foi retirada porque apontava para um artigo excluído. Referências culturais contextuais dentro de textos preservados não reativam uma editoria removida. Estado executável: 97 HTML, 94 rotas indexáveis, 299 registros, 39 ilustrações conceituais e 35 páginas estáticas com capas sincronizadas. A capa Tanbo recém-publicada permanece íntegra.
