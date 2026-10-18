@@ -62,3 +62,17 @@ img[data-jr-cover="illustration"], img[data-jr-cover="social-cover"] {
   .jr-editorial .brand-master { width: 176px; height: 52px; }
   .jr-editorial .hero::after { width: 104px; height: 100px; right: -64px; top: 8px; opacity: .08; }
 }
+
+/* JR Web 3.1 · responsive article scale, subordinate to Brand System 3.0. */
+.jr-editorial .hero { padding-block: clamp(32px,5vw,64px) 32px; }
+.jr-editorial .hero h1 { max-width: 1040px; font: 500 clamp(2rem,4.2vw,3.75rem)/1.13 var(--jr-serif); letter-spacing: -.035em; text-wrap: balance; }
+.jr-editorial .hero .lead { max-width: 68ch; color: var(--jr-slate); font: 400 clamp(1rem,1.5vw,1.2rem)/1.65 var(--jr-sans); }
+.jr-editorial :is(.article-kicker,.breadcrumb,.header-link) { font-family: var(--jr-sans); font-size: .8rem; font-weight: 500; letter-spacing: .025em; line-height: 1.5; }
+.jr-editorial .breadcrumb { color: var(--jr-slate); }
+.jr-editorial .article-kicker { font-weight: 600; }
+.jr-editorial .content-card:has(> .article-body) { background: var(--jr-paper); border-inline: 0; padding-inline: 0; }
+.jr-editorial .article-body { font-family: var(--jr-sans); }
+.jr-editorial .article-body h2 { font-size: clamp(1.6rem,2.8vw,2.25rem); }
+.jr-editorial .article-body h3 { font-size: 1.4rem; }
+.jr-editorial .article-figure figcaption { font: 400 .85rem/1.6 var(--jr-sans); }
+.jr-editorial .article-body :is(p,li) { overflow-wrap: break-word; word-break: normal; }
