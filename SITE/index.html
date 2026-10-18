@@ -29,28 +29,31 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-180.png">
 <link rel="shortcut icon" href="/favicon.ico">
-<link rel="preload" as="image" href="assets/hero/hero-fuji-sakura-desktop.webp" media="(min-width: 829px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/hero/hero-fuji-sakura-mobile.webp" media="(max-width: 828px)" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif+Display:wght@300;400;500;600;700&amp;family=Noto+Serif+JP:wght@300;400;700&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="/assets/css/editorial.css">
   <link rel="canonical" href="https://japaorelativo.com/">
   <link rel="stylesheet" href="/assets/brand/brand-current.css">
   <link rel="stylesheet" href="/assets/css/portal-ivory.css">
+  <link rel="stylesheet" href="/assets/css/web-current.css">
   <script src="/assets/js/image-state.js" defer></script>
 </head>
 <body class="jr-portal">
 
-<div class="site-main">
+<a class="jr-skip-link" href="#latestSection">Pular para as matérias</a>
+<main class="site-main">
 
 <!-- ======================== HERO ======================== -->
 <section class="hero" id="heroSection">
+  <noscript><p>Ative o JavaScript para consultar o acervo editorial. Você também pode acessar os <a href="guias/">guias</a> e o <a href="nihongo/">Kira Nihongo</a>.</p></noscript>
   <div class="jr-hero-ornament" aria-hidden="true"><span class="jr-ornament-circle"></span><span class="jr-ornament-geometric"></span><span class="jr-ornament-waves"></span></div>
   <nav class="nav" id="nav" aria-label="Navegação principal">
     <a href="/" class="nav-logo" onclick="filterCategory('all');return false;" aria-label="Japão Relativo — início">
       <img class="nav-logo-mark" src="assets/brand/jr-signature-horizontal.svg" alt="" aria-hidden="true">
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#" data-cat="all" onclick="filterCategory('all');return false;">Início</a></li>
       <li><a href="#grid-section" data-section="japao" onclick="showJapanEditorial();return false;">Japão</a></li>
       <li><a href="#grid-section" data-cat="Anime" onclick="filterCategory('Anime');return false;">Anime</a></li>
@@ -58,27 +61,26 @@
       <li><a href="guias/">Guias</a></li>
       <li><a href="#sobre" data-section="about" onclick="showAbout();return false;">Sobre</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menu">
+    <button class="jr-search-toggle" id="searchToggle" type="button" aria-haspopup="dialog">Buscar</button>
+    <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu">
       <span></span>
       <span></span>
     </button>
   </nav>
-  <div class="hero-bg-slides" id="heroSlides"></div>
+  <div class="hero-bg-slides" id="heroSlides"><a class="hero-bg-slide active" href="/omotenashi-limites-hospitalidade-japonesa/" aria-label="Omotenashi tem limite: hospitalidade japonesa não é servidão"><img src="assets/covers/current/omotenashi-atendimento-preview.jpg" alt="" width="4" height="5" fetchpriority="high" decoding="async"></a></div>
   <div class="hero-text-panel" id="heroTextPanel" aria-live="polite" aria-atomic="true">
     <span class="jr-editorial-stamp" id="heroStamp">JR. <i></i> JAPÃO RELATIVO</span>
-    <span class="hero-slide-cat" id="ht-cat"></span>
-    <h1 class="hero-slide-title" id="ht-title"></h1>
-    <p class="hero-slide-sub" id="ht-sub"></p>
+    <span class="hero-slide-cat" id="ht-cat">Artigos</span>
+    <h1 class="hero-slide-title" id="ht-title">Omotenashi tem limite</h1>
+    <p class="hero-slide-sub" id="ht-sub">Hospitalidade japonesa também é trabalho emocional.</p>
+    <span class="jr-hero-read">Ler matéria <span aria-hidden="true">→</span></span>
   </div>
 </section>
 
-<!-- ======================== MICRO DATA ======================== -->
-<section class="micro-market" aria-label="Dados discretos" hidden>
-  <div class="micro-market-item"><span class="micro-market-label">USD/JPY</span><span class="micro-market-value" id="w-usd">--</span></div>
-  <div class="micro-market-item"><span class="micro-market-label">JPY/BRL</span><span class="micro-market-value" id="w-brl">--</span></div>
-  <div class="micro-market-item"><span class="micro-market-label">USD/BRL</span><span class="micro-market-value" id="w-usd-brl">--</span></div>
-  <div class="micro-market-item"><span class="micro-market-label">Tóquio</span><span class="micro-market-value" id="w-jp">--:--</span></div>
-  <div class="micro-market-item"><span class="micro-market-label">Brasil</span><span class="micro-market-value" id="w-br">--:--</span></div>
+<!-- ======================== ÚLTIMAS MATÉRIAS ======================== -->
+<section class="jr-latest" id="latestSection" tabindex="-1" aria-labelledby="latestTitle">
+  <div class="jr-latest-head"><div><p class="jr-web-kicker">No acervo editorial</p><h2 id="latestTitle">Últimas matérias</h2></div></div>
+  <div class="jr-latest-grid" id="latestGrid"></div>
 </section>
 
 <!-- ======================== FEATURED ARTICLES ======================== -->
@@ -92,21 +94,18 @@
   <div class="editorial-flow" id="newsGrid"></div>
 </section>
 
-<!-- ======================== ÚLTIMAS PUBLICAÇÕES ======================== -->
-<section class="jr-latest" id="latestSection">
-  <div class="jr-latest-head">
-    <span class="jr-latest-label">Mais leituras</span>
+<section class="jr-topics" aria-labelledby="topicsTitle">
+  <div class="jr-web-section-head"><div><p class="jr-web-kicker">Explore o Japão</p><h2 id="topicsTitle">Leituras por tema</h2></div><p>Caminhos para encontrar outras histórias no acervo.</p></div>
+  <div class="jr-topic-grid">
+    <button type="button" data-jr-topic="Cultura">Cultura <span aria-hidden="true">↗</span></button>
+    <button type="button" data-jr-topic="História">História <span aria-hidden="true">↗</span></button>
+    <button type="button" data-jr-topic="Sociedade">Sociedade <span aria-hidden="true">↗</span></button>
+    <button type="button" data-jr-topic="Lugares">Lugares <span aria-hidden="true">↗</span></button>
+    <button type="button" data-jr-topic="Gastronomia">Gastronomia <span aria-hidden="true">↗</span></button>
+    <button type="button" data-jr-topic="Anime">Anime <span aria-hidden="true">↗</span></button>
   </div>
-  <div class="jr-latest-grid" id="latestGrid"></div>
 </section>
 
-<section class="jr-news-section" aria-label="Acervo de notícias">
-  <details class="jr-news-archive" id="newsArchive">
-    <summary>Notícias do acervo <span id="newsArchiveCount"></span></summary>
-    <p>Matérias preservadas com suas datas de publicação.</p>
-    <ul id="newsArchiveList"></ul>
-  </details>
-</section>
 <!-- ======================== GUIAS ======================== -->
 <section class="guide-hub-section knowledge-hub-section" aria-labelledby="guideHubTitle">
   <div class="guide-hub-inner">
@@ -173,6 +172,13 @@
   </div>
 </section>
 
+<section class="jr-news-section" aria-label="Acervo de notícias">
+  <details class="jr-news-archive" id="newsArchive">
+    <summary>Notícias do acervo <span id="newsArchiveCount"></span></summary>
+    <p>Matérias preservadas com suas datas de publicação.</p>
+    <ul id="newsArchiveList"></ul>
+  </details>
+</section>
 <!-- ======================== CONSULTORIA (JR APOIO NO JAPÃO) ======================== -->
 <section class="consult-home-promo" aria-labelledby="consultHomeTitle">
   <div class="consult-home-inner">
@@ -190,7 +196,7 @@
   <div class="jr-sobre-inner">
 
     <div class="jr-sobre-foto-wrap">
-      <img src="assets/about/fabio-akira.jpg" alt="Fabio Akira — Fundador do Japão Relativo" class="jr-sobre-foto">
+      <img src="assets/about/fabio-akira.jpg" alt="Fabio Akira — Fundador do Japão Relativo" class="jr-sobre-foto" width="1093" height="2209" loading="lazy" decoding="async">
       <div class="jr-sobre-foto-badge">
         <span>🇯🇵</span> 10 anos no Japão
       </div>
@@ -252,7 +258,16 @@
   </div>
 </footer>
 
-</div><!-- /.site-main -->
+</main><!-- /.site-main -->
+
+<dialog class="jr-search" id="searchDialog" aria-labelledby="searchTitle">
+  <div class="jr-search-head"><h2 id="searchTitle">Buscar no Japão Relativo</h2><button id="searchClose" type="button" aria-label="Fechar busca">Fechar ×</button></div>
+  <form id="searchForm" role="search"><label for="searchInput">Título, tema ou palavra</label><div class="jr-search-field"><input id="searchInput" type="search" autocomplete="off" placeholder="Ex.: omotenashi, história, kanji"><button type="submit">Buscar</button></div></form>
+  <div class="jr-search-filter" id="searchFilter" hidden><span id="searchTopic"></span><button id="searchClearTopic" type="button">Ver todo o acervo</button></div>
+  <p id="searchStatus" role="status" aria-live="polite"></p>
+  <ul id="searchResults"></ul>
+  <button id="searchMore" class="jr-search-more" type="button" hidden>Mostrar mais resultados</button>
+</dialog>
 
 <!-- ======================== ARTICLE VIEW ======================== -->
 <main class="article-view" id="articleView">

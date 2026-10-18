@@ -1,4 +1,4 @@
-# Japão Relativo — Governança e sistema editorial web 1.0
+# Japão Relativo — Governança editorial e JR Web Design System 3.1
 
 Status: extensão web vigente, 13/10/2026. Fonte de identidade: [Manual visual CURRENT](https://app.notion.com/p/3e326a1643dd81ccb363e4f949fc61f0), incluindo a direção aprovada em 12/10/2026; Brand System 3.0 FINAL e Sistema Editorial Anti-Genérico 2.0. O Preview 2.0 e o sistema local de agosto permanecem históricos. Esta extensão responde à solicitação expressa de Fábio de aplicar a identidade também ao site.
 
@@ -88,3 +88,30 @@ Para um mesmo assunto, o site deve receber a mesma exportação final aprovada n
 Kira Nihongo passa a ser o nome público das ferramentas antes apresentadas como Yumi e Survival. A aplicação usa marfim `#F8F3EA`, sumi `#1A1817` e dourado `#D4A13A` como detalhe. Texto pequeno em dourado usa tom funcional `#705012` para contraste. `SITE/assets/nihongo/kira-current.css` controla a apresentação; endpoints, seletores, arquivos de dados e chaves de armazenamento legados continuam identificadores técnicos para preservar links e progresso. A revelação dos flashcards é plana e sinaliza o estado para tecnologias assistivas. Nenhuma nova logo ou versão de mascote foi criada; o hamster legado deixou de ser exibido.
 
 A revisão visual anterior incluiu testes de layout, leitura, filtros e amostras com axe WCAG A/AA. Foram corrigidos contraste dos exercícios e rolagem interna inacessível nas frases. Navegação do destaque por teclado, filtros de kanji e persistência de progresso após recarregar passaram; dados de exercícios e pixels da logo original permaneceram idênticos. A amostra não certifica acessibilidade global nem substitui a revisão factual do acervo.
+
+
+## JR Web Design System 3.1 · 18/10/2026 · CURRENT
+
+Extensão digital do Brand System 3.0, aplicada inicialmente à home e à leitura de artigos conforme a auditoria UX/UI fornecida pelo diretor. Não substitui a identidade institucional nem transforma as notas heurísticas do relatório em métricas de usuários. As solicitações expressas de superfície marfim e as homologações CURRENT mais recentes continuam prevalecendo. Ilustração contextual e fotografia documental verificável são linguagens válidas; nenhuma fotografia, capa social ou aprovação foi inventada nesta implementação.
+
+### Composição e descoberta
+
+A abertura usa imagem integral com maior presença, chamada serifada de escala controlada, resumo em sans e ação de leitura. O destaque real é gerado no HTML, antes do JavaScript, para evitar deslocamento durante a carga e manter uma entrada funcional sem script. `SITE/data/editorial-home.json` controla a seleção e a chamada; `scripts/build-editorial.js` sincroniza HTML e bundle. O conteúdo de abertura é determinístico, sem rotação automática com uma única matéria.
+
+Ordem da home: destaque, últimas matérias, Seleção JR, leituras por tema, guias, Kira Nihongo, acervo de notícias, serviços e Sobre/rodapé. Últimas matérias segue a ordenação por data do acervo editorial e exclui as três matérias da seleção e o destaque para não repetir cards. Datas são de publicação, não uma declaração de reapuração. A seleção combina uma matéria principal e duas chamadas menores; filtros usam um grid, sem repetir três grandes faixas alternadas.
+
+Cultura, História, Sociedade, Lugares, Gastronomia e Anime abrem a busca com um tema. São caminhos de descoberta por palavras do título, resumo e tag, não uma reclassificação silenciosa do banco. Anime usa a classificação existente. Notícias continuam disponíveis no acervo datado e na busca, depois das áreas culturais e de aprendizado.
+
+### Componentes e estados
+
+`SITE/assets/css/web-current.css` concentra a extensão do portal e do leitor; o template estático usa `brand-current.css`. Títulos em Noto Serif Display, interface/resumos em Inter; papel #F7F3EB, carvão #151515, vermelho #A41118 e metadados #505761. Escala responsiva, margens de 16–56 px, corpo editorial 18 px/1,75 e coluna até 68ch. Apoios contextuais não introduzem uma nova paleta institucional ou fundo escuro obrigatório. Ornamentos permanecem discretos nas margens, sem volume na interface.
+
+Busca nativa em dialog, campo rotulado, contagem anunciada, normalização de acentos, palavras combinadas, tema removível, lote de 30 resultados e navegação por URL canônica. Escape fecha a busca e devolve o foco; menu mobile também responde a Escape. Foco visível, link para pular a navegação e alvos funcionais de pelo menos 44 px. Títulos e resumos são inseridos como texto. Extração de conteúdo usa template inerte: abrir a busca não pode baixar as imagens de todo o acervo.
+
+Falha do bundle apresenta mensagem de indisponibilidade; resultado vazio orienta outra busca; falha de imagem recebe texto honesto, sem capa de outra matéria. Sem JavaScript, o destaque real continua como link e a mensagem aponta guias e Kira. Removidos os preloads de Fuji sem uso e as requisições de cotação de um bloco já oculto. Retrato de Sobre usa carregamento adiado e dimensões explícitas.
+
+### Limites de validação e continuidade
+
+Validação de layout, busca, navegação, leitores, imagens e amostra axe registrada em `AUDIT/2026-10-18/web-3-1/`, fora da publicação. Medições de LCP/CLS são de laboratório em Chromium, sem representar dados de campo/Core Web Vitals da audiência. Fontes remotas e o bundle legado de aproximadamente 1,18 MB continuam fatores a acompanhar; não afirmar desempenho global aprovado por uma medição local.
+
+Textos, registros de capas, fontes e datas do acervo permanecem preservados. Exportações finais aprovadas do Instagram continuam necessárias para confirmar igualdade literal de capas; esta release reorganiza a apresentação dos arquivos existentes. O Notion mantém pauta mestre, fonte, URL do site, permalink social, atualização e estados de aprovação/publicação separados, sem novas pautas duplicadas ou mudança automática de calendário. A implantação das demais editorias pode evoluir a partir deste padrão validado.

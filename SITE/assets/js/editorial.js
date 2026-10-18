@@ -1,5 +1,5 @@
 /* Japão Relativo editorial runtime. Content source: data/editorial-posts.json. */
-const DB = window.JR_POSTS;
+const DB = window.JR_POSTS || {};
 const posts = Object.entries(DB).map(([id, data]) => ({ id, ...data }));
 
 const MONTHS_PT = {
@@ -25,18 +25,8 @@ function byRecentDate(a, b) {
 
 const recentPosts = [...posts].sort(byRecentDate);
 // Cultural direction of the magazine; news remains available in its dated archive.
-const HOME_EDITORIAL_IDS = [
-  'omotenashi-limites-hospitalidade-japonesa',
-  'washoku-fermentacao-misso-shoyu-natto',
-  'furusato-cidade-natal-japao-memoria',
-  'ma-pausa-espaco-vida-japonesa',
-  'por-que-o-japao-gosta-de-filas',
-  'wabi-sabi-estetica-japonesa-imperfeicao',
-  'tanbo-depois-da-colheita-paisagem-japao',
-  'povo-ainu-japao-historia-cultura',
-  'radio-taiso-cultura-aquecimento-japao',
-  'silencio-nos-trens-japoneses'
-];
+const HOME_EDITORIAL = window.JR_HOME || {selected: [], copy: {}};
+const HOME_EDITORIAL_IDS = HOME_EDITORIAL.selected;
 let visibleCount = 8;
 let currentFilter = 'all';
 let filteredPosts = [...recentPosts];
@@ -92,9 +82,9 @@ function handleCardImageError(img) {
 
 function extractExcerpt(html, maxLen) {
   maxLen = maxLen || 110;
-  const tmp = document.createElement('div');
+  const tmp = document.createElement('template');
   tmp.innerHTML = html;
-  const text = (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+  const text = (tmp.content.textContent || '').replace(/\s+/g, ' ').trim();
   return text.length > maxLen ? text.slice(0, maxLen) + '…' : text;
 }
 
@@ -117,84 +107,51 @@ function navigateTo(id) {
   openPost(id);
 }
 
+function createEditorialCard(post, index) {
+  const card = document.createElement('a');
+  card.className = 'jr-story' + (index === 0 ? ' jr-story-lead' : '');
+  card.href = post.canonicalPath;
+  card.dataset.id = post.id;
+  const image = document.createElement('img');
+  image.src = getCardCover(post, 'preview');
+  image.alt = '';
+  image.loading = 'lazy';
+  image.decoding = 'async';
+  image.width = isPortraitCover(post) ? 4 : 16;
+  image.height = isPortraitCover(post) ? 5 : 9;
+  image.className = 'jr-story-image' + (isPortraitCover(post) ? ' is-portrait' : '');
+  image.addEventListener('error', () => handleCardImageError(image));
+  const body = document.createElement('div');
+  body.className = 'jr-story-body';
+  const tag = document.createElement('span');
+  tag.className = 'jr-web-kicker'; tag.textContent = post.tag;
+  const title = document.createElement('h3'); title.textContent = post.title;
+  const excerpt = document.createElement('p');
+  excerpt.textContent = post.subtitle || extractExcerpt(post.content, 155);
+  const date = document.createElement('span');
+  date.className = 'jr-story-date'; date.textContent = post.date;
+  body.append(tag, title, excerpt, date);
+  card.append(image, body);
+  card.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault(); navigateTo(post.id);
+  });
+  return card;
+}
+
+function getSelectionPosts() {
+  const heroIds = new Set(getCurrentHeroItems().map(item => item.post.id));
+  return getHomeEditorialPosts().filter(post => !heroIds.has(post.id)).slice(0, 3);
+}
+
 function buildMainGrid(items) {
   const grid = document.getElementById('newsGrid');
   if (!grid) return;
-  grid.innerHTML = '';
-  const isHome = currentFilter === 'all';
-  const heroIds = getCurrentHeroItems().map(item => item.post.id);
-  const portalPosts = getHomeEditorialPosts().filter(post => !heroIds.includes(post.id));
+  grid.replaceChildren();
+  grid.className = currentFilter === 'all' ? 'jr-curation-grid' : 'jr-category-grid';
   updateSectionHeading(currentFilter);
-
-  const articleItems = isHome
-    ? portalPosts.slice(0, 3)
-    : items.slice(0, 3);
-  const featuredIds = articleItems.map(function(post) { return post.id; });
-  const miniPosts = isHome
-    ? portalPosts.filter(function(post) {
-        return featuredIds.indexOf(post.id) === -1;
-      }).slice(0, 3)
-    : items.slice(3, 9);
-
-  articleItems.forEach(function(post, index) {
-    const excerpt = extractExcerpt(post.content, 145);
-    const a = document.createElement('a');
-    a.className = 'editorial-card ' + (index === 1 ? 'is-image-left' : 'is-text-left');
-    a.href = post.canonicalPath;
-    a.dataset.id = post.id;
-    a.innerHTML = `
-      <div class="editorial-card-img-wrap">
-        <img class="editorial-card-img${isPortraitCover(post) ? ' is-portrait' : ''}" src="${getCardCover(post, 'preview')}" alt="" loading="eager" decoding="async" onerror="handleCardImageError(this)">
-      </div>
-      <div class="editorial-card-body">
-        <div class="editorial-stamp">${getEditorialStamp(post)}</div>
-        <div class="editorial-card-index">${String(index + 1).padStart(2, '0')} / Documento</div>
-        <div class="editorial-card-tag">${post.tag}</div>
-        <div class="editorial-card-title">${post.title}</div>
-        <div class="editorial-card-excerpt">${excerpt}</div>
-        <div class="editorial-card-date">${post.date}</div>
-        <span class="editorial-card-read">Ler matéria</span>
-      </div>`;
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
-      navigateTo(post.id);
-    });
-    grid.appendChild(a);
-  });
-
-  if (miniPosts.length) {
-    const panel = document.createElement('section');
-    panel.className = 'editorial-mini-panel';
-    panel.innerHTML = `
-      <div class="editorial-mini-head">
-        <div class="editorial-mini-title">${isHome ? 'Cultura e cotidiano' : 'Mais em ' + currentFilter}</div>
-        <div class="editorial-mini-market" hidden>
-          <span><span>USD/JPY</span><b id="mini-usd">--</b></span>
-          <span><span>JPY/BRL</span><b id="mini-brl">--</b></span>
-          <span><span>USD/BRL</span><b id="mini-usd-brl">--</b></span>
-        </div>
-      </div>
-      <div class="editorial-mini-grid"></div>`;
-    const miniGrid = panel.querySelector('.editorial-mini-grid');
-    miniPosts.forEach(function(post) {
-      const a = document.createElement('a');
-      a.className = 'mini-card';
-      a.href = post.canonicalPath;
-      a.innerHTML = `
-        <img class="mini-card-img${isPortraitCover(post) ? ' is-portrait' : ''}" src="${getCardCover(post, 'preview')}" alt="" loading="lazy" decoding="async" onerror="handleCardImageError(this)">
-        <div class="mini-card-body">
-          <div class="editorial-stamp">${getEditorialStamp(post)}</div>
-          <div class="mini-card-tag">${post.tag}</div>
-          <div class="mini-card-title">${post.title}</div>
-        </div>`;
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        navigateTo(post.id);
-      });
-      miniGrid.appendChild(a);
-    });
-    grid.appendChild(panel);
-  }
+  const selected = currentFilter === 'all' ? getSelectionPosts() : items.slice(0, 9);
+  selected.forEach((post, index) => grid.append(createEditorialCard(post, index)));
 }
 
 function updateSectionHeading(cat) {
@@ -215,18 +172,6 @@ function updateSectionHeading(cat) {
   }
   label.textContent = 'Arquivo Editorial';
   title.textContent = cat === 'Notícia' ? 'Notícias' : cat === 'Artigos' ? 'Artigos' : cat;
-}
-
-function syncMiniMarket() {
-  [
-    ['w-usd', 'mini-usd'],
-    ['w-brl', 'mini-brl'],
-    ['w-usd-brl', 'mini-usd-brl']
-  ].forEach(function(pair) {
-    var source = document.getElementById(pair[0]);
-    var target = document.getElementById(pair[1]);
-    if (source && target) target.textContent = source.textContent;
-  });
 }
 
 function buildQuickNews() {
@@ -819,45 +764,24 @@ var HERO_EDITORIAL_COPY = {
 };
 
 function getHeroDisplayTitle(post) {
-  return (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].title) || post.heroTitle || post.title;
+  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].title) || (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].title) || post.heroTitle || post.title;
 }
 
 function getHeroDisplaySubtitle(post) {
-  return (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].subtitle) || post.heroSubtitle || post.subtitle || '';
+  return (HOME_EDITORIAL.copy[post.id] && HOME_EDITORIAL.copy[post.id].subtitle) || (HERO_EDITORIAL_COPY[post.id] && HERO_EDITORIAL_COPY[post.id].subtitle) || post.heroSubtitle || post.subtitle || '';
 }
 
 
 function buildLatestStrip() {
-  var grid = document.getElementById('latestGrid');
+  const grid = document.getElementById('latestGrid');
   if (!grid) return;
-  grid.innerHTML = '';
-  var isAnime = document.body.classList.contains('anime-mode');
-  var sourcePosts = isAnime
-      ? recentPosts.filter(function(post) { return post.tag === 'Anime'; })
-      : getHomeEditorialPosts();
-  var heroItems = isAnime ? getAnimeHeroItems() : getCurrentHeroItems();
-  var usedIds = {};
-  heroItems.forEach(function(item) {
-    usedIds[item.post.id] = true;
-  });
-  if (!isAnime) getHomeEditorialPosts().slice(1, 7).forEach(post => { usedIds[post.id] = true; });
-  var latest = sourcePosts.filter(function(p){ return !usedIds[p.id]; }).slice(0, isAnime ? 6 : 3);
-  latest.forEach(function(post) {
-    var a = document.createElement('a');
-    a.className = 'jr-latest-card';
-    a.href = post.canonicalPath;
-    a.setAttribute('aria-label', post.title);
-    a.onclick = function(e) { e.preventDefault(); navigateTo(post.id); };
-    a.innerHTML =
-      "<div class='jr-latest-card-bg' style='" + getCardImg(post) + "'></div>" +
-      '<div class="jr-latest-card-ov"></div>' +
-      '<div class="jr-latest-card-body">' +
-        '<div class="editorial-stamp">' + getEditorialStamp(post) + '</div>' +
-        '<div class="jr-latest-card-cat">' + post.tag + '</div>' +
-        '<div class="jr-latest-card-title">' + post.title + '</div>' +
-      '</div>';
-    grid.appendChild(a);
-  });
+  grid.replaceChildren();
+  const isAnime = document.body.classList.contains('anime-mode');
+  const used = new Set((isAnime ? getAnimeHeroItems() : getCurrentHeroItems()).map(item => item.post.id));
+  if (!isAnime) getSelectionPosts().forEach(post => used.add(post.id));
+  const source = isAnime ? recentPosts.filter(post => post.tag === 'Anime') : getPortalPosts();
+  document.getElementById('latestTitle').textContent = isAnime ? 'Últimas de Anime' : 'Últimas matérias';
+  source.filter(post => !used.has(post.id)).slice(0, 3).forEach((post, index) => grid.append(createEditorialCard(post, index)));
 }
 
 function getCurrentHeroItems() {
@@ -930,7 +854,15 @@ function renderHeroItems(items) {
     var slide = document.createElement('a');
     slide.className = 'hero-bg-slide' + (index === 0 ? ' active' : '');
     slide.href = item.post.canonicalPath;
-    slide.style.cssText = getCardImg(item.post);
+    const image = document.createElement('img');
+    image.src = getCardCover(item.post, 'preview');
+    image.alt = '';
+    image.width = isPortraitCover(item.post) ? 4 : 16;
+    image.height = isPortraitCover(item.post) ? 5 : 9;
+    image.fetchPriority = index === 0 ? 'high' : 'auto';
+    image.decoding = 'async';
+    image.addEventListener('error', () => handleCardImageError(image));
+    slide.append(image);
     slide.style.cursor = 'pointer';
     slide.style.pointerEvents = index === 0 ? 'auto' : 'none';
     slide.setAttribute('aria-label', item.post.title);
@@ -1021,54 +953,65 @@ function setAnimeMode(active) {
   buildLatestStrip();
 }
 
-function initMarketBar() {
-  function setText(id, value) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = value;
-  }
+const JR_TOPIC_TERMS = {
+  'Cultura': /cultura|tradi[cç]|costume|arte|matsuri|literatura|est[eé]tica/i,
+  'História': /hist[oó]ria|hist[oó]ric|per[ií]odo|s[eé]culo|guerra|samurai|imperador/i,
+  'Sociedade': /sociedade|social|cotidiano|trabalho|conviv[eê]ncia|fam[ií]lia/i,
+  'Lugares': /lugar|cidade|bairro|paisagem|parque|templo|santu[aá]rio|tokyo|t[oó]quio|kyoto|okinawa/i,
+  'Gastronomia': /gastronomia|comida|culin[aá]ria|washoku|miss[oô]|shoyu|natto|soba|restaurante|fermenta/i,
+  'Anime': /anime/i
+};
 
-  function applyRates(rates) {
-    if (!rates) return;
-    var jpyRate = Number(rates.JPY);
-    var brlRate = Number(rates.BRL);
-    if (!Number.isFinite(jpyRate) || !Number.isFinite(brlRate) || jpyRate <= 0) return;
-    var usdJpy = jpyRate.toFixed(2);
-    var usdBrl = brlRate.toFixed(2);
-    var jpyBrl = (brlRate / jpyRate).toFixed(4);
-    setText('w-usd', usdJpy);
-    setText('mini-usd', usdJpy);
-    setText('w-usd-brl', usdBrl);
-    setText('mini-usd-brl', usdBrl);
-    setText('w-brl', jpyBrl);
-    setText('mini-brl', jpyBrl);
-  }
-
-  applyRates({ JPY: 159.12, BRL: 5.01 });
-
-  function fetchWithTimeout(url, ms) {
-    var controller = new AbortController();
-    var timer = setTimeout(function() {
-      controller.abort();
-    }, ms);
-    return fetch(url, { signal: controller.signal }).finally(function() {
-      clearTimeout(timer);
+function initSearch() {
+  const dialog = document.getElementById('searchDialog');
+  if (!dialog) return;
+  const input = document.getElementById('searchInput');
+  const list = document.getElementById('searchResults');
+  const status = document.getElementById('searchStatus');
+  const more = document.getElementById('searchMore');
+  let topic = '', limit = 30, index = null, opener = null;
+  const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  function render() {
+    list.replaceChildren();
+    if (!DB || !recentPosts.length) {
+      status.textContent = 'O acervo está indisponível. Recarregue a página para tentar novamente.';
+      more.hidden = true; return;
+    }
+    if (!index) index = recentPosts.map(post => ({post, text: normalize(post.title + ' ' + post.tag + ' ' + (post.subtitle || '') + ' ' + extractExcerpt(post.content, 100000))}));
+    const terms = normalize(input.value).trim().split(/\s+/).filter(Boolean);
+    const results = index.filter(({post, text}) => terms.every(term => text.includes(term)) && (!topic || (topic === 'Anime' ? isAnimePost(post) : JR_TOPIC_TERMS[topic].test(post.title + ' ' + post.tag + ' ' + (post.subtitle || '')))));
+    status.textContent = results.length ? results.length + (results.length === 1 ? ' matéria encontrada' : ' matérias encontradas') + '. Exibindo ' + Math.min(limit, results.length) + '.' : 'Nenhuma matéria encontrada. Tente outra palavra ou remova o tema.';
+    results.slice(0, limit).forEach(({post}) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = post.canonicalPath; link.textContent = post.title;
+      link.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault(); dialog.close(); navigateTo(post.id);
+      });
+      const meta = document.createElement('span'); meta.textContent = post.tag + ' · ' + post.date;
+      item.append(link, meta); list.append(item);
     });
+    more.hidden = results.length <= limit;
+    document.getElementById('searchFilter').hidden = !topic;
+    document.getElementById('searchTopic').textContent = topic ? 'Tema: ' + topic : '';
   }
-
-  function parseRatesResponse(response) {
-    if (!response.ok) throw new Error('Exchange API HTTP ' + response.status);
-    return response.json();
+  function open(selectedTopic) {
+    opener = document.activeElement; topic = selectedTopic || ''; input.value = ''; limit = 30;
+    status.textContent = 'Carregando o acervo…';
+    dialog.showModal(); render(); input.focus();
   }
-
-  fetchWithTimeout('https://open.er-api.com/v6/latest/USD', 3500)
-    .then(parseRatesResponse)
-    .then(function(data) { applyRates(data.rates || {}); })
-    .catch(function(){
-      fetchWithTimeout('https://api.exchangerate-api.com/v4/latest/USD', 3500)
-        .then(parseRatesResponse)
-        .then(function(data) { applyRates(data.rates || {}); })
-        .catch(function(){});
-    });
+  document.getElementById('searchToggle').addEventListener('click', () => open(''));
+  document.querySelectorAll('[data-jr-topic]').forEach(button => button.addEventListener('click', () => open(button.dataset.jrTopic)));
+  document.getElementById('searchClose').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); dialog.close(); }
+  });
+  dialog.addEventListener('close', () => { if (opener && !document.body.classList.contains('reading-mode')) opener.focus(); });
+  document.getElementById('searchForm').addEventListener('submit', event => { event.preventDefault(); limit = 30; render(); });
+  input.addEventListener('input', () => { limit = 30; render(); });
+  document.getElementById('searchClearTopic').addEventListener('click', () => { topic = ''; limit = 30; render(); input.focus(); });
+  more.addEventListener('click', () => { const shown = list.children.length; limit += 30; render(); list.children[shown]?.querySelector('a').focus(); });
 }
 
 function initMobileNav() {
@@ -1080,6 +1023,12 @@ function initMobileNav() {
     var isOpen = nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+      nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu'); toggle.focus();
+    }
   });
   nav.querySelectorAll('.nav-links a').forEach(function(link) {
     link.addEventListener('click', function() {
@@ -1112,12 +1061,20 @@ function redirectLegacyQuizLink() {
 function init() {
   redirectLegacyQuizLink();
   initMobileNav();
+  setActiveNav(currentFilter);
   buildMainGrid(filteredPosts);
   buildMoreGrid();
   buildFadeHero();
   buildLatestStrip();
   buildNewsArchive();
-  initMarketBar();
+  initSearch();
+  if (!posts.length) {
+    document.getElementById('heroSlides').hidden = true;
+    document.querySelector('.jr-hero-read').hidden = true;
+    document.getElementById('ht-title').textContent = 'Acervo indisponível';
+    document.getElementById('ht-sub').textContent = 'Não foi possível carregar as matérias. Recarregue a página para tentar novamente. Guias e ferramentas continuam nos links abaixo.';
+    document.getElementById('ht-sub').setAttribute('role', 'alert');
+  }
   checkHash();
 }
 if (document.readyState === 'loading') {
