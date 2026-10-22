@@ -1,5 +1,5 @@
 /* nihongo.css — Kira Nihongo */
-/* Complementa finance.css. Mantém a arquitetura JR e aplica a assinatura Kira. */
+/* Define a estrutura editorial Kira e mantém seus seletores legados compatíveis. */
 
 body {
   --jr-serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
@@ -696,7 +696,7 @@ textarea:focus-visible {
 
 @media (max-width: 420px) {
   .nh-proof-item strong { font-size: 1.7rem; }
-  .nh-proof-item span { font-size: .52rem; letter-spacing: .1em; }
+  .nh-proof-item span { font-size: .75rem; letter-spacing: .06em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
