@@ -1,6 +1,6 @@
 /* Kira Nihongo 3.0: ivory / sumi / restrained gold. Product name replaces legacy labels.
    Existing selectors and storage keys are compatibility identifiers, not public brands. */
-html:has(body.kira-nihongo) { background: #F8F3EA; color-scheme: light; }
+html:has(body.kira-nihongo) { background: #F8F3EA; color-scheme: light; scroll-behavior: smooth; }
 body.kira-nihongo {
   --ink: #1A1817; --ink-soft: #1A1817; --paper: #F8F3EA; --cream: #F8F3EA;
   --paper-deep: #E8E1D4; --gold: #D4A13A; --muted: #55504A; --line: #D8D0C3;
@@ -14,11 +14,63 @@ body.kira-nihongo {
   --kira-pink-dark: #705012; --kira-purple: #705012; --kira-lilac: #E8E1D4;
   --kira-cream: #F8F3EA; --kira-blue: #F8F3EA;
   background: #F8F3EA; color: #1A1817; font-family: Inter, Arial, sans-serif;
+  margin: 0; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 body.kira-nihongo::before { display: none; }
 body.kira-nihongo *, body.kira-nihongo *::before, body.kira-nihongo *::after {
-  box-shadow: none !important; text-shadow: none !important; backdrop-filter: none !important;
+  box-sizing: border-box; box-shadow: none !important; text-shadow: none !important; backdrop-filter: none !important;
 }
+body.kira-nihongo a { color: inherit; }
+body.kira-nihongo :is(h1,h2,h3) {
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-weight: 500;
+}
+body.kira-nihongo .jr-header {
+  min-height: 88px; display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; color: #1A1817; border-bottom: 1px solid #D8D0C3;
+}
+body.kira-nihongo .brand { display: inline-flex; align-items: center; text-decoration: none; }
+body.kira-nihongo .header-link {
+  color: #55504A; font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+  text-decoration: none; text-transform: uppercase;
+}
+body.kira-nihongo .breadcrumb {
+  margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  color: #55504A; font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body.kira-nihongo .breadcrumb a { color: #55504A; text-decoration: none; }
+body.kira-nihongo .content-card {
+  max-width: 100%; padding: clamp(26px, 5vw, 56px);
+  background: #F8F3EA; border: 1px solid #D8D0C3; overflow: hidden;
+}
+body.kira-nihongo .article-body {
+  max-width: 760px; margin: 0 auto; color: #1A1817;
+  font-size: 1.02rem; line-height: 1.86; overflow-wrap: break-word;
+}
+body.kira-nihongo .jr-footer {
+  margin-top: 64px; padding: 32px 0; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  border-top: 1px solid #D8D0C3;
+}
+body.kira-nihongo .jr-footer__links { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+body.kira-nihongo .jr-footer__links a {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: #55504A; text-decoration: none;
+}
+body.kira-nihongo .jr-footer__copy {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+}
+body.kira-nihongo .jr-footer__links a:hover { color: #705012; }
+body.kira-nihongo .skip-link {
+  position: absolute; z-index: 10; top: .5rem; left: .5rem;
+  padding: .75rem 1rem; transform: translateY(-150%);
+  color: #F8F3EA; background: #1A1817; text-decoration: none;
+}
+body.kira-nihongo .skip-link:focus {
+  transform: translateY(0); outline: 2px solid #705012; outline-offset: 3px;
+}
+body.kira-nihongo #main-content:focus { outline: none; }
 body.kira-nihongo :is(.survival-app,.screen-dark,.app-header,.breadcrumb,.yumi-hero,.yumi-panel,.yumi-face,.yumi-face-back,.yumi-campus-card) {
   background: #F8F3EA; color: #1A1817;
 }
@@ -57,3 +109,14 @@ body.kira-nihongo .yumi-flashcard .yumi-face { position: relative; inset: auto; 
 body.kira-nihongo :is(#lessonMeta,#quizMeta) { color: #705012; }
 body.kira-nihongo .yumi-btn:hover { transform: none; }
 body.kira-nihongo :is(a,button,select,input):focus-visible { outline: 2px solid #705012; outline-offset: 3px; }
+
+@media (max-width: 720px) {
+  body.kira-nihongo .jr-header { min-height: 68px; }
+  body.kira-nihongo .header-link { font-size: .7rem; }
+  body.kira-nihongo .content-card { padding: 24px 18px; }
+  body.kira-nihongo .article-body { font-size: .98rem; line-height: 1.78; }
+}
+
+@media (max-width: 640px) {
+  body.kira-nihongo .jr-footer { align-items: flex-start; flex-direction: column; }
+}
