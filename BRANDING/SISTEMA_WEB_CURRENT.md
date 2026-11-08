@@ -1,3 +1,15 @@
+# Atualização revista JR · 08/11/2026
+
+Revisão incremental da apresentação do portal em `magazine-current.css`: abertura com escala editorial mais clara, faixa de orientação, grades de leitura, categorias legíveis e chamada Oni com identidade escura própria. Mantidos a assinatura original JR, superfícies e paleta culturais, 299 registros, capas e rotas.
+
+Font stack prioriza Nimbus Roman/Nimbus Sans conforme Atlas 3.1; na ausência dos arquivos locais utiliza Noto/Georgia e Inter/Arial, sem afirmar instalação/licenciamento de uma fonte não fornecida. Fontes oficiais em arquivo permanecem um item de integração.
+
+Oni publica sua própria folha de estilo e acervo sob `/oni-animes/`; não retorna ao feed cultural genérico. Ferramentas Kira não recebem esses estilos. Uma capa literalmente idêntica ao Instagram depende da exportação final da mesma pauta; não é inferida da aparência ou do documento.
+
+Fontes: Manual visual JR CURRENT, governança editorial web, Atlas 3.1 (Notion/Drive) e decisão do usuário nesta solicitação. Nenhum calendário ou estado social foi alterado.
+
+## Histórico e regras compatíveis
+
 # Japão Relativo — Governança editorial e JR Web Design System 3.1
 
 Status: extensão web vigente, 13/10/2026. Fonte de identidade: [Manual visual CURRENT](https://app.notion.com/p/3e326a1643dd81ccb363e4f949fc61f0), incluindo a direção aprovada em 12/10/2026; Brand System 3.0 FINAL e Sistema Editorial Anti-Genérico 2.0. O Preview 2.0 e o sistema local de agosto permanecem históricos. Esta extensão responde à solicitação expressa de Fábio de aplicar a identidade também ao site.

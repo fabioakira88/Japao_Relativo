@@ -1,3 +1,17 @@
+# Atualização web Night · 08/11/2026 · CURRENT
+
+Decisão expressa atual de Fábio: nenhum fundo marfim no Oni; usar preto/carvão/branco/vermelho e aplicar logo transparente no cabeçalho e rodapé. Esta decisão substitui a superfície clara das regras web históricas abaixo, sem alterar calendário ou conteúdo.
+
+A área permanece em `/oni-animes/`, dentro do Japão Relativo, com 57 matérias e todas as URLs preservadas. O JR mantém sua própria identidade cultural clara; Kira permanece independente e não foi reestilizado nesta etapa.
+
+Tokens Oni: fundo #090A0C, painel #111216, texto #F5F6F7, secundário #A5A8B2, vermelho institucional #B3141B. #FF646A é um token funcional proposto para links/foco sobre carvão, sem recolorir arquivos de marca. Títulos serifados, sans nos controles, grid responsivo e texto integral no HTML.
+
+A máscara anexa `oni-mask-original.png` é preservada em bytes. `oni-logo-transparent.png` e `oni-mascot-cutout.png` são derivados de extração de fundo preparados pela ferramenta integrada de imagens; não são vetores/master nativo nem garantia de igualdade de pixels. Originais antigos continuam preservados. Hashes e método: `SITE/assets/oni-animes/night-identity.json`, verificados no build. A logo não usa placa branca no CSS.
+
+Busca no início do acervo; recuperação em todos os temas mantendo a consulta; estado q/tema/limite na URL; retorno ao card de origem por sessão, com fallback para acesso direto. Os artigos mantêm noindex,follow e avisos de acervo. A nova aparência não revalida fatos históricos nem aprova carrosséis para redes.
+
+## Histórico da extensão web anterior
+
 # Oni Animes — extensão web 1.0 · CURRENT
 
 Direção expressa de Fábio em 18/10/2026: Oni Animes é uma área própria dentro do Japão Relativo, em `/oni-animes/`. Esta decisão autoriza a migração controlada do antigo acervo Anime para a área Oni; não restaura a editoria genérica no feed cultural do JR. Os projetos compartilham hospedagem, mantendo identidade, acervos e operação social distintos.
