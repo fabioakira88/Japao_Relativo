@@ -7,6 +7,21 @@ const registry = JSON.parse(
   fs.readFileSync(path.join(site, "data/oni-posts.json"), "utf8"),
 );
 const posts = registry.posts;
+const illustrations = JSON.parse(fs.readFileSync(path.join(site, "data/oni-illustrations.json"), "utf8")).illustrations;
+for (const art of illustrations) {
+  for (const key of ["src", "thumbnail"]) {
+    if (!/^assets\/oni-animes\/illustrations\/[a-z0-9-]+\.webp$/.test(art[key]) || !fs.existsSync(path.join(site, art[key]))) throw Error("Invalid illustration: " + art.id);
+  }
+  if (createHash("sha256").update(fs.readFileSync(path.join(site, art.src))).digest("hex") !== art.sha256) throw Error("Changed illustration: " + art.id);
+}
+function illustratedContent(p) {
+  const art = illustrations.find(a => a.kind === "interior" && a.articleId === p.id);
+  if (!art) return p.content;
+  const figure = '<figure class="oni-inline-illustration"><img src="/' + esc(art.src) + '" srcset="/' + esc(art.thumbnail) + ' 600w, /' + esc(art.src) + ' ' + art.width + 'w" sizes="(max-width: 760px) 92vw, 760px" width="' + art.width + '" height="' + art.height + '" loading="lazy" decoding="async" alt="' + esc(art.alt) + '"><figcaption>' + esc(art.caption) + ' Ilustração editorial gerada com IA.</figcaption></figure>';
+  let inserted = false;
+  const content = p.content.replace(/<\/p>/i, end => { inserted = true; return end + figure; });
+  return inserted ? content : content + figure;
+}
 const identity = JSON.parse(
   fs.readFileSync(path.join(site, "assets/oni-animes/identity.json"), "utf8"),
 );
@@ -100,7 +115,7 @@ function page({
 }
 function image(p, eager = false) {
   if (!p.cover) return "";
-  return `<img src="/${esc(p.cover.src)}" alt="${esc(p.cover.alt)}" width="360" height="510" loading="${eager ? "eager" : "lazy"}" decoding="async"${eager ? ' fetchpriority="high"' : ""}>`;
+  return `<img src="/${esc(p.cover.src)}" alt="${esc(p.cover.alt)}" width="${p.cover.width || 360}" height="${p.cover.height || 510}"${p.cover.thumbnail ? ` srcset="/${esc(p.cover.thumbnail)} 600w, /${esc(p.cover.src)} ${p.cover.width}w" sizes="${eager ? "(max-width: 760px) 92vw, 900px" : "(max-width: 760px) 92vw, 420px"}"` : ""} loading="${eager ? "eager" : "lazy"}" decoding="async"${eager ? ' fetchpriority="high"' : ""}>`;
 }
 const selected = [
   "monster-raciocinio-investigacao-moral",
@@ -130,7 +145,7 @@ for (const p of posts) {
   const related = posts
     .filter((r) => r.id !== p.id && groupFor(r).id === groupFor(p).id)
     .slice(0, 2);
-  const body = `<article class="oni-article oni-wrap"><nav class="oni-breadcrumb" aria-label="Você está aqui"><a href="/oni-animes/">Oni Animes</a><span aria-hidden="true">/</span><a href="/oni-animes/?tema=${groupFor(p).id}#leituras">${esc(groupFor(p).label)}</a></nav><header class="oni-article-heading"><p class="oni-eyebrow">${esc(p.category)}</p><h1>${esc(p.title)}</h1><p class="oni-deck">${esc(p.subtitle)}</p><p class="oni-small">Publicado em ${esc(p.date)} · Acervo Oni Animes</p></header><aside class="oni-archive-note"><strong>Do acervo.</strong> Texto publicado originalmente em ${esc(p.date)}. Anúncios, números e disponibilidade refletem esse período e podem ter mudado.</aside>${p.cover ? `<figure class="oni-article-cover">${image(p, true)}<figcaption>Arte da obra no <a href="${esc(p.cover.source)}" target="_blank" rel="noopener noreferrer">catálogo AniList</a>. Direitos dos respectivos titulares.</figcaption></figure>` : ""}<div class="oni-prose">${p.content}</div>${related.length ? `<aside class="oni-related" aria-labelledby="related-title"><h2 id="related-title">Outras leituras</h2><ul>${related.map((r) => `<li><a href="${url(r)}">${esc(r.title)}</a></li>`).join("")}</ul></aside>` : ""}<a class="oni-action oni-back" href="/oni-animes/#leituras">Voltar às leituras <span aria-hidden="true">→</span></a></article>`;
+  const body = `<article class="oni-article oni-wrap"><nav class="oni-breadcrumb" aria-label="Você está aqui"><a href="/oni-animes/">Oni Animes</a><span aria-hidden="true">/</span><a href="/oni-animes/?tema=${groupFor(p).id}#leituras">${esc(groupFor(p).label)}</a></nav><header class="oni-article-heading"><p class="oni-eyebrow">${esc(p.category)}</p><h1>${esc(p.title)}</h1><p class="oni-deck">${esc(p.subtitle)}</p><p class="oni-small">Publicado em ${esc(p.date)} · Acervo Oni Animes</p></header><aside class="oni-archive-note"><strong>Do acervo.</strong> Texto publicado originalmente em ${esc(p.date)}. Anúncios, números e disponibilidade refletem esse período e podem ter mudado.</aside>${p.cover ? `<figure class="oni-article-cover">${image(p, true)}<figcaption>${p.cover.kind === "editorial-illustration" ? "Ilustração editorial gerada com IA para Oni Animes; interpretação visual do tema, sem vínculo oficial com a obra." : `Arte da obra no <a href="${esc(p.cover.source)}" target="_blank" rel="noopener noreferrer">catálogo AniList</a>. Direitos dos respectivos titulares.`}</figcaption></figure>` : ""}<div class="oni-prose">${illustratedContent(p)}</div>${related.length ? `<aside class="oni-related" aria-labelledby="related-title"><h2 id="related-title">Outras leituras</h2><ul>${related.map((r) => `<li><a href="${url(r)}">${esc(r.title)}</a></li>`).join("")}</ul></aside>` : ""}<a class="oni-action oni-back" href="/oni-animes/#leituras">Voltar às leituras <span aria-hidden="true">→</span></a></article>`;
   const folder = path.join(dir, p.id);
   fs.mkdirSync(folder, { recursive: true });
   fs.writeFileSync(
