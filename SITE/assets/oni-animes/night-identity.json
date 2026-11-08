@@ -1,0 +1,18 @@
+{
+  "version": "night-2026-11-08",
+  "request": "Atualização autorizada: fundo escuro Oni, logo transparente no cabeçalho e rodapé; manter acervo/rotas",
+  "assets": {
+    "oni-logo-transparent.png": {
+      "sha256": "824f109935b864118d9ed181bb2358479ad288a3f6b0cb78cdbd3b127865c10b",
+      "method": "Derivado de extração de fundo pela ferramenta integrada; original preservado no pacote de trabalho"
+    },
+    "oni-mask-original.png": {
+      "sha256": "ffda963c79a74b8680cb83d68513e08d7db6378acac7aa6458b6b9f79e72f088",
+      "method": "Original anexado, bytes preservados"
+    },
+    "oni-mascot-cutout.png": {
+      "sha256": "872268f08976cc7cb1b0872fcb7ba05b6736345ea65c60107ea0869f20515603",
+      "method": "Derivado de extração de fundo pela ferramenta integrada; original preservado no pacote de trabalho"
+    }
+  }
+}
